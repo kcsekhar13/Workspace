@@ -1,0 +1,111 @@
+//
+//  AppDelegate.m
+//  Koolo
+//
+//  Created by Vinodram on 08/10/15.
+//  Copyright (c) 2015 Vinodram. All rights reserved.
+//
+
+#import "AppDelegate.h"
+#import "ViewController.h"
+#import "PassCodeViewController.h"
+
+@interface AppDelegate ()
+
+@end
+
+@implementation AppDelegate
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    
+    
+    UINavigationController *navigationController = nil;
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    if ([defaults boolForKey:@"InfoCompleted"]) {
+        
+        if ([defaults boolForKey:@"isPassCodeOn"] && [[defaults objectForKey:@"Password"] length]) {
+            
+            self.window.rootViewController = nil;
+            PassCodeViewController *passCodeViewController = (PassCodeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"PasscodeController"];
+            [passCodeViewController setMode:2];
+            navigationController = [[UINavigationController alloc] initWithRootViewController:passCodeViewController];
+            self.window.rootViewController = navigationController;
+            
+        } else {
+            // navigationController = [[UINavigationController alloc] initWithRootViewController:mainStoryboard.instantiateInitialViewController];
+            
+            self.window.rootViewController = nil;
+            ViewController *rootViewController = (ViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"HomeScreen"];
+            navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+            self.window.rootViewController = navigationController;
+        }
+        
+    
+        
+    } else {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"showQuotes"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+  
+    if ([[[NSUserDefaults standardUserDefaults]  objectForKey:@"Quotes"] count] == 0) {
+        
+        NSMutableArray *quotesArray = [[NSMutableArray alloc] init];
+        [quotesArray addObject:@"In the midst of winter, I found there was within me, an invincible summer"];
+        [[NSUserDefaults standardUserDefaults] setObject:quotesArray forKey:@"Quotes"];
+        
+        [[NSUserDefaults standardUserDefaults]   setObject:[NSNumber numberWithInt:0] forKey:@"SelectedIndex"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
+   
+    
+    NSMutableDictionary *notificationDictionary = [[NSMutableDictionary alloc] init];
+    [notificationDictionary setObject:@"Blodprøver i dag" forKey:@"BloodTest"];
+    [notificationDictionary setObject:@"Time ced klinikken i dag" forKey:@"Time"];
+    [notificationDictionary setObject:@"Siste kur i dag" forKey:@"Last"];
+    [[NSUserDefaults standardUserDefaults] setObject:notificationDictionary forKey:@"Notifications"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSString *quotesString = [[NSUserDefaults standardUserDefaults] objectForKey:@"SelectedQuote"];
+    if (!quotesString.length) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"In the midst of winter, I found there was within me, an invincible summer" forKey:@"SelectedQuote"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+   
+    
+    [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"QuoteSelected"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+   
+
+    return YES;
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+@end
