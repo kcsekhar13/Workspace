@@ -23,11 +23,11 @@
     
     UINavigationController *navigationController = nil;
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"InfoCompleted"]) {
+    if ([defaults boolForKey:@"InfoCompleted"]) {
         
-        
-        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"Password"] length]) {
+        if ([defaults boolForKey:@"isPassCodeOn"] && [[defaults objectForKey:@"Password"] length]) {
             
             self.window.rootViewController = nil;
             PassCodeViewController *passCodeViewController = (PassCodeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"PasscodeController"];
@@ -60,7 +60,6 @@
         [[NSUserDefaults standardUserDefaults]   setObject:[NSNumber numberWithInt:0] forKey:@"SelectedIndex"];
         
         [[NSUserDefaults standardUserDefaults] synchronize];
-        
         
     }
    

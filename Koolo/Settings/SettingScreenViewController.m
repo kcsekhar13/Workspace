@@ -73,9 +73,37 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = contentArray[indexPath.row];
     cell.textLabel.textColor = [UIColor blackColor];
+    
+    if (indexPath.row == 1) {
+        
+        UISwitch *onSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.contentView.frame.size.width-40, 10, 40, 40)];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if ([defaults boolForKey:@"isPassCodeOn"]) {
+            
+            [onSwitch setOn:YES animated:YES];
+
+        }
+        else{
+            
+            [onSwitch setOn:NO animated:YES];
+
+        }
+        [onSwitch addTarget:self action:@selector(changeSwitch:) forControlEvents:UIControlEventValueChanged];
+        [cell.contentView addSubview:onSwitch];
+        
+    }
+    
     return cell;
 }
 
+-(void)changeSwitch:(UISwitch*)passSwitch
+{
+    
+    [[NSUserDefaults standardUserDefaults] setBool:passSwitch.isOn forKey:@"isPassCodeOn"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
+}
 #pragma mark -  UITableView Delegate methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
