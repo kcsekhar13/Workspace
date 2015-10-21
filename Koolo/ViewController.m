@@ -9,7 +9,7 @@
 
 #import "ViewController.h"
 #import "HomeNotificationView.h"
-
+#import "CheckListViewController.h"
 @interface ViewController (){
     
     UIView *contentView;
@@ -150,13 +150,13 @@
     
     [stack closeStack];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    id controller = nil;
+    //id controller = nil;
     switch (index) {
         case 0:
             
             break;
         case 1:
-            
+            [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CLHomeScreen"] animated:YES];
             break;
         case 2:
             
