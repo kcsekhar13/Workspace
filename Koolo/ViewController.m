@@ -154,12 +154,15 @@
     switch (index) {
         case 0:
             
+            
             break;
         case 1:
+            
             [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CLHomeScreen"] animated:YES];
+            
             break;
         case 2:
-            
+            [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarScreen"] animated:YES];
             break;
             
         default:

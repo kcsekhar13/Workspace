@@ -16,6 +16,11 @@
 		5536AA2B1BD8108500398454 /* CLMyHealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA2A1BD8108500398454 /* CLMyHealthViewController.m */; };
 		5536AA2E1BD810A500398454 /* CLHealthInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA2D1BD810A500398454 /* CLHealthInfoViewController.m */; };
 		5536AA311BD810E900398454 /* CLNewGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA301BD810E900398454 /* CLNewGoalViewController.m */; };
+		5536AA351BD81AE100398454 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA341BD81AE100398454 /* CalendarViewController.m */; };
+		5536AA381BD81AFC00398454 /* NewEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA371BD81AFC00398454 /* NewEventViewController.m */; };
+		5536AA401BD81D1100398454 /* UPStackMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA3D1BD81D1100398454 /* UPStackMenu.m */; };
+		5536AA411BD81D1100398454 /* UPStackMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA3F1BD81D1100398454 /* UPStackMenuItem.m */; };
+		5536AA451BD81D7F00398454 /* AppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA441BD81D7F00398454 /* AppDataManager.m */; };
 		55429EE11BC8AFCB00CEF9E5 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55429EE01BC8AFCB00CEF9E5 /* InformationViewController.m */; };
 		555BD6131BC760B600BB61E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6121BC760B600BB61E9 /* main.m */; };
 		555BD6161BC760B600BB61E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6151BC760B600BB61E9 /* AppDelegate.m */; };
@@ -28,8 +33,6 @@
 		555BD63D1BC761D200BB61E9 /* SettingScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD63C1BC761D200BB61E9 /* SettingScreenViewController.m */; };
 		F337738D1BC8D1C100793831 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F337738C1BC8D1C000793831 /* settings.png */; };
 		F337738F1BC8D2C400793831 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = F337738E1BC8D2C400793831 /* plus.png */; };
-		F33773961BC8D42200793831 /* UPStackMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F33773931BC8D42200793831 /* UPStackMenu.m */; };
-		F33773971BC8D42200793831 /* UPStackMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F33773951BC8D42200793831 /* UPStackMenuItem.m */; };
 		F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F33773981BC8D51300793831 /* SmallCameraButton.png */; };
 		F337739D1BC8D51300793831 /* SmallKeyBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = F33773991BC8D51300793831 /* SmallKeyBoard.png */; };
 		F337739E1BC8D51300793831 /* SmallRecorderButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F337739A1BC8D51300793831 /* SmallRecorderButton.png */; };
@@ -69,6 +72,17 @@
 		5536AA2D1BD810A500398454 /* CLHealthInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLHealthInfoViewController.m; sourceTree = "<group>"; };
 		5536AA2F1BD810E900398454 /* CLNewGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLNewGoalViewController.h; sourceTree = "<group>"; };
 		5536AA301BD810E900398454 /* CLNewGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLNewGoalViewController.m; sourceTree = "<group>"; };
+		5536AA331BD81AE100398454 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		5536AA341BD81AE100398454 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		5536AA361BD81AFC00398454 /* NewEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewEventViewController.h; sourceTree = "<group>"; };
+		5536AA371BD81AFC00398454 /* NewEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewEventViewController.m; sourceTree = "<group>"; };
+		5536AA391BD81CD900398454 /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		5536AA3C1BD81D1100398454 /* UPStackMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPStackMenu.h; sourceTree = "<group>"; };
+		5536AA3D1BD81D1100398454 /* UPStackMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPStackMenu.m; sourceTree = "<group>"; };
+		5536AA3E1BD81D1100398454 /* UPStackMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPStackMenuItem.h; sourceTree = "<group>"; };
+		5536AA3F1BD81D1100398454 /* UPStackMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPStackMenuItem.m; sourceTree = "<group>"; };
+		5536AA431BD81D7F00398454 /* AppDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDataManager.h; sourceTree = "<group>"; };
+		5536AA441BD81D7F00398454 /* AppDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDataManager.m; sourceTree = "<group>"; };
 		55429EDF1BC8AFCB00CEF9E5 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		55429EE01BC8AFCB00CEF9E5 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		555BD60D1BC760B600BB61E9 /* Koolo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koolo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,10 +104,6 @@
 		555BD63C1BC761D200BB61E9 /* SettingScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingScreenViewController.m; sourceTree = "<group>"; };
 		F337738C1BC8D1C000793831 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		F337738E1BC8D2C400793831 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
-		F33773921BC8D42200793831 /* UPStackMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPStackMenu.h; sourceTree = "<group>"; };
-		F33773931BC8D42200793831 /* UPStackMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPStackMenu.m; sourceTree = "<group>"; };
-		F33773941BC8D42200793831 /* UPStackMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPStackMenuItem.h; sourceTree = "<group>"; };
-		F33773951BC8D42200793831 /* UPStackMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPStackMenuItem.m; sourceTree = "<group>"; };
 		F33773981BC8D51300793831 /* SmallCameraButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallCameraButton.png; sourceTree = "<group>"; };
 		F33773991BC8D51300793831 /* SmallKeyBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallKeyBoard.png; sourceTree = "<group>"; };
 		F337739A1BC8D51300793831 /* SmallRecorderButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallRecorderButton.png; sourceTree = "<group>"; };
@@ -170,6 +180,45 @@
 			path = Checklists;
 			sourceTree = "<group>";
 		};
+		5536AA321BD81A7300398454 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				5536AA331BD81AE100398454 /* CalendarViewController.h */,
+				5536AA341BD81AE100398454 /* CalendarViewController.m */,
+				5536AA361BD81AFC00398454 /* NewEventViewController.h */,
+				5536AA371BD81AFC00398454 /* NewEventViewController.m */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		5536AA3A1BD81D1100398454 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				5536AA3B1BD81D1100398454 /* Menu Classes */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		5536AA3B1BD81D1100398454 /* Menu Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5536AA3C1BD81D1100398454 /* UPStackMenu.h */,
+				5536AA3D1BD81D1100398454 /* UPStackMenu.m */,
+				5536AA3E1BD81D1100398454 /* UPStackMenuItem.h */,
+				5536AA3F1BD81D1100398454 /* UPStackMenuItem.m */,
+			);
+			path = "Menu Classes";
+			sourceTree = "<group>";
+		};
+		5536AA421BD81D4700398454 /* SingleTon */ = {
+			isa = PBXGroup;
+			children = (
+				5536AA431BD81D7F00398454 /* AppDataManager.h */,
+				5536AA441BD81D7F00398454 /* AppDataManager.m */,
+			);
+			path = SingleTon;
+			sourceTree = "<group>";
+		};
 		555BD6041BC760B500BB61E9 = {
 			isa = PBXGroup;
 			children = (
@@ -191,15 +240,18 @@
 		555BD60F1BC760B600BB61E9 /* Koolo */ = {
 			isa = PBXGroup;
 			children = (
+				5536AA391BD81CD900398454 /* AppConstants.h */,
 				555BD6141BC760B600BB61E9 /* AppDelegate.h */,
 				555BD6151BC760B600BB61E9 /* AppDelegate.m */,
 				55429EDF1BC8AFCB00CEF9E5 /* InformationViewController.h */,
 				55429EE01BC8AFCB00CEF9E5 /* InformationViewController.m */,
+				5536AA421BD81D4700398454 /* SingleTon */,
+				5536AA3A1BD81D1100398454 /* Third Party */,
+				5536AA321BD81A7300398454 /* Calendar */,
 				5536AA221BD80FED00398454 /* Checklists */,
 				3730633F1BCABBA2004751CA /* Home */,
 				555BD6361BC7618600BB61E9 /* Settings */,
 				F33B7E6C1BC8B92800C37B1D /* Images */,
-				F33773901BC8D42200793831 /* Third Party */,
 				555BD61A1BC760B600BB61E9 /* Main.storyboard */,
 				555BD61D1BC760B600BB61E9 /* Images.xcassets */,
 				555BD61F1BC760B600BB61E9 /* LaunchScreen.xib */,
@@ -253,25 +305,6 @@
 				555BD6391BC761AD00BB61E9 /* AlbumViewController.m */,
 			);
 			path = Album;
-			sourceTree = "<group>";
-		};
-		F33773901BC8D42200793831 /* Third Party */ = {
-			isa = PBXGroup;
-			children = (
-				F33773911BC8D42200793831 /* Menu Classes */,
-			);
-			path = "Third Party";
-			sourceTree = "<group>";
-		};
-		F33773911BC8D42200793831 /* Menu Classes */ = {
-			isa = PBXGroup;
-			children = (
-				F33773921BC8D42200793831 /* UPStackMenu.h */,
-				F33773931BC8D42200793831 /* UPStackMenu.m */,
-				F33773941BC8D42200793831 /* UPStackMenuItem.h */,
-				F33773951BC8D42200793831 /* UPStackMenuItem.m */,
-			);
-			path = "Menu Classes";
 			sourceTree = "<group>";
 		};
 		F33B7E6C1BC8B92800C37B1D /* Images */ = {
@@ -402,22 +435,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				555BD63A1BC761AD00BB61E9 /* AlbumViewController.m in Sources */,
-				F33773971BC8D42200793831 /* UPStackMenuItem.m in Sources */,
+				5536AA451BD81D7F00398454 /* AppDataManager.m in Sources */,
 				555BD6191BC760B600BB61E9 /* ViewController.m in Sources */,
 				37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */,
+				5536AA401BD81D1100398454 /* UPStackMenu.m in Sources */,
 				5536AA2B1BD8108500398454 /* CLMyHealthViewController.m in Sources */,
 				5536AA311BD810E900398454 /* CLNewGoalViewController.m in Sources */,
 				373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */,
+				5536AA381BD81AFC00398454 /* NewEventViewController.m in Sources */,
 				555BD63D1BC761D200BB61E9 /* SettingScreenViewController.m in Sources */,
 				5536AA2E1BD810A500398454 /* CLHealthInfoViewController.m in Sources */,
 				5536AA251BD8102100398454 /* CheckListViewController.m in Sources */,
+				5536AA351BD81AE100398454 /* CalendarViewController.m in Sources */,
 				55261E2F1BC8C1E900AA3CCD /* QuotesViewController.m in Sources */,
 				55261E341BC8C32C00AA3CCD /* PassCodeViewController.m in Sources */,
 				55429EE11BC8AFCB00CEF9E5 /* InformationViewController.m in Sources */,
+				5536AA411BD81D1100398454 /* UPStackMenuItem.m in Sources */,
 				555BD6161BC760B600BB61E9 /* AppDelegate.m in Sources */,
 				5536AA281BD8104300398454 /* CLThreeSentenceViewController.m in Sources */,
 				555BD6131BC760B600BB61E9 /* main.m in Sources */,
-				F33773961BC8D42200793831 /* UPStackMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -229,6 +229,47 @@
             </objects>
             <point key="canvasLocation" x="408" y="1750"/>
         </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="PqH-Mm-XCZ">
+            <objects>
+                <viewController storyboardIdentifier="CalendarScreen" id="kn8-tn-UBG" customClass="CalendarViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mHD-Am-zD2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RRe-cx-vLf">
+                                <rect key="frame" x="124" y="220" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="New event">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="GGz-eN-bId" kind="push" id="0H1-sP-eAr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rTl-OB-ksC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="1750"/>
+        </scene>
+        <!--New Event View Controller-->
+        <scene sceneID="zrC-lm-fIZ">
+            <objects>
+                <viewController storyboardIdentifier="NewEventScreen" id="GGz-eN-bId" customClass="NewEventViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aHK-BX-klf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QfE-Jw-cA3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SHm-ac-zth" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1326" y="1750"/>
+        </scene>
         <!--Check List View Controller-->
         <scene sceneID="9Rl-WR-xlf">
             <objects>
