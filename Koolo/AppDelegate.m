@@ -21,35 +21,7 @@
     // Override point for customization after application launch.
     
     
-    UINavigationController *navigationController = nil;
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-    if ([defaults boolForKey:@"InfoCompleted"]) {
-        
-        if ([defaults boolForKey:@"isPassCodeOn"] && [[defaults objectForKey:@"Password"] length]) {
-            
-            self.window.rootViewController = nil;
-            PassCodeViewController *passCodeViewController = (PassCodeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"PasscodeController"];
-            [passCodeViewController setMode:2];
-            navigationController = [[UINavigationController alloc] initWithRootViewController:passCodeViewController];
-            self.window.rootViewController = navigationController;
-            
-        } else {
-            // navigationController = [[UINavigationController alloc] initWithRootViewController:mainStoryboard.instantiateInitialViewController];
-            
-            self.window.rootViewController = nil;
-            ViewController *rootViewController = (ViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"HomeScreen"];
-            navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-            self.window.rootViewController = navigationController;
-        }
-        
-    
-        
-    } else {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"showQuotes"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
+    [self handlePasscodeScreen];
   
     if ([[[NSUserDefaults standardUserDefaults]  objectForKey:@"Quotes"] count] == 0) {
         
@@ -86,6 +58,37 @@
     return YES;
 }
 
+- (void)handlePasscodeScreen {
+    UINavigationController *navigationController = nil;
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults boolForKey:@"InfoCompleted"]) {
+        
+        if ([defaults boolForKey:@"isPassCodeOn"] && [[defaults objectForKey:@"Password"] length]) {
+            
+            self.window.rootViewController = nil;
+            PassCodeViewController *passCodeViewController = (PassCodeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"PasscodeController"];
+            [passCodeViewController setMode:2];
+            navigationController = [[UINavigationController alloc] initWithRootViewController:passCodeViewController];
+            self.window.rootViewController = navigationController;
+            
+        } else {
+            // navigationController = [[UINavigationController alloc] initWithRootViewController:mainStoryboard.instantiateInitialViewController];
+            
+            self.window.rootViewController = nil;
+            ViewController *rootViewController = (ViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"HomeScreen"];
+            navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+            self.window.rootViewController = navigationController;
+        }
+        
+        
+        
+    } else {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"showQuotes"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -94,6 +97,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self handlePasscodeScreen];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

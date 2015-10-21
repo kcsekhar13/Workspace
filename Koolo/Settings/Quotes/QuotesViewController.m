@@ -30,7 +30,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     
     self.title = @"Sitater";
     [super viewDidLoad];
-    
+    [self.mQuotesTableview flashScrollIndicators];
     quotesFlag = (BOOL)[[NSUserDefaults standardUserDefaults] boolForKey:@"showQuotes" ];
     [self.mEnableSwitch setOn:quotesFlag animated:NO];
     // Do any additional setup after loading the view.
@@ -75,6 +75,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 }
 
 #pragma mark UITableView Datasource/Delegate
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
