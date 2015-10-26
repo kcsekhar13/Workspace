@@ -29,6 +29,7 @@
 //
 //}
 
+
 -(void)initUI {
     _mQuoteText = [[UILabel alloc] init];
     [_mQuoteText setFrame:CGRectMake(5, 5, self.frame.size.width-50, self.frame.size.height + 20.0)];
@@ -36,6 +37,7 @@
     [_mQuoteText setTextAlignment:NSTextAlignmentLeft];
     [_mQuoteText setFont:[UIFont systemFontOfSize:14.0f]];
     [_mQuoteText setNumberOfLines:2];
+    [_mQuoteText setBackgroundColor:[UIColor clearColor]];
 
     [self.contentView addSubview:_mQuoteText];
     

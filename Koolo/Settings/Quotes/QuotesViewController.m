@@ -29,12 +29,16 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 - (void)viewDidLoad {
     
     self.title = @"Sitater";
-    [super viewDidLoad];
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1)];
+    v.backgroundColor = [UIColor clearColor];
+    [self.mQuotesTableview setTableFooterView:v];
     [self.mQuotesTableview flashScrollIndicators];
     quotesFlag = (BOOL)[[NSUserDefaults standardUserDefaults] boolForKey:@"showQuotes" ];
     [self.mEnableSwitch setOn:quotesFlag animated:NO];
     // Do any additional setup after loading the view.
     [self initUI];
+    [super viewDidLoad];
+    
 }
 
 -(void)initUI {

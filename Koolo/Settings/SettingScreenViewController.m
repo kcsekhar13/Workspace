@@ -8,7 +8,8 @@
 
 #import "SettingScreenViewController.h"
 #import "QuotesViewController.h"
-#import "PassCodeViewController.h"
+#import "PasscodeHomeViewController.h"
+
 
 @interface SettingScreenViewController ()  {
     NSArray *contentArray;
@@ -27,6 +28,9 @@
     self.title = @"Settings";
     self.navigationController.navigationBar.hidden = NO;
     contentArray = [[NSArray alloc] initWithObjects:@"BackgroundImage", @"Passcode", @"Quotes", @"License",@"", @"", @"", nil];
+    _imagePickerController  = [[UIImagePickerController alloc]init];
+    _imagePickerController.delegate = self;
+    _imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
     // Do any additional setup after loading the view.
 }
 
@@ -76,6 +80,7 @@
     
     if (indexPath.row == 1) {
         
+        /*
         UISwitch *onSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(cell.contentView.frame.size.width-40, 10, 40, 40)];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         if ([defaults boolForKey:@"isPassCodeOn"]) {
@@ -89,7 +94,7 @@
 
         }
         [onSwitch addTarget:self action:@selector(changeSwitch:) forControlEvents:UIControlEventValueChanged];
-        [cell.contentView addSubview:onSwitch];
+        [cell.contentView addSubview:onSwitch];*/
         
     }
     
@@ -115,9 +120,7 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 //hide HUD or activityIndicator
-                _imagePickerController  = [[UIImagePickerController alloc]init];
-                _imagePickerController.delegate = self;
-                _imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+               
                 [self presentViewController:_imagePickerController animated:YES completion:nil];
             });
         });
@@ -131,11 +134,19 @@
         [self.navigationController pushViewController:quotesViewController animated:YES];
         
     } else if (indexPath.row == 1) {
+        
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                 bundle: nil];
+        PasscodeHomeViewController *passcodeHomeScreen = (PasscodeHomeViewController *)[mainStoryboard instantiateViewControllerWithIdentifier: @"PasscodeHome"];
+        
+        [self.navigationController pushViewController:passcodeHomeScreen animated:YES];
+        /*
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                                  bundle: nil];
         PassCodeViewController *passCodeViewController = (PassCodeViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"PasscodeController"];
         [passCodeViewController setMode:1];
         [self.navigationController pushViewController:passCodeViewController animated:YES];
+         */
         
     }
 }
