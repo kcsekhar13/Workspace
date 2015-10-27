@@ -10,8 +10,15 @@
 #import "PassCodeViewController.h"
 #import "ViewController.h"
 
-@interface PasscodeHomeViewController ()
+@interface PasscodeHomeViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate> {
+    
+    NSArray *secretQuestions;
+    NSInteger selectedIndex;
+}
 @property (weak, nonatomic) IBOutlet UISwitch *passSwitch;
+@property (weak, nonatomic) IBOutlet UITextField *pickerViewTextField;
+@property (strong, nonatomic) NSString *secretQuestion;
+@property (weak, nonatomic) IBOutlet UITextField *answerField;
 
 @end
 
@@ -19,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    selectedIndex = 0;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:@"isPassCodeOn"]) {
         
@@ -28,6 +36,40 @@
         [_passSwitch setOn:NO animated:YES];
         
     }
+    
+    NSString *secretQuestion = (NSString *)[defaults objectForKey:@"secretQuestion"];
+    if (secretQuestion.length) {
+        
+        self.secretQuestion = secretQuestion;
+        self.pickerViewTextField.text = secretQuestion;
+        self.answerField.text = [defaults objectForKey:@"secretAnswer"];
+        self.answerField.hidden = NO;
+        
+    } else {
+        
+        self.secretQuestion = @"Select your secret question";
+        self.pickerViewTextField.text = self.secretQuestion;
+        self.answerField.hidden = YES;
+    }
+    
+    secretQuestions = [[NSArray alloc] initWithObjects:@"What is your favourite color?", @"What is your pet name?", @"Your favourite actor?", @"What is your first mobile company?", @"What is your favourite holiday spot? ", nil];
+    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    pickerView.showsSelectionIndicator = YES;
+    pickerView.dataSource = self;
+    pickerView.delegate = self;
+    
+    // set change the inputView (default is keyboard) to UIPickerView
+    self.pickerViewTextField.inputView = pickerView;
+    
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    toolBar.barStyle = UIBarStyleBlackOpaque;
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneTouched:)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelTouched:)];
+    
+    // the middle button is to make the Done button align to right
+    [toolBar setItems:[NSArray arrayWithObjects:cancelButton, [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil], doneButton, nil]];
+    self.pickerViewTextField.inputAccessoryView = toolBar;
     // Do any additional setup after loading the view.
 }
 
@@ -67,7 +109,67 @@
     [passCodeViewController setMode:1];
     [self.navigationController pushViewController:passCodeViewController animated:YES];
 }
+- (IBAction)showSecretQuestions:(id)sender {
+    
+    [self.pickerViewTextField becomeFirstResponder];
+}
 
+# pragma mark - UIPickerView methods
+
+- (void)cancelTouched:(UIBarButtonItem *)sender
+{
+    // hide the picker view
+    
+    [self.pickerViewTextField resignFirstResponder];
+}
+
+- (void)doneTouched:(UIBarButtonItem *)sender
+{
+    self.pickerViewTextField.text = [secretQuestions objectAtIndex:selectedIndex];
+    self.answerField.hidden = NO;
+    // hide the picker view
+    [[NSUserDefaults standardUserDefaults] setObject:self.pickerViewTextField.text forKey:@"secretQuestion"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.pickerViewTextField resignFirstResponder];
+    
+    // perform some action
+}
+
+#pragma mark - UIPickerViewDataSource
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [secretQuestions count];
+}
+
+#pragma mark - UIPickerViewDelegate
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    NSString *item = [secretQuestions objectAtIndex:row];
+    
+    return item;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    // perform some action
+    selectedIndex = row;
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [[NSUserDefaults standardUserDefaults] setObject:self.answerField.text forKey:@"secretAnswer"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self.answerField resignFirstResponder];
+    return YES;
+}
 /*
 #pragma mark - Navigation
 
