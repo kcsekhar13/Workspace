@@ -153,7 +153,7 @@
     //id controller = nil;
     switch (index) {
         case 0:
-            
+            [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CameraScreen"] animated:YES];
             
             break;
         case 1:

@@ -237,6 +237,101 @@
             </objects>
             <point key="canvasLocation" x="901" y="398"/>
         </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="Ejm-7R-jP3">
+            <objects>
+                <viewController storyboardIdentifier="CameraScreen" id="J4E-qr-pKt" customClass="MSCameraViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BYW-uq-jCN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pEF-qu-GyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="408" y="2397"/>
+        </scene>
+        <!--Pre View View Controller-->
+        <scene sceneID="Lay-HL-fpc">
+            <objects>
+                <viewController storyboardIdentifier="MSPreviewScreen" id="fWw-sC-9x7" customClass="MSPreViewViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DLO-8n-2Lj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SfF-bH-dia">
+                                <rect key="frame" x="101" y="414" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <state key="normal" title="ColorPicker"/>
+                                <connections>
+                                    <action selector="colorSelection:" destination="fWw-sC-9x7" eventType="touchUpInside" id="EPz-LJ-0Px"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H2d-1L-Jng">
+                                <rect key="frame" x="100" y="229" width="121" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <animations/>
+                                <state key="normal" title="MoodLine"/>
+                                <connections>
+                                    <action selector="moveToMoodLineScreen:" destination="fWw-sC-9x7" eventType="touchUpInside" id="DqP-Zt-bqO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HdQ-cU-kOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="776" y="2397"/>
+        </scene>
+        <!--Color Picker View Controller-->
+        <scene sceneID="dWT-TG-rRa">
+            <objects>
+                <viewController storyboardIdentifier="MSColorPickerScreen" id="BhJ-eG-WYb" customClass="MSColorPickerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DPV-CK-Rb7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Arw-tA-GeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="2397"/>
+        </scene>
+        <!--Mood Line View Controller-->
+        <scene sceneID="HSn-gU-CcZ">
+            <objects>
+                <viewController storyboardIdentifier="MoodLineScreen" id="ATE-ra-ukB" customClass="MoodLineViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6zg-bd-QGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PIs-f7-9i4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1513" y="2397"/>
+        </scene>
+        <!--Mood Map View Controller-->
+        <scene sceneID="TNZ-PA-b2C">
+            <objects>
+                <viewController storyboardIdentifier="MoodMapScreen" id="56w-uO-rwQ" customClass="MoodMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A6X-kd-TUt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U5k-9n-1ar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948" y="2397"/>
+        </scene>
         <!--Three Sentence View Controller-->
         <scene sceneID="ZXO-cd-EgO">
             <objects>
@@ -477,17 +572,17 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="3qN-37-fc7">
                                 <rect key="frame" x="0.0" y="74" width="320" height="131"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cpV-pC-TmF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuotesCell" id="cpV-pC-TmF" customClass="QuotesTableviewCell">
                                         <rect key="frame" x="0.0" y="1" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cpV-pC-TmF" id="E3o-2l-zhJ">
@@ -498,6 +593,7 @@
                                         <animations/>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="msb-bh-Gkh" id="OjP-4o-0ua"/>
                                     <outlet property="delegate" destination="msb-bh-Gkh" id="dts-7t-Haq"/>
@@ -533,7 +629,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set secretQuestion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zHI-su-4au">
@@ -541,7 +637,7 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="9zm-LH-2wT">
