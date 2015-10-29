@@ -34,6 +34,7 @@
                 //hide HUD or activityIndicator
                 _imagePickerController  = [[UIImagePickerController alloc]init];
                 _imagePickerController.delegate = self;
+                //Change source type to Photo library while checking app in simulator
                 _imagePickerController.sourceType =  UIImagePickerControllerSourceTypeCamera;
                 [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"enableCamera"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
@@ -60,6 +61,22 @@
 */
 
 #pragma mark -  UIImagePickerController Delegate methods
+
+// Uncomment this code if your checking app in simulator
+/*
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editInfo {
+    
+ 
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
+//    NSData *imageData = UIImagePNGRepresentation(image);
+  //  [imageData writeToFile:savedImagePath atomically:YES];
+    [self dismissViewControllerAnimated:_imagePickerController completion:nil];
+    [self moveToPreviewScreen];
+    
+}
+*/
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     

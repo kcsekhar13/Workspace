@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373063411BCABBD9004751CA /* HomeNotificationView.m */; };
 		37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */; };
+		550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */; };
 		55261E2F1BC8C1E900AA3CCD /* QuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55261E2E1BC8C1E900AA3CCD /* QuotesViewController.m */; };
 		55261E341BC8C32C00AA3CCD /* PassCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55261E331BC8C32C00AA3CCD /* PassCodeViewController.m */; };
 		5536AA251BD8102100398454 /* CheckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA241BD8102100398454 /* CheckListViewController.m */; };
@@ -64,6 +65,8 @@
 		373063411BCABBD9004751CA /* HomeNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNotificationView.m; sourceTree = "<group>"; };
 		37F2F5361BC991DA00B97307 /* QuotesTableviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesTableviewCell.h; sourceTree = "<group>"; };
 		37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesTableviewCell.m; sourceTree = "<group>"; };
+		550F97A41BE29B6F005510F5 /* ColorPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewCell.h; sourceTree = "<group>"; };
+		550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewCell.m; sourceTree = "<group>"; };
 		55261E2D1BC8C1E900AA3CCD /* QuotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesViewController.h; sourceTree = "<group>"; };
 		55261E2E1BC8C1E900AA3CCD /* QuotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesViewController.m; sourceTree = "<group>"; };
 		55261E321BC8C32C00AA3CCD /* PassCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassCodeViewController.h; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				55F5A3FE1BE1451900DC80F4 /* MoodLineViewController.m */,
 				55F5A4001BE1456900DC80F4 /* MoodMapViewController.h */,
 				55F5A4011BE1456900DC80F4 /* MoodMapViewController.m */,
+				550F97A41BE29B6F005510F5 /* ColorPickerCollectionViewCell.h */,
+				550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */,
 			);
 			path = MoodShot;
 			sourceTree = "<group>";
@@ -482,6 +487,7 @@
 				5536AA2B1BD8108500398454 /* CLMyHealthViewController.m in Sources */,
 				5536AA311BD810E900398454 /* CLNewGoalViewController.m in Sources */,
 				55F5A3F91BE143FC00DC80F4 /* MSCameraViewController.m in Sources */,
+				550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */,
 				373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */,
 				5536AA381BD81AFC00398454 /* NewEventViewController.m in Sources */,
 				557631D21BDEA4470042F0E0 /* PasscodeHomeViewController.m in Sources */,
@@ -557,6 +563,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -577,6 +584,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -599,6 +607,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -612,6 +621,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

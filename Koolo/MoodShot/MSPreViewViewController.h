@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSPreViewViewController : UIViewController
+@interface MSPreViewViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
