@@ -17,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enableCamera"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     // Do any additional setup after loading the view.
 }
 
