@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol HomeNotificationViewDelegate <NSObject>
+
+- (void)moveToCalendarColorPicker:(id)sender;
+
+@end
+
 @interface HomeNotificationView : UIView
 @property(nonatomic, strong) UILabel *mQuoteText;
 @property(nonatomic, strong) UILabel *mDayLabel;
@@ -20,6 +26,10 @@
 
 @property(nonatomic, strong) UILabel *mLastDayLabel;
 @property(nonatomic, strong) UILabel *mLastDayText;
+
+@property(nonatomic, strong) UIButton *calnderButton;
+
+@property (nonatomic, assign) id <HomeNotificationViewDelegate> delegate;
 
 
 @end

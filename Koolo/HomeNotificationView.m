@@ -37,7 +37,14 @@
         [_mDayLabel.layer setBorderWidth:2.0f];
         [_mDayLabel.layer setMasksToBounds:YES];
         [_mDayLabel.layer setCornerRadius:25.0f];
+        [_mDayLabel setUserInteractionEnabled:YES];
         [self addSubview:_mDayLabel];
+        
+        _calnderButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_calnderButton setFrame:CGRectMake(0, 0, 50, 50)];
+        [_calnderButton setTitle:nil forState:UIControlStateNormal];
+        [_calnderButton addTarget:self action:@selector(calendarButtonAction) forControlEvents:UIControlEventTouchUpInside];
+         [self.mDayLabel addSubview:_calnderButton];
     } else {
         [_mDayLabel setText:@"29"];
     }
@@ -138,7 +145,12 @@
    
 }
 
-
+- (void)calendarButtonAction {
+    
+    if ([self.delegate respondsToSelector:@selector(moveToCalendarColorPicker:)]) {
+        [self.delegate moveToCalendarColorPicker:self];
+    }
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

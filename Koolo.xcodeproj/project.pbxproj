@@ -23,6 +23,7 @@
 		5536AA411BD81D1100398454 /* UPStackMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA3F1BD81D1100398454 /* UPStackMenuItem.m */; };
 		5536AA451BD81D7F00398454 /* AppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA441BD81D7F00398454 /* AppDataManager.m */; };
 		55429EE11BC8AFCB00CEF9E5 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55429EE01BC8AFCB00CEF9E5 /* InformationViewController.m */; };
+		554310C51BE4D7CC00961E34 /* CalendarColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 554310C41BE4D7CC00961E34 /* CalendarColorPickerViewController.m */; };
 		555BD6131BC760B600BB61E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6121BC760B600BB61E9 /* main.m */; };
 		555BD6161BC760B600BB61E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6151BC760B600BB61E9 /* AppDelegate.m */; };
 		555BD6191BC760B600BB61E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6181BC760B600BB61E9 /* ViewController.m */; };
@@ -96,6 +97,8 @@
 		5536AA441BD81D7F00398454 /* AppDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDataManager.m; sourceTree = "<group>"; };
 		55429EDF1BC8AFCB00CEF9E5 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		55429EE01BC8AFCB00CEF9E5 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
+		554310C31BE4D7CC00961E34 /* CalendarColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarColorPickerViewController.h; sourceTree = "<group>"; };
+		554310C41BE4D7CC00961E34 /* CalendarColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarColorPickerViewController.m; sourceTree = "<group>"; };
 		555BD60D1BC760B600BB61E9 /* Koolo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koolo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555BD6111BC760B600BB61E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		555BD6121BC760B600BB61E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				5536AA341BD81AE100398454 /* CalendarViewController.m */,
 				5536AA361BD81AFC00398454 /* NewEventViewController.h */,
 				5536AA371BD81AFC00398454 /* NewEventViewController.m */,
+				554310C31BE4D7CC00961E34 /* CalendarColorPickerViewController.h */,
+				554310C41BE4D7CC00961E34 /* CalendarColorPickerViewController.m */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 				55261E341BC8C32C00AA3CCD /* PassCodeViewController.m in Sources */,
 				55429EE11BC8AFCB00CEF9E5 /* InformationViewController.m in Sources */,
 				5536AA411BD81D1100398454 /* UPStackMenuItem.m in Sources */,
+				554310C51BE4D7CC00961E34 /* CalendarColorPickerViewController.m in Sources */,
 				555BD6161BC760B600BB61E9 /* AppDelegate.m in Sources */,
 				5536AA281BD8104300398454 /* CLThreeSentenceViewController.m in Sources */,
 				555BD6131BC760B600BB61E9 /* main.m in Sources */,

@@ -10,7 +10,7 @@
 #import "ViewController.h"
 #import "HomeNotificationView.h"
 #import "CheckListViewController.h"
-@interface ViewController (){
+@interface ViewController () <HomeNotificationViewDelegate>{
     
     UIView *contentView;
 }
@@ -112,9 +112,11 @@
     
     if(_mNoteView == nil) {
         _mNoteView = [[HomeNotificationView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2)];
+        _mNoteView.delegate = self;
         [self.view addSubview:_mNoteView];
         
     } else {
+        _mNoteView.delegate = self;
         [_mNoteView clearsContextBeforeDrawing];
         [_mNoteView setNeedsDisplay];
     }
@@ -175,5 +177,9 @@
     
 }
 
+- (void)moveToCalendarColorPicker:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"] animated:YES];
+}
 
 @end
