@@ -54,7 +54,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"colorPickerTitles"] == nil) {
-        [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"Lykkelig",@"Glad",@"Rolig",@"Fremgang",@"sing",@"Legg til humer",@"Legg til humer",@"Rolig",@"sing",@"Fremgang",nil] forKey:@"colorPickerTitles"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"Lykkelig",@"Glad",@"Rolig",@"Fremgang",@"sing",@"Legg til humer",@"Legg til humer",@"Rolig",@"sing",nil] forKey:@"colorPickerTitles"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     

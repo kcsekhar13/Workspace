@@ -19,6 +19,8 @@
 @implementation MSPreViewViewController
 
 - (void)viewDidLoad {
+    
+    
     [super viewDidLoad];
     
     dataManager = [StoreDataMangager sharedInstance];
@@ -54,6 +56,7 @@
     
     //cell.colorKeyView.backgroundColor = colorsArray[indexPath.row];
     cell.title.text = dataManager.fetchColorPickerTitlesArray[indexPath.row];
+    cell.colorKeyView.backgroundColor = (UIColor *)dataManager.fetchColorsArray[indexPath.row];
     cell.delegate = self;
     cell.selectedColorIndex = indexPath.row;
     return cell;

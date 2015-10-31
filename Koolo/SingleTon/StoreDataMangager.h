@@ -13,9 +13,11 @@
 +(StoreDataMangager *)sharedInstance;
 
 @property (nonatomic, strong) NSMutableArray *colorPickerTitleArray;
+@property (nonatomic, strong) NSMutableArray *fetchColorsArray;
 
 - (NSMutableArray *)fetchColorPickerTitlesArray;
 
 - (void)updateFetchColorPickerTitlesArray:(NSMutableArray *)newTitlesArray;
 
+- (NSMutableArray *)fetchColors;
 @end

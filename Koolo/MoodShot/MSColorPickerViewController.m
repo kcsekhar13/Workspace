@@ -56,6 +56,7 @@
     colorPickerTableViewCell *cell = (colorPickerTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"TitleCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleTextField.text = [NSString stringWithFormat:@"%@", colorTitlesArray[indexPath.row]];
+    cell.colorKeyView.backgroundColor = (UIColor *)dataManager.fetchColorsArray[indexPath.row];
     cell.delegate = self;
     cell.selectedColorIndex = indexPath.row;
     

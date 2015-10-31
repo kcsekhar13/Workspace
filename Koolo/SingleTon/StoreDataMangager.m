@@ -6,7 +6,9 @@
 //  Copyright © 2015 Vinodram. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "StoreDataMangager.h"
+#import "AppConstants.h"
 
 @implementation StoreDataMangager
 
@@ -27,6 +29,8 @@ static StoreDataMangager *sharedInstance = nil;
         
         NSArray *titlesArray = (NSArray *)[[NSUserDefaults standardUserDefaults] objectForKey:@"colorPickerTitles"];
         self.colorPickerTitleArray = [[NSMutableArray alloc] initWithArray:titlesArray];
+        
+        self.fetchColorsArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayWithObjects: Skyblue,yellow,blueColor,pink,red,black,lightgray,orange,brown,nil]];
     }
     return self;
 }
@@ -34,6 +38,11 @@ static StoreDataMangager *sharedInstance = nil;
 - (NSMutableArray *)fetchColorPickerTitlesArray {
     
     return self.colorPickerTitleArray;
+}
+
+- (NSMutableArray *)fetchColors {
+    
+    return self.fetchColorsArray;
 }
 
 - (void)updateFetchColorPickerTitlesArray:(NSMutableArray *)newTitlesArray {
