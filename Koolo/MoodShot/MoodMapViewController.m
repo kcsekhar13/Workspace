@@ -9,6 +9,7 @@
 #import "MoodMapViewController.h"
 
 @interface MoodMapViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end
 
@@ -16,6 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dataManager = [StoreDataMangager sharedInstance];
+    UIImage *backgroundImage = dataManager.returnBackgroundImage;
+    if (backgroundImage) {
+        _backgroundImageView.image = backgroundImage;
+    }
+    
     // Do any additional setup after loading the view.
 }
 

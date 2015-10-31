@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *orangeView;
 @property (weak, nonatomic) IBOutlet UIView *blueView;
 @property (weak, nonatomic) IBOutlet UIView *skyBlue;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *mydayLabel;
 @end
@@ -26,7 +27,7 @@
 - (void)viewDidLoad {
     self.navigationController.navigationBar.hidden = YES;
     [super viewDidLoad];
-    
+    dataManager = [StoreDataMangager sharedInstance];
     [_mydayLabel setText:@"29"];
     [_mydayLabel setTextAlignment:NSTextAlignmentCenter];
     [_mydayLabel setFont:[UIFont systemFontOfSize:24.0f]];
@@ -37,6 +38,15 @@
     [_mydayLabel.layer setCornerRadius:25.0f];
     [_mydayLabel setUserInteractionEnabled:YES];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    UIImage *backgroundImage = dataManager.returnBackgroundImage;
+    if (backgroundImage) {
+        _backgroundImageView.image = backgroundImage;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

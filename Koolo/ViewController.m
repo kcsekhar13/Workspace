@@ -10,9 +10,12 @@
 #import "ViewController.h"
 #import "HomeNotificationView.h"
 #import "CheckListViewController.h"
+#import "StoreDataMangager.h"
+
 @interface ViewController () <HomeNotificationViewDelegate>{
     
     UIView *contentView;
+    StoreDataMangager *dataManager;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) IBOutlet HomeNotificationView *mNoteView;
@@ -23,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    dataManager = [StoreDataMangager sharedInstance];
     
     [self createDefaultMenuView];
 }
@@ -91,25 +94,11 @@
     [super viewWillAppear:animated];
 
     self.navigationController.navigationBar.hidden = YES;
-    NSError *error = nil;
-    NSString *stringPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    
-    NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath: stringPath  error:&error];
-    
-    if (filePathsArray.count != 0) {
-        NSString *strFilePath = [filePathsArray objectAtIndex:0];
-        if ([[strFilePath pathExtension] isEqualToString:@"jpg"] || [[strFilePath pathExtension] isEqualToString:@"png"] || [[strFilePath pathExtension] isEqualToString:@"PNG"])
-        {
-            NSString *imagePath = [[stringPath stringByAppendingString:@"/"] stringByAppendingString:strFilePath];
-            NSData *data = [NSData dataWithContentsOfFile:imagePath];
-            if(data)
-            {
-                UIImage *image = [UIImage imageWithData:data];
-                _backgroundImageView.image = image;
-            }
-        }        
+    UIImage *backgroundImage = dataManager.returnBackgroundImage;
+    if (backgroundImage) {
+        _backgroundImageView.image = backgroundImage;
     }
-    
+       
     if(_mNoteView == nil) {
         _mNoteView = [[HomeNotificationView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2)];
         _mNoteView.delegate = self;

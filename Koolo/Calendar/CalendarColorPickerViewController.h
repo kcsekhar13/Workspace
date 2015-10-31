@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreDataMangager.h"
 
-@interface CalendarColorPickerViewController : UIViewController
+@interface CalendarColorPickerViewController : UIViewController {
+    
+    StoreDataMangager *dataManager;
+}
 
 @end

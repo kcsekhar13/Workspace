@@ -18,6 +18,6 @@
 - (NSMutableArray *)fetchColorPickerTitlesArray;
 
 - (void)updateFetchColorPickerTitlesArray:(NSMutableArray *)newTitlesArray;
-
+- (UIImage *)returnBackgroundImage;
 - (NSMutableArray *)fetchColors;
 @end

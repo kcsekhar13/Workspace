@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreDataMangager.h"
 
-@interface MoodMapViewController : UIViewController
+@interface MoodMapViewController : UIViewController {
+    StoreDataMangager *dataManager;
+}
 
 @end

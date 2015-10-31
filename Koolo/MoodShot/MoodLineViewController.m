@@ -9,6 +9,7 @@
 #import "MoodLineViewController.h"
 
 @interface MoodLineViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end
 
@@ -16,12 +17,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    dataManager = [StoreDataMangager sharedInstance];
     // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBar.hidden = NO;
     [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.hidden = NO;
+    UIImage *backgroundImage = dataManager.returnBackgroundImage;
+    if (backgroundImage) {
+        _backgroundImageView.image = backgroundImage;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

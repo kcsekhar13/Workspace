@@ -52,4 +52,26 @@ static StoreDataMangager *sharedInstance = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (UIImage *)returnBackgroundImage {
+    
+    UIImage *image = nil;
+    NSError *error = nil;
+    NSString *stringPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+    
+    NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath: stringPath  error:&error];
+    
+    if (filePathsArray.count != 0) {
+        NSString *strFilePath = [filePathsArray objectAtIndex:0];
+        if ([[strFilePath pathExtension] isEqualToString:@"jpg"] || [[strFilePath pathExtension] isEqualToString:@"png"] || [[strFilePath pathExtension] isEqualToString:@"PNG"])
+        {
+            NSString *imagePath = [[stringPath stringByAppendingString:@"/"] stringByAppendingString:strFilePath];
+            NSData *data = [NSData dataWithContentsOfFile:imagePath];
+            if(data)
+            {
+                image = [UIImage imageWithData:data];
+            }
+        }
+    }
+    return image;
+}
 @end
