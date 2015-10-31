@@ -12,6 +12,7 @@
 @interface MSColorPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     
     NSMutableArray *colorTitlesArray;
+    BOOL saveFlag;
     StoreDataMangager *dataManager;
 }
 

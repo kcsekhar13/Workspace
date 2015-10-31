@@ -21,6 +21,7 @@
     [super viewDidLoad];
     
     self.title = @"Color choices";
+    saveFlag = NO;
     dataManager = [StoreDataMangager sharedInstance];
     colorTitlesArray = [[NSMutableArray alloc] initWithArray:dataManager.fetchColorPickerTitlesArray];
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithColorSelection)];
@@ -78,6 +79,9 @@
 - (void)updateColorPickertitles:(id)sender {
     colorPickerTableViewCell *colorCell =  (colorPickerTableViewCell *)sender;
     [colorTitlesArray replaceObjectAtIndex:colorCell.selectedColorIndex withObject:colorCell.titleTextField.text];
+    if (saveFlag) {
+        [dataManager updateFetchColorPickerTitlesArray:colorTitlesArray];
+    }
 }
 
 /*
@@ -93,8 +97,11 @@
 #pragma mark -  User defined methods
 
 - (void)doneWithColorSelection {
+//    NSIndexPath *selectedIndexPath = [self.contentTableView indexPathForSelectedRow];
+//    colorPickerTableViewCell *colorCell  = [self.contentTableView cellForRowAtIndexPath:selectedIndexPath];
+//    [colorTitlesArray replaceObjectAtIndex:colorCell.selectedColorIndex withObject:colorCell.titleTextField.text];
+    saveFlag = YES;
     
-    [dataManager updateFetchColorPickerTitlesArray:colorTitlesArray];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
