@@ -260,15 +260,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H2d-1L-Jng">
-                                <rect key="frame" x="100" y="229" width="121" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <animations/>
-                                <state key="normal" title="MoodLine"/>
-                                <connections>
-                                    <action selector="moveToMoodLineScreen:" destination="fWw-sC-9x7" eventType="touchUpInside" id="DqP-Zt-bqO"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bCO-oj-Dzg" userLabel="GraphColor - Collection View">
                                 <rect key="frame" x="0.0" y="485" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -329,15 +320,6 @@
                                     <outlet property="delegate" destination="fWw-sC-9x7" id="qrq-E2-4ju"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SfF-bH-dia">
-                                <rect key="frame" x="100" y="279" width="121" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <animations/>
-                                <state key="normal" title="ColorPicker"/>
-                                <connections>
-                                    <action selector="colorSelection:" destination="fWw-sC-9x7" eventType="touchUpInside" id="EPz-LJ-0Px"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

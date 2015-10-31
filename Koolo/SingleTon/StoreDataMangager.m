@@ -25,7 +25,8 @@ static StoreDataMangager *sharedInstance = nil;
 - (id)init {
     if (self = [super init]) {
         
-        self.colorPickerTitleArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayWithObjects:@"Lykkelig",@"Glad",@"Rolig",@"Fremgang",@"sing",@"Legg til humer",@"Legg til humer",@"Rolig",@"sing",@"Fremgang",nil]];
+        NSArray *titlesArray = (NSArray *)[[NSUserDefaults standardUserDefaults] objectForKey:@"colorPickerTitles"];
+        self.colorPickerTitleArray = [[NSMutableArray alloc] initWithArray:titlesArray];
     }
     return self;
 }
@@ -33,6 +34,13 @@ static StoreDataMangager *sharedInstance = nil;
 - (NSMutableArray *)fetchColorPickerTitlesArray {
     
     return self.colorPickerTitleArray;
+}
+
+- (void)updateFetchColorPickerTitlesArray:(NSMutableArray *)newTitlesArray {
+    
+    self.colorPickerTitleArray = newTitlesArray;
+    [[NSUserDefaults standardUserDefaults] setObject:newTitlesArray forKey:@"colorPickerTitles"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

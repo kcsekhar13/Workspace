@@ -8,7 +8,7 @@
 
 #import "MSColorPickerViewController.h"
 #import "colorPickerTableViewCell.h"
-#import "StoreDataMangager.h"
+
 
 @interface MSColorPickerViewController () <colorPickerTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *contentTableView;
@@ -20,8 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    StoreDataMangager *dataManager = [StoreDataMangager sharedInstance];
+    self.title = @"Color choices";
+    dataManager = [StoreDataMangager sharedInstance];
     colorTitlesArray = [[NSMutableArray alloc] initWithArray:dataManager.fetchColorPickerTitlesArray];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithColorSelection)];
+    self.navigationItem.rightBarButtonItem = doneButton;
     // Do any additional setup after loading the view.
 }
 
@@ -60,6 +63,7 @@
 }
 
 #pragma mark -  colorPickerTableViewCellDelegate
+
 - (void)adjustTableViewCellFrame:(id)sender {
     
     colorPickerTableViewCell *colorCell =  (colorPickerTableViewCell *)sender;
@@ -70,7 +74,10 @@
 
 }
 
-
+- (void)updateColorPickertitles:(id)sender {
+    colorPickerTableViewCell *colorCell =  (colorPickerTableViewCell *)sender;
+    [colorTitlesArray replaceObjectAtIndex:colorCell.selectedColorIndex withObject:colorCell.titleTextField.text];
+}
 
 /*
 #pragma mark - Navigation
@@ -82,8 +89,11 @@
 }
 */
 
+#pragma mark -  User defined methods
+
 - (void)doneWithColorSelection {
     
+    [dataManager updateFetchColorPickerTitlesArray:colorTitlesArray];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

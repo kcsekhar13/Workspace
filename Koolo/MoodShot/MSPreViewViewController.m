@@ -10,6 +10,7 @@
 #import "MSColorPickerViewController.h"
 #import "ColorPickerCollectionViewCell.h"
 
+
 @interface MSPreViewViewController ()<ColorPickerCollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *graphPickerCollectionView;
 
@@ -20,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    dataManager = [StoreDataMangager sharedInstance];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enableCamera"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     // Do any additional setup after loading the view.
@@ -44,14 +46,14 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    return 10;
+    return dataManager.fetchColorPickerTitlesArray.count;
 }
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ColorPickerCollectionViewCell *cell = (ColorPickerCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"colorCell" forIndexPath:indexPath];
     
     //cell.colorKeyView.backgroundColor = colorsArray[indexPath.row];
-    cell.title.text = @"test";
+    cell.title.text = dataManager.fetchColorPickerTitlesArray[indexPath.row];
     cell.delegate = self;
     cell.selectedColorIndex = indexPath.row;
     return cell;
@@ -70,6 +72,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MoodLineScreen"] animated:YES];
    
 }
 
@@ -93,16 +97,5 @@
 }
 */
 
-- (IBAction)colorSelection:(id)sender {
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MSColorPickerScreen"] animated:YES];
-}
-
-- (IBAction)moveToMoodLineScreen:(id)sender  {
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MoodLineScreen"] animated:YES];
-}
 
 @end

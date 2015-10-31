@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreDataMangager.h"
 
-@interface MSPreViewViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface MSPreViewViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate> {
+    
+    StoreDataMangager *dataManager;
+}
 
 @end

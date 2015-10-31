@@ -11,6 +11,7 @@
 @protocol colorPickerTableViewCellDelegate <NSObject>
 
 - (void)adjustTableViewCellFrame:(id)sender;
+- (void)updateColorPickertitles:(id)sender;
 
 @end
 

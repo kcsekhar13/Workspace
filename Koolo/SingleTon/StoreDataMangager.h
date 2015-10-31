@@ -11,7 +11,11 @@
 @interface StoreDataMangager : NSData
 
 +(StoreDataMangager *)sharedInstance;
+
 @property (nonatomic, strong) NSMutableArray *colorPickerTitleArray;
+
 - (NSMutableArray *)fetchColorPickerTitlesArray;
+
+- (void)updateFetchColorPickerTitlesArray:(NSMutableArray *)newTitlesArray;
 
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreDataMangager.h"
 
 @interface MSColorPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     
     NSMutableArray *colorTitlesArray;
+    StoreDataMangager *dataManager;
 }
 
 @end

@@ -28,7 +28,10 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    
+ 
+    if ([self.delegate respondsToSelector:@selector(updateColorPickertitles:)]) {
+        [self.delegate updateColorPickertitles:self];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
