@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "StoreDataMangager.h"
+#import "colorPickerTableViewCell.h"
 
 @interface MSColorPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     
     NSMutableArray *colorTitlesArray;
     BOOL saveFlag;
     StoreDataMangager *dataManager;
+    colorPickerTableViewCell *colorCell;
+    CGSize keyboardSize;
 }
 
 @end
