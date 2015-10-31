@@ -33,6 +33,8 @@
 		555BD63A1BC761AD00BB61E9 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6391BC761AD00BB61E9 /* AlbumViewController.m */; };
 		555BD63D1BC761D200BB61E9 /* SettingScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD63C1BC761D200BB61E9 /* SettingScreenViewController.m */; };
 		557631D21BDEA4470042F0E0 /* PasscodeHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557631D11BDEA4470042F0E0 /* PasscodeHomeViewController.m */; };
+		55A8FAE31BE4911A0057CF44 /* colorPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */; };
+		55CAAF051BE4A0FE008EE20C /* StoreDataMangager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */; };
 		55F5A3F91BE143FC00DC80F4 /* MSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A3F81BE143FC00DC80F4 /* MSCameraViewController.m */; };
 		55F5A3FC1BE1441300DC80F4 /* MSColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A3FB1BE1441300DC80F4 /* MSColorPickerViewController.m */; };
 		55F5A3FF1BE1451900DC80F4 /* MoodLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A3FE1BE1451900DC80F4 /* MoodLineViewController.m */; };
@@ -113,6 +115,10 @@
 		555BD63C1BC761D200BB61E9 /* SettingScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingScreenViewController.m; sourceTree = "<group>"; };
 		557631D01BDEA4470042F0E0 /* PasscodeHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasscodeHomeViewController.h; sourceTree = "<group>"; };
 		557631D11BDEA4470042F0E0 /* PasscodeHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasscodeHomeViewController.m; sourceTree = "<group>"; };
+		55A8FAE11BE4911A0057CF44 /* colorPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorPickerTableViewCell.h; sourceTree = "<group>"; };
+		55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorPickerTableViewCell.m; sourceTree = "<group>"; };
+		55CAAF031BE4A0FE008EE20C /* StoreDataMangager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDataMangager.h; sourceTree = "<group>"; };
+		55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDataMangager.m; sourceTree = "<group>"; };
 		55F5A3F71BE143FC00DC80F4 /* MSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCameraViewController.h; sourceTree = "<group>"; };
 		55F5A3F81BE143FC00DC80F4 /* MSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCameraViewController.m; sourceTree = "<group>"; };
 		55F5A3FA1BE1441300DC80F4 /* MSColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSColorPickerViewController.h; sourceTree = "<group>"; };
@@ -238,6 +244,8 @@
 			children = (
 				5536AA431BD81D7F00398454 /* AppDataManager.h */,
 				5536AA441BD81D7F00398454 /* AppDataManager.m */,
+				55CAAF031BE4A0FE008EE20C /* StoreDataMangager.h */,
+				55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */,
 			);
 			path = SingleTon;
 			sourceTree = "<group>";
@@ -346,6 +354,8 @@
 				55F5A4011BE1456900DC80F4 /* MoodMapViewController.m */,
 				550F97A41BE29B6F005510F5 /* ColorPickerCollectionViewCell.h */,
 				550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */,
+				55A8FAE11BE4911A0057CF44 /* colorPickerTableViewCell.h */,
+				55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */,
 			);
 			path = MoodShot;
 			sourceTree = "<group>";
@@ -480,6 +490,7 @@
 				555BD63A1BC761AD00BB61E9 /* AlbumViewController.m in Sources */,
 				5536AA451BD81D7F00398454 /* AppDataManager.m in Sources */,
 				555BD6191BC760B600BB61E9 /* ViewController.m in Sources */,
+				55CAAF051BE4A0FE008EE20C /* StoreDataMangager.m in Sources */,
 				37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */,
 				5536AA401BD81D1100398454 /* UPStackMenu.m in Sources */,
 				55F5A4021BE1456900DC80F4 /* MoodMapViewController.m in Sources */,
@@ -494,6 +505,7 @@
 				55F5A4051BE1495100DC80F4 /* MSPreViewViewController.m in Sources */,
 				555BD63D1BC761D200BB61E9 /* SettingScreenViewController.m in Sources */,
 				5536AA2E1BD810A500398454 /* CLHealthInfoViewController.m in Sources */,
+				55A8FAE31BE4911A0057CF44 /* colorPickerTableViewCell.m in Sources */,
 				5536AA251BD8102100398454 /* CheckListViewController.m in Sources */,
 				5536AA351BD81AE100398454 /* CalendarViewController.m in Sources */,
 				55261E2F1BC8C1E900AA3CCD /* QuotesViewController.m in Sources */,

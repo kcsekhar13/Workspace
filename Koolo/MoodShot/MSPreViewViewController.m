@@ -81,7 +81,7 @@
     NSLog(@"Selected Cell = %ld", (long)colorCell.selectedColorIndex);
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MoodLineScreen"] animated:YES];
+    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MSColorPickerScreen"] animated:YES];
 }
 /*
 #pragma mark - Navigation

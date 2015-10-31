@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MSColorPickerViewController : UIViewController
+@interface MSColorPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
+    
+    NSMutableArray *colorTitlesArray;
+}
 
 @end
