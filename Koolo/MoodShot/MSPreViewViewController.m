@@ -23,6 +23,7 @@
     
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     dataManager = [StoreDataMangager sharedInstance];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enableCamera"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -31,6 +32,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = NO;
+    [self.graphPickerCollectionView reloadData];
     [super viewWillAppear:animated];
 }
 
