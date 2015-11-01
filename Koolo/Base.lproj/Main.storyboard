@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="oSc-fh-1cL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="oSc-fh-1cL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -260,42 +260,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="fdd-3N-PaR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="486"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bCO-oj-Dzg" userLabel="GraphColor - Collection View">
-                                <rect key="frame" x="0.0" y="485" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="485" width="320" height="83"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.51253847330000002" blue="0.21549022540000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="contentInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="xVx-XB-X1X">
-                                    <size key="itemSize" width="110" height="75"/>
+                                    <size key="itemSize" width="80" height="75"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="colorCell" id="lbf-ZL-tiY" customClass="ColorPickerCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="3" width="110" height="75"/>
+                                        <rect key="frame" x="0.0" y="4" width="80" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="110" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" id="1HI-0T-4iL">
-                                                    <rect key="frame" x="10" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="15" y="3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vka-cy-g6g">
-                                                    <rect key="frame" x="10" y="55" width="90" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2j1-Nk-ECv">
-                                                    <rect key="frame" x="0.0" y="55" width="100" height="20"/>
+                                                    <rect key="frame" x="0.0" y="55" width="80" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <connections>
@@ -311,7 +308,6 @@
                                         <connections>
                                             <outlet property="colorKeyView" destination="1HI-0T-4iL" id="Iic-GB-ZJO"/>
                                             <outlet property="pickerButton" destination="2j1-Nk-ECv" id="gni-aa-x0P"/>
-                                            <outlet property="title" destination="Vka-cy-g6g" id="s8X-py-KGl"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -326,6 +322,7 @@
                     </view>
                     <connections>
                         <outlet property="graphPickerCollectionView" destination="bCO-oj-Dzg" id="JZi-rS-0uF"/>
+                        <outlet property="imageView" destination="fdd-3N-PaR" id="2HV-zk-oyz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HdQ-cU-kOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -411,12 +408,58 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <animations/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="251" sectionHeaderHeight="28" sectionFooterHeight="28" id="EQS-E4-JHC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PreviewCell" rowHeight="251" id="3M0-Ws-t92" customClass="MoodPreviewCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="251"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3M0-Ws-t92" id="Qfr-xM-u6O">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="meS-Yb-UC2">
+                                                    <rect key="frame" x="35" y="0.0" width="3" height="250"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="VQS-8G-OPT">
+                                                    <rect key="frame" x="17" y="104" width="42" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nAl-tv-KOa">
+                                                    <rect key="frame" x="118" y="45" width="160" height="160"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="moodCellImage" destination="nAl-tv-KOa" id="QXJ-Bb-YNV"/>
+                                            <outlet property="moodColorImage" destination="VQS-8G-OPT" id="suH-Tx-dbE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ATE-ra-ukB" id="bfK-EX-5Nd"/>
+                                    <outlet property="delegate" destination="ATE-ra-ukB" id="CMt-Rk-dMW"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="YB6-oS-B7C" id="abx-UC-HIg"/>
+                        <outlet property="moodLineTableView" destination="EQS-E4-JHC" id="ug6-74-5y7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIs-f7-9i4" userLabel="First Responder" sceneMemberID="firstResponder"/>
