@@ -9,14 +9,7 @@
 #import "CalendarColorPickerViewController.h"
 
 @interface CalendarColorPickerViewController ()
-@property (weak, nonatomic) IBOutlet UIView *yellowView;
-@property (weak, nonatomic) IBOutlet UIView *blackView;
-@property (weak, nonatomic) IBOutlet UIView *redView;
-@property (weak, nonatomic) IBOutlet UIView *grayView;
-@property (weak, nonatomic) IBOutlet UIView *pinkView;
-@property (weak, nonatomic) IBOutlet UIView *orangeView;
-@property (weak, nonatomic) IBOutlet UIView *blueView;
-@property (weak, nonatomic) IBOutlet UIView *skyBlue;
+
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @property (weak, nonatomic) IBOutlet UILabel *mydayLabel;
@@ -37,6 +30,40 @@
     [_mydayLabel.layer setMasksToBounds:YES];
     [_mydayLabel.layer setCornerRadius:25.0f];
     [_mydayLabel setUserInteractionEnabled:YES];
+    
+    float originX = _mydayLabel.frame.origin.x + _mydayLabel.frame.size.width + 10;
+    float originY = _mydayLabel.frame.origin.y + _mydayLabel.frame.size.height + 10;
+    for (int i = 0; i < dataManager.fetchColorsArray.count; i++) {
+        
+        UIButton *colorPickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        if (i < 4) {
+            [colorPickerButton setFrame:CGRectMake(originX, _mydayLabel.frame.origin.y, 50.0, 50.0)];
+            originX = colorPickerButton.frame.origin.x + _mydayLabel.frame.size.width + 10;
+            [colorPickerButton setBackgroundColor:(UIColor *)dataManager.fetchColorsArray[i]];
+            
+        } else {
+            [colorPickerButton setFrame:CGRectMake(_mydayLabel.frame.origin.x, originY, 50.0, 50.0)];
+            originY = colorPickerButton.frame.origin.y + _mydayLabel.frame.size.height + 10;
+            [colorPickerButton setBackgroundColor:(UIColor *)dataManager.fetchColorsArray[i]];
+            
+        }
+        
+        colorPickerButton.tag = i;
+        [colorPickerButton addTarget:self action:@selector(colorSelection:) forControlEvents:UIControlEventTouchUpInside];
+        [colorPickerButton.layer setBorderColor:[(UIColor *)dataManager.fetchColorsArray[i] CGColor]];
+        [colorPickerButton.layer setBorderWidth:2.0f];
+        [colorPickerButton.layer setMasksToBounds:YES];
+        [colorPickerButton.layer setCornerRadius:25.0f];
+        [colorPickerButton setUserInteractionEnabled:YES];
+
+        [self.view addSubview:colorPickerButton];
+        
+    }
+    
+    for (UIView *view in [self.view subviews]) {
+        
+        NSLog(@"View = %@", view);
+    }
     // Do any additional setup after loading the view.
 }
 
@@ -54,10 +81,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+ #pragma mark - UIButton action methods
+
 - (IBAction)colorSelection:(id)sender {
     
     UIButton *button = (UIButton *)sender;
     NSLog(@"Sender = %@ \n withColor Tag %ld", sender, button.tag);
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"calendarColorIndex"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 /*

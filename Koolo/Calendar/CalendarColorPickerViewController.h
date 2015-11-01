@@ -14,4 +14,5 @@
     StoreDataMangager *dataManager;
 }
 
+@property (nonatomic, assign) int selectedIndex;
 @end
