@@ -71,6 +71,9 @@
     [tableViewCell.moodCellImage.layer setBorderWidth:10.0];
     [tableViewCell.moodCellImage.layer setBorderColor:((UIColor*)(dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]])).CGColor];
     [tableViewCell drawBoarderForCell];
+    [tableViewCell.dateLabel setText:[dataManager getDateStringFromDate:[dict  objectForKey:@"FileName"]]];
+    [tableViewCell.dateLabel setBackgroundColor:((UIColor*)(dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]]))];
+    
     return tableViewCell;
     
     

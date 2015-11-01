@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *moodCellImage;
 @property (weak, nonatomic) IBOutlet CustomMoodsImageView *backView;
 @property (weak, nonatomic) UIColor *boarderColor;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 -(void)drawBoarderForCell;
 @end

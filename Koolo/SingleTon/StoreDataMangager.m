@@ -86,6 +86,7 @@ static StoreDataMangager *sharedInstance = nil;
 
 
 
+
 -(NSString*)getDocumentryPath
 {
     
@@ -138,5 +139,25 @@ static StoreDataMangager *sharedInstance = nil;
     NSString *filePathAndDirectory = [documentsDirectory stringByAppendingPathComponent:@"Moods.plist"];
     
     return filePathAndDirectory;
+}
+
+-(NSString*)getDateStringFromDate:(NSString*)string
+{
+    
+    string = [string stringByReplacingOccurrencesOfString:@".png" withString:@""];
+    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+    [dateformate setDateFormat:@"dd-MM-yyyyhh:mm:SS"];
+    NSDate *selectedDate = [dateformate dateFromString:string];
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:selectedDate];
+    NSInteger day = [components day];
+    NSInteger month = [components month];
+    NSInteger year = [components year];
+    
+    NSString *monthName = [[dateformate monthSymbols] objectAtIndex:(month-1)];
+    
+    NSString *dateString = [NSString stringWithFormat:@"%ld %@ %ld", (long)day, monthName, (long)year];
+    
+    return dateString;
 }
 @end

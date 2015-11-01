@@ -24,4 +24,5 @@
 -(NSString*)getDocumentryPath;
 -(void)saveDictionaryToPlist:(NSDictionary*)dict;
 -(NSArray*)getMoodsFromPlist;
+-(NSString*)getDateStringFromDate:(NSString*)string;
 @end
