@@ -28,7 +28,6 @@
 		555BD6161BC760B600BB61E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6151BC760B600BB61E9 /* AppDelegate.m */; };
 		555BD6191BC760B600BB61E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6181BC760B600BB61E9 /* ViewController.m */; };
 		555BD61C1BC760B600BB61E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555BD61A1BC760B600BB61E9 /* Main.storyboard */; };
-		555BD61E1BC760B600BB61E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555BD61D1BC760B600BB61E9 /* Images.xcassets */; };
 		555BD6211BC760B600BB61E9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 555BD61F1BC760B600BB61E9 /* LaunchScreen.xib */; };
 		555BD62D1BC760B700BB61E9 /* KooloTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD62C1BC760B700BB61E9 /* KooloTests.m */; };
 		555BD63A1BC761AD00BB61E9 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6391BC761AD00BB61E9 /* AlbumViewController.m */; };
@@ -51,6 +50,8 @@
 		F33773A31BC9465B00793831 /* CheckListpng.png in Resources */ = {isa = PBXBuildFile; fileRef = F33773A11BC9465B00793831 /* CheckListpng.png */; };
 		F33B7E6E1BC8B92800C37B1D /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = F33B7E6D1BC8B92800C37B1D /* lock.png */; };
 		F33B7E701BC8C6CB00C37B1D /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = F33B7E6F1BC8C6CB00C37B1D /* Camera.png */; };
+		F3BBD92D1BE4CD760087591E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555BD61D1BC760B600BB61E9 /* Images.xcassets */; };
+		F3E7FC581BE5E1B7009DA03C /* MoodPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E7FC571BE5E1B7009DA03C /* MoodPreviewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,8 @@
 		F33773A11BC9465B00793831 /* CheckListpng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckListpng.png; sourceTree = "<group>"; };
 		F33B7E6D1BC8B92800C37B1D /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		F33B7E6F1BC8C6CB00C37B1D /* Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera.png; sourceTree = "<group>"; };
+		F3E7FC561BE5E1B6009DA03C /* MoodPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodPreviewCell.h; sourceTree = "<group>"; };
+		F3E7FC571BE5E1B7009DA03C /* MoodPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodPreviewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +364,8 @@
 				550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */,
 				55A8FAE11BE4911A0057CF44 /* colorPickerTableViewCell.h */,
 				55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */,
+				F3E7FC561BE5E1B6009DA03C /* MoodPreviewCell.h */,
+				F3E7FC571BE5E1B7009DA03C /* MoodPreviewCell.m */,
 			);
 			path = MoodShot;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				F337738D1BC8D1C100793831 /* settings.png in Resources */,
 				F33B7E6E1BC8B92800C37B1D /* lock.png in Resources */,
 				F33773A31BC9465B00793831 /* CheckListpng.png in Resources */,
+				F3BBD92D1BE4CD760087591E /* Images.xcassets in Resources */,
 				555BD61C1BC760B600BB61E9 /* Main.storyboard in Resources */,
 				F337739D1BC8D51300793831 /* SmallKeyBoard.png in Resources */,
 				F33B7E701BC8C6CB00C37B1D /* Camera.png in Resources */,
@@ -474,7 +480,6 @@
 				F337738F1BC8D2C400793831 /* plus.png in Resources */,
 				F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */,
 				F337739F1BC8D51300793831 /* WhitePlus.png in Resources */,
-				555BD61E1BC760B600BB61E9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +508,7 @@
 				5536AA2B1BD8108500398454 /* CLMyHealthViewController.m in Sources */,
 				5536AA311BD810E900398454 /* CLNewGoalViewController.m in Sources */,
 				55F5A3F91BE143FC00DC80F4 /* MSCameraViewController.m in Sources */,
+				F3E7FC581BE5E1B7009DA03C /* MoodPreviewCell.m in Sources */,
 				550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */,
 				373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */,
 				5536AA381BD81AFC00398454 /* NewEventViewController.m in Sources */,
