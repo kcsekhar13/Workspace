@@ -20,4 +20,8 @@
 - (void)updateFetchColorPickerTitlesArray:(NSMutableArray *)newTitlesArray;
 - (UIImage *)returnBackgroundImage;
 - (NSMutableArray *)fetchColors;
+-(NSString*)getStringFromDate:(NSDate*)date;
+-(NSString*)getDocumentryPath;
+-(void)saveDictionaryToPlist:(NSDictionary*)dict;
+-(NSArray*)getMoodsFromPlist;
 @end
