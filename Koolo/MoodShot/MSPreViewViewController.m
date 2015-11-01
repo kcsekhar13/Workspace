@@ -23,6 +23,8 @@
     
     [super viewDidLoad];
     
+    
+    [self.imageView setImage:[UIImage imageWithData:self.selectedImageData]];
     self.automaticallyAdjustsScrollViewInsets = NO;
     dataManager = [StoreDataMangager sharedInstance];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enableCamera"];
@@ -57,7 +59,11 @@
     ColorPickerCollectionViewCell *cell = (ColorPickerCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"colorCell" forIndexPath:indexPath];
     
     //cell.colorKeyView.backgroundColor = colorsArray[indexPath.row];
-    cell.title.text = dataManager.fetchColorPickerTitlesArray[indexPath.row];
+    [cell.pickerButton setTitle:dataManager.fetchColorPickerTitlesArray[indexPath.row] forState:UIControlStateNormal];
+    [cell.pickerButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [cell.colorKeyView.layer setBorderColor:[UIColor clearColor].CGColor];
+    [cell.colorKeyView.layer setCornerRadius:cell.colorKeyView.frame.size.width/2];
+    [cell.colorKeyView.layer setMasksToBounds:YES];
     cell.colorKeyView.backgroundColor = (UIColor *)dataManager.fetchColorsArray[indexPath.row];
     cell.delegate = self;
     cell.selectedColorIndex = indexPath.row;
@@ -77,9 +83,25 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self saveToDB:indexPath];
+
+
+}
+
+-(void)saveToDB:(NSIndexPath*)indexPath
+{
+     
+    NSString *fileName = [NSString stringWithFormat:@"%@.png",[dataManager getStringFromDate:[NSDate date]]];
+     NSString *savedImagePath = [[dataManager getDocumentryPath] stringByAppendingPathComponent:fileName];
+    NSLog(@"%d >>>>>",[self.selectedImageData writeToFile:savedImagePath atomically:YES]);
+    NSString *moodName = dataManager.fetchColorPickerTitlesArray[indexPath.row];
+    NSString *colorIndex = [NSString stringWithFormat:@"%d",(int)indexPath.row];
+    NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:fileName,@"FileName",moodName,@"MoodName",colorIndex,@"ColorIndex",savedImagePath,@"FilePath", nil];
+    [dataManager saveDictionaryToPlist:moodDict];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MoodLineScreen"] animated:YES];
-   
+    
 }
 
 #pragma mark - ColorPickerCollectionViewCell delegate methods
