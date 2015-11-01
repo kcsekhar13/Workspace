@@ -13,5 +13,7 @@
     
     StoreDataMangager *dataManager;
 }
+@property (nonatomic,strong)NSData *selectedImageData;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
