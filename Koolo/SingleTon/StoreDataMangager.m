@@ -74,4 +74,70 @@ static StoreDataMangager *sharedInstance = nil;
     }
     return image;
 }
+
+-(NSString*)getStringFromDate:(NSDate*)date
+{
+    
+    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+    [dateformate setDateFormat:@"dd-MM-yyyyhh:mm:SS"]; // Date formater
+    NSString *dateString = [dateformate stringFromDate:date]; // Convert date to string
+    NSLog(@"date :%@",dateString);
+    return dateString;
+}
+
+
+
+-(NSString*)getDocumentryPath
+{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePathAndDirectory = [documentsDirectory stringByAppendingPathComponent:@"MoodImages"];
+    NSError *error;
+    if (![[NSFileManager defaultManager] createDirectoryAtPath:filePathAndDirectory
+                                   withIntermediateDirectories:NO
+                                                    attributes:nil
+                                                         error:&error])
+    {
+        NSLog(@"Create directory error: %@", error);
+    }
+    
+    return filePathAndDirectory;
+}
+
+-(void)saveDictionaryToPlist:(NSDictionary*)dict
+{
+    
+    NSMutableArray *prevMoodsArray = [[NSMutableArray alloc] initWithArray:[self getMoodsFromPlist]];
+    
+    if (prevMoodsArray == nil) {        
+        prevMoodsArray = [[NSMutableArray alloc] init];
+    }
+    [prevMoodsArray addObject:dict];
+    [prevMoodsArray writeToFile:[self getMoodsFilePath] atomically:YES];
+    
+}
+
+
+-(NSArray*)getMoodsFromPlist
+{
+    
+    
+    NSArray *moodsArray = [[NSArray alloc] initWithContentsOfFile:[self getMoodsFilePath]];
+    
+    return moodsArray;
+
+    
+    
+}
+
+-(NSString *)getMoodsFilePath
+{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePathAndDirectory = [documentsDirectory stringByAppendingPathComponent:@"Moods.plist"];
+    
+    return filePathAndDirectory;
+}
 @end
