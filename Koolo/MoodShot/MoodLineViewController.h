@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "StoreDataMangager.h"
-
+#import "MoodPreviewCell.h"
 
 @interface MoodLineViewController : UIViewController {
     StoreDataMangager *dataManager;
 }
 
+@property (weak, nonatomic) IBOutlet UITableView *moodLineTableView;
+@property (nonatomic, strong)NSArray *moodsArray;
 @end
