@@ -57,8 +57,6 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"Lykkelig",@"Glad",@"Rolig",@"Fremgang",@"sing",@"Legg til humer",@"Legg til humer",@"Rolig",@"sing",nil] forKey:@"colorPickerTitles"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    
-   
 
     return YES;
 }
