@@ -158,14 +158,25 @@
 #pragma mark -  UIImagePickerController Delegate methods
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editInfo {
-    
+        
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
+    NSString *filePathAndDirectory = [documentsDirectory stringByAppendingPathComponent:@"BackgroundImages"];
+    NSError *error;
+    if (![[NSFileManager defaultManager] createDirectoryAtPath:filePathAndDirectory
+                                   withIntermediateDirectories:NO
+                                                    attributes:nil
+                                                         error:&error])
+    {
+        NSLog(@"Create directory error: %@", error);
+    }
+
+    NSString *savedImagePath = [filePathAndDirectory stringByAppendingPathComponent:@"savedImage.png"];
     NSData *imageData = UIImagePNGRepresentation(image);
     [imageData writeToFile:savedImagePath atomically:YES];
     [self dismissViewControllerAnimated:_imagePickerController completion:nil];
     [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 /*

@@ -55,23 +55,22 @@ static StoreDataMangager *sharedInstance = nil;
 - (UIImage *)returnBackgroundImage {
     
     UIImage *image = nil;
-    NSError *error = nil;
-    NSString *stringPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    
-    NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath: stringPath  error:&error];
-    
-    if (filePathsArray.count != 0) {
-        NSString *strFilePath = [filePathsArray objectAtIndex:0];
-        if ([[strFilePath pathExtension] isEqualToString:@"jpg"] || [[strFilePath pathExtension] isEqualToString:@"png"] || [[strFilePath pathExtension] isEqualToString:@"PNG"])
-        {
-            NSString *imagePath = [[stringPath stringByAppendingString:@"/"] stringByAppendingString:strFilePath];
-            NSData *data = [NSData dataWithContentsOfFile:imagePath];
-            if(data)
-            {
-                image = [UIImage imageWithData:data];
-            }
-        }
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePathAndDirectory = [documentsDirectory stringByAppendingPathComponent:@"BackgroundImages"];
+
+    NSError *error;
+    if (![[NSFileManager defaultManager] createDirectoryAtPath:filePathAndDirectory
+                                   withIntermediateDirectories:NO
+                                                    attributes:nil
+                                                         error:&error])
+    {
+        NSLog(@"Create directory error: %@", error);
     }
+    
+    NSString *savedImagePath = [filePathAndDirectory stringByAppendingPathComponent:@"savedImage.png"];
+    image = [UIImage imageWithContentsOfFile:savedImagePath];
+    
     return image;
 }
 
