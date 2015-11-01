@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreDataMangager.h"
 
-@interface CLHealthInfoViewController : UIViewController
+@interface CLHealthInfoViewController : UIViewController {
+    
+    StoreDataMangager *dataManager;
+}
 
 @end

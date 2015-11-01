@@ -9,6 +9,7 @@
 #import "CheckListViewController.h"
 
 @interface CheckListViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end
 
@@ -18,6 +19,14 @@
     
     self.navigationController.navigationBar.hidden = NO;
     [super viewDidLoad];
+    
+    self.title = @"Checklists";
+    dataManager = [StoreDataMangager sharedInstance];
+    UIImage *backgroundImage = dataManager.returnBackgroundImage;
+    if (backgroundImage) {
+        _backgroundImageView.image = backgroundImage;
+    }
+    
     // Do any additional setup after loading the view.
 }
 

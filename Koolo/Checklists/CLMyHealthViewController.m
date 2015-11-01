@@ -9,6 +9,7 @@
 #import "CLMyHealthViewController.h"
 
 @interface CLMyHealthViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end
 
@@ -16,12 +17,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"My Health";
+    dataManager = [StoreDataMangager sharedInstance];
+    UIImage *backgroundImage = dataManager.returnBackgroundImage;
+    if (backgroundImage) {
+        _backgroundImageView.image = backgroundImage;
+    }
+
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithColorSelection)];
+    [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = doneButton;
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -  User defined methods
+
+- (void)doneWithColorSelection {
+    
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

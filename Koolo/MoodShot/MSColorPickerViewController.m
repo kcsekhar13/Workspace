@@ -104,6 +104,9 @@
     colorPickerTableViewCell *cell = (colorPickerTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"TitleCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleTextField.text = [NSString stringWithFormat:@"%@", colorTitlesArray[indexPath.row]];
+    [cell.colorKeyView.layer setBorderColor:[UIColor clearColor].CGColor];
+    [cell.colorKeyView.layer setCornerRadius:cell.colorKeyView.frame.size.width/2];
+    [cell.colorKeyView.layer setMasksToBounds:YES];
     cell.colorKeyView.backgroundColor = (UIColor *)dataManager.fetchColorsArray[indexPath.row];
     cell.delegate = self;
     cell.selectedColorIndex = indexPath.row;

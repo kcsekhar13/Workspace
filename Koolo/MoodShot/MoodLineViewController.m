@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Mood Line";
     dataManager = [StoreDataMangager sharedInstance];
     // Do any additional setup after loading the view.
     

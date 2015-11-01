@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreDataMangager.h"
 
-@interface CLThreeSentenceViewController : UIViewController
+@interface CLThreeSentenceViewController : UIViewController {
+    
+    StoreDataMangager *dataManager;
+}
 
 @end

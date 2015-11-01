@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreDataMangager.h"
 
-@interface CLNewGoalViewController : UIViewController
+@interface CLNewGoalViewController : UIViewController {
+    
+    StoreDataMangager *dataManager;
+}
 
 @end

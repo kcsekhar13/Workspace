@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreDataMangager.h"
 
-@interface CheckListViewController : UIViewController
+@interface CheckListViewController : UIViewController {
+    
+    StoreDataMangager *dataManager;
+}
 
 @end
