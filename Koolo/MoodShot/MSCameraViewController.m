@@ -29,13 +29,12 @@
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"enableCamera"]) {
         dispatch_async(dispatch_queue_create("openPhotosCamera", NULL), ^{
             
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 //hide HUD or activityIndicator
                 _imagePickerController  = [[UIImagePickerController alloc]init];
                 _imagePickerController.delegate = self;
                 //Change source type to Photo library while checking app in simulator
-                _imagePickerController.sourceType =  UIImagePickerControllerSourceTypeCamera;
+                _imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
                 [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"enableCamera"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 [self presentViewController:_imagePickerController animated:YES completion:nil];
@@ -79,16 +78,16 @@
 */
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     /*
      NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
      NSString *documentsDirectory = [paths objectAtIndex:0];
      NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
      NSData *imageData = UIImagePNGRepresentation(image);
      [imageData writeToFile:savedImagePath atomically:YES];*/
-    
+    UIImage *image = (UIImage*) [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData = UIImagePNGRepresentation(image);
     [self dismissViewControllerAnimated:_imagePickerController completion:nil];
-    [self moveToPreviewScreen];
+    [self moveToPreviewScreen:imageData];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     
@@ -96,10 +95,12 @@
     [self.navigationController popViewControllerAnimated:NO];
 }
 
-- (void)moveToPreviewScreen {
+- (void)moveToPreviewScreen:(NSData*)selectedImage {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MSPreviewScreen"] animated:YES];
+    MSPreViewViewController *obj  = [storyboard instantiateViewControllerWithIdentifier:@"MSPreviewScreen"];
+    [obj setSelectedImageData:selectedImage];
+    [self.navigationController pushViewController:obj animated:YES];
 }
 
 @end
