@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "StoreDataMangager.h"
 
-@interface CLThreeSentenceViewController : UIViewController {
+@interface CLThreeSentenceViewController : UIViewController <UITextViewDelegate> {
     
     StoreDataMangager *dataManager;
+    BOOL animationFlag;
+    float animateYPosition;
+    CGRect viewFrame;
+    UIView *inputAccView;
 }
 
 @end
