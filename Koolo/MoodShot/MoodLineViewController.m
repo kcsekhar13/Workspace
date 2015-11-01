@@ -63,17 +63,14 @@
     [tableViewCell.moodColorImage.layer setBorderColor:[UIColor clearColor].CGColor];
     [tableViewCell.moodColorImage.layer setCornerRadius:tableViewCell.moodColorImage.frame.size.width/2];
     [tableViewCell.moodColorImage.layer setMasksToBounds:YES];
-    
-    
-    
-    
     tableViewCell.moodCellImage.image = [UIImage imageWithContentsOfFile:savedImagePath];
+
+    [tableViewCell setBoarderColor:dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]]];
     
-    [tableViewCell.moodCellImage.layer setBorderColor:tableViewCell.moodColorImage.backgroundColor.CGColor];
-    [tableViewCell.moodCellImage.layer setCornerRadius:5];
-    [tableViewCell.moodCellImage.layer setBorderWidth:10.0];
     [tableViewCell.moodCellImage.layer setMasksToBounds:YES];
-    
+    [tableViewCell.moodCellImage.layer setBorderWidth:10.0];
+    [tableViewCell.moodCellImage.layer setBorderColor:((UIColor*)(dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]])).CGColor];
+    [tableViewCell drawBoarderForCell];
     return tableViewCell;
     
     

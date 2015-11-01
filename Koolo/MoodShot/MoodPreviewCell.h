@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomMoodsImageView.h"
 
 @protocol moodsImageTableViewCellDelegate <NSObject>
 
@@ -22,4 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *moodColorImage;
 
 @property (weak, nonatomic) IBOutlet UIImageView *moodCellImage;
+@property (weak, nonatomic) IBOutlet CustomMoodsImageView *backView;
+@property (weak, nonatomic) UIColor *boarderColor;
+
+-(void)drawBoarderForCell;
 @end

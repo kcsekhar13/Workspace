@@ -52,6 +52,7 @@
 		F33B7E701BC8C6CB00C37B1D /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = F33B7E6F1BC8C6CB00C37B1D /* Camera.png */; };
 		F3BBD92D1BE4CD760087591E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555BD61D1BC760B600BB61E9 /* Images.xcassets */; };
 		F3E7FC581BE5E1B7009DA03C /* MoodPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E7FC571BE5E1B7009DA03C /* MoodPreviewCell.m */; };
+		F3E7FC5B1BE618CB009DA03C /* CustomMoodsImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E7FC5A1BE618CB009DA03C /* CustomMoodsImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,8 @@
 		F33B7E6F1BC8C6CB00C37B1D /* Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera.png; sourceTree = "<group>"; };
 		F3E7FC561BE5E1B6009DA03C /* MoodPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodPreviewCell.h; sourceTree = "<group>"; };
 		F3E7FC571BE5E1B7009DA03C /* MoodPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodPreviewCell.m; sourceTree = "<group>"; };
+		F3E7FC591BE618CB009DA03C /* CustomMoodsImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMoodsImageView.h; sourceTree = "<group>"; };
+		F3E7FC5A1BE618CB009DA03C /* CustomMoodsImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMoodsImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +369,8 @@
 				55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */,
 				F3E7FC561BE5E1B6009DA03C /* MoodPreviewCell.h */,
 				F3E7FC571BE5E1B7009DA03C /* MoodPreviewCell.m */,
+				F3E7FC591BE618CB009DA03C /* CustomMoodsImageView.h */,
+				F3E7FC5A1BE618CB009DA03C /* CustomMoodsImageView.m */,
 			);
 			path = MoodShot;
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				5536AA311BD810E900398454 /* CLNewGoalViewController.m in Sources */,
 				55F5A3F91BE143FC00DC80F4 /* MSCameraViewController.m in Sources */,
 				F3E7FC581BE5E1B7009DA03C /* MoodPreviewCell.m in Sources */,
+				F3E7FC5B1BE618CB009DA03C /* CustomMoodsImageView.m in Sources */,
 				550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */,
 				373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */,
 				5536AA381BD81AFC00398454 /* NewEventViewController.m in Sources */,

@@ -20,4 +20,12 @@
     // Configure the view for the selected state
 }
 
+-(void)drawBoarderForCell
+{
+    
+    self.backView.boarderColor = self.boarderColor;
+    [self.backView setNeedsDisplay];
+    
+}
+
 @end
