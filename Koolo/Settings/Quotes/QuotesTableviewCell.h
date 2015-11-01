@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface QuotesTableviewCell:UITableViewCell
-@property(nonatomic, strong) UILabel *mQuoteText;
-@property(nonatomic, strong) UIImageView *mCheckImageView;
+@property(nonatomic, weak) IBOutlet UILabel *mQuoteText;
+@property(nonatomic, weak) IBOutlet UIImageView *mCheckImageView;
 @end

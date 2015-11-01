@@ -20,6 +20,8 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 @property(nonatomic, weak) IBOutlet UITextView *mEditTextView;
 @property(nonatomic, strong) NSMutableArray *mQuotesArray;
 @property(nonatomic, strong) NSMutableString *mQuoteString;
+
+@property (nonatomic, strong) UIView *statusBarView;
 - (IBAction)hideAndShowQuotes:(id)sender;
 
 @end
@@ -37,6 +39,14 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     [self.mEnableSwitch setOn:quotesFlag animated:NO];
     // Do any additional setup after loading the view.
     [self initUI];
+    _mQuotesTableview.separatorStyle= UITableViewCellSeparatorStyleSingleLine;
+    
+    viewFrame = self.view.frame;
+    self.statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    self.statusBarView.backgroundColor = [UIColor whiteColor];
+    self.statusBarView.alpha = 0.0;
+    [self.view addSubview:self.statusBarView];
+    
     [super viewDidLoad];
     
 }
@@ -98,18 +108,14 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *tableViewCellIdentifier = @"tableViewCellIdentifier";
     
-    QuotesTableviewCell *tableViewCell = nil;
+     QuotesTableviewCell *tableViewCell = (QuotesTableviewCell *)[tableView dequeueReusableCellWithIdentifier:@"QuotesCell"];
     
-    if (tableViewCell == nil) {
-        tableViewCell = [(QuotesTableviewCell * )[QuotesTableviewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:tableViewCellIdentifier];
-        tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [tableViewCell.mQuoteText setText:_mQuotesArray[indexPath.row]];
-        [tableViewCell.mCheckImageView setImage:nil];
+    tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [tableViewCell.mQuoteText setText:_mQuotesArray[indexPath.row]];
+    [tableViewCell.mCheckImageView setImage:nil];
+    
         
-    }
-    
     if(previousSelctedIndexPath.row == indexPath.row) {
         
         [tableViewCell.mCheckImageView setImage:[UIImage imageNamed:@"checked"]];
@@ -127,6 +133,8 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     //Set Selected Cell.
+    
+    
     QuotesTableviewCell *selectedCell = nil;
     QuotesTableviewCell *unSelectedCell = nil;
     
@@ -151,17 +159,26 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
+    CGRect frame = self.view.frame;
+    frame.origin.y = -253;
+     _mQuoteString = [[NSMutableString alloc] init];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.frame = frame;
+        
+        [self.statusBarView setFrame:CGRectMake(0, 253, self.view.frame.size.width, 20)];
+        [self.statusBarView setAlpha:1.0];
+        
+        if ([textView isEqual:_mEditTextView]) {
+            [textView setText:nil];
+            [_mEditTextView setFrame:CGRectMake(_mEditTextView.frame.origin.x, _mEditTextView.frame.origin.y, _mEditTextView.frame.size.width, 90)];
+            [UIView commitAnimations];
+            [_mTypeStatusLabel setHidden:FALSE];
+        }
+    }];
 
-    _mQuoteString = [[NSMutableString alloc] init];
-    if ([textView isEqual:_mEditTextView]) {
-        [UIView beginAnimations:@"bucketsOff" context:nil];
-        [UIView setAnimationDuration:0.4];
-        [UIView setAnimationDelegate:self];
-        //position off screen
-        [_mEditTextView setFrame:CGRectMake(16, 247, 220, 90)];
-        [UIView commitAnimations];
-        [_mTypeStatusLabel setHidden:FALSE];
-    }
+   
+    
 }
 
 -(void)textViewDidChange:(UITextView *)textView
@@ -186,16 +203,24 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 
 -(void)textViewDidEndEditing:(UITextView *)textView
 {
-    if ([textView isEqual:_mEditTextView]) {
-        [_mTypeStatusLabel setHidden:TRUE];
-        [textView setText:nil];
-        [UIView beginAnimations:@"bucketsOff" context:nil];
-        [UIView setAnimationDuration:0.4];
-        [UIView setAnimationDelegate:self];
-        //position off screen
-        [_mEditTextView setFrame:CGRectMake(16, 247, 220, 44)];
-        [UIView commitAnimations];
-    }
+    CGRect frame = viewFrame;
+    frame.origin.y = self.navigationController.navigationBar.frame.size.height + 20;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.frame = viewFrame;
+        
+        [self.statusBarView setFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+        [self.statusBarView setAlpha:0.0];
+        
+        if ([textView isEqual:_mEditTextView]) {
+            [_mTypeStatusLabel setHidden:TRUE];
+            [textView setText:nil];
+            [_mEditTextView setFrame:CGRectMake(_mEditTextView.frame.origin.x, _mEditTextView.frame.origin.y, _mEditTextView.frame.size.width, 44)];
+        }
+        
+    }];
+    
+    
     [_mQuotesArray addObject:_mQuoteString];
     [_mQuotesTableview reloadData];
     

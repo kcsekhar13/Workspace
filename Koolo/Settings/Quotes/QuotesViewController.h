@@ -11,6 +11,7 @@
 @interface QuotesViewController : UIViewController {
     
     BOOL quotesFlag;
+    CGRect viewFrame;
 }
 
 @end
