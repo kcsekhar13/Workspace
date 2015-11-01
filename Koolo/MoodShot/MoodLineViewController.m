@@ -19,6 +19,11 @@
     [super viewDidLoad];
     dataManager = [StoreDataMangager sharedInstance];
     // Do any additional setup after loading the view.
+    
+    self.moodsArray = [dataManager getMoodsFromPlist];
+    self.moodLineTableView.backgroundView = nil;
+    self.moodLineTableView.backgroundColor = [UIColor clearColor];
+    self.moodLineTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -37,6 +42,46 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    return self.moodsArray.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSString *tableViewCellIdentifier = @"PreviewCell";
+    MoodPreviewCell *tableViewCell = (MoodPreviewCell * )[tableView dequeueReusableCellWithIdentifier:tableViewCellIdentifier];
+    
+    NSDictionary *dict = [self.moodsArray objectAtIndex:indexPath.row];
+    NSString *savedImagePath = [[dataManager getDocumentryPath] stringByAppendingPathComponent:[dict objectForKey:@"FileName"]];
+    
+    tableViewCell.backgroundColor = [UIColor clearColor];
+    tableViewCell.moodColorImage.backgroundColor = dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]];
+    
+    [tableViewCell.moodColorImage.layer setBorderColor:[UIColor clearColor].CGColor];
+    [tableViewCell.moodColorImage.layer setCornerRadius:tableViewCell.moodColorImage.frame.size.width/2];
+    [tableViewCell.moodColorImage.layer setMasksToBounds:YES];
+    
+    
+    
+    
+    tableViewCell.moodCellImage.image = [UIImage imageWithContentsOfFile:savedImagePath];
+    
+    [tableViewCell.moodCellImage.layer setBorderColor:tableViewCell.moodColorImage.backgroundColor.CGColor];
+    [tableViewCell.moodCellImage.layer setCornerRadius:5];
+    [tableViewCell.moodCellImage.layer setBorderWidth:10.0];
+    [tableViewCell.moodCellImage.layer setMasksToBounds:YES];
+    
+    return tableViewCell;
+    
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return 251.0;
+}
 /*
 #pragma mark - Navigation
 
