@@ -7,6 +7,7 @@
 //
 
 #import "HomeNotificationView.h"
+#import "StoreDataMangager.h"
 
 @implementation HomeNotificationView
 
@@ -24,6 +25,7 @@
 
 -(void)initUI {
     
+    StoreDataMangager *dataManager = [StoreDataMangager sharedInstance];
     NSMutableDictionary *mutableDictionary  =  [[NSUserDefaults standardUserDefaults] objectForKey:@"Notifications"];
     
     if(_mDayLabel == nil) {
@@ -33,7 +35,16 @@
         [_mDayLabel setTextAlignment:NSTextAlignmentCenter];
         [_mDayLabel setFont:[UIFont systemFontOfSize:24.0f]];
         [_mDayLabel setBackgroundColor:[UIColor grayColor]];
-        [_mDayLabel.layer setBorderColor:[[UIColor redColor] CGColor]];
+        
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"]) {
+            int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
+            _mDayLabel.layer.borderColor = [(UIColor *)dataManager.fetchColorsArray[index] CGColor];
+        } else {
+            [_mDayLabel.layer setBorderColor:[[UIColor redColor] CGColor]];
+        }
+        
+        
+        
         [_mDayLabel.layer setBorderWidth:2.0f];
         [_mDayLabel.layer setMasksToBounds:YES];
         [_mDayLabel.layer setCornerRadius:25.0f];

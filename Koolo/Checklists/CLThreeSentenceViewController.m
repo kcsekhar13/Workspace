@@ -50,7 +50,7 @@
     [inputAccView setBackgroundColor:[UIColor lightGrayColor]];
     UIButton *kbDoneButton = [UIButton buttonWithType: UIButtonTypeCustom];
     
-    [kbDoneButton setFrame: CGRectMake(0.0, 0.0, 80.0, 40.0)];
+    [kbDoneButton setFrame: CGRectMake(self.view.frame.size.width - 80.0, 0.0, 80.0, 40.0)];
     // Title.
     [kbDoneButton setTitle: @"Done" forState: UIControlStateNormal];
     // Background color.
@@ -62,8 +62,20 @@
     [inputAccView addSubview:kbDoneButton];
     self.selectedTextView = self.questionOneTextView;
     self.questionOneTextView.inputAccessoryView = inputAccView;
-    self.questionTwoTextView.inputAccessoryView = inputAccView;;
-    self.questionThreeTextView.inputAccessoryView = inputAccView;;
+    self.questionTwoTextView.inputAccessoryView = inputAccView;
+    self.questionThreeTextView.inputAccessoryView = inputAccView;
+    
+    [self.questionOneTextView.layer setMasksToBounds:YES];
+    [self.questionOneTextView.layer setBorderWidth:2.0];
+    [self.questionOneTextView.layer setBorderColor:[UIColor grayColor].CGColor];
+    
+    [self.questionTwoTextView.layer setMasksToBounds:YES];
+    [self.questionTwoTextView.layer setBorderWidth:2.0];
+    [self.questionTwoTextView.layer setBorderColor:[UIColor grayColor].CGColor];
+    
+    [self.questionThreeTextView.layer setMasksToBounds:YES];
+    [self.questionThreeTextView.layer setBorderWidth:2.0];
+    [self.questionThreeTextView.layer setBorderColor:[UIColor grayColor].CGColor];
     
 }
 
