@@ -9,9 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "StoreDataMangager.h"
 
+@protocol NewGoalDelegate <NSObject>
+
+- (void)addNewgoalWithText:(NSString *)goalText;
+
+@end
+
 @interface CLNewGoalViewController : UIViewController {
     
     StoreDataMangager *dataManager;
 }
+
+@property (nonatomic, assign) id <NewGoalDelegate> delegate;
 
 @end

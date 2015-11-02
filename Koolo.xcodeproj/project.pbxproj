@@ -40,6 +40,7 @@
 		55F5A3FF1BE1451900DC80F4 /* MoodLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A3FE1BE1451900DC80F4 /* MoodLineViewController.m */; };
 		55F5A4021BE1456900DC80F4 /* MoodMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A4011BE1456900DC80F4 /* MoodMapViewController.m */; };
 		55F5A4051BE1495100DC80F4 /* MSPreViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A4041BE1495100DC80F4 /* MSPreViewViewController.m */; };
+		55F9172F1BE7F3630007E799 /* CLNewGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F9172E1BE7F3630007E799 /* CLNewGoalTableViewCell.m */; };
 		F337738D1BC8D1C100793831 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F337738C1BC8D1C000793831 /* settings.png */; };
 		F337738F1BC8D2C400793831 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = F337738E1BC8D2C400793831 /* plus.png */; };
 		F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F33773981BC8D51300793831 /* SmallCameraButton.png */; };
@@ -134,6 +135,8 @@
 		55F5A4011BE1456900DC80F4 /* MoodMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodMapViewController.m; sourceTree = "<group>"; };
 		55F5A4031BE1495100DC80F4 /* MSPreViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPreViewViewController.h; sourceTree = "<group>"; };
 		55F5A4041BE1495100DC80F4 /* MSPreViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPreViewViewController.m; sourceTree = "<group>"; };
+		55F9172D1BE7F3630007E799 /* CLNewGoalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLNewGoalTableViewCell.h; sourceTree = "<group>"; };
+		55F9172E1BE7F3630007E799 /* CLNewGoalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLNewGoalTableViewCell.m; sourceTree = "<group>"; };
 		F337738C1BC8D1C000793831 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		F337738E1BC8D2C400793831 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		F33773981BC8D51300793831 /* SmallCameraButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallCameraButton.png; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				5536AA301BD810E900398454 /* CLNewGoalViewController.m */,
 				5536AA261BD8104300398454 /* CLThreeSentenceViewController.h */,
 				5536AA271BD8104300398454 /* CLThreeSentenceViewController.m */,
+				55F9172D1BE7F3630007E799 /* CLNewGoalTableViewCell.h */,
+				55F9172E1BE7F3630007E799 /* CLNewGoalTableViewCell.m */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -532,6 +537,7 @@
 				5536AA411BD81D1100398454 /* UPStackMenuItem.m in Sources */,
 				554310C51BE4D7CC00961E34 /* CalendarColorPickerViewController.m in Sources */,
 				555BD6161BC760B600BB61E9 /* AppDelegate.m in Sources */,
+				55F9172F1BE7F3630007E799 /* CLNewGoalTableViewCell.m in Sources */,
 				5536AA281BD8104300398454 /* CLThreeSentenceViewController.m in Sources */,
 				555BD6131BC760B600BB61E9 /* main.m in Sources */,
 			);

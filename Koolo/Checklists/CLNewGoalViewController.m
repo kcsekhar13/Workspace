@@ -47,6 +47,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - UITextView delegateMethods
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
@@ -70,11 +71,32 @@
 
 - (void)addOn {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.goalTextView.text.length == 0) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Textview field should not be empty." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+        [alert addAction:okAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        if ([self.delegate respondsToSelector:@selector(addNewgoalWithText:)]) {
+            [self.delegate addNewgoalWithText:self.goalTextView.text];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 
 - (void)previousScreen {
     
+    [self.goalTextView resignFirstResponder];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
