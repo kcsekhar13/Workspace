@@ -10,6 +10,9 @@
 
 @interface CheckListViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIButton *myHealthButton;
+@property (weak, nonatomic) IBOutlet UIButton *threeSentence;
+@property (weak, nonatomic) IBOutlet UIButton *readyButton;
 
 @end
 
@@ -27,6 +30,23 @@
         _backgroundImageView.image = backgroundImage;
     }
     
+    [_myHealthButton.layer setBorderColor:[UIColor clearColor].CGColor];
+    [_myHealthButton.layer setCornerRadius:_myHealthButton.frame.size.width/2];
+    _myHealthButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _myHealthButton.titleLabel.numberOfLines = 2;
+    [_myHealthButton.layer setMasksToBounds:YES];
+    
+    [_threeSentence.layer setBorderColor:[UIColor clearColor].CGColor];
+    _threeSentence.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _threeSentence.titleLabel.numberOfLines = 2;
+    [_threeSentence.layer setCornerRadius:_myHealthButton.frame.size.width/2];
+    [_threeSentence.layer setMasksToBounds:YES];
+    
+    [_readyButton.layer setBorderColor:[UIColor clearColor].CGColor];
+    [_readyButton.layer setCornerRadius:_myHealthButton.frame.size.width/2];
+    _readyButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _readyButton.titleLabel.numberOfLines = 2;
+    [_readyButton.layer setMasksToBounds:YES];
     // Do any additional setup after loading the view.
 }
 

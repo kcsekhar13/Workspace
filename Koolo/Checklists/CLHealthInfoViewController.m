@@ -44,7 +44,7 @@
     [_ongoingLabel.layer setCornerRadius:25.0f];
     [_ongoingLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithColorSelection)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithInfo)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -58,9 +58,7 @@
 
 #pragma mark -  User defined methods
 
-- (void)doneWithColorSelection {
-    
-    
+- (void)doneWithInfo {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -13,7 +13,7 @@
 
 @interface CLMyHealthViewController () <NewGoalDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (strong, nonatomic) NSMutableArray *addGoalsArray;
+@property (strong, nonatomic) NSArray *addGoalsArray;
 @property (weak, nonatomic) IBOutlet UIButton *infoGoallButton;
 @property (weak, nonatomic) IBOutlet UITableView *goalsTableView;
 
@@ -25,6 +25,8 @@
     [super viewDidLoad];
     
     self.title = @"My Health";
+    
+    
     self.addGoalsArray = [[NSMutableArray alloc] init];
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
@@ -55,6 +57,7 @@
     
     [super viewWillAppear:animated];
     
+    self.addGoalsArray = dataManager.getMoodShotGoalsFromPlist;
     if (_addGoalsArray.count) {
         [_goalsTableView setHidden:NO];
         [_goalsTableView reloadData];
@@ -73,16 +76,11 @@
     return _addGoalsArray.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 50;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     CLNewGoalTableViewCell *cell = (CLNewGoalTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"GoalCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.goalTextLabel.text = [NSString stringWithFormat:@"%@", _addGoalsArray[indexPath.row]];
+    cell.goalTextLabel.text = [NSString stringWithFormat:@"%@", _addGoalsArray[indexPath.row][@"GoalText"]];
     [cell.goalCellImage.layer setBorderColor:[UIColor clearColor].CGColor];
     [cell.goalCellImage.layer setBackgroundColor:[UIColor colorWithRed:193.0 / 255.0 green:10.0 / 255.0 blue:22.0 / 255.0 alpha:1.0f].CGColor];
     [cell.goalCellImage.layer setCornerRadius:cell.goalCellImage.frame.size.width/2];
@@ -90,6 +88,21 @@
     
     
     return cell;
+}
+
+# pragma mark - UITableViewDelegate methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Fetch yourText for this row from your data source..
+    
+    NSAttributedString *attributedText =
+    [[NSAttributedString alloc] initWithString:_addGoalsArray[indexPath.row][@"GoalText"]
+                                    attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){300, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    return (float)rect.size.height + 20.0;
 }
 
 #pragma mark -  User defined methods
@@ -105,7 +118,10 @@
 - (void)addNewgoalWithText:(NSString *)goalText {
     
     NSLog(@"New goal text = %@", goalText);
-    [self.addGoalsArray addObject:goalText];
+    
+    NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:goalText,@"GoalText",@"Pending",@"GoalStatus", nil];
+    [dataManager saveDictionaryToMoodShotPlist:moodDict];
+    
 }
 
 #pragma mark - Navigation

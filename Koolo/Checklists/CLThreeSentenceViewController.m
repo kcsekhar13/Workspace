@@ -37,7 +37,7 @@
         _backgroundImageView.image = backgroundImage;
     }
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithColorSelection)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithThreeSentences)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
     
@@ -76,6 +76,18 @@
     [self.questionThreeTextView.layer setMasksToBounds:YES];
     [self.questionThreeTextView.layer setBorderWidth:2.0];
     [self.questionThreeTextView.layer setBorderColor:[UIColor grayColor].CGColor];
+    
+    NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"threeSentence"];
+    
+    if (dict == nil) {
+        self.questionOneTextView.text = @"";
+        self.questionTwoTextView.text = @"";
+        self.questionThreeTextView.text = @"";
+    } else {
+        self.questionOneTextView.text = dict[@"SentenceOne"];
+        self.questionTwoTextView.text = dict[@"SentenceTwo"];
+        self.questionThreeTextView.text = dict[@"SentenceThree"];
+    }
     
 }
 
@@ -128,7 +140,24 @@
 
 #pragma mark -  User defined methods
 
-- (void)doneWithColorSelection {
+- (void)doneWithThreeSentences {
+    
+    if (self.questionOneTextView.text.length == 0) {
+        self.questionOneTextView.text = @"";
+    }
+    
+    if (self.questionTwoTextView.text.length == 0) {
+        self.questionTwoTextView.text = @"";
+    }
+    
+    if (self.questionThreeTextView.text.length == 0) {
+        self.questionThreeTextView.text = @"";
+    }
+    
+    NSDictionary *threeSentenceDict = [[NSDictionary alloc] initWithObjectsAndKeys:self.questionOneTextView.text,@"SentenceOne", self.questionTwoTextView.text,@"SentenceTwo", self.questionThreeTextView.text,@"SentenceThree", nil];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:threeSentenceDict forKey:@"threeSentence"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -35,6 +35,8 @@ static StoreDataMangager *sharedInstance = nil;
     return self;
 }
 
+# pragma mark - Fetching colors and Background Image
+
 - (NSMutableArray *)fetchColorPickerTitlesArray {
     
     return self.colorPickerTitleArray;
@@ -74,6 +76,9 @@ static StoreDataMangager *sharedInstance = nil;
     return image;
 }
 
+
+# pragma mark - Moodshot data saving methods
+
 -(NSString*)getStringFromDate:(NSDate*)date
 {
     
@@ -83,9 +88,6 @@ static StoreDataMangager *sharedInstance = nil;
     NSLog(@"date :%@",dateString);
     return dateString;
 }
-
-
-
 
 -(NSString*)getDocumentryPath
 {
@@ -118,18 +120,16 @@ static StoreDataMangager *sharedInstance = nil;
     
 }
 
-
 -(NSArray*)getMoodsFromPlist
 {
-    
     
     NSArray *moodsArray = [[NSArray alloc] initWithContentsOfFile:[self getMoodsFilePath]];
     
     return moodsArray;
-
-    
     
 }
+
+
 
 -(NSString *)getMoodsFilePath
 {
@@ -140,6 +140,8 @@ static StoreDataMangager *sharedInstance = nil;
     
     return filePathAndDirectory;
 }
+
+
 
 -(NSString*)getDateStringFromDate:(NSString*)string
 {
@@ -159,5 +161,39 @@ static StoreDataMangager *sharedInstance = nil;
     NSString *dateString = [NSString stringWithFormat:@"%ld %@ %ld", (long)day, monthName, (long)year];
     
     return dateString;
+}
+
+# pragma mark - Checklist data saving methods
+
+-(NSArray*)getMoodShotGoalsFromPlist
+{
+    
+    NSArray *moodShotGoalsArray = [[NSArray alloc] initWithContentsOfFile:[self getMoodShotGoalsFilePath]];
+    
+    return moodShotGoalsArray;
+    
+}
+
+-(void)saveDictionaryToMoodShotPlist:(NSDictionary*)dict
+{
+    
+    NSMutableArray *prevMoodsArray = [[NSMutableArray alloc] initWithArray:[self getMoodShotGoalsFromPlist]];
+    
+    if (prevMoodsArray == nil) {
+        prevMoodsArray = [[NSMutableArray alloc] init];
+    }
+    [prevMoodsArray addObject:dict];
+    [prevMoodsArray writeToFile:[self getMoodShotGoalsFilePath] atomically:YES];
+    
+}
+
+-(NSString *)getMoodShotGoalsFilePath
+{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePathAndDirectory = [documentsDirectory stringByAppendingPathComponent:@"MoodShot.plist"];
+    
+    return filePathAndDirectory;
 }
 @end

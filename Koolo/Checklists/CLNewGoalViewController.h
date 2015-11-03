@@ -18,6 +18,7 @@
 @interface CLNewGoalViewController : UIViewController {
     
     StoreDataMangager *dataManager;
+    BOOL newGoalFlag;
 }
 
 @property (nonatomic, assign) id <NewGoalDelegate> delegate;

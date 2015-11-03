@@ -21,6 +21,7 @@
     // Do any additional setup after loading the view.
     
     self.title = @"New Goal";
+    newGoalFlag = NO;
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
@@ -53,6 +54,7 @@
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
     self.goalTextView.text = @"";
+    newGoalFlag = YES;
     self.goalTextView.textColor = [UIColor blackColor];
     return YES;
 }
@@ -71,7 +73,7 @@
 
 - (void)addOn {
     
-    if (self.goalTextView.text.length == 0) {
+    if (((self.goalTextView.text.length == 0) || !newGoalFlag)) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Textview field should not be empty." preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* okAction = [UIAlertAction
