@@ -28,10 +28,14 @@
     StoreDataMangager *dataManager = [StoreDataMangager sharedInstance];
     NSMutableDictionary *mutableDictionary  =  [[NSUserDefaults standardUserDefaults] objectForKey:@"Notifications"];
     
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd"];
+    NSLog(@"%@",[dateFormatter stringFromDate:[NSDate date]]);
+    
     if(_mDayLabel == nil) {
         _mDayLabel = [[UILabel alloc] init];
         [_mDayLabel setFrame:CGRectMake(20, 40, 50, 50)];
-        [_mDayLabel setText:@"29"];
+        [_mDayLabel setText:[dateFormatter stringFromDate:[NSDate date]]];
         [_mDayLabel setTextAlignment:NSTextAlignmentCenter];
         [_mDayLabel setFont:[UIFont systemFontOfSize:24.0f]];
         [_mDayLabel setBackgroundColor:[UIColor grayColor]];

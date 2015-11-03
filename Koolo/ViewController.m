@@ -42,7 +42,7 @@
     contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 45, 45)];
     [contentView setBackgroundColor:[UIColor clearColor]];
     [contentView.layer setCornerRadius:6.];
-    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WhitePlus.png"]];
+    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"plus.png"]];
     [icon setContentMode:UIViewContentModeScaleAspectFill];
     [icon setBackgroundColor:[UIColor clearColor]];
     
@@ -59,7 +59,7 @@
     
     UPStackMenuItem *audioItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"CheckListpng.png"] highlightedImage:nil title:nil];
     UPStackMenuItem *pictureItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"Calander.png"] highlightedImage:nil title:nil];
-    UPStackMenuItem *textIcon = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"SmallCameraButton.png"] highlightedImage:nil title:nil];\
+    UPStackMenuItem *textIcon = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"Camera.png"] highlightedImage:nil title:nil];\
     
     
     NSMutableArray *items = [[NSMutableArray alloc] initWithObjects:textIcon,audioItem, pictureItem,nil];
