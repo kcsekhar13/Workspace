@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreDataMangager.h"
 
 @interface PassCodeViewController : UIViewController{
     
-    
+    StoreDataMangager *dataManager;
+    int wrongCount;
 }
 
 @property (nonatomic)int mode;

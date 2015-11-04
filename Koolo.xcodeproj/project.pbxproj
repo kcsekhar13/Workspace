@@ -10,6 +10,7 @@
 		373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373063411BCABBD9004751CA /* HomeNotificationView.m */; };
 		37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */; };
 		550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */; };
+		5511280C1BEA856900F850C6 /* SecretAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */; };
 		55261E2F1BC8C1E900AA3CCD /* QuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55261E2E1BC8C1E900AA3CCD /* QuotesViewController.m */; };
 		55261E341BC8C32C00AA3CCD /* PassCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55261E331BC8C32C00AA3CCD /* PassCodeViewController.m */; };
 		5536AA251BD8102100398454 /* CheckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA241BD8102100398454 /* CheckListViewController.m */; };
@@ -73,6 +74,8 @@
 		37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesTableviewCell.m; sourceTree = "<group>"; };
 		550F97A41BE29B6F005510F5 /* ColorPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewCell.h; sourceTree = "<group>"; };
 		550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewCell.m; sourceTree = "<group>"; };
+		5511280A1BEA856900F850C6 /* SecretAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretAnswerViewController.h; sourceTree = "<group>"; };
+		5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretAnswerViewController.m; sourceTree = "<group>"; };
 		55261E2D1BC8C1E900AA3CCD /* QuotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesViewController.h; sourceTree = "<group>"; };
 		55261E2E1BC8C1E900AA3CCD /* QuotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesViewController.m; sourceTree = "<group>"; };
 		55261E321BC8C32C00AA3CCD /* PassCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassCodeViewController.h; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				55261E331BC8C32C00AA3CCD /* PassCodeViewController.m */,
 				557631D01BDEA4470042F0E0 /* PasscodeHomeViewController.h */,
 				557631D11BDEA4470042F0E0 /* PasscodeHomeViewController.m */,
+				5511280A1BEA856900F850C6 /* SecretAnswerViewController.h */,
+				5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */,
 			);
 			path = Passcode;
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 				550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */,
 				373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */,
 				5536AA381BD81AFC00398454 /* NewEventViewController.m in Sources */,
+				5511280C1BEA856900F850C6 /* SecretAnswerViewController.m in Sources */,
 				557631D21BDEA4470042F0E0 /* PasscodeHomeViewController.m in Sources */,
 				55F5A4051BE1495100DC80F4 /* MSPreViewViewController.m in Sources */,
 				555BD63D1BC761D200BB61E9 /* SettingScreenViewController.m in Sources */,

@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Passcode";
     selectedIndex = 0;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:@"isPassCodeOn"]) {
@@ -52,7 +53,7 @@
         self.answerField.hidden = YES;
     }
     
-    secretQuestions = [[NSArray alloc] initWithObjects:@"What is your favourite color?", @"What is your pet name?", @"Your favourite actor?", @"What is your first mobile company?", @"What is your favourite holiday spot? ", nil];
+    secretQuestions = [[NSArray alloc] initWithObjects:@"What is your favourite color?", @"What is your pet name?", @"Who's your favourite actor?", @"What is your first car?", @"What is your favourite food? ", nil];
     UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     pickerView.showsSelectionIndicator = YES;
     pickerView.dataSource = self;
@@ -70,6 +71,16 @@
     // the middle button is to make the Done button align to right
     [toolBar setItems:[NSArray arrayWithObjects:cancelButton, [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil], doneButton, nil]];
     self.pickerViewTextField.inputAccessoryView = toolBar;
+    
+    UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
+    [leftButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(moveToPasscode)];
+    [rightButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
     // Do any additional setup after loading the view.
 }
 
@@ -164,11 +175,66 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [[NSUserDefaults standardUserDefaults] setObject:self.answerField.text forKey:@"secretAnswer"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if ([self.answerField.text isEqualToString:@""]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Answer field should not be empty." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction
+                                   actionWithTitle:@"OK"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action)
+                                   {
+                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                       
+                                   }];
+        [alert addAction:okAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:self.answerField.text forKey:@"secretAnswer"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self.answerField resignFirstResponder];
+    }
     
-    [self.answerField resignFirstResponder];
+    
     return YES;
+}
+
+#pragma mark - User defined mehtods
+
+- (void)cancelScreen {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)moveToPasscode {
+    
+    if (![self.answerField isHidden]) {
+        if ([self.answerField.text isEqualToString:@""]) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Answer field should not be empty." preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okAction = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action)
+                                       {
+                                           [alert dismissViewControllerAnimated:YES completion:nil];
+                                           
+                                       }];
+            [alert addAction:okAction];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            [[NSUserDefaults standardUserDefaults] setObject:self.answerField.text forKey:@"secretAnswer"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
 }
 /*
 #pragma mark - Navigation

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PasscodeHomeViewController : UIViewController
+
+@interface PasscodeHomeViewController : UIViewController {
+    
+    
+    
+}
 
 @end

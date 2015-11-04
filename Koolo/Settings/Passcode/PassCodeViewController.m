@@ -10,6 +10,7 @@
 
 @interface PassCodeViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UITextField *passcodeField;
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *passWordFields;
 @end
@@ -19,10 +20,20 @@
 - (void)viewDidLoad {
     self.title = @"Passcode";
     [super viewDidLoad];
+    dataManager = [StoreDataMangager sharedInstance];
+    UIImage *backgroundImage = dataManager.returnBackgroundImage;
+    if (backgroundImage) {
+        _backgroundImageView.image = backgroundImage;
+    }
     // Do any additional setup after loading the view.
     [self.passcodeField becomeFirstResponder];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    wrongCount = 0;
+    [super viewWillAppear:animated];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -135,14 +146,21 @@
         
     }
     else{
+        ++wrongCount;
         
+        if (wrongCount == 3) {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"SecretAnswer"] animated:YES];
+        } else {
+            UIAlertView *errorAlert =[[UIAlertView alloc] initWithTitle:@"Koolo" message:@"Wrong Code" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [errorAlert show];
+            
+            [self.passcodeField setText:@""];
+            [self drawTextFields:@""];
+        }
         
-        UIAlertView *errorAlert =[[UIAlertView alloc] initWithTitle:@"Koolo" message:@"Wrong Code" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [errorAlert show];
-        
-        [self.passcodeField setText:@""];
-        [self drawTextFields:@""];
     }
+    
     
     
 }
