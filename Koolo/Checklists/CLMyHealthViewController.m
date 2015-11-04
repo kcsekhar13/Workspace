@@ -98,7 +98,7 @@
     
     NSAttributedString *attributedText =
     [[NSAttributedString alloc] initWithString:_addGoalsArray[indexPath.row][@"GoalText"]
-                                    attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.0f]}];
+                                    attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:20.0f]}];
     CGRect rect = [attributedText boundingRectWithSize:(CGSize){300, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin
                                                context:nil];
