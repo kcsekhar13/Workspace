@@ -7,6 +7,7 @@
 //
 
 #import "CheckListViewController.h"
+#import "CLMyHealthViewController.h"
 
 @interface CheckListViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
@@ -58,14 +59,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    UIButton *button = (UIButton *)sender;
+    
+    if (button.tag == 0) {
+        
+        CLMyHealthViewController *healthViewController = (CLMyHealthViewController *)segue.destinationViewController;
+        
+        healthViewController.viewTitle = @"My Health";
+        healthViewController.rightButtonTitle = @"New Goal";
+        healthViewController.goalFlag = YES;
+        
+    } else if (button.tag == 2) {
+        CLMyHealthViewController *healthViewController = (CLMyHealthViewController *)segue.destinationViewController;
+        
+        healthViewController.viewTitle = @"My Transfer";
+        healthViewController.rightButtonTitle = @"New Transfer";
+        healthViewController.goalFlag = NO;
+    }
 }
-*/
+
 
 @end

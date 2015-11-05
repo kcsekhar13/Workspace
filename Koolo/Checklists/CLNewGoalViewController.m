@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"New Goal";
+    self.title = _titleString;
     newGoalFlag = NO;
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
@@ -36,7 +36,7 @@
     [cancelButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = cancelButton;
     
-    self.goalTextView.text = @"New goal";
+    self.goalTextView.text = _titleString;
     self.goalTextView.textColor = [UIColor lightGrayColor];
     [self.goalTextView.layer setMasksToBounds:YES];
     [self.goalTextView.layer setBorderWidth:2.0];

@@ -14,4 +14,8 @@
     StoreDataMangager *dataManager;
 }
 
+@property(nonatomic, retain) NSString *viewTitle;
+@property(nonatomic, retain) NSString *rightButtonTitle;
+@property(nonatomic, assign) BOOL goalFlag;
+
 @end

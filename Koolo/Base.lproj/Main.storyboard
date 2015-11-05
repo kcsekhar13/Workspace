@@ -666,7 +666,7 @@
                                     <segue destination="fp0-hF-1Ra" kind="push" id="txd-7c-XPx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Ws-Aj-9FM">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Ws-Aj-9FM">
                                 <rect key="frame" x="110" y="260" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <animations/>
@@ -679,7 +679,7 @@
                                     <segue destination="oT3-BS-yMg" kind="push" id="ipb-Ar-m71"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5SD-iC-CQq">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5SD-iC-CQq">
                                 <rect key="frame" x="110" y="410" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <animations/>
@@ -688,6 +688,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="fp0-hF-1Ra" kind="push" id="UoL-wM-7Vr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -1314,4 +1317,7 @@
         <image name="SmallCameraButton.png" width="40" height="40"/>
         <image name="settings.png" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="txd-7c-XPx"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"My Health";
+    self.title = self.viewTitle;
     
     
     self.addGoalsArray = [[NSMutableArray alloc] init];
@@ -41,7 +41,7 @@
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    UIBarButtonItem* newGoalButton = [[UIBarButtonItem alloc] initWithTitle:@"New goal" style:UIBarButtonItemStylePlain target:self action:@selector(moveToNewGoalScreen)];
+    UIBarButtonItem* newGoalButton = [[UIBarButtonItem alloc] initWithTitle:self.rightButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToNewGoalScreen)];
     [newGoalButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = newGoalButton;
     
@@ -57,7 +57,12 @@
     
     [super viewWillAppear:animated];
     
-    self.addGoalsArray = dataManager.getMoodShotGoalsFromPlist;
+    if (self.goalFlag) {
+        self.addGoalsArray = dataManager.getMoodShotGoalsFromPlist;
+    } else {
+        self.addGoalsArray = dataManager.getReadyTransferDataFromPlist;
+    }
+    
     if (_addGoalsArray.count) {
         [_goalsTableView setHidden:NO];
         [_goalsTableView reloadData];
@@ -120,7 +125,13 @@
     NSLog(@"New goal text = %@", goalText);
     
     NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:goalText,@"GoalText",@"Pending",@"GoalStatus", nil];
-    [dataManager saveDictionaryToMoodShotPlist:moodDict];
+    
+    if (self.goalFlag) {
+        [dataManager saveDictionaryToMoodShotPlist:moodDict];
+    } else {
+        [dataManager saveDictionaryToReadyTransferPlist:moodDict];
+    }
+    
     
 }
 
@@ -130,6 +141,12 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     CLNewGoalViewController *newgoalViewController = (CLNewGoalViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CLNewGoalScreen"];
+    
+    if (self.goalFlag) {
+        newgoalViewController.titleString = @"New Goal";
+    } else {
+        newgoalViewController.titleString = @"New Transfer";
+    }
     newgoalViewController.delegate = self;
     [self.navigationController pushViewController:newgoalViewController animated:YES];
 }

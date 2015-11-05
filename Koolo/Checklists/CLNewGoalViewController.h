@@ -22,5 +22,6 @@
 }
 
 @property (nonatomic, assign) id <NewGoalDelegate> delegate;
+@property (nonatomic, strong) NSString *titleString;
 
 @end

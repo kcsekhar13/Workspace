@@ -29,4 +29,9 @@
 -(NSArray*)getMoodShotGoalsFromPlist;
 -(void)saveDictionaryToMoodShotPlist:(NSDictionary*)dict;
 -(NSString *)getMoodShotGoalsFilePath;
+
+-(NSArray*)getReadyTransferDataFromPlist;
+-(void)saveDictionaryToReadyTransferPlist:(NSDictionary*)dict;
+-(NSString *)getReadyTransferFilePath;
+
 @end

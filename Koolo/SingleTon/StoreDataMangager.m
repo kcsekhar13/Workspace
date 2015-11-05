@@ -163,7 +163,7 @@ static StoreDataMangager *sharedInstance = nil;
     return dateString;
 }
 
-# pragma mark - Checklist data saving methods
+# pragma mark - Checklist New goal data saving methods
 
 -(NSArray*)getMoodShotGoalsFromPlist
 {
@@ -196,4 +196,39 @@ static StoreDataMangager *sharedInstance = nil;
     
     return filePathAndDirectory;
 }
+
+# pragma mark - Checklist Ready transfer data saving methods
+
+-(NSArray*)getReadyTransferDataFromPlist
+{
+    
+    NSArray *moodShotGoalsArray = [[NSArray alloc] initWithContentsOfFile:[self getReadyTransferFilePath]];
+    
+    return moodShotGoalsArray;
+    
+}
+
+-(void)saveDictionaryToReadyTransferPlist:(NSDictionary*)dict
+{
+    
+    NSMutableArray *prevMoodsArray = [[NSMutableArray alloc] initWithArray:[self getReadyTransferDataFromPlist]];
+    
+    if (prevMoodsArray == nil) {
+        prevMoodsArray = [[NSMutableArray alloc] init];
+    }
+    [prevMoodsArray addObject:dict];
+    [prevMoodsArray writeToFile:[self getReadyTransferFilePath] atomically:YES];
+    
+}
+
+-(NSString *)getReadyTransferFilePath
+{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePathAndDirectory = [documentsDirectory stringByAppendingPathComponent:@"ReadyTransfer.plist"];
+    
+    return filePathAndDirectory;
+}
+
 @end
