@@ -23,12 +23,16 @@
     
     [super viewDidLoad];
     
+    self.title = @"Select Humor Color";
+    
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Return" style:UIBarButtonItemStylePlain target:self action:@selector(backToMoodLine)];
+    [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = doneButton;
+    [self.navigationItem setHidesBackButton:YES animated:NO];
     
     [self.imageView setImage:[UIImage imageWithData:self.selectedImageData]];
     self.automaticallyAdjustsScrollViewInsets = NO;
     dataManager = [StoreDataMangager sharedInstance];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enableCamera"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     // Do any additional setup after loading the view.
 }
 
@@ -113,6 +117,11 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MSColorPickerScreen"] animated:YES];
+}
+
+- (void)backToMoodLine {
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 /*
 #pragma mark - Navigation

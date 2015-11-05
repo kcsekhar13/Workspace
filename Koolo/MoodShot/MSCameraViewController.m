@@ -62,20 +62,16 @@
 #pragma mark -  UIImagePickerController Delegate methods
 
 // Uncomment this code if your checking app in simulator
-/*
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editInfo {
     
  
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
-//    NSString *documentsDirectory = [paths objectAtIndex:0];
-//    NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
-//    NSData *imageData = UIImagePNGRepresentation(image);
-  //  [imageData writeToFile:savedImagePath atomically:YES];
+    NSData *imageData = UIImagePNGRepresentation(image);
     [self dismissViewControllerAnimated:_imagePickerController completion:nil];
-    [self moveToPreviewScreen];
+    [self moveToPreviewScreen:imageData];
     
 }
-*/
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     /*

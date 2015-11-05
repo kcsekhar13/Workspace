@@ -148,9 +148,8 @@
     //id controller = nil;
     switch (index) {
         case 0:
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"enableCamera"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CameraScreen"] animated:YES];
+            
+            [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MoodLineScreen"] animated:YES];
             
             break;
         case 1:

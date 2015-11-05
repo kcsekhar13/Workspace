@@ -10,7 +10,7 @@
 #import "StoreDataMangager.h"
 #import "MoodPreviewCell.h"
 
-@interface MoodLineViewController : UIViewController {
+@interface MoodLineViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate> {
     StoreDataMangager *dataManager;
 }
 

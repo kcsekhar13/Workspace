@@ -7,9 +7,11 @@
 //
 
 #import "MoodLineViewController.h"
+#import "MSPreViewViewController.h"
 
 @interface MoodLineViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
 @end
 
@@ -19,22 +21,28 @@
     [super viewDidLoad];
     self.title = @"Mood Line";
     dataManager = [StoreDataMangager sharedInstance];
+    UIImage *backgroundImage = dataManager.returnBackgroundImage;
+    if (backgroundImage) {
+        _backgroundImageView.image = backgroundImage;
+    }
     // Do any additional setup after loading the view.
     
     self.moodsArray = [dataManager getMoodsFromPlist];
     self.moodLineTableView.backgroundView = nil;
     self.moodLineTableView.backgroundColor = [UIColor clearColor];
     self.moodLineTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(backToHomeScreen)];
+    [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = doneButton;
+    [self.navigationItem setHidesBackButton:YES animated:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     self.navigationController.navigationBar.hidden = NO;
-    UIImage *backgroundImage = dataManager.returnBackgroundImage;
-    if (backgroundImage) {
-        _backgroundImageView.image = backgroundImage;
-    }
+    
     
 }
 
@@ -83,6 +91,46 @@
     
     return 251.0;
 }
+
+#pragma mark -  UIImagePickerController Delegate methods
+
+// Uncomment this code if your checking app in simulator
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editInfo {
+    
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [self dismissViewControllerAnimated:_imagePickerController completion:nil];
+    [self moveToPreviewScreen:imageData];
+    
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    /*
+     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
+     NSString *documentsDirectory = [paths objectAtIndex:0];
+     NSString *savedImagePath = [documentsDirectory stringByAppendingPathComponent:@"savedImage.png"];
+     NSData *imageData = UIImagePNGRepresentation(image);
+     [imageData writeToFile:savedImagePath atomically:YES];*/
+    UIImage *image = (UIImage*) [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [self dismissViewControllerAnimated:_imagePickerController completion:nil];
+    [self moveToPreviewScreen:imageData];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [self dismissViewControllerAnimated:_imagePickerController completion:nil];
+}
+
+- (void)moveToPreviewScreen:(NSData*)selectedImage {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    MSPreViewViewController *obj  = [storyboard instantiateViewControllerWithIdentifier:@"MSPreviewScreen"];
+    [obj setSelectedImageData:selectedImage];
+    [self.navigationController pushViewController:obj animated:NO];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -92,5 +140,35 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)launchCamera:(id)sender {
+    dispatch_async(dispatch_queue_create("openPhotosCamera", NULL), ^{
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //hide HUD or activityIndicator
+            _imagePickerController  = [[UIImagePickerController alloc]init];
+            _imagePickerController.delegate = self;
+            //Change source type to Photo library while checking app in simulator
+            _imagePickerController.sourceType =  UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:_imagePickerController animated:YES completion:nil];
+        });
+    });
+}
+- (IBAction)launchAlbum:(id)sender {
+    
+    dispatch_async(dispatch_queue_create("openPhotosCamera", NULL), ^{
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //hide HUD or activityIndicator
+            _imagePickerController  = [[UIImagePickerController alloc]init];
+            _imagePickerController.delegate = self;
+            //Change source type to Photo library while checking app in simulator
+            _imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:_imagePickerController animated:YES completion:nil];
+        });
+    });
+}
 
+- (void)backToHomeScreen {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 @end
