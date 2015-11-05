@@ -37,6 +37,25 @@
         _backgroundImageView.image = backgroundImage;
     }
     
+    // create blur effect
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
+    // create vibrancy effect
+    UIVibrancyEffect *vibrancy = [UIVibrancyEffect effectForBlurEffect:blur];
+    
+    // add blur to an effect view
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc]initWithEffect:blur];
+    effectView.frame = self.view.frame;
+    
+    // add vibrancy to yet another effect view
+    UIVisualEffectView *vibrantView = [[UIVisualEffectView alloc]initWithEffect:vibrancy];
+    vibrantView.frame = self.view.frame;
+    effectView.alpha = 0.9;
+    vibrantView.alpha = 0.9;
+    // add both effect views to the image view
+    [self.backgroundImageView addSubview:effectView];
+    [self.backgroundImageView addSubview:vibrantView];
+    
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithThreeSentences)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;

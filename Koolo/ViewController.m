@@ -28,6 +28,25 @@
     // Do any additional setup after loading the view, typically from a nib.
     dataManager = [StoreDataMangager sharedInstance];
     
+    // create blur effect
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
+    // create vibrancy effect
+    UIVibrancyEffect *vibrancy = [UIVibrancyEffect effectForBlurEffect:blur];
+    
+    // add blur to an effect view
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc]initWithEffect:blur];
+    effectView.frame = self.view.frame;
+    
+    // add vibrancy to yet another effect view
+    UIVisualEffectView *vibrantView = [[UIVisualEffectView alloc]initWithEffect:vibrancy];
+    vibrantView.frame = self.view.frame;
+    effectView.alpha = 0.9;
+    vibrantView.alpha = 0.9;
+    // add both effect views to the image view
+    [self.backgroundImageView addSubview:effectView];
+    [self.backgroundImageView addSubview:vibrantView];
+    
     [self createDefaultMenuView];
 }
 
@@ -98,7 +117,9 @@
     if (backgroundImage) {
         _backgroundImageView.image = backgroundImage;
     }
-       
+    
+    
+    
     if(_mNoteView == nil) {
         _mNoteView = [[HomeNotificationView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2)];
         _mNoteView.delegate = self;
