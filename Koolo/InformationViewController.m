@@ -28,6 +28,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
+    
+    float width = [UIScreen mainScreen].bounds.size.width;
+    float height = [UIScreen mainScreen].bounds.size.height;
+    [self.cameraButton setBackgroundImage:[UIImage imageNamed:@"lock.png"] forState:UIControlStateNormal];
+    [self.cameraButton setCenter:CGPointMake((width/2), (height/2))];
+    
+    /*
     // Do any additional setup after loading the view.
     UISwipeGestureRecognizer * swipeleft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeleft:)];
     swipeleft.direction=UISwipeGestureRecognizerDirectionLeft;
@@ -35,7 +42,7 @@
     
     UISwipeGestureRecognizer * swiperight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swiperight:)];
     swiperight.direction=UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:swiperight];
+    [self.view addGestureRecognizer:swiperight]; */
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -116,6 +123,7 @@
 
 - (IBAction)pushToNextView:(id)sender {
     
+    /*
     if (self.pageController.currentPage == 1) {
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"InfoCompleted"];
@@ -124,6 +132,12 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"HomeScreen"] animated:YES];
         
-    }
+    }*/
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"InfoCompleted"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"HomeScreen"] animated:YES];
 }
 @end

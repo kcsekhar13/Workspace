@@ -107,7 +107,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <animations/>
                             </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" id="p4V-qG-KdR">
+                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" id="p4V-qG-KdR">
                                 <rect key="frame" x="141" y="535" width="39" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <animations/>
@@ -123,7 +123,7 @@
                                     <action selector="pushToNextView:" destination="Ekf-eS-GY2" eventType="touchUpInside" id="38e-ck-HpH"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="fpZ-jd-y9U">
+                            <view hidden="YES" contentMode="scaleToFill" id="fpZ-jd-y9U">
                                 <rect key="frame" x="24" y="279" width="280" height="278"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
