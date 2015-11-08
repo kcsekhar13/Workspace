@@ -129,7 +129,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         
     }
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(deleteGuesture:)];
-    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
     [tableViewCell.contentView addGestureRecognizer:swipeGesture];
     tableViewCell.contentView.tag = indexPath.row;
     
