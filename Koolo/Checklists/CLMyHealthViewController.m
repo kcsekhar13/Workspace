@@ -118,6 +118,16 @@
     
     cell.goalCellImage.center = CGPointMake(cell.goalCellImage.center.x, (height/2));
 
+    if ([[dict objectForKey:@"Hidden"] isEqualToString:@"YES"]) {
+        
+        [cell.goalCellImage setHidden:YES];
+        
+    }
+    else{
+        
+        [cell.goalCellImage setHidden:NO];
+
+    }
    
     UITapGestureRecognizer *tapGuesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedOnStatusButton:)];
     [cell.goalCellImage addGestureRecognizer:tapGuesture];
@@ -174,7 +184,7 @@
     
     NSLog(@"New goal text = %@", goalText);
     
-    NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:goalText,@"GoalText",@"Pending",@"GoalStatus", nil];
+    NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:goalText,@"GoalText",@"Pending",@"GoalStatus",@"NO",@"Hidden", nil];
     
     if (self.goalFlag) {
         [dataManager saveDictionaryToMoodShotPlist:moodDict];
@@ -264,17 +274,43 @@
 {
     
     UIView *view = swipeGesture.view;
+//    NSMutableArray *allGoals = [[NSMutableArray alloc] initWithArray:_addGoalsArray];
+//    [allGoals removeObjectAtIndex:view.tag];
+//    _addGoalsArray = allGoals;
+//    if (self.goalFlag) {
+//        [[StoreDataMangager sharedInstance] updateMoodsArray:allGoals];
+//    } else {
+//        [[StoreDataMangager sharedInstance] updateReadyArray:allGoals];
+//    }
+//    
+//    [_goalsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:view.tag inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+//    [_goalsTableView reloadData];
+    
+    
+    int index = (int)view.tag;
     NSMutableArray *allGoals = [[NSMutableArray alloc] initWithArray:_addGoalsArray];
-    [allGoals removeObjectAtIndex:view.tag];
-    _addGoalsArray = allGoals;
+    NSMutableDictionary *dictionary = (NSMutableDictionary*)[_addGoalsArray objectAtIndex:index];
+    [allGoals replaceObjectAtIndex:index withObject:dictionary];
+    CLNewGoalTableViewCell *cell  = (CLNewGoalTableViewCell*)[_goalsTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+
+    if ([[dictionary objectForKey:@"Hidden"] isEqualToString:@"YES"]) {
+        
+        [dictionary setObject:@"NO" forKey:@"Hidden"];
+        [cell.goalCellImage setHidden:NO];
+    }
+    else{
+        
+        [dictionary setObject:@"YES" forKey:@"Hidden"];
+        [cell.goalCellImage setHidden:YES];
+
+    }
+
     if (self.goalFlag) {
         [[StoreDataMangager sharedInstance] updateMoodsArray:allGoals];
     } else {
         [[StoreDataMangager sharedInstance] updateReadyArray:allGoals];
     }
     
-    [_goalsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:view.tag inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
-    [_goalsTableView reloadData];
 }
 
 @end

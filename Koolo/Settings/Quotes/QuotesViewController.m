@@ -47,6 +47,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     self.statusBarView.alpha = 0.0;
     [self.view addSubview:self.statusBarView];
     
+    
     [super viewDidLoad];
     
 }
@@ -127,6 +128,11 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         [tableViewCell.mCheckImageView setImage:nil];
         
     }
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(deleteGuesture:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    [tableViewCell.contentView addGestureRecognizer:swipeGesture];
+    tableViewCell.contentView.tag = indexPath.row;
+    
     return tableViewCell;
 }
 
@@ -156,6 +162,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
     
 }
+
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
@@ -273,7 +280,27 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     }
 }
 
+-(void)deleteGuesture:(UISwipeGestureRecognizer*)swipeGesture
+{
+    UIView *view = swipeGesture.view;
 
+    if (_mQuotesArray.count == 1 || (previousSelctedIndexPath == [NSIndexPath indexPathForRow:view.tag inSection:0])) {
+        
+        return;
+    }
+    
+    if (previousSelctedIndexPath.row > view.tag) {
+        
+        previousSelctedIndexPath = [NSIndexPath indexPathForRow:previousSelctedIndexPath.row-1 inSection:0];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(int)previousSelctedIndexPath.row] forKey:@"SelectedIndex"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    [_mQuotesArray removeObjectAtIndex:view.tag];
+    [[NSUserDefaults standardUserDefaults] setObject:_mQuotesArray forKey:@"Quotes"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [_mQuotesTableview deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:view.tag inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [_mQuotesTableview reloadData];
+}
 /*
 #pragma mark - Navigation
 
