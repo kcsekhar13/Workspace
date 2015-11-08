@@ -104,13 +104,28 @@
     
     CLNewGoalTableViewCell *cell = (CLNewGoalTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"GoalCell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.goalTextLabel.text = [NSString stringWithFormat:@"%@", _addGoalsArray[indexPath.row][@"GoalText"]];
+    
+    NSDictionary *dict = _addGoalsArray[indexPath.row];
+    cell.goalTextLabel.text = [NSString stringWithFormat:@"%@", [dict objectForKey:@"GoalText"]];
     [cell.goalCellImage.layer setBorderColor:[UIColor clearColor].CGColor];
     [cell.goalCellImage.layer setBackgroundColor:[UIColor colorWithRed:193.0 / 255.0 green:10.0 / 255.0 blue:22.0 / 255.0 alpha:1.0f].CGColor];
+    [cell.goalCellImage setTag:indexPath.row];
     [cell.goalCellImage.layer setCornerRadius:cell.goalCellImage.frame.size.width/2];
     [cell.goalCellImage.layer setMasksToBounds:YES];
+    [cell setStatus:[dict objectForKey:@"GoalStatus"]];
     
+    CGFloat height = [self getHeightofRow:indexPath];
     
+    cell.goalCellImage.center = CGPointMake(cell.goalCellImage.center.x, (height/2));
+
+   
+    UITapGestureRecognizer *tapGuesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedOnStatusButton:)];
+    [cell.goalCellImage addGestureRecognizer:tapGuesture];
+    
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(deleteGuesture:)];
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    [cell.contentView addGestureRecognizer:swipeGesture];
+    cell.contentView.tag = indexPath.row;
     return cell;
 }
 
@@ -120,15 +135,31 @@
 {
     // Fetch yourText for this row from your data source..
     
+    return [self getHeightofRow:indexPath];
+    
+}
+
+
+-(CGFloat)getHeightofRow:(NSIndexPath*)indexPath
+{
+    
     NSAttributedString *attributedText =
     [[NSAttributedString alloc] initWithString:_addGoalsArray[indexPath.row][@"GoalText"]
                                     attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:20.0f]}];
     CGRect rect = [attributedText boundingRectWithSize:(CGSize){300, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin
                                                context:nil];
-    return (float)rect.size.height + 20.0;
+    
+    if ((float)rect.size.height < 100) {
+        
+        return 100;
+    }
+    else{
+        
+        return (float)rect.size.height + 20.0;
+        
+    }
 }
-
 #pragma mark -  User defined methods
 
 - (void)doneWithColorSelection {
@@ -181,5 +212,69 @@
     }
 }
 
+
+- (IBAction)tappedOnStatusButton:(id)sender {
+    
+    NSLog(@"%@",sender);
+    
+    UITapGestureRecognizer *taper = (UITapGestureRecognizer*)sender;
+    UIView *view = taper.view;
+    int tag = (int)view.tag;
+    
+    NSMutableArray *allGoals = [[NSMutableArray alloc] initWithArray:_addGoalsArray];
+    NSMutableDictionary *dictionary = (NSMutableDictionary*)[_addGoalsArray objectAtIndex:tag];
+    NSString *nextStatus = [self getNextStatus:[dictionary objectForKey:@"GoalStatus"]];
+    [dictionary setObject:nextStatus forKey:@"GoalStatus"];
+    [allGoals replaceObjectAtIndex:tag withObject:dictionary];
+    
+    if (self.goalFlag) {
+        [[StoreDataMangager sharedInstance] updateMoodsArray:allGoals];
+    } else {
+        [[StoreDataMangager sharedInstance] updateReadyArray:allGoals];
+    }
+    
+    CLNewGoalTableViewCell *cell  = (CLNewGoalTableViewCell*)[_goalsTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tag inSection:0]];
+    [cell setStatus:nextStatus];
+    
+    
+}
+
+
+-(NSString*)getNextStatus:(NSString*)statusString
+{
+    
+    if ([statusString isEqualToString:@"Pending"]) {
+        
+        return @"Started";
+    }
+    else if ([statusString isEqualToString:@"Started"]) {
+        
+        return @"Completed";
+    }
+    else if ([statusString isEqualToString:@"Completed"]) {
+        
+        return @"Completed";
+    }
+    
+    return nil;
+}
+
+
+-(void)deleteGuesture:(UISwipeGestureRecognizer*)swipeGesture
+{
+    
+    UIView *view = swipeGesture.view;
+    NSMutableArray *allGoals = [[NSMutableArray alloc] initWithArray:_addGoalsArray];
+    [allGoals removeObjectAtIndex:view.tag];
+    _addGoalsArray = allGoals;
+    if (self.goalFlag) {
+        [[StoreDataMangager sharedInstance] updateMoodsArray:allGoals];
+    } else {
+        [[StoreDataMangager sharedInstance] updateReadyArray:allGoals];
+    }
+    
+    [_goalsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:view.tag inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [_goalsTableView reloadData];
+}
 
 @end

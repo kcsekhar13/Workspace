@@ -17,5 +17,6 @@
 @property(nonatomic, retain) NSString *viewTitle;
 @property(nonatomic, retain) NSString *rightButtonTitle;
 @property(nonatomic, assign) BOOL goalFlag;
+- (IBAction)tappedOnStatusButton:(id)sender;
 
 @end

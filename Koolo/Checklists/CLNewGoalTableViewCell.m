@@ -20,4 +20,25 @@
     // Configure the view for the selected state
 }
 
+-(void)setStatus:(NSString*)status
+{
+    
+    _status = status;
+    
+    if ([status isEqualToString:@"Pending"]) {
+        
+        [self.goalCellImage setBackgroundColor:[UIColor redColor]];
+    }
+    else if ([status isEqualToString:@"Started"]) {
+        
+        [self.goalCellImage setBackgroundColor:[UIColor yellowColor]];
+    }
+    else if ([status isEqualToString:@"Completed"]) {
+        
+        [self.goalCellImage setBackgroundColor:[UIColor greenColor]];
+    }
+    
+    
+}
+
 @end

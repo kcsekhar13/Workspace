@@ -33,5 +33,6 @@
 -(NSArray*)getReadyTransferDataFromPlist;
 -(void)saveDictionaryToReadyTransferPlist:(NSDictionary*)dict;
 -(NSString *)getReadyTransferFilePath;
-
+-(void)updateMoodsArray:(NSArray*)totalArray;
+-(void)updateReadyArray:(NSArray*)totalArray;
 @end

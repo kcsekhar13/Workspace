@@ -178,13 +178,26 @@ static StoreDataMangager *sharedInstance = nil;
 {
     
     NSMutableArray *prevMoodsArray = [[NSMutableArray alloc] initWithArray:[self getMoodShotGoalsFromPlist]];
-    
     if (prevMoodsArray == nil) {
         prevMoodsArray = [[NSMutableArray alloc] init];
     }
     [prevMoodsArray addObject:dict];
     [prevMoodsArray writeToFile:[self getMoodShotGoalsFilePath] atomically:YES];
     
+}
+
+-(void)updateMoodsArray:(NSArray*)totalArray
+{
+    
+    [totalArray  writeToFile:[self getMoodShotGoalsFilePath] atomically:YES];
+    
+}
+
+-(void)updateReadyArray:(NSArray*)totalArray
+{
+    
+    [totalArray  writeToFile:[self getReadyTransferFilePath] atomically:YES];
+
 }
 
 -(NSString *)getMoodShotGoalsFilePath

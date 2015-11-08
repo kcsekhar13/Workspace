@@ -50,6 +50,8 @@
     [self.backgroundImageView addSubview:effectView];
     [self.backgroundImageView addSubview:vibrantView];
     
+    
+    
     [_myHealthButton.layer setBorderColor:[UIColor clearColor].CGColor];
     [_myHealthButton.layer setCornerRadius:_myHealthButton.frame.size.width/2];
     _myHealthButton.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -73,6 +75,14 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    int count = (int)(dataManager.getMoodShotGoalsFromPlist.count);
+    [_myHealthButton setTitle:[NSString stringWithFormat:@"My Health %d/%d",0,count] forState:UIControlStateNormal];
+    
+    int readyCount = (int)(dataManager.getReadyTransferDataFromPlist.count);
+    [_readyButton setTitle:[NSString stringWithFormat:@"Ready for transfer %d/%d",0,readyCount] forState:UIControlStateNormal];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -56,10 +56,10 @@
     self.navigationItem.leftBarButtonItem = cancelButton;
     
     self.goalTextView.text = _titleString;
-    self.goalTextView.textColor = [UIColor lightGrayColor];
+    self.goalTextView.textColor = [UIColor whiteColor];
     [self.goalTextView.layer setMasksToBounds:YES];
     [self.goalTextView.layer setBorderWidth:2.0];
-    [self.goalTextView.layer setBorderColor:[UIColor grayColor].CGColor];
+    [self.goalTextView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,7 +74,7 @@
 {
     self.goalTextView.text = @"";
     newGoalFlag = YES;
-    self.goalTextView.textColor = [UIColor blackColor];
+    self.goalTextView.textColor = [UIColor whiteColor];
     return YES;
 }
 
