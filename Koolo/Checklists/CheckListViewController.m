@@ -77,11 +77,40 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    int count = (int)(dataManager.getMoodShotGoalsFromPlist.count);
-    [_myHealthButton setTitle:[NSString stringWithFormat:@"My Health %d/%d",0,count] forState:UIControlStateNormal];
+    int totalGoalCount = 0;
+    int completedGoals = 0;
     
-    int readyCount = (int)(dataManager.getReadyTransferDataFromPlist.count);
-    [_readyButton setTitle:[NSString stringWithFormat:@"Ready for transfer %d/%d",0,readyCount] forState:UIControlStateNormal];
+    NSArray *goalsArray = dataManager.getMoodShotGoalsFromPlist;
+    
+    for (NSDictionary *goalDict in goalsArray) {
+        
+        if (![[goalDict objectForKey:@"GoalStatus"] isEqualToString:@"NA"]) {
+            ++totalGoalCount;
+        }
+        
+        if ([[goalDict objectForKey:@"GoalStatus"] isEqualToString:@"Completed"]) {
+            ++completedGoals;
+        }
+    }
+    [_myHealthButton setTitle:[NSString stringWithFormat:@"My Health %d/%d",completedGoals,totalGoalCount] forState:UIControlStateNormal];
+    
+    int readyCount = 0;
+    int completedReadyStatus = 0;
+    
+    NSArray *readyArray = dataManager.getReadyTransferDataFromPlist;
+    
+    for (NSDictionary *goalDict in readyArray) {
+        
+        if (![[goalDict objectForKey:@"GoalStatus"] isEqualToString:@"NA"]) {
+            ++readyCount;
+        }
+        
+        if ([[goalDict objectForKey:@"GoalStatus"] isEqualToString:@"Completed"]) {
+            ++completedReadyStatus;
+        }
+    }
+    
+    [_readyButton setTitle:[NSString stringWithFormat:@"Ready for transfer %d/%d",completedReadyStatus,readyCount] forState:UIControlStateNormal];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

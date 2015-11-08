@@ -55,7 +55,7 @@
     
     _goalsTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithColorSelection)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(clickedOnFinished)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -132,7 +132,7 @@
     UITapGestureRecognizer *tapGuesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedOnStatusButton:)];
     [cell.goalCellImage addGestureRecognizer:tapGuesture];
     
-    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(deleteGuesture:)];
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(notApplicableGuesture:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     [cell.contentView addGestureRecognizer:swipeGesture];
     cell.contentView.tag = indexPath.row;
@@ -172,7 +172,7 @@
 }
 #pragma mark -  User defined methods
 
-- (void)doneWithColorSelection {
+- (void)clickedOnFinished {
     
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -270,7 +270,7 @@
 }
 
 
--(void)deleteGuesture:(UISwipeGestureRecognizer*)swipeGesture
+-(void)notApplicableGuesture:(UISwipeGestureRecognizer*)swipeGesture
 {
     
     UIView *view = swipeGesture.view;
@@ -293,13 +293,13 @@
     [allGoals replaceObjectAtIndex:index withObject:dictionary];
     CLNewGoalTableViewCell *cell  = (CLNewGoalTableViewCell*)[_goalsTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
 
-    if ([[dictionary objectForKey:@"Hidden"] isEqualToString:@"YES"]) {
+    if ([[dictionary objectForKey:@"Hidden"] isEqualToString:@"YES"] && ![[dictionary objectForKey:@"GoalStatus"] isEqualToString:@"NA"]) {
         
         [dictionary setObject:@"NO" forKey:@"Hidden"];
         [cell.goalCellImage setHidden:NO];
     }
-    else{
-        
+    else {
+        [dictionary setObject:@"NA" forKey:@"GoalStatus"];
         [dictionary setObject:@"YES" forKey:@"Hidden"];
         [cell.goalCellImage setHidden:YES];
 
