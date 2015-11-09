@@ -8,6 +8,7 @@
 
 #import "MoodLineViewController.h"
 #import "MSPreViewViewController.h"
+#import "ViewController.h"
 
 @interface MoodLineViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
@@ -20,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Mood Line";
+    pinchFlag = YES;
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
@@ -56,10 +58,16 @@
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
+    [self.view addGestureRecognizer:pinchGestureRecognizer];
+    [self.moodLineTableView addGestureRecognizer:pinchGestureRecognizer];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     
     self.navigationController.navigationBar.hidden = NO;
     
@@ -70,6 +78,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UITableView datasource and Delegate methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -189,6 +199,26 @@
 }
 
 - (void)backToHomeScreen {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+    for (UIViewController *homeViewController in [self.navigationController viewControllers]) {
+        if ([homeViewController isKindOfClass:[ViewController class]]) {
+            [self.navigationController popToViewController:homeViewController animated:YES];
+        }
+    }
+}
+
+#pragma mark - UIPinchGestureRecognizer methods
+
+-(void)handlePinchWithGestureRecognizer:(UIPinchGestureRecognizer *)pinchGestureRecognizer{
+    
+    if (pinchFlag) {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                 bundle: nil];
+        [self.navigationController pushViewController:[mainStoryboard instantiateViewControllerWithIdentifier: @"MoodMapScreen"] animated:YES];
+        pinchFlag = NO;
+    } else {
+        pinchFlag = YES;
+    }
+   
 }
 @end

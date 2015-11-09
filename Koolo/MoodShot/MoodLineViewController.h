@@ -12,6 +12,8 @@
 
 @interface MoodLineViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate> {
     StoreDataMangager *dataManager;
+    BOOL pinchFlag;
+    UIPinchGestureRecognizer *pinchGestureRecognizer;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *moodLineTableView;
