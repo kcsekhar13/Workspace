@@ -27,7 +27,7 @@
     [super viewDidLoad];
     self.title = @"Settings";
     self.navigationController.navigationBar.hidden = NO;
-    contentArray = [[NSArray alloc] initWithObjects:@"BackgroundImage", @"Passcode", @"Quotes", @"License",@"", @"", @"", nil];
+    contentArray = [[NSArray alloc] initWithObjects:@"BackgroundImage", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"", @"", nil];
     _imagePickerController  = [[UIImagePickerController alloc]init];
     _imagePickerController.delegate = self;
     _imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
@@ -113,6 +113,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
     if (indexPath.row == 0) {
         
         dispatch_async(dispatch_queue_create("openPhotosCamera", NULL), ^{
@@ -128,15 +130,13 @@
         
     } else if (indexPath.row == 2) {
         
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                                 bundle: nil];
+        
         QuotesViewController *quotesViewController = (QuotesViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"QuotesController"];
         [self.navigationController pushViewController:quotesViewController animated:YES];
         
     } else if (indexPath.row == 1) {
         
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                                 bundle: nil];
+        
         PasscodeHomeViewController *passcodeHomeScreen = (PasscodeHomeViewController *)[mainStoryboard instantiateViewControllerWithIdentifier: @"PasscodeHome"];
         
         [self.navigationController pushViewController:passcodeHomeScreen animated:YES];
@@ -148,6 +148,9 @@
         [self.navigationController pushViewController:passCodeViewController animated:YES];
          */
         
+    } else if (indexPath.row == 4) {
+        
+        [self.navigationController pushViewController:[mainStoryboard instantiateViewControllerWithIdentifier: @"MSColorPickerScreen"] animated:YES];
     }
 }
 

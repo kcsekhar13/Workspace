@@ -1109,11 +1109,20 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VaX-5l-nch">
+                                <rect key="frame" x="20" y="44" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="backToHomeScreen:" destination="fkG-2U-aHg" eventType="touchUpInside" id="nhD-0z-efc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="VaX-5l-nch" id="nUd-dY-C6m"/>
                         <outlet property="backgroundImageView" destination="ywZ-Xj-Rxk" id="RAu-gg-vt0"/>
                         <outlet property="mydayLabel" destination="E0N-RY-0J1" id="wDT-J1-0Kn"/>
                     </connections>

@@ -11,6 +11,7 @@
 @interface CalendarColorPickerViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *mydayLabel;
 @end
@@ -21,15 +22,30 @@
     self.navigationController.navigationBar.hidden = YES;
     [super viewDidLoad];
     dataManager = [StoreDataMangager sharedInstance];
-    [_mydayLabel setText:@"29"];
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd"];
+    [_mydayLabel setText:[dateFormatter stringFromDate:[NSDate date]]];
     [_mydayLabel setTextAlignment:NSTextAlignmentCenter];
     [_mydayLabel setFont:[UIFont systemFontOfSize:24.0f]];
     [_mydayLabel setBackgroundColor:[UIColor grayColor]];
-    [_mydayLabel.layer setBorderColor:[[UIColor redColor] CGColor]];
     [_mydayLabel.layer setBorderWidth:2.0f];
     [_mydayLabel.layer setMasksToBounds:YES];
     [_mydayLabel.layer setCornerRadius:25.0f];
     [_mydayLabel setUserInteractionEnabled:YES];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"]) {
+        int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
+        [_mydayLabel.layer setBorderColor:[(UIColor *)dataManager.fetchColorsArray[index] CGColor]];
+    } else {
+        [_mydayLabel.layer setBorderColor:[[UIColor redColor] CGColor]];
+    }
+    
+    
+    [_backButton.layer setBorderWidth:2.0f];
+    [_backButton.layer setMasksToBounds:YES];
+    [_backButton.layer setCornerRadius:25.0f];
+    [_backButton setUserInteractionEnabled:YES];
+    [_backButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
     
     float originX = _mydayLabel.frame.origin.x + _mydayLabel.frame.size.width + 10;
     float originY = _mydayLabel.frame.origin.y + _mydayLabel.frame.size.height + 10;
@@ -101,6 +117,10 @@
 }
 
  #pragma mark - UIButton action methods
+- (IBAction)backToHomeScreen:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (IBAction)colorSelection:(id)sender {
     
