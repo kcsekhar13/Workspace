@@ -48,6 +48,14 @@
     [self.backgroundImageView addSubview:vibrantView];
     
     [self createDefaultMenuView];
+    
+    UISwipeGestureRecognizer * swiperight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(moveToMoodLineScreen)];
+    swiperight.direction=UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swiperight];
+    
+    UISwipeGestureRecognizer * swipeleft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(moveToCalendarHomeScreen)];
+    swipeleft.direction=UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeleft];
 }
 
 -(void)createDefaultMenuView;
@@ -193,6 +201,18 @@
 - (void)moveToCalendarColorPicker:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"] animated:YES];
+}
+
+- (void)moveToMoodLineScreen {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MoodLineScreen"] animated:YES];
+}
+
+- (void)moveToCalendarHomeScreen {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarScreen"] animated:YES];
 }
 
 @end
