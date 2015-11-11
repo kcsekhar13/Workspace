@@ -115,7 +115,7 @@ static StoreDataMangager *sharedInstance = nil;
     if (prevMoodsArray == nil) {        
         prevMoodsArray = [[NSMutableArray alloc] init];
     }
-    [prevMoodsArray addObject:dict];
+    [prevMoodsArray insertObject:dict atIndex:0];
     [prevMoodsArray writeToFile:[self getMoodsFilePath] atomically:YES];
     
 }
