@@ -61,7 +61,7 @@
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     pinchGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
-    pinchGestureRecognizer.numberOfTapsRequired = 2;
+    pinchGestureRecognizer.numberOfTapsRequired = 2;                                                                  
     [self.view addGestureRecognizer:pinchGestureRecognizer];
     [self.moodLineTableView addGestureRecognizer:pinchGestureRecognizer];
     
