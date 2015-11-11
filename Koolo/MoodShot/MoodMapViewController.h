@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "StoreDataMangager.h"
 
+@protocol MoodMapDelegate <NSObject>
+
+- (void)filterMoodPics:(NSInteger)tag;
+
+@end
+
 @interface MoodMapViewController : UIViewController {
     StoreDataMangager *dataManager;
 }
 
+@property (nonatomic, assign) id <MoodMapDelegate> delegate;
 @end

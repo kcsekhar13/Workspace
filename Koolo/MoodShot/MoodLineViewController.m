@@ -9,8 +9,9 @@
 #import "MoodLineViewController.h"
 #import "MSPreViewViewController.h"
 #import "ViewController.h"
+#import "MoodMapViewController.h"
 
-@interface MoodLineViewController ()
+@interface MoodLineViewController () <MoodMapDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 
@@ -59,7 +60,8 @@
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
+    pinchGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
+    pinchGestureRecognizer.numberOfTapsRequired = 2;
     [self.view addGestureRecognizer:pinchGestureRecognizer];
     [self.moodLineTableView addGestureRecognizer:pinchGestureRecognizer];
     
@@ -207,6 +209,30 @@
     }
 }
 
+#pragma mark - MoodMapDelegate methods 
+
+- (void)filterMoodPics:(NSInteger)tag {
+    
+    if ([self.moodsArray count]) {
+        [self.moodsArray removeAllObjects];
+    }
+    self.moodsArray = (NSMutableArray *)[dataManager getMoodsFromPlist];
+    NSMutableArray *filterArray = [[NSMutableArray alloc] init];
+    
+    for (int i = 0 ; i < self.moodsArray.count; i++) {
+       
+        NSDictionary *dict = (NSDictionary *)self.moodsArray[i];
+        NSInteger selectedColorTag = [dict[@"ColorIndex"] integerValue];
+        
+        if (selectedColorTag == tag) {
+            [filterArray addObject:dict];
+        }
+    }
+    
+    self.moodsArray = filterArray;
+    [self.moodLineTableView reloadData];
+}
+
 #pragma mark - UIPinchGestureRecognizer methods
 
 -(void)handlePinchWithGestureRecognizer:(UIPinchGestureRecognizer *)pinchGestureRecognizer{
@@ -214,7 +240,9 @@
     if (pinchFlag) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                                  bundle: nil];
-        [self.navigationController pushViewController:[mainStoryboard instantiateViewControllerWithIdentifier: @"MoodMapScreen"] animated:YES];
+        MoodMapViewController *moodMapviewConroller = (MoodMapViewController *)[mainStoryboard instantiateViewControllerWithIdentifier: @"MoodMapScreen"];
+        moodMapviewConroller.delegate = self;
+        [self.navigationController pushViewController:moodMapviewConroller animated:YES];
         pinchFlag = NO;
     } else {
         pinchFlag = YES;

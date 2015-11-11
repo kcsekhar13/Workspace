@@ -10,6 +10,8 @@
 
 @interface MoodMapViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
+@property (weak, nonatomic) IBOutlet UIView *circlesView;
 
 @end
 
@@ -49,6 +51,28 @@
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
+    float sizeOfContent = 0;
+    UIView *lLast = [_contentScrollView.subviews lastObject];
+    NSInteger wd = lLast.frame.origin.y;
+    NSInteger ht = lLast.frame.size.height;
+    
+    sizeOfContent = wd+ht+130;
+    
+    _contentScrollView.contentSize = CGSizeMake(_contentScrollView.frame.size.width, sizeOfContent);
+    
+    
+    for (UIButton *colorPickerButton in _contentScrollView.subviews) {
+        
+        if (colorPickerButton.tag < 10 && [colorPickerButton isKindOfClass:[UIButton class]]) {
+             [colorPickerButton setBackgroundColor:[UIColor clearColor]];
+            [colorPickerButton.layer setBorderColor:[(UIColor *)dataManager.fetchColorsArray[colorPickerButton.tag] CGColor]];
+            [colorPickerButton.layer setBorderWidth:2.0f];
+            [colorPickerButton.layer setMasksToBounds:YES];
+            [colorPickerButton.layer setCornerRadius:colorPickerButton.frame.size.width/2];
+            [colorPickerButton setUserInteractionEnabled:YES];
+            [colorPickerButton addTarget:self action:@selector(filterMoodPic:) forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
     // Do any additional setup after loading the view.
 }
 
@@ -57,6 +81,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)filterMoodPic:(id)sender {
+    
+    UIButton *button = (UIButton *)sender;
+    if ([self.delegate respondsToSelector:@selector(filterMoodPics:)]) {
+        [self.delegate filterMoodPics:button.tag];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)backButtonClicked {
     [self.navigationController popViewControllerAnimated:YES];
 }
