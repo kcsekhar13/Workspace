@@ -252,7 +252,7 @@
     
     CLNewGoalTableViewCell *cell  = (CLNewGoalTableViewCell*)[_goalsTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tag inSection:0]];
     [cell setStatus:nextStatus];
-    
+    [self refreshView];
     
 }
 
