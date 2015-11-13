@@ -76,6 +76,17 @@
     
     [super viewWillAppear:animated];
     
+    [self refreshView];
+    
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)refreshView
+{
+    
     if (self.goalFlag) {
         self.addGoalsArray = dataManager.getMoodShotGoalsFromPlist;
     } else {
@@ -86,10 +97,6 @@
         [_goalsTableView setHidden:NO];
         [_goalsTableView reloadData];
     }
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark -  UITableView dataSource methods
@@ -286,7 +293,6 @@
 //    [_goalsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:view.tag inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 //    [_goalsTableView reloadData];
     
-    
     int index = (int)view.tag;
     NSMutableArray *allGoals = [[NSMutableArray alloc] initWithArray:_addGoalsArray];
     NSMutableDictionary *dictionary = (NSMutableDictionary*)[_addGoalsArray objectAtIndex:index];
@@ -311,6 +317,8 @@
         [[StoreDataMangager sharedInstance] updateReadyArray:allGoals];
     }
     
+    [self refreshView];
+
 }
 
 @end

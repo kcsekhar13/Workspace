@@ -60,10 +60,14 @@
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    pinchGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer:)];
-    pinchGestureRecognizer.numberOfTapsRequired = 2;                                                                  
-    [self.view addGestureRecognizer:pinchGestureRecognizer];
-    [self.moodLineTableView addGestureRecognizer:pinchGestureRecognizer];
+    UIBarButtonItem* filterButton = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(handlePinchWithGestureRecognizer)];
+    [filterButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = filterButton;
+    
+//    pinchGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchWithGestureRecognizer)];
+//    pinchGestureRecognizer.numberOfTapsRequired = 2;                                                                  
+//    [self.view addGestureRecognizer:pinchGestureRecognizer];
+//    [self.moodLineTableView addGestureRecognizer:pinchGestureRecognizer];
     
 }
 
@@ -217,36 +221,36 @@
         [self.moodsArray removeAllObjects];
     }
     self.moodsArray = (NSMutableArray *)[dataManager getMoodsFromPlist];
-    NSMutableArray *filterArray = [[NSMutableArray alloc] init];
-    
-    for (int i = 0 ; i < self.moodsArray.count; i++) {
-       
-        NSDictionary *dict = (NSDictionary *)self.moodsArray[i];
-        NSInteger selectedColorTag = [dict[@"ColorIndex"] integerValue];
+   
+    if (tag != -1) {
         
-        if (selectedColorTag == tag) {
-            [filterArray addObject:dict];
+        NSMutableArray *filterArray = [[NSMutableArray alloc] init];
+        for (int i = 0 ; i < self.moodsArray.count; i++) {
+            
+            NSDictionary *dict = (NSDictionary *)self.moodsArray[i];
+            NSInteger selectedColorTag = [dict[@"ColorIndex"] integerValue];
+            
+            if (selectedColorTag == tag) {
+                [filterArray addObject:dict];
+            }
         }
+        self.moodsArray = filterArray;
+
     }
     
-    self.moodsArray = filterArray;
     [self.moodLineTableView reloadData];
 }
 
 #pragma mark - UIPinchGestureRecognizer methods
 
--(void)handlePinchWithGestureRecognizer:(UIPinchGestureRecognizer *)pinchGestureRecognizer{
+-(void)handlePinchWithGestureRecognizer{
     
-    if (pinchFlag) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                                  bundle: nil];
         MoodMapViewController *moodMapviewConroller = (MoodMapViewController *)[mainStoryboard instantiateViewControllerWithIdentifier: @"MoodMapScreen"];
         moodMapviewConroller.delegate = self;
         [self.navigationController pushViewController:moodMapviewConroller animated:YES];
-        pinchFlag = NO;
-    } else {
-        pinchFlag = YES;
-    }
+        
    
 }
 @end

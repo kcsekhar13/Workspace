@@ -28,13 +28,9 @@
         NSMutableArray *quotesArray = [[NSMutableArray alloc] init];
         [quotesArray addObject:@"In the midst of winter, I found there was within me, an invincible summer"];
         [[NSUserDefaults standardUserDefaults] setObject:quotesArray forKey:@"Quotes"];
-        
         [[NSUserDefaults standardUserDefaults]   setObject:[NSNumber numberWithInt:0] forKey:@"SelectedIndex"];
-        
         [[NSUserDefaults standardUserDefaults] synchronize];
-        
     }
-   
     
     NSMutableDictionary *notificationDictionary = [[NSMutableDictionary alloc] init];
     [notificationDictionary setObject:@"Blodprøver i dag" forKey:@"BloodTest"];
@@ -49,7 +45,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
    
-    
+
     [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:@"QuoteSelected"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     

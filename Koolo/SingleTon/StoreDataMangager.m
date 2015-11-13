@@ -123,8 +123,7 @@ static StoreDataMangager *sharedInstance = nil;
 -(NSArray*)getMoodsFromPlist
 {
     
-    NSArray *moodsArray = [[NSArray alloc] initWithContentsOfFile:[self getMoodsFilePath]];
-    
+    NSArray *moodsArray = [[NSArray alloc] initWithContentsOfFile:[self getMoodsFilePath]];    
     return moodsArray;
     
 }
@@ -141,7 +140,60 @@ static StoreDataMangager *sharedInstance = nil;
     return filePathAndDirectory;
 }
 
+-(NSArray*)getSortedData:(NSArray*)moodsList
+{
+    
+    NSMutableArray *sortedMoodList = [[NSMutableArray alloc] init];
+    NSMutableDictionary *tempDict = [[NSMutableDictionary alloc] init];
+    
+    for (int i=0; i<[moodsList count]; i++) {
+        
+        NSDictionary *internalDict = [moodsList objectAtIndex:i];
+        if ([[internalDict objectForKey:@"Hidden"] isEqualToString:@"YES"]) {
+            
+            NSString *keyString = @"Hidden";
+            NSMutableArray *indexArray = [tempDict objectForKey:keyString];
+            if (indexArray == nil) {
+                indexArray = [[NSMutableArray alloc] init];
+            }
+            [indexArray addObject:internalDict];
+            [tempDict setObject:indexArray forKey:keyString];
+            
+        }
+        else{
+            
+            NSString *keyString = [internalDict objectForKey:@"GoalStatus"];
+            NSMutableArray *indexArray = [tempDict objectForKey:keyString];
+            if (indexArray == nil) {
+                indexArray = [[NSMutableArray alloc] init];
+            }
+            [indexArray addObject:internalDict];
+            [tempDict setObject:indexArray forKey:keyString];
+            
+            
+        }
+       
+    }
+    NSLog(@"%@ >>>>",tempDict);
+    
+    if ([tempDict objectForKey:@"Pending"]) {
+        [sortedMoodList addObjectsFromArray:[tempDict objectForKey:@"Pending"]];
+    }
+    if ([tempDict objectForKey:@"Started"]) {
+        [sortedMoodList addObjectsFromArray:[tempDict objectForKey:@"Started"]];
+    }
+    if ([tempDict objectForKey:@"Completed"]) {
+        [sortedMoodList addObjectsFromArray:[tempDict objectForKey:@"Completed"]];
+    }
+    if ([tempDict objectForKey:@"Hidden"]) {
+        
+        [sortedMoodList addObjectsFromArray:[tempDict objectForKey:@"Hidden"]];
+    }
+    
 
+    return sortedMoodList;
+    
+}
 
 -(NSString*)getDateStringFromDate:(NSString*)string
 {
@@ -169,7 +221,7 @@ static StoreDataMangager *sharedInstance = nil;
 {
     
     NSArray *moodShotGoalsArray = [[NSArray alloc] initWithContentsOfFile:[self getMoodShotGoalsFilePath]];
-    
+    moodShotGoalsArray = [self getSortedData:moodShotGoalsArray];
     return moodShotGoalsArray;
     
 }
@@ -216,7 +268,7 @@ static StoreDataMangager *sharedInstance = nil;
 {
     
     NSArray *moodShotGoalsArray = [[NSArray alloc] initWithContentsOfFile:[self getReadyTransferFilePath]];
-    
+    moodShotGoalsArray = [self getSortedData:moodShotGoalsArray];
     return moodShotGoalsArray;
     
 }

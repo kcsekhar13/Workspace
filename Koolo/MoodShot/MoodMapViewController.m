@@ -63,9 +63,24 @@
     
     for (UIButton *colorPickerButton in _contentScrollView.subviews) {
         
-        if (colorPickerButton.tag < 10 && [colorPickerButton isKindOfClass:[UIButton class]]) {
-             [colorPickerButton setBackgroundColor:[UIColor clearColor]];
-            [colorPickerButton.layer setBorderColor:[(UIColor *)dataManager.fetchColorsArray[colorPickerButton.tag] CGColor]];
+        NSLog(@"%d >>>", (int)colorPickerButton.tag);
+        if (colorPickerButton.tag <= 10 && [colorPickerButton isKindOfClass:[UIButton class]]) {
+            
+            int tag = (int)colorPickerButton.tag-1;
+            if (tag != -1) {
+                
+                
+                [colorPickerButton setBackgroundColor:[UIColor clearColor]];
+                [colorPickerButton.layer setBorderColor:[(UIColor *)dataManager.fetchColorsArray[tag] CGColor]];
+                
+                
+            }
+            else{
+                
+                [colorPickerButton setBackgroundColor:[UIColor clearColor]];
+                [colorPickerButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
+            }
+            
             [colorPickerButton.layer setBorderWidth:2.0f];
             [colorPickerButton.layer setMasksToBounds:YES];
             [colorPickerButton.layer setCornerRadius:colorPickerButton.frame.size.width/2];
@@ -85,7 +100,7 @@
     
     UIButton *button = (UIButton *)sender;
     if ([self.delegate respondsToSelector:@selector(filterMoodPics:)]) {
-        [self.delegate filterMoodPics:button.tag];
+        [self.delegate filterMoodPics:(button.tag-1)];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
