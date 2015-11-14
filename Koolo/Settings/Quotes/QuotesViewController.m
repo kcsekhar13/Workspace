@@ -92,7 +92,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark UITableView Datasource/Delegate
+#pragma mark - UITableView Datasource and Delegate methods
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -124,6 +124,8 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         
         [tableViewCell.mCheckImageView setImage:[UIImage imageNamed:@"checked"]];
         previousSelctedIndexPath = indexPath;
+        [[NSUserDefaults standardUserDefaults] setObject:_mQuotesArray[indexPath.row] forKey:@"SelectedQuote"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
     } else {
         
@@ -131,12 +133,51 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         [tableViewCell.mCheckImageView setImage:nil];
         
     }
+    /*
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(deleteGuesture:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
-    [tableViewCell.contentView addGestureRecognizer:swipeGesture];
+    [tableViewCell.contentView addGestureRecognizer:swipeGesture];*/
     tableViewCell.contentView.tag = indexPath.row;
     
     return tableViewCell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_mQuotesArray.count == 1 || indexPath.row == 0) {
+        
+        return NO;
+    } else {
+        return YES;
+    }
+    
+    
+    
+
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (previousSelctedIndexPath.row > 0) {
+        
+        previousSelctedIndexPath = [NSIndexPath indexPathForRow:previousSelctedIndexPath.row-1 inSection:0];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(int)previousSelctedIndexPath.row] forKey:@"SelectedIndex"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    [_mQuotesArray removeObjectAtIndex:indexPath.row];
+    [[NSUserDefaults standardUserDefaults] setObject:_mQuotesArray forKey:@"Quotes"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [_mQuotesTableview deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [_mQuotesTableview reloadData];
+    
+}
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Delete";
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -166,6 +207,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     
 }
 
+#pragma mark - UITextView delegate methods
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
@@ -258,6 +300,8 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     return status;
 }
 
+
+#pragma mark - IBAction Methods
 
 - (IBAction)hideAndShowQuotes:(id)sender {
     
