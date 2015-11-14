@@ -32,14 +32,7 @@
     [_mydayLabel.layer setMasksToBounds:YES];
     [_mydayLabel.layer setCornerRadius:25.0f];
     [_mydayLabel setUserInteractionEnabled:YES];
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"]) {
-        int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
-        [_mydayLabel.layer setBorderColor:[(UIColor *)dataManager.fetchColorsArray[index] CGColor]];
-    } else {
-        [_mydayLabel.layer setBorderColor:[[UIColor redColor] CGColor]];
-    }
-    
+    [_mydayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
     
     [_backButton.layer setBorderWidth:2.0f];
     [_backButton.layer setMasksToBounds:YES];

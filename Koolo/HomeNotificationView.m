@@ -61,7 +61,7 @@
         [_calnderButton addTarget:self action:@selector(calendarButtonAction) forControlEvents:UIControlEventTouchUpInside];
          [self.mDayLabel addSubview:_calnderButton];
     } else {
-        [_mDayLabel setText:@"29"];
+        [_mDayLabel setText:[dateFormatter stringFromDate:[NSDate date]]];
     }
   
     if(_mQuoteText == nil) {
