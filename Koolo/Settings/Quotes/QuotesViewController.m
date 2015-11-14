@@ -20,9 +20,11 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 @property(nonatomic, weak) IBOutlet UITextView *mEditTextView;
 @property(nonatomic, strong) NSMutableArray *mQuotesArray;
 @property(nonatomic, strong) NSMutableString *mQuoteString;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @property (nonatomic, strong) UIView *statusBarView;
 - (IBAction)hideAndShowQuotes:(id)sender;
+- (IBAction)addQuotes:(id)sender;
 
 @end
 
@@ -59,6 +61,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     [_mTypeStatusLabel setText:@"Legg till"];
     [_mTypeStatusLabel setFont:[UIFont systemFontOfSize:12.0f]];
     [_mTypeStatusLabel setHidden:TRUE];
+    [_addButton setHidden:TRUE];
     [_mQuotesTableview setSeparatorColor:[UIColor clearColor]];
     
     [_mEditTextView.layer setMasksToBounds:TRUE];
@@ -181,6 +184,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
             [_mEditTextView setFrame:CGRectMake(_mEditTextView.frame.origin.x, _mEditTextView.frame.origin.y, _mEditTextView.frame.size.width, 90)];
             [UIView commitAnimations];
             [_mTypeStatusLabel setHidden:FALSE];
+            [_addButton setHidden:FALSE];
         }
     }];
 
@@ -221,6 +225,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         
         if ([textView isEqual:_mEditTextView]) {
             [_mTypeStatusLabel setHidden:TRUE];
+            [_addButton setHidden:TRUE];
             [textView setText:nil];
             [_mEditTextView setFrame:CGRectMake(_mEditTextView.frame.origin.x, _mEditTextView.frame.origin.y, _mEditTextView.frame.size.width, 44)];
         }
@@ -278,6 +283,11 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         [[NSUserDefaults standardUserDefaults] synchronize];
         quotesFlag = YES;
     }
+}
+
+- (IBAction)addQuotes:(id)sender {
+    
+    [_mEditTextView resignFirstResponder];
 }
 
 -(void)deleteGuesture:(UISwipeGestureRecognizer*)swipeGesture
