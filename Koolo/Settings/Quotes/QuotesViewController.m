@@ -31,8 +31,24 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 @implementation QuotesViewController
 
 - (void)viewDidLoad {
+
     
-    self.title = @"Sitater";
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *rightButtonTile = nil;
+    if ([language isEqualToString:@"nb"]) {
+        
+        self.title = @"Sitater";
+        rightButtonTile = NSLocalizedString(@"Ready", nil);
+        
+    } else {
+        self.title = @"Quotes";
+        rightButtonTile = @"Ready";
+    }
+    
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:rightButtonTile style:UIBarButtonItemStylePlain target:self action:@selector(backToScreen)];
+    self.navigationItem.rightBarButtonItem = doneButton;
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 1)];
     v.backgroundColor = [UIColor clearColor];
     [self.mQuotesTableview setTableFooterView:v];
@@ -55,10 +71,22 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 }
 
 -(void)initUI {
-    [_mNoteTextField setText:@"Aktiver sitatpå startskjermen"];
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"nb"]) {
+        
+        [_mNoteTextField setText:NSLocalizedString(@"Enable Status", nil)];
+        [_mTypeStatusLabel setText:NSLocalizedString(@"Add", nil)];
+        
+    } else {
+        
+        [_mNoteTextField setText:@"Enable quotes in home screen"];
+        [_mTypeStatusLabel setText:@"Add"];
+    }
+    
     [_mNoteTextField setTextColor:[UIColor grayColor]];
     [_mEnableSwitch setSelected:TRUE]; // Set Default to TRUE.
-    [_mTypeStatusLabel setText:@"Legg till"];
+   
     [_mTypeStatusLabel setFont:[UIFont systemFontOfSize:12.0f]];
     [_mTypeStatusLabel setHidden:TRUE];
     [_addButton setHidden:TRUE];
@@ -354,6 +382,10 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     [[NSUserDefaults standardUserDefaults] synchronize];
     [_mQuotesTableview deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:view.tag inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
     [_mQuotesTableview reloadData];
+}
+
+- (void)backToScreen {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 /*
 #pragma mark - Navigation

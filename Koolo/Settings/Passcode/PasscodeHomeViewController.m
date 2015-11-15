@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *pickerViewTextField;
 @property (strong, nonatomic) NSString *secretQuestion;
 @property (weak, nonatomic) IBOutlet UITextField *answerField;
+@property (weak, nonatomic) IBOutlet UILabel *activateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *setPasscodeButton;
+@property (weak, nonatomic) IBOutlet UILabel *secretQuestionLabel;
 
 @end
 
@@ -26,7 +29,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Passcode";
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
+    NSString *cancelTitle = nil;
+    NSString *doneButtonTitle = nil;
+    
+    if ([language isEqualToString:@"nb"]) {
+        
+        self.title = NSLocalizedString(@"Passcode", nil);
+        self.secretQuestion = NSLocalizedString(@"Set secretQuestion", nil);
+        self.activateLabel.text = NSLocalizedString(@"Active Passcode", nil);
+        [self.setPasscodeButton setTitle:NSLocalizedString(@"Set Passcode", nil) forState:UIControlStateNormal];
+        self.secretQuestionLabel.text = NSLocalizedString(@"Set secretQuestion", nil);
+        self.pickerViewTextField.text= NSLocalizedString(@"Select secretQuestion", nil);
+        cancelTitle = NSLocalizedString(@"Cancel", nil);
+        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        
+        
+    } else {
+        self.title = @"Passcode";
+        self.secretQuestion = @"Select your secret question";
+        self.activateLabel.text = @"Activate/Deactivate Passcode";
+       [self.setPasscodeButton setTitle:@"Set Passcode" forState:UIControlStateNormal];
+        self.secretQuestionLabel.text = @"Set secretQuestion";
+        self.pickerViewTextField.text = @"Select your secret question";
+        cancelTitle = @"Cancel";
+        doneButtonTitle = @"Finished";
+    }
+   
     selectedIndex = 0;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:@"isPassCodeOn"]) {
@@ -48,8 +79,6 @@
         
     } else {
         
-        self.secretQuestion = @"Select your secret question";
-        self.pickerViewTextField.text = self.secretQuestion;
         self.answerField.hidden = YES;
     }
     
@@ -72,12 +101,12 @@
     [toolBar setItems:[NSArray arrayWithObjects:cancelButton, [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil], doneButton, nil]];
     self.pickerViewTextField.inputAccessoryView = toolBar;
     
-    UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
+    UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
     [leftButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = leftButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(moveToPasscode)];
+    UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToPasscode)];
     [rightButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = rightButton;
     

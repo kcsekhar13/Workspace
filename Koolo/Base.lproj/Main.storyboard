@@ -864,7 +864,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2hd-ON-OJb">
-                                <rect key="frame" x="28" y="75" width="20" height="20"/>
+                                <rect key="frame" x="23" y="75" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1342,9 +1342,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="activateLabel" destination="wv4-q9-Edc" id="XxR-dj-MnS"/>
                         <outlet property="answerField" destination="Lmo-Wi-ie2" id="BZZ-7D-Dex"/>
                         <outlet property="passSwitch" destination="9zm-LH-2wT" id="EKe-Eh-72m"/>
                         <outlet property="pickerViewTextField" destination="mKr-uI-CN8" id="hhe-63-va2"/>
+                        <outlet property="secretQuestionLabel" destination="zHI-su-4au" id="1fX-NY-Dxf"/>
+                        <outlet property="setPasscodeButton" destination="iWJ-mJ-lsD" id="mke-N9-efZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZP-Zf-gt8" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  Koolo
+
+  Created by Hamsini on 15/11/15.
+  Copyright © 2015 Vinodram. All rights reserved.
+*/
+
+
+"Settings" = "Innstillinger";
+"Quotes" = "Sitater";
+"Ready" = "Ferdig";
+"Enable Status" = "Aktiver sitatpå startskjermen";
+"Add" = "Legg till";
+"Passcode" = "Passkode";
+"Cancel" = "Avbryt";
+"Active Passcode" = "siå av passkode";
+"Set Passcode" = "Sett Passkode";
+"Set secretQuestion" = "Sett sikkerhetssporsmal";
+"Select secretQuestion" = "Velg Sett sikkerhetssporsmal";
+"Color choices" = "Fargevalg";

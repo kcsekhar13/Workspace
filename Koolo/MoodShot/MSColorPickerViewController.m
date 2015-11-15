@@ -20,12 +20,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Color choices";
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *cancelTitle = nil;
+    NSString *doneButtonTitle = nil;
+    
+    if ([language isEqualToString:@"nb"]) {
+        
+        self.title = NSLocalizedString(@"Color choices", nil);
+        cancelTitle = NSLocalizedString(@"Cancel", nil);
+        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        
+        
+    } else {
+        self.title = @"Color choices";
+        cancelTitle = @"Cancel";
+        doneButtonTitle = @"Finished";
+    }
     saveFlag = NO;
     dataManager = [StoreDataMangager sharedInstance];
     colorTitlesArray = [[NSMutableArray alloc] initWithArray:dataManager.fetchColorPickerTitlesArray];
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithColorSelection)];
+    
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(doneWithColorSelection)];
     self.navigationItem.rightBarButtonItem = doneButton;
+    
+    UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(backToScreen)];
+    [backButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = backButton;
+    [self.navigationItem setHidesBackButton:YES animated:NO];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
@@ -145,6 +166,10 @@
 */
 
 #pragma mark -  User defined methods
+
+- (void)backToScreen {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)doneWithColorSelection {
 //    NSIndexPath *selectedIndexPath = [self.contentTableView indexPathForSelectedRow];

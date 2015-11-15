@@ -25,9 +25,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Settings";
+    
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
+    if ([language isEqualToString:@"nb"]) {
+        
+        self.title = NSLocalizedString(@"Settings", nil);
+        contentArray = [[NSArray alloc] initWithObjects:@"Bakgrunnsbilde", @"Passkode", @"Sitater", @"Lisens",@"Fargevalg", @"", @"", nil];
+        
+    } else {
+        self.title = @"Settings";
+        contentArray = [[NSArray alloc] initWithObjects:@"BackgroundImage", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"", @"", nil];
+    }
+    NSLog(@"Language = %@", language);
+    
     self.navigationController.navigationBar.hidden = NO;
-    contentArray = [[NSArray alloc] initWithObjects:@"BackgroundImage", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"", @"", nil];
+    
     _imagePickerController  = [[UIImagePickerController alloc]init];
     _imagePickerController.delegate = self;
     _imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;

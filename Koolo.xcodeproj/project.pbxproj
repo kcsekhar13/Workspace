@@ -36,6 +36,7 @@
 		557631D21BDEA4470042F0E0 /* PasscodeHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557631D11BDEA4470042F0E0 /* PasscodeHomeViewController.m */; };
 		55A8FAE31BE4911A0057CF44 /* colorPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */; };
 		55CAAF051BE4A0FE008EE20C /* StoreDataMangager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */; };
+		55D063831BF8894B000962D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55D063821BF8894B000962D3 /* Localizable.strings */; };
 		55F5A3F91BE143FC00DC80F4 /* MSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A3F81BE143FC00DC80F4 /* MSCameraViewController.m */; };
 		55F5A3FC1BE1441300DC80F4 /* MSColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A3FB1BE1441300DC80F4 /* MSColorPickerViewController.m */; };
 		55F5A3FF1BE1451900DC80F4 /* MoodLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A3FE1BE1451900DC80F4 /* MoodLineViewController.m */; };
@@ -129,6 +130,7 @@
 		55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorPickerTableViewCell.m; sourceTree = "<group>"; };
 		55CAAF031BE4A0FE008EE20C /* StoreDataMangager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDataMangager.h; sourceTree = "<group>"; };
 		55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDataMangager.m; sourceTree = "<group>"; };
+		55D063821BF8894B000962D3 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Koolo/Localizable.strings; sourceTree = "<group>"; };
 		55F5A3F71BE143FC00DC80F4 /* MSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCameraViewController.h; sourceTree = "<group>"; };
 		55F5A3F81BE143FC00DC80F4 /* MSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCameraViewController.m; sourceTree = "<group>"; };
 		55F5A3FA1BE1441300DC80F4 /* MSColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSColorPickerViewController.h; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 		555BD6041BC760B500BB61E9 = {
 			isa = PBXGroup;
 			children = (
+				55D063821BF8894B000962D3 /* Localizable.strings */,
 				555BD60F1BC760B600BB61E9 /* Koolo */,
 				555BD6291BC760B600BB61E9 /* KooloTests */,
 				555BD60E1BC760B600BB61E9 /* Products */,
@@ -490,6 +493,7 @@
 				F337738D1BC8D1C100793831 /* settings.png in Resources */,
 				F33B7E6E1BC8B92800C37B1D /* lock.png in Resources */,
 				F33773A31BC9465B00793831 /* CheckListpng.png in Resources */,
+				55D063831BF8894B000962D3 /* Localizable.strings in Resources */,
 				F3BBD92D1BE4CD760087591E /* Images.xcassets in Resources */,
 				555BD61C1BC760B600BB61E9 /* Main.storyboard in Resources */,
 				F337739D1BC8D51300793831 /* SmallKeyBoard.png in Resources */,

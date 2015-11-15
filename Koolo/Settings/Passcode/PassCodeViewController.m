@@ -18,7 +18,22 @@
 @implementation PassCodeViewController
 
 - (void)viewDidLoad {
-    self.title = @"Passcode";
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *cancelTitle = nil;
+    if ([language isEqualToString:@"nb"]) {
+        self.title = NSLocalizedString(@"Passcode", nil);
+        cancelTitle = NSLocalizedString(@"Cancel", nil);
+    } else {
+        self.title = @"Passcode";
+        cancelTitle = @"Cancel";
+    }
+    
+    UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
+    [leftButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    
     [super viewDidLoad];
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
@@ -139,6 +154,13 @@
     }
     
     
+}
+
+#pragma mark - User defined mehtods
+
+- (void)cancelScreen {
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)savePassword:(NSString*)passString
