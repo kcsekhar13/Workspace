@@ -34,6 +34,13 @@
 		555BD63A1BC761AD00BB61E9 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6391BC761AD00BB61E9 /* AlbumViewController.m */; };
 		555BD63D1BC761D200BB61E9 /* SettingScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD63C1BC761D200BB61E9 /* SettingScreenViewController.m */; };
 		557631D21BDEA4470042F0E0 /* PasscodeHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557631D11BDEA4470042F0E0 /* PasscodeHomeViewController.m */; };
+		558BB03F1BF8D5D0000B335D /* CLWeeklyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB0311BF8D5D0000B335D /* CLWeeklyCalendarView.m */; };
+		558BB0401BF8D5D0000B335D /* DailyCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB0331BF8D5D0000B335D /* DailyCalendarView.m */; };
+		558BB0411BF8D5D0000B335D /* DayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB0351BF8D5D0000B335D /* DayTitleLabel.m */; };
+		558BB0421BF8D5D0000B335D /* NSDate+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB0381BF8D5D0000B335D /* NSDate+CL.m */; };
+		558BB0431BF8D5D0000B335D /* NSDictionary+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB03A1BF8D5D0000B335D /* NSDictionary+CL.m */; };
+		558BB0441BF8D5D0000B335D /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB03C1BF8D5D0000B335D /* UIColor+CL.m */; };
+		558BB0451BF8D5D0000B335D /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB03E1BF8D5D0000B335D /* UIImage+CL.m */; };
 		55A8FAE31BE4911A0057CF44 /* colorPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */; };
 		55CAAF051BE4A0FE008EE20C /* StoreDataMangager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */; };
 		55D063831BF8894B000962D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55D063821BF8894B000962D3 /* Localizable.strings */; };
@@ -126,6 +133,20 @@
 		555BD63C1BC761D200BB61E9 /* SettingScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingScreenViewController.m; sourceTree = "<group>"; };
 		557631D01BDEA4470042F0E0 /* PasscodeHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasscodeHomeViewController.h; sourceTree = "<group>"; };
 		557631D11BDEA4470042F0E0 /* PasscodeHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasscodeHomeViewController.m; sourceTree = "<group>"; };
+		558BB0301BF8D5D0000B335D /* CLWeeklyCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLWeeklyCalendarView.h; sourceTree = "<group>"; };
+		558BB0311BF8D5D0000B335D /* CLWeeklyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLWeeklyCalendarView.m; sourceTree = "<group>"; };
+		558BB0321BF8D5D0000B335D /* DailyCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCalendarView.h; sourceTree = "<group>"; };
+		558BB0331BF8D5D0000B335D /* DailyCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCalendarView.m; sourceTree = "<group>"; };
+		558BB0341BF8D5D0000B335D /* DayTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayTitleLabel.h; sourceTree = "<group>"; };
+		558BB0351BF8D5D0000B335D /* DayTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayTitleLabel.m; sourceTree = "<group>"; };
+		558BB0371BF8D5D0000B335D /* NSDate+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CL.h"; sourceTree = "<group>"; };
+		558BB0381BF8D5D0000B335D /* NSDate+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CL.m"; sourceTree = "<group>"; };
+		558BB0391BF8D5D0000B335D /* NSDictionary+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CL.h"; sourceTree = "<group>"; };
+		558BB03A1BF8D5D0000B335D /* NSDictionary+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CL.m"; sourceTree = "<group>"; };
+		558BB03B1BF8D5D0000B335D /* UIColor+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CL.h"; sourceTree = "<group>"; };
+		558BB03C1BF8D5D0000B335D /* UIColor+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CL.m"; sourceTree = "<group>"; };
+		558BB03D1BF8D5D0000B335D /* UIImage+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CL.h"; sourceTree = "<group>"; };
+		558BB03E1BF8D5D0000B335D /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
 		55A8FAE11BE4911A0057CF44 /* colorPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorPickerTableViewCell.h; sourceTree = "<group>"; };
 		55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorPickerTableViewCell.m; sourceTree = "<group>"; };
 		55CAAF031BE4A0FE008EE20C /* StoreDataMangager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDataMangager.h; sourceTree = "<group>"; };
@@ -238,6 +259,7 @@
 		5536AA321BD81A7300398454 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				558BB02F1BF8D5D0000B335D /* CLWeeklyCalendarViewSourceCode */,
 				5536AA331BD81AE100398454 /* CalendarViewController.h */,
 				5536AA341BD81AE100398454 /* CalendarViewController.m */,
 				5536AA361BD81AFC00398454 /* NewEventViewController.h */,
@@ -366,6 +388,35 @@
 				555BD6391BC761AD00BB61E9 /* AlbumViewController.m */,
 			);
 			path = Album;
+			sourceTree = "<group>";
+		};
+		558BB02F1BF8D5D0000B335D /* CLWeeklyCalendarViewSourceCode */ = {
+			isa = PBXGroup;
+			children = (
+				558BB0301BF8D5D0000B335D /* CLWeeklyCalendarView.h */,
+				558BB0311BF8D5D0000B335D /* CLWeeklyCalendarView.m */,
+				558BB0321BF8D5D0000B335D /* DailyCalendarView.h */,
+				558BB0331BF8D5D0000B335D /* DailyCalendarView.m */,
+				558BB0341BF8D5D0000B335D /* DayTitleLabel.h */,
+				558BB0351BF8D5D0000B335D /* DayTitleLabel.m */,
+				558BB0361BF8D5D0000B335D /* Misc */,
+			);
+			path = CLWeeklyCalendarViewSourceCode;
+			sourceTree = "<group>";
+		};
+		558BB0361BF8D5D0000B335D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				558BB0371BF8D5D0000B335D /* NSDate+CL.h */,
+				558BB0381BF8D5D0000B335D /* NSDate+CL.m */,
+				558BB0391BF8D5D0000B335D /* NSDictionary+CL.h */,
+				558BB03A1BF8D5D0000B335D /* NSDictionary+CL.m */,
+				558BB03B1BF8D5D0000B335D /* UIColor+CL.h */,
+				558BB03C1BF8D5D0000B335D /* UIColor+CL.m */,
+				558BB03D1BF8D5D0000B335D /* UIImage+CL.h */,
+				558BB03E1BF8D5D0000B335D /* UIImage+CL.m */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		55F5A3F61BE142E300DC80F4 /* MoodShot */ = {
@@ -522,9 +573,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				555BD63A1BC761AD00BB61E9 /* AlbumViewController.m in Sources */,
+				558BB0421BF8D5D0000B335D /* NSDate+CL.m in Sources */,
 				5536AA451BD81D7F00398454 /* AppDataManager.m in Sources */,
+				558BB0441BF8D5D0000B335D /* UIColor+CL.m in Sources */,
 				555BD6191BC760B600BB61E9 /* ViewController.m in Sources */,
 				55CAAF051BE4A0FE008EE20C /* StoreDataMangager.m in Sources */,
+				558BB0431BF8D5D0000B335D /* NSDictionary+CL.m in Sources */,
 				37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */,
 				5536AA401BD81D1100398454 /* UPStackMenu.m in Sources */,
 				55F5A4021BE1456900DC80F4 /* MoodMapViewController.m in Sources */,
@@ -543,18 +597,22 @@
 				55F5A4051BE1495100DC80F4 /* MSPreViewViewController.m in Sources */,
 				555BD63D1BC761D200BB61E9 /* SettingScreenViewController.m in Sources */,
 				5536AA2E1BD810A500398454 /* CLHealthInfoViewController.m in Sources */,
+				558BB0401BF8D5D0000B335D /* DailyCalendarView.m in Sources */,
 				55A8FAE31BE4911A0057CF44 /* colorPickerTableViewCell.m in Sources */,
 				5536AA251BD8102100398454 /* CheckListViewController.m in Sources */,
 				5536AA351BD81AE100398454 /* CalendarViewController.m in Sources */,
 				55261E2F1BC8C1E900AA3CCD /* QuotesViewController.m in Sources */,
 				55F5A3FF1BE1451900DC80F4 /* MoodLineViewController.m in Sources */,
+				558BB0411BF8D5D0000B335D /* DayTitleLabel.m in Sources */,
 				55261E341BC8C32C00AA3CCD /* PassCodeViewController.m in Sources */,
 				55429EE11BC8AFCB00CEF9E5 /* InformationViewController.m in Sources */,
+				558BB0451BF8D5D0000B335D /* UIImage+CL.m in Sources */,
 				5536AA411BD81D1100398454 /* UPStackMenuItem.m in Sources */,
 				554310C51BE4D7CC00961E34 /* CalendarColorPickerViewController.m in Sources */,
 				555BD6161BC760B600BB61E9 /* AppDelegate.m in Sources */,
 				55F9172F1BE7F3630007E799 /* CLNewGoalTableViewCell.m in Sources */,
 				5536AA281BD8104300398454 /* CLThreeSentenceViewController.m in Sources */,
+				558BB03F1BF8D5D0000B335D /* CLWeeklyCalendarView.m in Sources */,
 				555BD6131BC760B600BB61E9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
