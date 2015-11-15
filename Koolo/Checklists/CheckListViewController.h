@@ -12,6 +12,13 @@
 @interface CheckListViewController : UIViewController {
     
     StoreDataMangager *dataManager;
+    NSString *myhealthString;
+    NSString *transferString;
+    NSString *goalString;
+    
+    NSString *mytransferString;
+    NSString *newTransferString;
+    NSString *doneButtonTitle;
 }
 
 @end

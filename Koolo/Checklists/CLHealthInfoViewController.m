@@ -13,6 +13,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *finishedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pendingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ongoingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *finishedTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pendingLabelText;
+@property (weak, nonatomic) IBOutlet UILabel *progressLabelText;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @end
 
@@ -21,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Information";
+    
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
@@ -63,7 +67,27 @@
     [_ongoingLabel.layer setCornerRadius:25.0f];
     [_ongoingLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithInfo)];
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *doneButtonTitle = nil;
+    
+    if ([language isEqualToString:@"nb"]) {
+        self.title = NSLocalizedString(@"Information", nil);
+        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        
+        _finishedTextLabel.text = NSLocalizedString(@"Ready", nil);
+        _pendingLabelText.text = NSLocalizedString(@"Not Ready", nil);
+        _progressLabelText.text = NSLocalizedString(@"Progress", nil);
+        _descriptionLabel.text = NSLocalizedString(@"InfoDescription", nil);
+    } else {
+        doneButtonTitle = @"Finished";
+        self.title = @"Information";
+        _finishedTextLabel.text = @"Finished";
+        _pendingLabelText.text = @"Not done";
+        _progressLabelText.text = @"Ongoing";
+        _descriptionLabel.text = @"Select a template that the question at a sweep Located at";
+    }
+    
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(doneWithInfo)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];

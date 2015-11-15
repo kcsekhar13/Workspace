@@ -55,7 +55,7 @@
     
     _goalsTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(clickedOnFinished)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:self.leftButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(clickedOnFinished)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -210,9 +210,9 @@
     CLNewGoalViewController *newgoalViewController = (CLNewGoalViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CLNewGoalScreen"];
     
     if (self.goalFlag) {
-        newgoalViewController.titleString = @"New Goal";
+        newgoalViewController.titleString = self.rightButtonTitle;
     } else {
-        newgoalViewController.titleString = @"New Transfer";
+        newgoalViewController.titleString = self.rightButtonTitle;
     }
     newgoalViewController.delegate = self;
     [self.navigationController pushViewController:newgoalViewController animated:YES];

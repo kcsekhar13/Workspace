@@ -10,6 +10,8 @@
 "Settings" = "Innstillinger";
 "Quotes" = "Sitater";
 "Ready" = "Ferdig";
+"Not Ready" = "Lkke ferdig";
+"Progress" = "Pagaende";
 "Enable Status" = "Aktiver sitatpå startskjermen";
 "Add" = "Legg till";
 "Passcode" = "Passkode";
@@ -19,3 +21,12 @@
 "Set secretQuestion" = "Sett sikkerhetssporsmal";
 "Select secretQuestion" = "Velg Sett sikkerhetssporsmal";
 "Color choices" = "Fargevalg";
+"Checklists" = "Sjekklister";
+"My health" = "Min helse";
+"Three sentence" = "Tre setninger";
+"New transfer" = "Klar for overforing";
+"New goal" = "Nytt Mål";
+"My transfer" = "Min transfer";
+"New transform" = "Nytt transfer";
+"Information" = "Informasjon";
+"InfoDescription" = "Marker et mal som uaktuelt ved a sveipe tilhoyre";

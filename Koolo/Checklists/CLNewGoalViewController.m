@@ -21,6 +21,22 @@
     // Do any additional setup after loading the view.
     
     self.title = _titleString;
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
+    NSString *cancelTitle = nil;
+    NSString *doneButtonTitle = nil;
+    
+    if ([language isEqualToString:@"nb"]) {
+        cancelTitle = NSLocalizedString(@"Cancel", nil);
+        doneButtonTitle = NSLocalizedString(@"Add", nil);
+        
+        
+    } else {
+        cancelTitle = @"Cancel";
+        doneButtonTitle = @"Add On";
+    }
+    
     newGoalFlag = NO;
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
@@ -47,11 +63,11 @@
     [self.backgroundImageView addSubview:effectView];
     [self.backgroundImageView addSubview:vibrantView];
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Add On" style:UIBarButtonItemStylePlain target:self action:@selector(addOn)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(addOn)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
     
-    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(previousScreen)];
+    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(previousScreen)];
     [cancelButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = cancelButton;
     

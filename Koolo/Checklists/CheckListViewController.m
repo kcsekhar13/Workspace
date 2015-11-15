@@ -24,7 +24,31 @@
     self.navigationController.navigationBar.hidden = NO;
     [super viewDidLoad];
     
-    self.title = @"Checklists";
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    doneButtonTitle = nil;
+    if ([language isEqualToString:@"nb"]) {
+        self.title = NSLocalizedString(@"Checklists", nil);
+        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        transferString = NSLocalizedString(@"New transfer", nil);
+        myhealthString= NSLocalizedString(@"My health", nil);
+        [_threeSentence setTitle:NSLocalizedString(@"Three sentence", nil) forState:UIControlStateNormal];
+        goalString = NSLocalizedString(@"New goal", nil);
+        
+        mytransferString = NSLocalizedString(@"My transfer", nil);
+        newTransferString = NSLocalizedString(@"New transform", nil);
+        
+    } else {
+        self.title = @"Checklists";
+        doneButtonTitle = @"Finished";
+        transferString = @"Ready for transfer";
+        myhealthString= @"My Health";
+        [_threeSentence setTitle:@"Three Sentence" forState:UIControlStateNormal];
+        goalString = @"New Goal";
+        mytransferString = @"My Transfer";
+        newTransferString = @"New Transfer";
+    }
+    
+    
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
@@ -72,6 +96,13 @@
     _readyButton.titleLabel.numberOfLines = 2;
     [_readyButton.layer setMasksToBounds:YES];
     [_readyButton setFrame:CGRectMake(_readyButton.frame.origin.x, _readyButton.frame.origin.y, _readyButton.frame.size.width, _readyButton.frame.size.width)];
+    
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToHomeScreen)];
+    [rightButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
     // Do any additional setup after loading the view.
 }
 
@@ -92,7 +123,7 @@
             ++completedGoals;
         }
     }
-    [_myHealthButton setTitle:[NSString stringWithFormat:@"My Health %d/%d",completedGoals,totalGoalCount] forState:UIControlStateNormal];
+    [_myHealthButton setTitle:[NSString stringWithFormat:@"%@ %d/%d",myhealthString,completedGoals,totalGoalCount] forState:UIControlStateNormal];
     
     int readyCount = 0;
     int completedReadyStatus = 0;
@@ -110,7 +141,7 @@
         }
     }
     
-    [_readyButton setTitle:[NSString stringWithFormat:@"Ready for transfer %d/%d",completedReadyStatus,readyCount] forState:UIControlStateNormal];
+    [_readyButton setTitle:[NSString stringWithFormat:@"%@ %d/%d",transferString,completedReadyStatus,readyCount] forState:UIControlStateNormal];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -130,19 +161,22 @@
     if (button.tag == 0) {
         
         CLMyHealthViewController *healthViewController = (CLMyHealthViewController *)segue.destinationViewController;
-        
-        healthViewController.viewTitle = @"My Health";
-        healthViewController.rightButtonTitle = @"New Goal";
+        healthViewController.leftButtonTitle = doneButtonTitle;
+        healthViewController.viewTitle = myhealthString;
+        healthViewController.rightButtonTitle = goalString;
         healthViewController.goalFlag = YES;
         
     } else if (button.tag == 2) {
         CLMyHealthViewController *healthViewController = (CLMyHealthViewController *)segue.destinationViewController;
-        
-        healthViewController.viewTitle = @"My Transfer";
-        healthViewController.rightButtonTitle = @"New Transfer";
+         healthViewController.leftButtonTitle = doneButtonTitle;
+        healthViewController.viewTitle = mytransferString;
+        healthViewController.rightButtonTitle = newTransferString;
         healthViewController.goalFlag = NO;
     }
 }
 
-
+- (void)moveToHomeScreen {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

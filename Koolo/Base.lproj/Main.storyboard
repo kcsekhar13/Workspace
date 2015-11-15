@@ -978,9 +978,13 @@
                     <navigationItem key="navigationItem" id="6bG-E2-Nmo"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="G9k-MJ-jke" id="m5c-cg-qfR"/>
+                        <outlet property="descriptionLabel" destination="RPy-iB-ObB" id="OxQ-YL-umF"/>
                         <outlet property="finishedLabel" destination="eYj-4t-aay" id="kCU-Pl-stg"/>
+                        <outlet property="finishedTextLabel" destination="Vdk-8e-DEY" id="ZEY-mq-SKc"/>
                         <outlet property="ongoingLabel" destination="q9P-3v-Hof" id="9QJ-86-4e7"/>
-                        <outlet property="pendingLabel" destination="oUl-Wl-rMi" id="1u2-jt-tdA"/>
+                        <outlet property="pendingLabel" destination="oUl-Wl-rMi" id="8mK-EN-bEJ"/>
+                        <outlet property="pendingLabelText" destination="jeZ-rb-0ae" id="SDw-Yd-z8i"/>
+                        <outlet property="progressLabelText" destination="294-jx-cB6" id="CIc-Pm-3zZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wD-5U-kXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
