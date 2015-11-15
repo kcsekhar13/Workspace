@@ -41,6 +41,7 @@
 		558BB0431BF8D5D0000B335D /* NSDictionary+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB03A1BF8D5D0000B335D /* NSDictionary+CL.m */; };
 		558BB0441BF8D5D0000B335D /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB03C1BF8D5D0000B335D /* UIColor+CL.m */; };
 		558BB0451BF8D5D0000B335D /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB03E1BF8D5D0000B335D /* UIImage+CL.m */; };
+		558BB0471BF8E4F1000B335D /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 558BB0461BF8E4F1000B335D /* cross.png */; };
 		55A8FAE31BE4911A0057CF44 /* colorPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */; };
 		55CAAF051BE4A0FE008EE20C /* StoreDataMangager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */; };
 		55D063831BF8894B000962D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55D063821BF8894B000962D3 /* Localizable.strings */; };
@@ -147,6 +148,7 @@
 		558BB03C1BF8D5D0000B335D /* UIColor+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CL.m"; sourceTree = "<group>"; };
 		558BB03D1BF8D5D0000B335D /* UIImage+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CL.h"; sourceTree = "<group>"; };
 		558BB03E1BF8D5D0000B335D /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
+		558BB0461BF8E4F1000B335D /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
 		55A8FAE11BE4911A0057CF44 /* colorPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorPickerTableViewCell.h; sourceTree = "<group>"; };
 		55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorPickerTableViewCell.m; sourceTree = "<group>"; };
 		55CAAF031BE4A0FE008EE20C /* StoreDataMangager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDataMangager.h; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 		F33B7E6C1BC8B92800C37B1D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				558BB0461BF8E4F1000B335D /* cross.png */,
 				F33773A01BC9465B00793831 /* Calander.png */,
 				F33773A11BC9465B00793831 /* CheckListpng.png */,
 				F33773981BC8D51300793831 /* SmallCameraButton.png */,
@@ -541,6 +544,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				558BB0471BF8E4F1000B335D /* cross.png in Resources */,
 				F337738D1BC8D1C100793831 /* settings.png in Resources */,
 				F33B7E6E1BC8B92800C37B1D /* lock.png in Resources */,
 				F33773A31BC9465B00793831 /* CheckListpng.png in Resources */,

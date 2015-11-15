@@ -8,6 +8,7 @@
 
 #import "CalendarViewController.h"
 #import "CLWeeklyCalendarView.h"
+#import "NewEventViewController.h"
 
 @interface CalendarViewController () <CLWeeklyCalendarViewDelegate>
 
@@ -103,17 +104,23 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
 -(void)dailyCalendarViewDidSelect:(NSDate *)date
 {
     //You can do any logic after the view select the date
+    self.selectedDate = date;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.destinationViewController isKindOfClass:[NewEventViewController class]]) {
+        NewEventViewController *newEvent = (NewEventViewController *)segue.destinationViewController;
+        newEvent.selectedDate = self.selectedDate;
+    }
 }
-*/
+
 
 #pragma mark - User defined methods
 

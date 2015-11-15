@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewEventViewController : UIViewController
+@interface NewEventViewController : UIViewController <UITextFieldDelegate>
+
+@property (nonatomic, strong) NSDate *selectedDate;
 
 @end
