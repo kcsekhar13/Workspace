@@ -21,7 +21,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Mood Line";
+   
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *filterTitle = nil;
+    NSString *doneButtonTitle = nil;
+    if ([language isEqualToString:@"nb"]) {
+        filterTitle = NSLocalizedString(@"Filter", nil);
+        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        self.title = NSLocalizedString(@"Mood Line", nil);
+        
+    } else {
+        filterTitle = @"Filter";
+        doneButtonTitle = @"Finished";
+         self.title = @"Mood Line";
+    }
+    
     pinchFlag = YES;
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
@@ -50,17 +65,17 @@
     
     // Do any additional setup after loading the view.
     
-    self.moodsArray = [dataManager getMoodsFromPlist];
+    self.moodsArray = (NSMutableArray *)[dataManager getMoodsFromPlist];
     self.moodLineTableView.backgroundView = nil;
     self.moodLineTableView.backgroundColor = [UIColor clearColor];
     self.moodLineTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Finished" style:UIBarButtonItemStylePlain target:self action:@selector(backToHomeScreen)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(backToHomeScreen)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    UIBarButtonItem* filterButton = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(handlePinchWithGestureRecognizer)];
+    UIBarButtonItem* filterButton = [[UIBarButtonItem alloc] initWithTitle:filterTitle style:UIBarButtonItemStylePlain target:self action:@selector(handlePinchWithGestureRecognizer)];
     [filterButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = filterButton;
     

@@ -13,6 +13,10 @@
     
     StoreDataMangager *dataManager;
     int wrongCount;
+    NSString *wrongCodeMessage;
+    NSString *secretQuestion;
+    NSString *secretAnswer;
+
 }
 
 @property (nonatomic)int mode;

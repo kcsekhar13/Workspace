@@ -204,8 +204,19 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
+    NSString *errorMessage = nil;
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"nb"]) {
+        
+        errorMessage = NSLocalizedString(@"Security answer", nil);
+        
+    } else {
+        
+        errorMessage = @"Answer field should not be empty.";
+    }
+    
     if ([self.answerField.text isEqualToString:@""]) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Answer field should not be empty." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* okAction = [UIAlertAction
                                    actionWithTitle:@"OK"
@@ -241,7 +252,19 @@
     
     if (![self.answerField isHidden]) {
         if ([self.answerField.text isEqualToString:@""]) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Answer field should not be empty." preferredStyle:UIAlertControllerStyleAlert];
+            
+            NSString *errorMessage = nil;
+            NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+            if ([language isEqualToString:@"nb"]) {
+                
+                errorMessage = NSLocalizedString(@"Security answer", nil);
+                
+            } else {
+                
+                errorMessage = @"Answer field should not be empty.";
+            }
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* okAction = [UIAlertAction
                                        actionWithTitle:@"OK"

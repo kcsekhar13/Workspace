@@ -581,6 +581,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="allButton" destination="P04-ob-Vyp" id="coe-7Z-ayy"/>
                         <outlet property="backgroundImageView" destination="Wo5-2z-Mec" id="oBw-Lp-A3L"/>
                         <outlet property="contentScrollView" destination="XGP-Im-5SM" id="ePP-fm-6tV"/>
                     </connections>
@@ -1252,7 +1253,8 @@
                     <connections>
                         <outlet property="answerTextField" destination="Yjx-AS-Ws6" id="D1A-ek-qc8"/>
                         <outlet property="backgroundImageView" destination="TEC-9c-SYp" id="3Ys-Y4-gkG"/>
-                        <outlet property="questionLabel" destination="1FZ-jz-Mzu" id="C4P-NH-wCl"/>
+                        <outlet property="questionLabel" destination="1FZ-jz-Mzu" id="Klh-TG-7uk"/>
+                        <outlet property="questionTitle" destination="R5o-Mb-qbS" id="MfT-pq-KzU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Off-N6-lRv" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -30,3 +30,16 @@
 "New transform" = "Nytt transfer";
 "Information" = "Informasjon";
 "InfoDescription" = "Marker et mal som uaktuelt ved a sveipe tilhoyre";
+"Mood Line" = "Mood Linje";
+"Filter" = "Filter";
+"Mood Map" = "Mood Kart";
+"All" = "Alle";
+"SelectHumorColor" = "Velg humor farge";
+"Return" = " Tilbake";
+
+"Textfield warning" = "Textview feltet kan ikke være tomt .";
+"Wrong answer" = "Inngikk galt svar .";
+"Security answer" = "Svar feltet kan ikke være tomt .";
+"Wrong code" = "Feil kode";
+"SecurityAnswerTitle" = "Sikkerhetssvar";
+"Answer Secutiry question" = "Svar Sikkerhetsspørsmål";

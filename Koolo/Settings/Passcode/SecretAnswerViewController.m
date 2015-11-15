@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UITextField *answerTextField;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *questionTitle;
 
 @end
 
@@ -21,7 +22,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"Security Answer";
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *cancelTitle = nil;
+    
+    if ([language isEqualToString:@"nb"]) {
+        
+        self.title = NSLocalizedString(@"SecurityAnswerTitle", nil);
+        cancelTitle = NSLocalizedString(@"Cancel", nil);
+        self.questionTitle.text = NSLocalizedString(@"Answer Secutiry question", nil);
+        
+    } else {
+        self.title = @"Security Answer";
+        cancelTitle = @"Cancel" ;
+        self.questionTitle.text = @"Answer Security question";
+    }
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *secretQuestion = (NSString *)[defaults objectForKey:@"secretQuestion"];
+    if (secretQuestion.length) {
+        self.questionLabel.text = secretQuestion;
+    }
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
@@ -49,7 +69,7 @@
     
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
+    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
     [cancelButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = cancelButton;
 }
@@ -76,7 +96,16 @@
         
     } else {
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Entered wrong answer." preferredStyle:UIAlertControllerStyleAlert];
+        NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+        NSString *errorMessage = nil;
+        if ([language isEqualToString:@"nb"]) {
+            
+            errorMessage = NSLocalizedString(@"Wrong answer", nil);
+            
+        } else {
+            errorMessage = @"Entered wrong answer.";
+        }
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* okAction = [UIAlertAction
                                    actionWithTitle:@"OK"

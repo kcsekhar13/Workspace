@@ -109,7 +109,18 @@
 - (void)addOn {
     
     if (((self.goalTextView.text.length == 0) || !newGoalFlag)) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Textview field should not be empty." preferredStyle:UIAlertControllerStyleAlert];
+        
+        NSString *errorMessage = nil;
+        NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+        if ([language isEqualToString:@"nb"]) {
+            
+            errorMessage = NSLocalizedString(@"Textfield warning", nil);
+            
+        } else {
+            
+            errorMessage = @"Textview field should not be empty.";
+        }
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:errorMessage preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* okAction = [UIAlertAction
                              actionWithTitle:@"OK"

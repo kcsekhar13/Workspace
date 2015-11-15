@@ -28,15 +28,20 @@
     
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    
+    NSString *cancelTitle = nil;
+    NSString *doneButtonTitle = nil;
     if ([language isEqualToString:@"nb"]) {
         
         self.title = NSLocalizedString(@"Settings", nil);
         contentArray = [[NSArray alloc] initWithObjects:@"Bakgrunnsbilde", @"Passkode", @"Sitater", @"Lisens",@"Fargevalg", @"", @"", nil];
+        cancelTitle = NSLocalizedString(@"Cancel", nil);
+        doneButtonTitle = NSLocalizedString(@"Ready", nil);
         
     } else {
         self.title = @"Settings";
         contentArray = [[NSArray alloc] initWithObjects:@"BackgroundImage", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"", @"", nil];
+        cancelTitle = @"Cancel";
+        doneButtonTitle = @"Finished";
     }
     NSLog(@"Language = %@", language);
     
@@ -45,6 +50,15 @@
     _imagePickerController  = [[UIImagePickerController alloc]init];
     _imagePickerController.delegate = self;
     _imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
+    [leftButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = leftButton;
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
+    [rightButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = rightButton;
     // Do any additional setup after loading the view.
 }
 
@@ -196,6 +210,11 @@
 
 }
 
+#pragma mark - User defined mehtods
+- (void)cancelScreen {
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController popViewControllerAnimated:YES];
+}
 /*
 #pragma mark - Navigation
 

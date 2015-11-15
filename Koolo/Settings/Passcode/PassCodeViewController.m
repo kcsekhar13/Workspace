@@ -24,10 +24,16 @@
     if ([language isEqualToString:@"nb"]) {
         self.title = NSLocalizedString(@"Passcode", nil);
         cancelTitle = NSLocalizedString(@"Cancel", nil);
+        wrongCodeMessage = NSLocalizedString(@"Wrong code", nil);
     } else {
         self.title = @"Passcode";
         cancelTitle = @"Cancel";
+        wrongCodeMessage = @"Wrong Code";
     }
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    secretQuestion = (NSString *)[defaults objectForKey:@"secretQuestion"];
+    secretAnswer = (NSString *)[defaults objectForKey:@"secretAnswer"];
     
     UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
     [leftButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
@@ -188,13 +194,18 @@
         
     }
     else{
-        ++wrongCount;
+        
+        
+        if (secretQuestion.length && secretAnswer.length) {
+            ++wrongCount;
+        }
+        
         
         if (wrongCount == 3) {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"SecretAnswer"] animated:YES];
         } else {
-            UIAlertView *errorAlert =[[UIAlertView alloc] initWithTitle:@"Koolo" message:@"Wrong Code" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *errorAlert =[[UIAlertView alloc] initWithTitle:@"Koolo" message:wrongCodeMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [errorAlert show];
             
             [self.passcodeField setText:@""];

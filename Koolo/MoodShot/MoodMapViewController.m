@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
 @property (weak, nonatomic) IBOutlet UIView *circlesView;
+@property (weak, nonatomic) IBOutlet UIButton *allButton;
 
 @end
 
@@ -20,7 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Mood Map";
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *doneButtonTitle = nil;
+    if ([language isEqualToString:@"nb"]) {
+        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        self.title = NSLocalizedString(@"Mood Map", nil);
+        [self.allButton setTitle:NSLocalizedString(@"All", nil) forState:UIControlStateNormal];
+        
+    } else {
+        doneButtonTitle = @"Finished";
+        self.title = @"Mood Map";
+        [self.allButton setTitle:@"All" forState:UIControlStateNormal];
+    }
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
@@ -46,7 +59,7 @@
     [self.backgroundImageView addSubview:effectView];
     [self.backgroundImageView addSubview:vibrantView];
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonClicked)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(backButtonClicked)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];

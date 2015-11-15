@@ -24,8 +24,19 @@
     [super viewDidLoad];
     
     self.title = @"Select Humor Color";
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *doneButtonTitle = nil;
+    if ([language isEqualToString:@"nb"]) {
+        doneButtonTitle = NSLocalizedString(@"Return", nil);
+        self.title = NSLocalizedString(@"SelectHumorColor", nil);
+        
+    } else {
+        doneButtonTitle = @"Return";
+        self.title = @"Select Humor Color";
+    }
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Return" style:UIBarButtonItemStylePlain target:self action:@selector(backToMoodLine)];
+    
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(backToMoodLine)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
