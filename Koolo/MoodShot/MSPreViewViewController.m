@@ -108,7 +108,7 @@
      
     NSString *fileName = [NSString stringWithFormat:@"%@.png",[dataManager getStringFromDate:[NSDate date]]];
      NSString *savedImagePath = [[dataManager getDocumentryPath] stringByAppendingPathComponent:fileName];
-    NSLog(@"%d >>>>>",[self.selectedImageData writeToFile:savedImagePath atomically:YES]);
+    //NSLog(@"%d >>>>>",[self.selectedImageData writeToFile:savedImagePath atomically:YES]);
     NSString *moodName = dataManager.fetchColorPickerTitlesArray[indexPath.row];
     NSString *colorIndex = [NSString stringWithFormat:@"%d",(int)indexPath.row];
     NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:fileName,@"FileName",moodName,@"MoodName",colorIndex,@"ColorIndex",savedImagePath,@"FilePath", nil];

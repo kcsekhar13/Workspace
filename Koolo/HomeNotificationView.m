@@ -44,7 +44,7 @@
             int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
             _mDayLabel.layer.borderColor = [(UIColor *)dataManager.fetchColorsArray[index] CGColor];
         } else {
-            [_mDayLabel.layer setBorderColor:[[UIColor redColor] CGColor]];
+            [_mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
         }
         
         

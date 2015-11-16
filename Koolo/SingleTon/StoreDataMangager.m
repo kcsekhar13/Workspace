@@ -67,7 +67,7 @@ static StoreDataMangager *sharedInstance = nil;
                                                     attributes:nil
                                                          error:&error])
     {
-        NSLog(@"Create directory error: %@", error);
+        //NSLog(@"Create directory error: %@", error);
     }
     
     NSString *savedImagePath = [filePathAndDirectory stringByAppendingPathComponent:@"savedImage.png"];
@@ -85,7 +85,7 @@ static StoreDataMangager *sharedInstance = nil;
     NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
     [dateformate setDateFormat:@"dd-MM-yyyyhh:mm:SS"]; // Date formater
     NSString *dateString = [dateformate stringFromDate:date]; // Convert date to string
-    NSLog(@"date :%@",dateString);
+    //NSLog(@"date :%@",dateString);
     return dateString;
 }
 
@@ -101,7 +101,7 @@ static StoreDataMangager *sharedInstance = nil;
                                                     attributes:nil
                                                          error:&error])
     {
-        NSLog(@"Create directory error: %@", error);
+        //NSLog(@"Create directory error: %@", error);
     }
     
     return filePathAndDirectory;

@@ -199,7 +199,7 @@
                                                     attributes:nil
                                                          error:&error])
     {
-        NSLog(@"Create directory error: %@", error);
+       // NSLog(@"Create directory error: %@", error);
     }
 
     NSString *savedImagePath = [filePathAndDirectory stringByAppendingPathComponent:@"savedImage.png"];

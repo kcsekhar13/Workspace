@@ -729,6 +729,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0EO-DY-BAc">
+                                <rect key="frame" x="20" y="86" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="moveToColorPickerScreen:" destination="GGz-eN-bId" eventType="touchUpInside" id="bFm-Vj-o9U"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4rp-oI-O83">
                                 <rect key="frame" x="20" y="156" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -763,6 +771,23 @@
                                     <outlet property="delegate" destination="GGz-eN-bId" id="um1-uO-B3b"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6cx-7v-sv7">
+                                <rect key="frame" x="224" y="142" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xlm-rX-XgO">
+                                <rect key="frame" x="192" y="142" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" image="time.png"/>
+                                <connections>
+                                    <action selector="launchDatePicker:" destination="GGz-eN-bId" eventType="touchUpInside" id="Mbc-1S-oQq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -773,6 +798,7 @@
                         <outlet property="eventTextField" destination="sng-Ef-TXs" id="Uk1-FM-cbw"/>
                         <outlet property="mDayLabel" destination="7t1-ee-bVK" id="Vtn-d2-kLH"/>
                         <outlet property="monthLabel" destination="4rp-oI-O83" id="Kad-Fq-eFR"/>
+                        <outlet property="remainderLabel" destination="6cx-7v-sv7" id="Ybc-vb-IXK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHm-ac-zth" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1495,6 +1521,7 @@
         <image name="SmallKeyBoard.png" width="50" height="50"/>
         <image name="plus.png" width="88" height="88"/>
         <image name="settings.png" width="256" height="256"/>
+        <image name="time.png" width="13" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="txd-7c-XPx"/>
