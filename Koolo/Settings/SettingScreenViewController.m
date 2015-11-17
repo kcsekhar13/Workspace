@@ -18,6 +18,7 @@
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (weak, nonatomic) IBOutlet UITableView *contentTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -145,6 +146,9 @@
                                                              bundle: nil];
     if (indexPath.row == 0) {
         
+        self.activityIndicator.center = CGPointMake(self.view.center.x, (self.view.center.y/2)+100) ;
+        [self.activityIndicator startAnimating];
+        
         dispatch_async(dispatch_queue_create("openPhotosCamera", NULL), ^{
             
             
@@ -152,6 +156,7 @@
                 //hide HUD or activityIndicator
                
                 [self presentViewController:_imagePickerController animated:YES completion:nil];
+                [self.activityIndicator stopAnimating];
             });
         });
         

@@ -79,6 +79,12 @@
                                     <outlet property="delegate" destination="pBS-UI-sdT" id="X1J-q3-1ss"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="hSW-bl-Zbj">
+                                <rect key="frame" x="142" y="265" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,6 +92,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="rH9-NJ-O3G"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="hSW-bl-Zbj" id="aDI-Cp-s2N"/>
                         <outlet property="backgroundImageView" destination="gf3-AY-HNc" id="L7B-D0-ibv"/>
                         <outlet property="contentTableView" destination="YyF-04-XHK" id="XWQ-hw-Sxg"/>
                     </connections>
@@ -480,6 +487,12 @@
                                     <action selector="launchAlbum:" destination="ATE-ra-ukB" eventType="touchUpInside" id="7Mc-2g-YQf"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="4Zg-5V-ZWA">
+                                <rect key="frame" x="142" y="265" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bbq-MX-nsX">
                                 <rect key="frame" x="6" y="517" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -495,6 +508,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="4Zg-5V-ZWA" id="AzS-6Q-cmG"/>
                         <outlet property="backgroundImageView" destination="YB6-oS-B7C" id="abx-UC-HIg"/>
                         <outlet property="moodLineTableView" destination="EQS-E4-JHC" id="ug6-74-5y7"/>
                     </connections>

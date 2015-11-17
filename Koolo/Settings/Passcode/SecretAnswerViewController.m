@@ -43,10 +43,11 @@
         self.questionLabel.text = secretQuestion;
     }
     dataManager = [StoreDataMangager sharedInstance];
+    /*
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
         _backgroundImageView.image = backgroundImage;
-    }
+    }*/
     
     // create blur effect
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];

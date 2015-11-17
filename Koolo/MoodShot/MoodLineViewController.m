@@ -14,6 +14,7 @@
 @interface MoodLineViewController () <MoodMapDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -192,6 +193,10 @@
 }
 */
 - (IBAction)launchCamera:(id)sender {
+    
+    self.activityIndicator.center = CGPointMake(self.view.center.x, (self.view.center.y/2)+100) ;
+    [self.activityIndicator startAnimating];
+
     dispatch_async(dispatch_queue_create("openPhotosCamera", NULL), ^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -201,11 +206,13 @@
             //Change source type to Photo library while checking app in simulator
             _imagePickerController.sourceType =  UIImagePickerControllerSourceTypeCamera;
             [self presentViewController:_imagePickerController animated:YES completion:nil];
+            [self.activityIndicator stopAnimating];
         });
     });
 }
 - (IBAction)launchAlbum:(id)sender {
-    
+    self.activityIndicator.center = CGPointMake(self.view.center.x, (self.view.center.y/2)+100) ;
+    [self.activityIndicator startAnimating];
     dispatch_async(dispatch_queue_create("openPhotosCamera", NULL), ^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -215,6 +222,7 @@
             //Change source type to Photo library while checking app in simulator
             _imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
             [self presentViewController:_imagePickerController animated:YES completion:nil];
+            [self.activityIndicator stopAnimating];
         });
     });
 }
