@@ -132,13 +132,24 @@
         _mNoteView = [[HomeNotificationView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height/2)];
         _mNoteView.delegate = self;
         int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
-        _mNoteView.mDayLabel.layer.borderColor = [(UIColor *)dataManager.fetchColorsArray[index] CGColor];
-        [self.view addSubview:_mNoteView];
+        if (index == -1) {
+            _mNoteView.mDayLabel.layer.borderColor = [UIColor clearColor].CGColor;
+            [self.view addSubview:_mNoteView];
+        } else  {
+            _mNoteView.mDayLabel.layer.borderColor = [(UIColor *)dataManager.fetchColorsArray[index] CGColor];
+            [self.view addSubview:_mNoteView];
+        }
+        
         
     } else {
         _mNoteView.delegate = self;
         int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
-        _mNoteView.mDayLabel.layer.borderColor = [(UIColor *)dataManager.fetchColorsArray[index] CGColor];
+        if (index == -1) {
+            _mNoteView.mDayLabel.layer.borderColor = [UIColor clearColor].CGColor;
+            [self.view addSubview:_mNoteView];
+        } else  {
+            _mNoteView.mDayLabel.layer.borderColor = [(UIColor *)dataManager.fetchColorsArray[index] CGColor];
+        }
         [_mNoteView clearsContextBeforeDrawing];
         [_mNoteView setNeedsDisplay];
     }

@@ -776,7 +776,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xlm-rX-XgO">
@@ -1054,6 +1054,21 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green.png" id="oVt-aj-Zfa">
+                                <rect key="frame" x="25" y="125" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red.png" id="9Ln-lL-TrA">
+                                <rect key="frame" x="25" y="195" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellow.png" id="JWE-iO-Dvs">
+                                <rect key="frame" x="25" y="265" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1519,9 +1534,12 @@
         <image name="InformationImage" width="640" height="1136"/>
         <image name="SmallCameraButton.png" width="40" height="40"/>
         <image name="SmallKeyBoard.png" width="50" height="50"/>
+        <image name="green.png" width="30" height="30"/>
         <image name="plus.png" width="88" height="88"/>
+        <image name="red.png" width="30" height="30"/>
         <image name="settings.png" width="256" height="256"/>
         <image name="time.png" width="13" height="16"/>
+        <image name="yellow.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="txd-7c-XPx"/>

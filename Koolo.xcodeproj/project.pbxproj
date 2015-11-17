@@ -23,6 +23,9 @@
 		5536AA401BD81D1100398454 /* UPStackMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA3D1BD81D1100398454 /* UPStackMenu.m */; };
 		5536AA411BD81D1100398454 /* UPStackMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA3F1BD81D1100398454 /* UPStackMenuItem.m */; };
 		5536AA451BD81D7F00398454 /* AppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA441BD81D7F00398454 /* AppDataManager.m */; };
+		553B65C31BFBB3B800F288DD /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 553B65C21BFBB3B800F288DD /* red.png */; };
+		553B65C71BFBB3D900F288DD /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 553B65C41BFBB3D900F288DD /* green.png */; };
+		553B65C91BFBB3D900F288DD /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 553B65C61BFBB3D900F288DD /* yellow.png */; };
 		55429EE11BC8AFCB00CEF9E5 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55429EE01BC8AFCB00CEF9E5 /* InformationViewController.m */; };
 		554310C51BE4D7CC00961E34 /* CalendarColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 554310C41BE4D7CC00961E34 /* CalendarColorPickerViewController.m */; };
 		555BD6131BC760B600BB61E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BD6121BC760B600BB61E9 /* main.m */; };
@@ -112,6 +115,9 @@
 		5536AA3F1BD81D1100398454 /* UPStackMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPStackMenuItem.m; sourceTree = "<group>"; };
 		5536AA431BD81D7F00398454 /* AppDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDataManager.h; sourceTree = "<group>"; };
 		5536AA441BD81D7F00398454 /* AppDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDataManager.m; sourceTree = "<group>"; };
+		553B65C21BFBB3B800F288DD /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		553B65C41BFBB3D900F288DD /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
+		553B65C61BFBB3D900F288DD /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		55429EDF1BC8AFCB00CEF9E5 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		55429EE01BC8AFCB00CEF9E5 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		554310C31BE4D7CC00961E34 /* CalendarColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarColorPickerViewController.h; sourceTree = "<group>"; };
@@ -451,6 +457,9 @@
 		F33B7E6C1BC8B92800C37B1D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				553B65C41BFBB3D900F288DD /* green.png */,
+				553B65C61BFBB3D900F288DD /* yellow.png */,
+				553B65C21BFBB3B800F288DD /* red.png */,
 				557B4B1A1BFA4B4500F37F04 /* time.png */,
 				558BB0461BF8E4F1000B335D /* cross.png */,
 				F33773A01BC9465B00793831 /* Calander.png */,
@@ -550,7 +559,9 @@
 				558BB0471BF8E4F1000B335D /* cross.png in Resources */,
 				F337738D1BC8D1C100793831 /* settings.png in Resources */,
 				F33B7E6E1BC8B92800C37B1D /* lock.png in Resources */,
+				553B65C71BFBB3D900F288DD /* green.png in Resources */,
 				F33773A31BC9465B00793831 /* CheckListpng.png in Resources */,
+				553B65C31BFBB3B800F288DD /* red.png in Resources */,
 				55D063831BF8894B000962D3 /* Localizable.strings in Resources */,
 				F3BBD92D1BE4CD760087591E /* Images.xcassets in Resources */,
 				555BD61C1BC760B600BB61E9 /* Main.storyboard in Resources */,
@@ -561,6 +572,7 @@
 				F337739E1BC8D51300793831 /* SmallRecorderButton.png in Resources */,
 				555BD6211BC760B600BB61E9 /* LaunchScreen.xib in Resources */,
 				F337738F1BC8D2C400793831 /* plus.png in Resources */,
+				553B65C91BFBB3D900F288DD /* yellow.png in Resources */,
 				F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */,
 				F337739F1BC8D51300793831 /* WhitePlus.png in Resources */,
 			);
@@ -681,8 +693,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Manish Mar 2014 Dev";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Manish Mar 2014 Dev";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -702,7 +714,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "881fd96e-a033-495a-8d9a-8ff0e11d316a";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -725,8 +737,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Manish Mar 2014 Dev";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Manish Mar 2014 Dev";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -739,7 +751,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "881fd96e-a033-495a-8d9a-8ff0e11d316a";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

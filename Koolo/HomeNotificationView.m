@@ -40,7 +40,7 @@
         [_mDayLabel setFont:[UIFont systemFontOfSize:24.0f]];
         [_mDayLabel setBackgroundColor:[UIColor grayColor]];
         
-        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"]) {
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue] != -1 && [[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"]) {
             int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
             _mDayLabel.layer.borderColor = [(UIColor *)dataManager.fetchColorsArray[index] CGColor];
         } else {

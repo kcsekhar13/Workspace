@@ -112,6 +112,9 @@
  #pragma mark - UIButton action methods
 - (IBAction)backToHomeScreen:(id)sender {
     
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",-1] forKey:@"calendarColorIndex"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
