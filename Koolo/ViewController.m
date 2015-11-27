@@ -216,11 +216,37 @@
 
 - (void)moveToMoodLineScreen {
     
+    CATransition *animation = [CATransition animation];
+    
+    [animation setDelegate:self];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromRight];
+    
+    [animation setDuration:0.45];
+    [animation setTimingFunction:
+     [CAMediaTimingFunction functionWithName:
+      kCAMediaTimingFunctionEaseInEaseOut]];
+    
+    [self.navigationController.view.layer addAnimation:animation forKey:kCATransition];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"MoodLineScreen"] animated:NO];
 }
 
 - (void)moveToCalendarHomeScreen {
+    CATransition *animation = [CATransition animation];
+    
+    [animation setDelegate:self];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromLeft];
+    
+    [animation setDuration:0.45];
+    [animation setTimingFunction:
+     [CAMediaTimingFunction functionWithName:
+      kCAMediaTimingFunctionEaseInEaseOut]];
+    
+    [self.navigationController.view.layer addAnimation:animation forKey:kCATransition];
+    
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarScreen"] animated:NO];
