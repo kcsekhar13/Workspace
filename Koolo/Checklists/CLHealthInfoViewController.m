@@ -79,7 +79,7 @@
         _progressLabelText.text = NSLocalizedString(@"Progress", nil);
         _descriptionLabel.text = NSLocalizedString(@"InfoDescription", nil);
     } else {
-        doneButtonTitle = @"Finished";
+        doneButtonTitle = @"Done";
         self.title = @"Information";
         _finishedTextLabel.text = @"Finished";
         _pendingLabelText.text = @"Not done";

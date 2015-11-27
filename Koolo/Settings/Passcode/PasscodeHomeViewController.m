@@ -55,7 +55,7 @@
         self.secretQuestionLabel.text = @"Set secretQuestion";
         self.pickerViewTextField.text = @"Select your secret question";
         cancelTitle = @"Cancel";
-        doneButtonTitle = @"Finished";
+        doneButtonTitle = @"Done";
     }
    
     selectedIndex = 0;

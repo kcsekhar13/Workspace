@@ -34,7 +34,7 @@
     } else {
         self.title = @"Color choices";
         cancelTitle = @"Cancel";
-        doneButtonTitle = @"Finished";
+        doneButtonTitle = @"Done";
     }
     saveFlag = NO;
     dataManager = [StoreDataMangager sharedInstance];

@@ -42,7 +42,7 @@
         self.title = @"Settings";
         contentArray = [[NSArray alloc] initWithObjects:@"BackgroundImage", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"", @"", nil];
         cancelTitle = @"Cancel";
-        doneButtonTitle = @"Finished";
+        doneButtonTitle = @"Done";
     }
     NSLog(@"Language = %@", language);
     

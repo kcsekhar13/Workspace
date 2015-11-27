@@ -38,7 +38,7 @@
         
     } else {
         self.title = @"Today's Event";
-        doneButtonTitle = @"Finished";
+        doneButtonTitle = @"Done";
         cancelButtonTitle = @"Cancel";
     }
     

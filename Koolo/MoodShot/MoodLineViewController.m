@@ -34,7 +34,7 @@
         
     } else {
         filterTitle = @"Filter";
-        doneButtonTitle = @"Finished";
+        doneButtonTitle = @"Done";
          self.title = @"Mood Line";
     }
     

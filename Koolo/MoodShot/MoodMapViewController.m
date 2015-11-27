@@ -30,7 +30,7 @@
         [self.allButton setTitle:NSLocalizedString(@"All", nil) forState:UIControlStateNormal];
         
     } else {
-        doneButtonTitle = @"Finished";
+        doneButtonTitle = @"Done";
         self.title = @"Mood Map";
         [self.allButton setTitle:@"All" forState:UIControlStateNormal];
     }

@@ -34,7 +34,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
         
     } else {
         self.title = @"Calendar";
-        doneButtonTitle = @"Finished";
+        doneButtonTitle = @"Done";
     }
     
     

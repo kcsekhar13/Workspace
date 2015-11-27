@@ -39,7 +39,7 @@
         
     } else {
         self.title = @"Checklists";
-        doneButtonTitle = @"Finished";
+        doneButtonTitle = @"Done";
         transferString = @"Ready for transfer";
         myhealthString= @"My Health";
         [_threeSentence setTitle:@"Three Sentence" forState:UIControlStateNormal];
