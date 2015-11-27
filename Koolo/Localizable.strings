@@ -36,6 +36,7 @@
 "All" = "Alle";
 "SelectHumorColor" = "Velg humor farge";
 "Return" = " Tilbake";
+"Map" = "Kart";
 
 "Textfield warning" = "Textview feltet kan ikke være tomt .";
 "Wrong answer" = "Inngikk galt svar .";

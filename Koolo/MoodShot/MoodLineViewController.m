@@ -28,12 +28,12 @@
     NSString *filterTitle = nil;
     NSString *doneButtonTitle = nil;
     if ([language isEqualToString:@"nb"]) {
-        filterTitle = NSLocalizedString(@"Filter", nil);
+        filterTitle = NSLocalizedString(@"Map", nil);
         doneButtonTitle = NSLocalizedString(@"Ready", nil);
         self.title = NSLocalizedString(@"Mood Line", nil);
         
     } else {
-        filterTitle = @"Filter";
+        filterTitle = @"Map";
         doneButtonTitle = @"Done";
          self.title = @"Mood Line";
     }

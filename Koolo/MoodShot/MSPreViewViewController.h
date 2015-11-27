@@ -12,6 +12,7 @@
 @interface MSPreViewViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate> {
     
     StoreDataMangager *dataManager;
+    NSIndexPath *selectedIndexPath;
 }
 @property (nonatomic,strong)NSData *selectedImageData;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;

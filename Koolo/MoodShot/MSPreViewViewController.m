@@ -25,21 +25,28 @@
     
     self.title = @"Select Humor Color";
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString *cancelButtonTitle = nil;
     NSString *doneButtonTitle = nil;
     if ([language isEqualToString:@"nb"]) {
-        doneButtonTitle = NSLocalizedString(@"Return", nil);
+        cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
+        doneButtonTitle = NSLocalizedString(@"Ready", nil);
         self.title = NSLocalizedString(@"SelectHumorColor", nil);
         
     } else {
-        doneButtonTitle = @"Return";
+        cancelButtonTitle = @"Cancel";
+        doneButtonTitle = @"Done";
         self.title = @"Select Humor Color";
     }
     
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(backToMoodLine)];
-    [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
-    self.navigationItem.leftBarButtonItem = doneButton;
+    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(backToMoodLine)];
+    [cancelButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = cancelButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToMoodMapScreen)];
+    [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = doneButton;
     
     [self.imageView setImage:[UIImage imageWithData:self.selectedImageData]];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -98,7 +105,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self saveToDB:indexPath];
+    selectedIndexPath = indexPath;
+   
 
 
 }
@@ -134,6 +142,26 @@
 - (void)backToMoodLine {
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)moveToMoodMapScreen {
+    if (selectedIndexPath) {
+        [self saveToDB:selectedIndexPath];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Please select any humor color" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction
+                                   actionWithTitle:@"OK"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action)
+                                   {
+                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                       
+                                   }];
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    
 }
 /*
 #pragma mark - Navigation
