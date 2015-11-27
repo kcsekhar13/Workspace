@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.navigationController.navigationBar.hidden = NO;
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *doneButtonTitle = nil;
     NSString *cancelButtonTitle = nil;

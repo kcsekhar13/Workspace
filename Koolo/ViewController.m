@@ -119,6 +119,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
 
     self.navigationController.navigationBar.hidden = YES;
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
@@ -198,7 +199,7 @@
             
             break;
         case 2:
-            [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarScreen"] animated:YES];
+            [self moveToCalendarHomeScreen];
             break;
             
         default:
@@ -234,8 +235,9 @@
 }
 
 - (void)moveToCalendarHomeScreen {
-    CATransition *animation = [CATransition animation];
     
+    
+    CATransition *animation = [CATransition animation];
     [animation setDelegate:self];
     [animation setType:kCATransitionPush];
     [animation setSubtype:kCATransitionFromLeft];

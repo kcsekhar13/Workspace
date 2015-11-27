@@ -25,6 +25,10 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UISwipeGestureRecognizer * swipeLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(moveToHome)];
+    swipeLeft.direction=UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeft];
+    
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *doneButtonTitle = nil;
     if ([language isEqualToString:@"nb"]) {
@@ -72,6 +76,10 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     [self.view addSubview:self.calendarView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -126,6 +134,18 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
 
 - (void)moveToHome {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    CATransition *animation = [CATransition animation];
+    [animation setDelegate:self];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromLeft];
+    
+    [animation setDuration:0.45];
+    [animation setTimingFunction:
+     [CAMediaTimingFunction functionWithName:
+      kCAMediaTimingFunctionEaseInEaseOut]];
+    
+    [self.navigationController.view.layer addAnimation:animation forKey:kCATransition];
+    [self.navigationController popViewControllerAnimated:NO];
+    
 }
 @end
