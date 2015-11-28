@@ -23,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    UISwipeGestureRecognizer * swipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(backToHomeScreen)];
+    swipeRight.direction=UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRight];
+    [self.moodLineTableView addGestureRecognizer:swipeRight];
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *filterTitle = nil;
