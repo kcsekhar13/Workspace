@@ -21,6 +21,11 @@
     // Override point for customization after application launch.
     
     
+    if ([[NSUserDefaults standardUserDefaults]  objectForKey:@"AppInstallDate"] == nil) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"AppInstallDate"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
     [self handlePasscodeScreen];
   
     if ([[[NSUserDefaults standardUserDefaults]  objectForKey:@"Quotes"] count] == 0) {

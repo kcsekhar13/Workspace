@@ -66,6 +66,7 @@
     
     // Do any additional setup after loading the view.
     
+    [dataManager checkDummyMoods];
     self.moodsArray = (NSMutableArray *)[dataManager getMoodsFromPlist];
     self.moodLineTableView.backgroundView = nil;
     self.moodLineTableView.backgroundColor = [UIColor clearColor];

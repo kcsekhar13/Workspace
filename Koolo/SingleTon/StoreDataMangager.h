@@ -25,6 +25,7 @@
 -(void)saveDictionaryToPlist:(NSDictionary*)dict;
 -(NSArray*)getMoodsFromPlist;
 -(NSString*)getDateStringFromDate:(NSString*)string;
+- (void)checkDummyMoods;
 
 -(NSArray*)getMoodShotGoalsFromPlist;
 -(void)saveDictionaryToMoodShotPlist:(NSDictionary*)dict;
@@ -35,4 +36,5 @@
 -(NSString *)getReadyTransferFilePath;
 -(void)updateMoodsArray:(NSArray*)totalArray;
 -(void)updateReadyArray:(NSArray*)totalArray;
+
 @end

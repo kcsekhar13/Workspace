@@ -110,7 +110,6 @@ static StoreDataMangager *sharedInstance = nil;
 -(void)saveDictionaryToPlist:(NSDictionary*)dict
 {
     
-    [self addDummyMoods];
     NSMutableArray *prevMoodsArray = [[NSMutableArray alloc] initWithArray:[self getMoodsFromPlist]];
     
     if (prevMoodsArray == nil) {        
@@ -121,8 +120,32 @@ static StoreDataMangager *sharedInstance = nil;
     
 }
 
+- (void)checkDummyMoods {
+    
+    NSDate *oldDate = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"date"];
+    NSDate *presentDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"d MMM yyyy"];
+    
+    NSString *oldDateString = @"";
+    if (oldDate != nil) {
+        oldDateString = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:oldDate]] ;
+    }
+    
+    NSString *presentDateString = [dateFormatter stringFromDate:presentDate];
+    
+    
+    if ( oldDate != nil && !([oldDateString isEqualToString:presentDateString])) {
+        [self addDummyMoods];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:presentDate forKey:@"date"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 -(NSArray*)getMoodsFromPlist
 {
+   
     
     NSArray *moodsArray = [[NSArray alloc] initWithContentsOfFile:[self getMoodsFilePath]];    
     return moodsArray;
@@ -315,21 +338,27 @@ static StoreDataMangager *sharedInstance = nil;
    
     NSMutableArray *prevMoodsArray = [[NSMutableArray alloc] initWithArray:[self getMoodsFromPlist]];
 
+    NSDate *previousDate = nil;
     if ([prevMoodsArray count] ==0) {
         
-        return;
+        previousDate = (NSDate *)[[NSUserDefaults standardUserDefaults]  objectForKey:@"AppInstallDate"];
+    } else {
+       previousDate = (NSDate *)[self getDateFromFileName:[[prevMoodsArray objectAtIndex:0] objectForKey:@"FileName"]];
     }
-    NSDate *previousDate = [self getDateFromFileName:[[prevMoodsArray objectAtIndex:0] objectForKey:@"FileName"]];
+   
     NSArray *allDates = [self getAllDatesBetweenDates:previousDate toDate:[NSDate date]];
 
     NSLog(@"%@ >>>",allDates);
 
-    for (int i= 0; i<[allDates count]; i++) {
+    for (int i= 0; i<[allDates count] - 1; i++) {
         
         NSDate *date = [allDates objectAtIndex:i];
-        NSString *fileName = [NSString stringWithFormat:@"%@.png",[self getStringFromDate:date]];
-        NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:fileName,@"FileName",nil];
-        [prevMoodsArray insertObject:moodDict atIndex:0];
+        if (![date compare:previousDate] == NSOrderedSame) {
+            NSString *fileName = [NSString stringWithFormat:@"%@.png",[self getStringFromDate:date]];
+            NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:fileName,@"FileName",nil];
+            [prevMoodsArray insertObject:moodDict atIndex:0];
+        }
+        
     }
     [prevMoodsArray writeToFile:[self getMoodsFilePath] atomically:YES];
 
