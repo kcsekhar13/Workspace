@@ -25,66 +25,28 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     self.navigationController.navigationBar.hidden = NO;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    gestureCount = 0;
+    
     datesArray = [[NSMutableArray alloc] init];
     NSDate *todayDate = [NSDate date];
-    int daysToAdd = 1;
     [datesArray addObject:todayDate];
-    for (int i = 0; i<8; i++) {
-        NSDate *newDate = [datesArray[i] dateByAddingTimeInterval:60*60*24*daysToAdd];
-         [datesArray addObject:newDate];
+    for (int i = 0; i<35; i++) {
+        NSDate *newDate = [datesArray[i] dateByAddingTimeInterval:60*60*24*1];
+        [datesArray addObject:newDate];
     }
-    int dateIndex = 0;
-    NSLog(@"Dates Array = %@", datesArray);
-    float yPosition = 10.0f;
-    for (int i = 0; i < 3; i++) {
-        
-        float xPostion = 80.0f;
-        
-        for (int j = 0; j < 3; j++) {
-            
-            NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"dd"];
-            
-            NSDateFormatter *dayFormatter=[[NSDateFormatter alloc] init];
-            [dayFormatter setDateFormat:@"EEE"];
-            
-            NSString *textString = [NSString stringWithFormat:@"%@ \n%@", [dateFormatter stringFromDate:datesArray[dateIndex]], [dayFormatter stringFromDate:datesArray[dateIndex]]];
-            
-            dataManager = [StoreDataMangager sharedInstance];
-            
-            UILabel *mDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
-            [mDayLabel setText:textString];
-            [mDayLabel setNumberOfLines:2];
-            [mDayLabel setTextColor:[UIColor whiteColor]];
-            [mDayLabel setTextAlignment:NSTextAlignmentCenter];
-            [mDayLabel setFont:[UIFont systemFontOfSize:14.0f]];
-            [mDayLabel setBackgroundColor:[UIColor grayColor]];
-            [mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
-            [mDayLabel.layer setBorderWidth:2.0f];
-            [mDayLabel.layer setMasksToBounds:YES];
-            [mDayLabel.layer setCornerRadius:25.0f];
-            [mDayLabel setUserInteractionEnabled:YES];
-            [self.calendarView addSubview:mDayLabel];
-            
-            UIButton *colorPickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [colorPickerButton setFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
-            [colorPickerButton.layer setBorderWidth:2.0f];
-            [colorPickerButton.layer setMasksToBounds:YES];
-            [colorPickerButton.layer setCornerRadius:25.0f];
-            [colorPickerButton setUserInteractionEnabled:YES];
-            [colorPickerButton setBackgroundColor:[UIColor clearColor]];
-            colorPickerButton.tag = dateIndex;
-            [colorPickerButton addTarget:self action:@selector(newEventScreen:) forControlEvents:UIControlEventTouchUpInside];
-            [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
-            xPostion = colorPickerButton.frame.origin.x + colorPickerButton.frame.size.width + 30.0f;
-            
-            [self.calendarView addSubview:colorPickerButton];
-            NSLog(@"j = %d ", j);
-            ++dateIndex;
-        }
-        yPosition += 80.0f;
-        NSLog(@"\n");
-    }
+    
+    [self prepareCalendarView];
+    
+    UISwipeGestureRecognizer * calendarswipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(prepareCalendarView)];
+    calendarswipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.calendarView addGestureRecognizer:calendarswipeRight];
+    
+    UISwipeGestureRecognizer * calendarswipeLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(preparePreviousCalendarView)];
+    calendarswipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.calendarView addGestureRecognizer:calendarswipeLeft];
+    
+    
     self.selectedDate = todayDate;
     UISwipeGestureRecognizer * swipeLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(moveToHome)];
     swipeLeft.direction=UISwipeGestureRecognizerDirectionLeft;
@@ -219,4 +181,182 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     [self.navigationController popViewControllerAnimated:NO];
     
 }
+
+- (void)prepareCalendarView {
+    
+    if (gestureCount > 3) {
+        return;
+    }
+    
+    if (gestureCount > 0) {
+        for (UIView *v in [self.calendarView subviews]){
+            [v removeFromSuperview];
+        }
+
+    }
+    int dateIndex = 0;
+    NSLog(@"Dates Array = %@", datesArray);
+    float yPosition = 10.0f;
+    for (int i = 0; i < 3; i++) {
+        
+        float xPostion = 0.0f;
+        if (self.view.frame.size.width > 320.0f) {
+            xPostion = 80.0f;
+        } else {
+            xPostion = 55.0f;
+        }
+        
+        
+        for (int j = 0; j < 3; j++) {
+            
+            NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"dd"];
+            
+            NSDateFormatter *dayFormatter=[[NSDateFormatter alloc] init];
+            [dayFormatter setDateFormat:@"EEE"];
+            
+            NSLog(@"Date<><> = %@", [dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]]);
+            NSString *textString = [NSString stringWithFormat:@"%@ \n%@", [dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]], [dayFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]]];
+            
+            dataManager = [StoreDataMangager sharedInstance];
+            
+            UILabel *mDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
+            [mDayLabel setText:textString];
+            [mDayLabel setNumberOfLines:2];
+            [mDayLabel setTextColor:[UIColor whiteColor]];
+            [mDayLabel setTextAlignment:NSTextAlignmentCenter];
+            [mDayLabel setFont:[UIFont systemFontOfSize:14.0f]];
+            [mDayLabel setBackgroundColor:[UIColor grayColor]];
+            [mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
+            [mDayLabel.layer setBorderWidth:2.0f];
+            [mDayLabel.layer setMasksToBounds:YES];
+            [mDayLabel.layer setCornerRadius:25.0f];
+            [mDayLabel setUserInteractionEnabled:YES];
+            [self.calendarView addSubview:mDayLabel];
+            
+            UIButton *colorPickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [colorPickerButton setFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
+            [colorPickerButton.layer setBorderWidth:2.0f];
+            [colorPickerButton.layer setMasksToBounds:YES];
+            [colorPickerButton.layer setCornerRadius:25.0f];
+            [colorPickerButton setUserInteractionEnabled:YES];
+            [colorPickerButton setBackgroundColor:[UIColor clearColor]];
+            colorPickerButton.tag = (gestureCount * 9) + dateIndex;
+            [colorPickerButton addTarget:self action:@selector(newEventScreen:) forControlEvents:UIControlEventTouchUpInside];
+            [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
+            xPostion = colorPickerButton.frame.origin.x + colorPickerButton.frame.size.width + 30.0f;
+            
+            if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
+                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 10.0f)];
+                NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
+                [monthFormatter setDateFormat:@"MMM, yyyy"];
+                monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
+                [monthLabel setTextColor:[UIColor whiteColor]];
+                [monthLabel setTextAlignment:NSTextAlignmentCenter];
+                [monthLabel setFont:[UIFont systemFontOfSize:12.0f]];
+                [monthLabel setBackgroundColor:[UIColor clearColor]];
+                [self.calendarView addSubview:monthLabel];
+                
+            }
+            [self.calendarView addSubview:colorPickerButton];
+            NSLog(@"j = %d ", j);
+            ++dateIndex;
+        }
+        yPosition += 80.0f;
+        NSLog(@"\n");
+    }
+    
+    ++gestureCount;
+    NSLog(@"count = %lu ", (unsigned long)self.calendarView.subviews.count);
+}
+
+- (void)preparePreviousCalendarView {
+    
+    if (gestureCount == 1) {
+        return;
+    }
+    
+    if (gestureCount > 0) {
+        for (UIView *v in [self.calendarView subviews]){
+            [v removeFromSuperview];
+        }
+        
+    }
+    gestureCount-=2;
+    int dateIndex = 0;
+    NSLog(@"Dates Array = %@", datesArray);
+    float yPosition = 10.0f;
+    for (int i = 0; i < 3; i++) {
+        
+        float xPostion = 0.0f;
+        if (self.view.frame.size.width > 320.0f) {
+            xPostion = 80.0f;
+        } else {
+            xPostion = 55.0f;
+        }
+        
+        
+        for (int j = 0; j < 3; j++) {
+            
+            NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"dd"];
+            
+            NSDateFormatter *dayFormatter=[[NSDateFormatter alloc] init];
+            [dayFormatter setDateFormat:@"EEE"];
+            
+            NSString *textString = [NSString stringWithFormat:@"%@ \n%@", [dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]], [dayFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]]];
+            
+            dataManager = [StoreDataMangager sharedInstance];
+            
+            UILabel *mDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
+            [mDayLabel setText:textString];
+            [mDayLabel setNumberOfLines:2];
+            [mDayLabel setTextColor:[UIColor whiteColor]];
+            [mDayLabel setTextAlignment:NSTextAlignmentCenter];
+            [mDayLabel setFont:[UIFont systemFontOfSize:14.0f]];
+            [mDayLabel setBackgroundColor:[UIColor grayColor]];
+            [mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
+            [mDayLabel.layer setBorderWidth:2.0f];
+            [mDayLabel.layer setMasksToBounds:YES];
+            [mDayLabel.layer setCornerRadius:25.0f];
+            [mDayLabel setUserInteractionEnabled:YES];
+            [self.calendarView addSubview:mDayLabel];
+            
+            UIButton *colorPickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [colorPickerButton setFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
+            [colorPickerButton.layer setBorderWidth:2.0f];
+            [colorPickerButton.layer setMasksToBounds:YES];
+            [colorPickerButton.layer setCornerRadius:25.0f];
+            [colorPickerButton setUserInteractionEnabled:YES];
+            [colorPickerButton setBackgroundColor:[UIColor clearColor]];
+            colorPickerButton.tag = (gestureCount * 9) + dateIndex;
+            [colorPickerButton addTarget:self action:@selector(newEventScreen:) forControlEvents:UIControlEventTouchUpInside];
+            [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
+            xPostion = colorPickerButton.frame.origin.x + colorPickerButton.frame.size.width + 30.0f;
+            
+            if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
+                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 10.0f)];
+                NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
+                [monthFormatter setDateFormat:@"MMM, yyyy"];
+                monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
+                [monthLabel setTextColor:[UIColor whiteColor]];
+                [monthLabel setTextAlignment:NSTextAlignmentCenter];
+                [monthLabel setFont:[UIFont systemFontOfSize:12.0f]];
+                [monthLabel setBackgroundColor:[UIColor clearColor]];
+                [self.calendarView addSubview:monthLabel];
+                
+            }
+            
+            [self.calendarView addSubview:colorPickerButton];
+            NSLog(@"j = %d ", j);
+            ++dateIndex;
+        }
+        yPosition += 80.0f;
+        NSLog(@"\n");
+    }
+    ++gestureCount;
+    
+    NSLog(@"count = %lu ", (unsigned long)self.calendarView.subviews.count);
+}
+
 @end

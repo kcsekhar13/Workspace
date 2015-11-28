@@ -715,11 +715,11 @@
                                     <segue destination="GGz-eN-bId" kind="push" id="ep3-hz-44P"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="g8b-fv-ICN">
-                                <rect key="frame" x="0.0" y="50" width="320" height="200"/>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" id="g8b-fv-ICN">
+                                <rect key="frame" x="0.0" y="50" width="320" height="235"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <animations/>

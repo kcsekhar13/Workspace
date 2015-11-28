@@ -12,6 +12,8 @@
 @interface CalendarViewController : UIViewController {
     StoreDataMangager *dataManager;
     NSMutableArray *datesArray;
+    int gestureCount;
+    int previousDateGestureCount;
 }
 @property (nonatomic, strong) NSDate *selectedDate;
 @end
