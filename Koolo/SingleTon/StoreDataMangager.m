@@ -311,8 +311,14 @@ static StoreDataMangager *sharedInstance = nil;
 
 -(void)addDummyMoods
 {
+    
+   
     NSMutableArray *prevMoodsArray = [[NSMutableArray alloc] initWithArray:[self getMoodsFromPlist]];
 
+    if ([prevMoodsArray count] ==0) {
+        
+        return;
+    }
     NSDate *previousDate = [self getDateFromFileName:[[prevMoodsArray objectAtIndex:0] objectForKey:@"FileName"]];
     NSArray *allDates = [self getAllDatesBetweenDates:previousDate toDate:[NSDate date]];
 
