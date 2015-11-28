@@ -118,21 +118,37 @@
     NSString *savedImagePath = [[dataManager getDocumentryPath] stringByAppendingPathComponent:[dict objectForKey:@"FileName"]];
     
     tableViewCell.backgroundColor = [UIColor clearColor];
-    tableViewCell.moodColorImage.backgroundColor = dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]];
-    
+
+    if ([dict objectForKey:@"ColorIndex"]) {
+        tableViewCell.moodColorImage.backgroundColor = dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]];
+        tableViewCell.moodCellImage.image = [UIImage imageWithContentsOfFile:savedImagePath];
+        [tableViewCell setBoarderColor:dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]]];
+        [tableViewCell.moodCellImage.layer setBorderColor:((UIColor*)(dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]])).CGColor];
+        [tableViewCell.dateLabel setText:[dataManager getDateStringFromDate:[dict  objectForKey:@"FileName"]]];
+        [tableViewCell.dateLabel setBackgroundColor:((UIColor*)(dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]]))];
+        [tableViewCell.dateLabel setTextColor:[UIColor whiteColor]];
+
+
+    }
+    else{
+        tableViewCell.moodColorImage.backgroundColor = [UIColor lightGrayColor];
+        tableViewCell.moodCellImage.image = nil;
+        tableViewCell.moodCellImage.backgroundColor = [UIColor lightGrayColor];
+        [tableViewCell setBoarderColor:[UIColor whiteColor]];
+        [tableViewCell.moodCellImage.layer setBorderColor:[UIColor whiteColor].CGColor];
+        [tableViewCell.dateLabel setText:[dataManager getDateStringFromDate:[dict  objectForKey:@"FileName"]]];
+        [tableViewCell.dateLabel setBackgroundColor:[UIColor whiteColor]];
+        [tableViewCell.dateLabel setTextColor:[UIColor lightGrayColor]];
+        
+        
+    }
     [tableViewCell.moodColorImage.layer setBorderColor:[UIColor clearColor].CGColor];
     [tableViewCell.moodColorImage.layer setCornerRadius:tableViewCell.moodColorImage.frame.size.width/2];
     [tableViewCell.moodColorImage.layer setMasksToBounds:YES];
-    tableViewCell.moodCellImage.image = [UIImage imageWithContentsOfFile:savedImagePath];
 
-    [tableViewCell setBoarderColor:dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]]];
-    
     [tableViewCell.moodCellImage.layer setMasksToBounds:YES];
     [tableViewCell.moodCellImage.layer setBorderWidth:10.0];
-    [tableViewCell.moodCellImage.layer setBorderColor:((UIColor*)(dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]])).CGColor];
     [tableViewCell drawBoarderForCell];
-    [tableViewCell.dateLabel setText:[dataManager getDateStringFromDate:[dict  objectForKey:@"FileName"]]];
-    [tableViewCell.dateLabel setBackgroundColor:((UIColor*)(dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]]))];
     
     return tableViewCell;
     

@@ -110,6 +110,7 @@ static StoreDataMangager *sharedInstance = nil;
 -(void)saveDictionaryToPlist:(NSDictionary*)dict
 {
     
+    [self addDummyMoods];
     NSMutableArray *prevMoodsArray = [[NSMutableArray alloc] initWithArray:[self getMoodsFromPlist]];
     
     if (prevMoodsArray == nil) {        
@@ -215,6 +216,17 @@ static StoreDataMangager *sharedInstance = nil;
     return dateString;
 }
 
+
+-(NSDate *)getDateFromFileName:(NSString*)fileName
+{
+        fileName = [fileName stringByReplacingOccurrencesOfString:@".png" withString:@""];
+        NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+        [dateformate setDateFormat:@"dd-MM-yyyyhh:mm:SS"];
+        NSDate *selectedDate = [dateformate dateFromString:fileName];
+    
+    return selectedDate;
+
+}
 # pragma mark - Checklist New goal data saving methods
 
 -(NSArray*)getMoodShotGoalsFromPlist
@@ -294,6 +306,54 @@ static StoreDataMangager *sharedInstance = nil;
     NSString *filePathAndDirectory = [documentsDirectory stringByAppendingPathComponent:@"ReadyTransfer.plist"];
     
     return filePathAndDirectory;
+}
+
+
+-(void)addDummyMoods
+{
+    NSMutableArray *prevMoodsArray = [[NSMutableArray alloc] initWithArray:[self getMoodsFromPlist]];
+
+    NSDate *previousDate = [self getDateFromFileName:[[prevMoodsArray objectAtIndex:0] objectForKey:@"FileName"]];
+    NSArray *allDates = [self getAllDatesBetweenDates:previousDate toDate:[NSDate date]];
+
+    NSLog(@"%@ >>>",allDates);
+
+    for (int i= 0; i<[allDates count]; i++) {
+        
+        NSDate *date = [allDates objectAtIndex:i];
+        NSString *fileName = [NSString stringWithFormat:@"%@.png",[self getStringFromDate:date]];
+        NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:fileName,@"FileName",nil];
+        [prevMoodsArray insertObject:moodDict atIndex:0];
+    }
+    [prevMoodsArray writeToFile:[self getMoodsFilePath] atomically:YES];
+
+}
+
+-(NSArray*)getAllDatesBetweenDates:(NSDate*)fromDate toDate:(NSDate*)toDate
+{
+    
+    NSMutableArray *dates = [NSMutableArray array];
+//    NSDate *curDate = [self getDateFromString:fromDate];
+//    NSDate *todayDate = [self getDateFromString:toDate];
+    while([fromDate timeIntervalSince1970] <= [toDate timeIntervalSince1970]) //you can also use the earlier-method
+    {
+        [dates addObject:fromDate];
+        fromDate = [NSDate dateWithTimeInterval:86400 sinceDate:fromDate];
+
+    }
+    
+    NSLog(@"%@ >>>",dates);
+
+    return dates;
+}
+
+-(NSDate*)getDateFromString:(NSString*)string
+{
+    
+    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+    [dateformate setDateFormat:@"dd-MM-yyyyhh:mm:SS"]; // Date formater
+    NSDate *date= [dateformate dateFromString:string];
+    return date;
 }
 
 @end
