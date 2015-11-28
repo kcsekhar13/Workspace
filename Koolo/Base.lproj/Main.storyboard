@@ -715,12 +715,19 @@
                                     <segue destination="GGz-eN-bId" kind="push" id="ep3-hz-44P"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="g8b-fv-ICN">
+                                <rect key="frame" x="0.0" y="50" width="320" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="6VJ-xX-vPQ" id="PvY-aw-TUI"/>
+                        <outlet property="calendarView" destination="g8b-fv-ICN" id="z5d-Ys-GHl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTl-OB-ksC" userLabel="First Responder" sceneMemberID="firstResponder"/>

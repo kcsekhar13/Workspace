@@ -10,10 +10,11 @@
 #import "CLWeeklyCalendarView.h"
 #import "NewEventViewController.h"
 
-@interface CalendarViewController () <CLWeeklyCalendarViewDelegate>
+@interface CalendarViewController () //<CLWeeklyCalendarViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *calendarView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (nonatomic, strong) CLWeeklyCalendarView* calendarView;
+//@property (nonatomic, strong) CLWeeklyCalendarView* calendarView;
 @end
 
 static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
@@ -24,7 +25,67 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     self.navigationController.navigationBar.hidden = NO;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    datesArray = [[NSMutableArray alloc] init];
+    NSDate *todayDate = [NSDate date];
+    int daysToAdd = 1;
+    [datesArray addObject:todayDate];
+    for (int i = 0; i<8; i++) {
+        NSDate *newDate = [datesArray[i] dateByAddingTimeInterval:60*60*24*daysToAdd];
+         [datesArray addObject:newDate];
+    }
+    int dateIndex = 0;
+    NSLog(@"Dates Array = %@", datesArray);
+    float yPosition = 10.0f;
+    for (int i = 0; i < 3; i++) {
+        
+        float xPostion = 80.0f;
+        
+        for (int j = 0; j < 3; j++) {
+            
+            NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"dd"];
+            
+            NSDateFormatter *dayFormatter=[[NSDateFormatter alloc] init];
+            [dayFormatter setDateFormat:@"EEE"];
+            
+            NSString *textString = [NSString stringWithFormat:@"%@ \n%@", [dateFormatter stringFromDate:datesArray[dateIndex]], [dayFormatter stringFromDate:datesArray[dateIndex]]];
+            
+            dataManager = [StoreDataMangager sharedInstance];
+            
+            UILabel *mDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
+            [mDayLabel setText:textString];
+            [mDayLabel setNumberOfLines:2];
+            [mDayLabel setTextColor:[UIColor whiteColor]];
+            [mDayLabel setTextAlignment:NSTextAlignmentCenter];
+            [mDayLabel setFont:[UIFont systemFontOfSize:14.0f]];
+            [mDayLabel setBackgroundColor:[UIColor grayColor]];
+            [mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
+            [mDayLabel.layer setBorderWidth:2.0f];
+            [mDayLabel.layer setMasksToBounds:YES];
+            [mDayLabel.layer setCornerRadius:25.0f];
+            [mDayLabel setUserInteractionEnabled:YES];
+            [self.calendarView addSubview:mDayLabel];
+            
+            UIButton *colorPickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [colorPickerButton setFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
+            [colorPickerButton.layer setBorderWidth:2.0f];
+            [colorPickerButton.layer setMasksToBounds:YES];
+            [colorPickerButton.layer setCornerRadius:25.0f];
+            [colorPickerButton setUserInteractionEnabled:YES];
+            [colorPickerButton setBackgroundColor:[UIColor clearColor]];
+            colorPickerButton.tag = dateIndex;
+            [colorPickerButton addTarget:self action:@selector(newEventScreen:) forControlEvents:UIControlEventTouchUpInside];
+            [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
+            xPostion = colorPickerButton.frame.origin.x + colorPickerButton.frame.size.width + 30.0f;
+            
+            [self.calendarView addSubview:colorPickerButton];
+            NSLog(@"j = %d ", j);
+            ++dateIndex;
+        }
+        yPosition += 80.0f;
+        NSLog(@"\n");
+    }
+    self.selectedDate = todayDate;
     UISwipeGestureRecognizer * swipeLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(moveToHome)];
     swipeLeft.direction=UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeLeft];
@@ -62,7 +123,8 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     UIVisualEffectView *vibrantView = [[UIVisualEffectView alloc]initWithEffect:vibrancy];
     vibrantView.frame = self.view.frame;
     effectView.alpha = 0.9;
-    vibrantView.alpha = 0.9;
+    [vibrantView setBackgroundColor:[UIColor blackColor]];
+    vibrantView.alpha = 0.6;
     // add both effect views to the image view
     [self.backgroundImageView addSubview:effectView];
     [self.backgroundImageView addSubview:vibrantView];
@@ -73,7 +135,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
     
-    [self.view addSubview:self.calendarView];
+    //[self.view addSubview:self.calendarView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -85,7 +147,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     // Dispose of any resources that can be recreated.
 }
 
-
+/*
 #pragma mark - CLWeeklyCalendarView Initialize and Delegate methods
 
 //Initialize
@@ -114,7 +176,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     //You can do any logic after the view select the date
     self.selectedDate = date;
 }
-
+*/
 
 #pragma mark - Navigation
 
@@ -129,6 +191,15 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     }
 }
 
+- (void)newEventScreen:(id)sender {
+    
+    UIButton *button = (UIButton *)sender;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
+    NewEventViewController *newEvent = [storyboard instantiateViewControllerWithIdentifier:@"NewEventScreen"];
+    newEvent.selectedDate = datesArray[button.tag];
+    [self.navigationController pushViewController:newEvent animated:YES];
+}
 
 #pragma mark - User defined methods
 

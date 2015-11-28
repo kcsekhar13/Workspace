@@ -11,6 +11,7 @@
 
 @interface CalendarViewController : UIViewController {
     StoreDataMangager *dataManager;
+    NSMutableArray *datesArray;
 }
 @property (nonatomic, strong) NSDate *selectedDate;
 @end
