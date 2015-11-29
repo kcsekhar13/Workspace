@@ -38,6 +38,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     
     [self prepareCalendarView];
     
+    /*
     UISwipeGestureRecognizer * calendarswipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(prepareCalendarView)];
     calendarswipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [self.calendarView addGestureRecognizer:calendarswipeRight];
@@ -45,6 +46,41 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     UISwipeGestureRecognizer * calendarswipeLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(preparePreviousCalendarView)];
     calendarswipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.calendarView addGestureRecognizer:calendarswipeLeft];
+     */
+    
+    rightSwipeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightSwipeButton setFrame:CGRectMake(self.calendarView.frame.size.width - 40.0f,103.0f, 30.0, 30.0)];
+    [rightSwipeButton.layer setBorderWidth:2.0f];
+    [rightSwipeButton.layer setMasksToBounds:YES];
+    [rightSwipeButton.layer setCornerRadius:15.0f];
+    [rightSwipeButton setUserInteractionEnabled:YES];
+    [rightSwipeButton setBackgroundColor:[UIColor whiteColor]];
+    [rightSwipeButton setTitle:@">" forState:UIControlStateNormal];
+    [rightSwipeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [rightSwipeButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
+    [rightSwipeButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
+    rightSwipeButton.titleEdgeInsets = UIEdgeInsetsMake(-3.0f, 1.0f, 0.0f, 0.0f);
+    rightSwipeButton.tag = -150;
+    [rightSwipeButton addTarget:self action:@selector(prepareCalendarView) forControlEvents:UIControlEventTouchUpInside];
+    [self.calendarView addSubview:rightSwipeButton];
+    
+    leftSwipeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftSwipeButton setFrame:CGRectMake(10.0f,103.0f, 30.0, 30.0)];
+    [leftSwipeButton.layer setBorderWidth:2.0f];
+    [leftSwipeButton.layer setMasksToBounds:YES];
+    [leftSwipeButton.layer setCornerRadius:15.0f];
+    [leftSwipeButton setUserInteractionEnabled:YES];
+    [leftSwipeButton setBackgroundColor:[UIColor whiteColor]];
+    [leftSwipeButton setTitle:@"<" forState:UIControlStateNormal];
+    [leftSwipeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [leftSwipeButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
+    [leftSwipeButton.titleLabel setTextAlignment: NSTextAlignmentCenter];
+    leftSwipeButton.titleEdgeInsets = UIEdgeInsetsMake(-3.0f, -1.0f, 0.0f, 0.0f);
+    leftSwipeButton.tag = -151;
+    [leftSwipeButton addTarget:self action:@selector(preparePreviousCalendarView) forControlEvents:UIControlEventTouchUpInside];
+    [self.calendarView addSubview:leftSwipeButton];
+    leftSwipeButton.hidden = YES;
+    
     
     
     self.selectedDate = todayDate;
@@ -186,14 +222,24 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     
     if (gestureCount > 3) {
         return;
+    } else if (gestureCount == 3) {
+        rightSwipeButton.hidden = YES;
     }
     
     if (gestureCount > 0) {
         for (UIView *v in [self.calendarView subviews]){
-            [v removeFromSuperview];
+            if (v.tag != -150 && v.tag != -151) {
+                [v removeFromSuperview];
+            }
+            
         }
 
     }
+    
+    if (gestureCount > 0) {
+        [leftSwipeButton setHidden:NO];
+    }
+    
     int dateIndex = 0;
     NSLog(@"Dates Array = %@", datesArray);
     float yPosition = 10.0f;
@@ -235,19 +281,20 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
             [self.calendarView addSubview:mDayLabel];
             
             UIButton *colorPickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            
             [colorPickerButton setFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
             [colorPickerButton.layer setBorderWidth:2.0f];
             [colorPickerButton.layer setMasksToBounds:YES];
-            [colorPickerButton.layer setCornerRadius:25.0f];
+            [colorPickerButton.layer setCornerRadius:colorPickerButton.frame.size.height/2];
             [colorPickerButton setUserInteractionEnabled:YES];
             [colorPickerButton setBackgroundColor:[UIColor clearColor]];
             colorPickerButton.tag = (gestureCount * 9) + dateIndex;
             [colorPickerButton addTarget:self action:@selector(newEventScreen:) forControlEvents:UIControlEventTouchUpInside];
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
-            xPostion = colorPickerButton.frame.origin.x + colorPickerButton.frame.size.width + 30.0f;
+            xPostion = colorPickerButton.frame.origin.x + 80.0f;
             
             if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
-                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 10.0f)];
+                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + 55.0f, 60.0f, 10.0f)];
                 NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
                 [monthFormatter setDateFormat:@"MMM, yyyy"];
                 monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
@@ -272,17 +319,24 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
 
 - (void)preparePreviousCalendarView {
     
+    rightSwipeButton.hidden = NO;
     if (gestureCount == 1) {
+        [leftSwipeButton setHidden:YES];
         return;
     }
     
     if (gestureCount > 0) {
         for (UIView *v in [self.calendarView subviews]){
-            [v removeFromSuperview];
+            if (v.tag != -150 && v.tag != -151) {
+                [v removeFromSuperview];
+            }
         }
         
     }
     gestureCount-=2;
+    if (gestureCount == 0) {
+        [leftSwipeButton setHidden:YES];
+    }
     int dateIndex = 0;
     NSLog(@"Dates Array = %@", datesArray);
     float yPosition = 10.0f;

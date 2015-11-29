@@ -14,6 +14,8 @@
     NSMutableArray *datesArray;
     int gestureCount;
     int previousDateGestureCount;
+    UIButton *rightSwipeButton;
+    UIButton *leftSwipeButton;
 }
 @property (nonatomic, strong) NSDate *selectedDate;
 @end
