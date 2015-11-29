@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 @property (weak, nonatomic) IBOutlet UITextField *eventTextField;
 @property (weak, nonatomic) IBOutlet UITextField *addTagField;
-@property (weak, nonatomic) IBOutlet UITextField *datePickerField;
 @property (strong, nonatomic)UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *remainderLabel;
 
@@ -122,7 +121,6 @@
     flexSpace3.tag = -1;
     [toolBar setItems:[NSArray arrayWithObjects:dailyButton, flexSpace2, weeklyButton, flexSpace3,monthlyButton,flexSpace, yearButton,nil]];
     [self.view addSubview:toolBar];
-    //self.datePickerField.inputView = self.datePicker;
     
 }
 
@@ -153,6 +151,12 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
+    if (displayDatePicker) {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.datePicker setFrame:CGRectMake(0.0f, self.view.frame.size.height + 200.0f, self.view.frame.size.width, 200.0f)];
+            [toolBar setFrame:CGRectMake(0, self.datePicker.frame.origin.y - 44.0f, self.view.frame.size.width, 44)];
+        }];
+    }
 }
 
 
@@ -160,6 +164,16 @@
 #pragma mark - UIDatePicker methods
 
 - (IBAction)launchDatePicker:(id)sender {
+    
+    if ([_addTagField isFirstResponder]) {
+        [_addTagField resignFirstResponder];
+    }
+    
+    if ([_eventTextField isFirstResponder]) {
+        [_eventTextField resignFirstResponder];
+    }
+    
+    displayDatePicker = YES;
     
     [UIView animateWithDuration:0.5 animations:^{
         [self.datePicker setFrame:CGRectMake(0.0f, self.view.frame.size.height - 180.0f, self.view.frame.size.width, 200.0f)];
@@ -179,6 +193,8 @@
     if (barbutton.tag != -1) {
         self.remainderLabel.text = barbutton.title;
     }
+    
+    displayDatePicker = NO;
     
     [UIView animateWithDuration:0.5 animations:^{
         [self.datePicker setFrame:CGRectMake(0.0f, self.view.frame.size.height + 200.0f, self.view.frame.size.width, 200.0f)];
