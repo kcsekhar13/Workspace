@@ -130,7 +130,13 @@
     self.navigationController.navigationBar.hidden = NO;
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"]) {
         int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
-        _mDayLabel.layer.borderColor = [(UIColor *)dataManager.fetchColorsArray[index] CGColor];
+        
+        if (index < 9 && index >=0) {
+            _mDayLabel.layer.borderColor = [(UIColor *)dataManager.fetchColorsArray[index] CGColor];
+        } else {
+            [_mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
+        }
+        
     } else {
         [_mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
     }
@@ -200,6 +206,22 @@
         [self.datePicker setFrame:CGRectMake(0.0f, self.view.frame.size.height + 200.0f, self.view.frame.size.width, 200.0f)];
         [toolBar setFrame:CGRectMake(0, self.datePicker.frame.origin.y - 44.0f, self.view.frame.size.width, 44)];
     }];
+    
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(96, 175, 100, 50)]; //<- change to where you want it to show.
+    
+    //Set the customView properties
+    customView.alpha = 0.0;
+    customView.layer.cornerRadius = 5;
+    customView.layer.borderWidth = 1.5f;
+    customView.layer.masksToBounds = YES;
+    
+    //Add the customView to the current view
+    [self.view addSubview:customView];
+    
+    //Display the customView with animation
+    [UIView animateWithDuration:0.4 animations:^{
+        [customView setAlpha:1.0];
+    } completion:^(BOOL finished) {}];
 }
 #pragma mark - User defined methods
 

@@ -221,7 +221,7 @@
     
     [animation setDelegate:self];
     [animation setType:kCATransitionPush];
-    [animation setSubtype:kCATransitionFromRight];
+    [animation setSubtype:kCATransitionFromLeft];
     
     [animation setDuration:0.45];
     [animation setTimingFunction:
@@ -240,7 +240,7 @@
     CATransition *animation = [CATransition animation];
     [animation setDelegate:self];
     [animation setType:kCATransitionPush];
-    [animation setSubtype:kCATransitionFromLeft];
+    [animation setSubtype:kCATransitionFromRight];
     
     [animation setDuration:0.45];
     [animation setTimingFunction:

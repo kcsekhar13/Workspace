@@ -206,7 +206,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     CATransition *animation = [CATransition animation];
     [animation setDelegate:self];
     [animation setType:kCATransitionPush];
-    [animation setSubtype:kCATransitionFromLeft];
+    [animation setSubtype:kCATransitionFromRight];
     
     [animation setDuration:0.45];
     [animation setTimingFunction:

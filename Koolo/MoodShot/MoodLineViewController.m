@@ -252,7 +252,20 @@
     
     for (UIViewController *homeViewController in [self.navigationController viewControllers]) {
         if ([homeViewController isKindOfClass:[ViewController class]]) {
-            [self.navigationController popToViewController:homeViewController animated:YES];
+            
+            CATransition *animation = [CATransition animation];
+            [animation setDelegate:self];
+            [animation setType:kCATransitionPush];
+            [animation setSubtype:kCATransitionFromLeft];
+            
+            [animation setDuration:0.45];
+            [animation setTimingFunction:
+             [CAMediaTimingFunction functionWithName:
+              kCAMediaTimingFunctionEaseInEaseOut]];
+            
+            [self.navigationController.view.layer addAnimation:animation forKey:kCATransition];
+            
+            [self.navigationController popToViewController:homeViewController animated:NO];
         }
     }
 }
