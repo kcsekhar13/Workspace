@@ -14,6 +14,7 @@
     StoreDataMangager *dataManager;
     UIToolbar *toolBar;
     BOOL displayDatePicker;
+    UIView *customView;
 }
 
 @property (nonatomic, strong) NSDate *selectedDate;
