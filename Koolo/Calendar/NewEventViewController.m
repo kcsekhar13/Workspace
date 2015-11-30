@@ -51,17 +51,11 @@
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = doneButton;
     
-    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd"];
     
-    NSDateFormatter *dayFormatter=[[NSDateFormatter alloc] init];
-    [dayFormatter setDateFormat:@"EEE"];
-    
-    NSString *textString = [NSString stringWithFormat:@"%@ \n%@", [dateFormatter stringFromDate:self.selectedDate], [dayFormatter stringFromDate:self.selectedDate]];
     
     dataManager = [StoreDataMangager sharedInstance];
     
-    [_mDayLabel setText:textString];
+    
     [_mDayLabel setNumberOfLines:2];
     [_mDayLabel setTextAlignment:NSTextAlignmentCenter];
     [_mDayLabel setFont:[UIFont systemFontOfSize:16.0f]];
@@ -72,10 +66,10 @@
     [_mDayLabel.layer setCornerRadius:30.0f];
     [_mDayLabel setUserInteractionEnabled:YES];
     
+    [self updateDateLabels:self.selectedDate];
     
-    NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
-    [monthFormatter setDateFormat:@"MMM yyyy"];
-    self.monthLabel.text = [monthFormatter stringFromDate:self.selectedDate];
+    
+    
     
     UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [clearButton setImage:[UIImage imageNamed:@"cross.png"] forState:UIControlStateNormal];
@@ -94,11 +88,16 @@
     [self.datePickerField setLeftView:timeButton];*/
     
     self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height + 190.0f, self.view.frame.size.width, 200.0f)];
-    [self.datePicker setDatePickerMode:UIDatePickerModeDate];
+    [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
     
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     [self.datePicker setBackgroundColor:[UIColor blackColor]];
      [_datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
+    
+    [_datePicker setLocale:[NSLocale localeWithLocaleIdentifier:@"en_GB"]];
+    //[_datePicker setLocale:[NSLocale systemLocale]];
+    
+    //[_datePicker setLocale:[NSLocale systemLocale]];
     [self.view addSubview:self.datePicker];
     
     toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.datePicker.frame.origin.y - 44.0f, self.view.frame.size.width, 44)];
@@ -200,6 +199,7 @@
         self.remainderLabel.text = barbutton.title;
     }
     
+    [self updateDateLabels:_datePicker.date];
     displayDatePicker = NO;
     
     [UIView animateWithDuration:0.5 animations:^{
@@ -239,6 +239,25 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"] animated:YES];
 }
+
+- (void)updateDateLabels:(NSDate *)formattingDate {
+    
+    _mDayLabel.text = @"";
+    self.monthLabel.text = @"";
+    
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd"];
+    
+    NSDateFormatter *dayFormatter=[[NSDateFormatter alloc] init];
+    [dayFormatter setDateFormat:@"EEE"];
+    
+    NSString *textString = [NSString stringWithFormat:@"%@ \n%@", [dateFormatter stringFromDate:formattingDate], [dayFormatter stringFromDate:formattingDate]];
+    [_mDayLabel setText:textString];
+    NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
+    [monthFormatter setDateFormat:@"MMM yyyy"];
+    self.monthLabel.text = [monthFormatter stringFromDate:formattingDate];
+}
+
 /*
 #pragma mark - Navigation
 
