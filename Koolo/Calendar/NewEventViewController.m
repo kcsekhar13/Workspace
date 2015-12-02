@@ -7,6 +7,7 @@
 //
 
 #import "NewEventViewController.h"
+#import "CustomTagTableViewCell.h"
 
 
 @interface NewEventViewController ()
@@ -16,6 +17,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *addTagField;
 @property (strong, nonatomic)UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *remainderLabel;
+@property (weak, nonatomic) IBOutlet UIView *customView;
+@property (weak, nonatomic) IBOutlet UITableView *tagTableView;
+@property (weak, nonatomic) IBOutlet UIButton *remaindButton;
+@property (weak, nonatomic) IBOutlet UIView *remainderView;
 
 @end
 
@@ -51,37 +56,20 @@
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = doneButton;
     
-    customView = [[UIView alloc] initWithFrame:CGRectMake(96, 180, 150, 175)]; //<- change to where you want it to show.
+    
     
     //Set the customView properties
-    customView.alpha = 0.0;
-    customView.layer.cornerRadius = 5;
-    customView.layer.borderWidth = 1.5f;
-    customView.layer.masksToBounds = YES;
-    customView.hidden = YES;
-    
-    UILabel *addTagTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 150.0f, 30.0f)];
-    addTagTitleLabel.text = @"Add Tag";
-    [addTagTitleLabel setTextAlignment:NSTextAlignmentCenter];
-    [addTagTitleLabel setBackgroundColor:[UIColor lightGrayColor]];
-    [addTagTitleLabel setTextColor:[UIColor blackColor]];
-    [addTagTitleLabel setFont:[UIFont systemFontOfSize:13.0f]];
-    [customView addSubview:addTagTitleLabel];
+    _customView.alpha = 0.0;
+    _customView.layer.cornerRadius = 5;
+    _customView.layer.borderWidth = 1.5f;
+    _customView.layer.masksToBounds = YES;
+    _customView.hidden = YES;
     
     
-    UIButton *tagButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [tagButton setFrame:CGRectMake(110.0, 0.0, 40.0f, 30.0f)];
-    [tagButton setTitle:@"Done" forState:UIControlStateNormal];
-    [tagButton addTarget:self action:@selector(dismissCustomView) forControlEvents:UIControlEventTouchUpInside];
-    [tagButton setBackgroundColor:[UIColor clearColor]];
-    [tagButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [tagButton.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
-    [customView addSubview:tagButton];
-    //Add the customView to the current view
-    [self.view addSubview:customView];
-    
+    _remainderView.layer.borderWidth = 1.5f;
+    _remainderView.layer.masksToBounds = YES;
+    _remainderView.layer.borderColor = [[UIColor blackColor] CGColor];
     dataManager = [StoreDataMangager sharedInstance];
-    
     
     [_mDayLabel setNumberOfLines:2];
     [_mDayLabel setTextAlignment:NSTextAlignmentCenter];
@@ -95,7 +83,7 @@
     
     [self updateDateLabels:self.selectedDate];
     
-    
+    titlesArray = [[NSArray alloc] initWithObjects:@"Toff", @"Kjipt", @"Tro", nil];
     
     
     UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -191,6 +179,44 @@
     }
 }
 
+#pragma mark -  UITableView dataSource methods
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 3;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    CustomTagTableViewCell *cell = (CustomTagTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomTagCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.titleLabel.text = [NSString stringWithFormat:@"%@", titlesArray[indexPath.row]];
+    
+    return cell;
+}
+
+#pragma mark -  UITableView Delegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CustomTagTableViewCell *cell = (CustomTagTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.checkImageView.image) {
+        cell.checkImageView.image = nil;
+    } else {
+        cell.checkImageView.image = [UIImage imageNamed:@"checked"];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+        
+}
 
 
 #pragma mark - UIDatePicker methods
@@ -243,8 +269,8 @@
     
     //Display the customView with animation
     [UIView animateWithDuration:0.6 animations:^{
-        customView.hidden = NO;
-        [customView setAlpha:1.0];
+        _customView.hidden = NO;
+        [_customView setAlpha:1.0];
     } completion:^(BOOL finished) {}];
 }
 #pragma mark - User defined methods
@@ -258,11 +284,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)moveToColorPickerScreen:(id)sender {
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"] animated:YES];
-}
+
 
 - (void)updateDateLabels:(NSDate *)formattingDate {
     
@@ -282,12 +304,31 @@
     self.monthLabel.text = [monthFormatter stringFromDate:formattingDate];
 }
 
-- (void)dismissCustomView {
+#pragma mark - IBAction methods
+
+- (IBAction)moveToColorPickerScreen:(id)sender {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"] animated:YES];
+}
+
+- (IBAction)remaindNotification:(UIButton *)sender {
+    
+    if (!remaindFlag) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
+        remaindFlag = YES;
+    } else {
+        [sender setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        remaindFlag = NO;
+    }
+}
+
+- (IBAction)dismissCustomView:(id)sender {
     
     //Hide the customView with animation
     [UIView animateWithDuration:0.6 animations:^{
-        customView.hidden = YES;
-        [customView setAlpha:0.0];
+        _customView.hidden = YES;
+        [_customView setAlpha:0.0];
     } completion:^(BOOL finished) {}];
 }
 /*

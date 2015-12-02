@@ -49,6 +49,7 @@
 		55A8FAE31BE4911A0057CF44 /* colorPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */; };
 		55CAAF051BE4A0FE008EE20C /* StoreDataMangager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */; };
 		55D063831BF8894B000962D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55D063821BF8894B000962D3 /* Localizable.strings */; };
+		55E705CE1C0F545D00271F03 /* CustomTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E705CD1C0F545D00271F03 /* CustomTagTableViewCell.m */; };
 		55F5A3F91BE143FC00DC80F4 /* MSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A3F81BE143FC00DC80F4 /* MSCameraViewController.m */; };
 		55F5A3FC1BE1441300DC80F4 /* MSColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A3FB1BE1441300DC80F4 /* MSColorPickerViewController.m */; };
 		55F5A3FF1BE1451900DC80F4 /* MoodLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A3FE1BE1451900DC80F4 /* MoodLineViewController.m */; };
@@ -162,6 +163,8 @@
 		55CAAF031BE4A0FE008EE20C /* StoreDataMangager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDataMangager.h; sourceTree = "<group>"; };
 		55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDataMangager.m; sourceTree = "<group>"; };
 		55D063821BF8894B000962D3 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Koolo/Localizable.strings; sourceTree = "<group>"; };
+		55E705CC1C0F545D00271F03 /* CustomTagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTagTableViewCell.h; sourceTree = "<group>"; };
+		55E705CD1C0F545D00271F03 /* CustomTagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTagTableViewCell.m; sourceTree = "<group>"; };
 		55F5A3F71BE143FC00DC80F4 /* MSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCameraViewController.h; sourceTree = "<group>"; };
 		55F5A3F81BE143FC00DC80F4 /* MSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCameraViewController.m; sourceTree = "<group>"; };
 		55F5A3FA1BE1441300DC80F4 /* MSColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSColorPickerViewController.h; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				5536AA371BD81AFC00398454 /* NewEventViewController.m */,
 				554310C31BE4D7CC00961E34 /* CalendarColorPickerViewController.h */,
 				554310C41BE4D7CC00961E34 /* CalendarColorPickerViewController.m */,
+				55E705CC1C0F545D00271F03 /* CustomTagTableViewCell.h */,
+				55E705CD1C0F545D00271F03 /* CustomTagTableViewCell.m */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -619,6 +624,7 @@
 				555BD63D1BC761D200BB61E9 /* SettingScreenViewController.m in Sources */,
 				5536AA2E1BD810A500398454 /* CLHealthInfoViewController.m in Sources */,
 				558BB0401BF8D5D0000B335D /* DailyCalendarView.m in Sources */,
+				55E705CE1C0F545D00271F03 /* CustomTagTableViewCell.m in Sources */,
 				55A8FAE31BE4911A0057CF44 /* colorPickerTableViewCell.m in Sources */,
 				5536AA251BD8102100398454 /* CheckListViewController.m in Sources */,
 				5536AA351BD81AE100398454 /* CalendarViewController.m in Sources */,

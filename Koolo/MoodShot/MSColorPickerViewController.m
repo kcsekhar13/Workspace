@@ -107,6 +107,7 @@
      self.contentTableView.frame = CGRectMake(self.contentTableView.frame.origin.x, 0.0, self.contentTableView.frame.size.width, self.contentTableView.frame.size.height + height);
     [self.contentTableView scrollToRowAtIndexPath:[self.contentTableView indexPathForCell:colorCell] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
 }
+
 #pragma mark -  UITableView dataSource methods
 
 
