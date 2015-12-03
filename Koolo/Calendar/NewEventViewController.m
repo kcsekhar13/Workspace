@@ -117,6 +117,11 @@
     
     //[_datePicker setLocale:[NSLocale systemLocale]];
     [self.view addSubview:self.datePicker];
+    UIView *emptyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    self.addTagField.inputView = emptyView;
+    [_addTagField setTintColor:[UIColor clearColor]];
+    
+
     
     toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.datePicker.frame.origin.y - 44.0f, self.view.frame.size.width, 44)];
     toolBar.barStyle = UIBarStyleBlackOpaque;
@@ -296,6 +301,18 @@
     
     if (buttonItem.tag == 1) {
         
+        if (self.eventTextField.text.length == 0) {
+            
+            [self displayErrorMessageView:@"Event Field should not be empty"];
+            return;
+        }
+        
+        if (self.remainderLabel.text.length == 0) {
+            
+            [self displayErrorMessageView:@"Select appointment time"];
+            return;
+        }
+        
         NSMutableDictionary *eventDict = [[NSMutableDictionary alloc] init];
         [eventDict setObject:[NSString stringWithFormat:@"%d", remaindFlag] forKey:@"RemainderFlag"];
         
@@ -338,6 +355,23 @@
     self.monthLabel.text = [monthFormatter stringFromDate:formattingDate];
 }
 
+- (void)displayErrorMessageView:(NSString *)errorMsg {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:errorMsg preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* okAction = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action)
+                               {
+                                   [alert dismissViewControllerAnimated:YES completion:nil];
+                                   
+                               }];
+    [alert addAction:okAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 #pragma mark - IBAction methods
 
 - (IBAction)moveToColorPickerScreen:(id)sender {

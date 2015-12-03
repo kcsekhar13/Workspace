@@ -289,7 +289,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
             [colorPickerButton setUserInteractionEnabled:YES];
             [colorPickerButton setBackgroundColor:[UIColor clearColor]];
             colorPickerButton.tag = (gestureCount * 9) + dateIndex;
-            [colorPickerButton addTarget:self action:@selector(newEventScreen:) forControlEvents:UIControlEventTouchUpInside];
+            //[colorPickerButton addTarget:self action:@selector(newEventScreen:) forControlEvents:UIControlEventTouchUpInside];
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
             xPostion = colorPickerButton.frame.origin.x + 80.0f;
             
@@ -384,7 +384,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
             [colorPickerButton setUserInteractionEnabled:YES];
             [colorPickerButton setBackgroundColor:[UIColor clearColor]];
             colorPickerButton.tag = (gestureCount * 9) + dateIndex;
-            [colorPickerButton addTarget:self action:@selector(newEventScreen:) forControlEvents:UIControlEventTouchUpInside];
+            //[colorPickerButton addTarget:self action:@selector(newEventScreen:) forControlEvents:UIControlEventTouchUpInside];
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
             xPostion = colorPickerButton.frame.origin.x + colorPickerButton.frame.size.width + 30.0f;
             
