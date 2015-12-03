@@ -34,6 +34,8 @@
     NSString *doneButtonTitle = nil;
     NSString *cancelButtonTitle = nil;
     
+    selectedTagsArray = [[NSMutableArray alloc] initWithObjects:@"NO", @"NO", @"NO", nil];
+    
     if ([language isEqualToString:@"nb"]) {
         
         self.title = NSLocalizedString(@"Today's Event", nil);
@@ -46,13 +48,14 @@
         cancelButtonTitle = @"Cancel";
     }
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToCalendarScreen)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToCalendarScreen:)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
-    
+    doneButton.tag = 1;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
-    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToCalendarScreen)];
+    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToCalendarScreen:)];
     [cancelButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    cancelButton.tag = 2;
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = doneButton;
     
@@ -179,6 +182,11 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    return YES;
+}
 #pragma mark -  UITableView dataSource methods
 
 
@@ -209,8 +217,11 @@
     
     if (cell.checkImageView.image) {
         cell.checkImageView.image = nil;
+        [selectedTagsArray replaceObjectAtIndex:indexPath.row withObject:@"NO"];
     } else {
         cell.checkImageView.image = [UIImage imageNamed:@"checked"];
+        [selectedTagsArray replaceObjectAtIndex:indexPath.row withObject:@"YES"];
+        
     }
 }
 
@@ -279,8 +290,30 @@
     self.addTagField.text = @"";
 }
 
-- (void)moveToCalendarScreen {
+- (void)moveToCalendarScreen:(id)sender {
     
+    UIBarButtonItem *buttonItem = (UIBarButtonItem *)sender;
+    
+    if (buttonItem.tag == 1) {
+        
+        NSMutableDictionary *eventDict = [[NSMutableDictionary alloc] init];
+        [eventDict setObject:[NSString stringWithFormat:@"%d", remaindFlag] forKey:@"RemainderFlag"];
+        
+        int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
+        
+        if (index < 9 && index >=0) {
+            [eventDict setObject:[NSString stringWithFormat:@"%d", index] forKey:@"ColorIndex"];
+        } else {
+            index = -1;
+            [eventDict setObject:[NSString stringWithFormat:@"%d", index] forKey:@"ColorIndex"];
+        }
+        
+        [eventDict setObject:self.eventTextField.text forKey:@"EventTitle"];
+        [eventDict setObject:self.addTagField.text forKey:@"TagTitle"];
+        [eventDict setObject:_selectedDate forKey:@"EventDate"];
+        [eventDict setObject:selectedTagsArray forKey:@"SelectedTags"];
+        NSLog(@"Event Dict = %@", eventDict);
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -288,6 +321,7 @@
 
 - (void)updateDateLabels:(NSDate *)formattingDate {
     
+    _selectedDate = formattingDate;
     _mDayLabel.text = @"";
     self.monthLabel.text = @"";
     
