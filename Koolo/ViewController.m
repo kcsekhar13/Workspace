@@ -172,6 +172,7 @@
         return;
     
     [self setStackIconClosed:NO];
+    [self.mNoteView setHidden:YES];
 }
 
 - (void)stackMenuWillClose:(UPStackMenu *)menu
@@ -180,6 +181,7 @@
         return;
     
     [self setStackIconClosed:YES];
+    [self.mNoteView setHidden:NO];
 }
 
 - (void)stackMenu:(UPStackMenu *)menu didTouchItem:(UPStackMenuItem *)item atIndex:(NSUInteger)index
@@ -207,7 +209,7 @@
             break;
     }
     
-    
+    [self.mNoteView setHidden:NO];
     
 }
 
