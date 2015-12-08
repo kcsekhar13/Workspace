@@ -16,6 +16,7 @@
     BOOL displayDatePicker;
     NSArray *titlesArray;
     BOOL remaindFlag;
+    BOOL selectedTagFlag;
     NSMutableArray *selectedTagsArray;
     
 }

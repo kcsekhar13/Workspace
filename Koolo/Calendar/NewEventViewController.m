@@ -189,6 +189,13 @@
     
     if (_addTagField == textField) {
         
+        if (!selectedTagFlag) {
+            [selectedTagsArray removeAllObjects];
+            [selectedTagsArray addObject:@"NO"];
+            [selectedTagsArray addObject:@"NO"];
+            [selectedTagsArray addObject:@"NO"];
+            [_tagTableView reloadData];
+        }
         //Display the customView with animation
         [UIView animateWithDuration:0.6 animations:^{
             _customView.hidden = NO;
@@ -227,6 +234,11 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleLabel.text = [NSString stringWithFormat:@"%@", titlesArray[indexPath.row]];
     
+    if (cell.checkImageView.image && [selectedTagsArray[indexPath.row] isEqualToString:@"YES"]) {
+        cell.checkImageView.image = [UIImage imageNamed:@"checked"];
+    } else {
+        cell.checkImageView.image = nil;
+    }
     return cell;
 }
 
@@ -402,6 +414,7 @@
 
 - (IBAction)dismissCustomView:(id)sender {
     
+    selectedTagFlag = YES;
     //Hide the customView with animation
     [UIView animateWithDuration:0.6 animations:^{
         _customView.hidden = YES;
