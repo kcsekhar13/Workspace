@@ -20,7 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    dataManager = [StoreDataMangager sharedInstance];
+
+    [self filterMoodPics];
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *doneButtonTitle = nil;
@@ -34,7 +36,6 @@
         self.title = @"Mood Map";
         [self.allButton setTitle:@"All" forState:UIControlStateNormal];
     }
-    dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
         _backgroundImageView.image = backgroundImage;
@@ -74,31 +75,35 @@
     _contentScrollView.contentSize = CGSizeMake(_contentScrollView.frame.size.width, sizeOfContent);
     
     
-    for (UIButton *colorPickerButton in _contentScrollView.subviews) {
+    for (CustomMoodMapView *colorPickerButton in _contentScrollView.subviews) {
         
-        NSLog(@"%d >>>", (int)colorPickerButton.tag);
-        if (colorPickerButton.tag <= 10 && [colorPickerButton isKindOfClass:[UIButton class]]) {
-            
+        NSLog(@"%d >>>%@", (int)colorPickerButton.tag,colorPickerButton);
+        if (colorPickerButton.tag <= 10 && [colorPickerButton isKindOfClass:[CustomMoodMapView class]]) {
+            [colorPickerButton setBackgroundColor:[UIColor clearColor]];
+
             int tag = (int)colorPickerButton.tag-1;
-            if (tag != -1) {
+            
+            colorPickerButton.moodsArray = [self.finalFilteredDict objectForKey:[NSString stringWithFormat:@"%d",tag]];
+            
+            [colorPickerButton drawInputViews];
+
+            
+            if (tag == -1) {
                 
+                UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, colorPickerButton.frame.size.width, colorPickerButton.frame.size.height)];
+                [titleLabel setBackgroundColor:[UIColor clearColor]];
+                [titleLabel setTextColor:[UIColor whiteColor]];
+                [titleLabel setText:@"ALL"];
+                [titleLabel setTextAlignment:NSTextAlignmentCenter];
+                [colorPickerButton addSubview:titleLabel];
                 
-                [colorPickerButton setBackgroundColor:[UIColor clearColor]];
-                [colorPickerButton.layer setBorderColor:[(UIColor *)dataManager.fetchColorsArray[tag] CGColor]];
-                
-                
-            }
-            else{
-                
-                [colorPickerButton setBackgroundColor:[UIColor clearColor]];
-                [colorPickerButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
             }
             
-            [colorPickerButton.layer setBorderWidth:2.0f];
-            [colorPickerButton.layer setMasksToBounds:YES];
-            [colorPickerButton.layer setCornerRadius:colorPickerButton.frame.size.width/2];
-            [colorPickerButton setUserInteractionEnabled:YES];
-            [colorPickerButton addTarget:self action:@selector(filterMoodPic:) forControlEvents:UIControlEventTouchUpInside];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(filterMoodPic:)];
+            [tap setNumberOfTapsRequired:1];
+            [colorPickerButton addGestureRecognizer:tap];
+            
+            
         }
     }
     // Do any additional setup after loading the view.
@@ -109,9 +114,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)filterMoodPic:(id)sender {
+- (void)filterMoodPic:(UIGestureRecognizer*)sender {
     
-    UIButton *button = (UIButton *)sender;
+    CustomMoodMapView *button = (CustomMoodMapView*)sender.view;
     if ([self.delegate respondsToSelector:@selector(filterMoodPics:)]) {
         [self.delegate filterMoodPics:(button.tag-1)];
     }
@@ -120,6 +125,46 @@
 - (void)backButtonClicked {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+#pragma mark - MoodMapDelegate methods
+
+- (void)filterMoodPics {
+    
+    if ([self.moodsArray count]) {
+        [self.moodsArray removeAllObjects];
+    }
+    
+    NSArray *totalMoodColors = dataManager.fetchColorsArray;
+    self.moodsArray = (NSMutableArray *)[dataManager getMoodsFromPlist];
+    self.finalFilteredDict = [[NSMutableDictionary alloc] init];
+    for (int i=0; i<[totalMoodColors count]; i++) {
+        
+        NSMutableArray *colorArray = [[NSMutableArray alloc] init];
+        
+        for (int j=0; j<[self.moodsArray count]; j++) {
+            
+            NSDictionary *dict = (NSDictionary *)self.moodsArray[j];
+            NSString *colorString;
+            if (dict[@"ColorIndex"]) {
+                colorString = dict[@"ColorIndex"];
+            }
+            else{
+                
+                colorString = @"-1";
+            }
+            NSInteger selectedColorTag = [colorString integerValue];
+            
+            if (selectedColorTag == i) {
+                [colorArray addObject:dict];
+            }
+        }
+        [self.finalFilteredDict setObject:colorArray forKey:[NSString stringWithFormat:@"%d",i]];
+    }
+    
+    
+}
+
 /*
 #pragma mark - Navigation
 

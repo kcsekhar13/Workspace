@@ -12,4 +12,5 @@
 
 
 @property(nonatomic,strong)UIColor *boarderColor;
+@property(nonatomic,strong)NSDictionary *cellDict;
 @end

@@ -124,6 +124,7 @@
     
     tableViewCell.backgroundColor = [UIColor clearColor];
 
+    tableViewCell.backView.cellDict = dict;
     if ([dict objectForKey:@"ColorIndex"]) {
         tableViewCell.moodColorImage.backgroundColor = dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]];
         tableViewCell.moodCellImage.image = [UIImage imageWithContentsOfFile:savedImagePath];
@@ -132,27 +133,29 @@
         [tableViewCell.dateLabel setText:[dataManager getDateStringFromDate:[dict  objectForKey:@"FileName"]]];
         [tableViewCell.dateLabel setBackgroundColor:((UIColor*)(dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]]))];
         [tableViewCell.dateLabel setTextColor:[UIColor whiteColor]];
+        [tableViewCell.moodCellImage.layer setBorderWidth:10.0];
+        //[tableViewCell.dateLabel setCenter:CGPointMake(30+tableViewCell.dateLabel.frame.size.width/2, 0)];
 
 
     }
     else{
-        tableViewCell.moodColorImage.backgroundColor = [UIColor lightGrayColor];
+        tableViewCell.moodColorImage.backgroundColor = [UIColor clearColor];
         tableViewCell.moodCellImage.image = nil;
-        tableViewCell.moodCellImage.backgroundColor = [UIColor lightGrayColor];
-        [tableViewCell setBoarderColor:[UIColor whiteColor]];
-        [tableViewCell.moodCellImage.layer setBorderColor:[UIColor whiteColor].CGColor];
+        [tableViewCell.moodCellImage.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+        [tableViewCell.moodCellImage setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.3]];
+        [tableViewCell.moodCellImage.layer setBorderWidth:2.0];
         [tableViewCell.dateLabel setText:[dataManager getDateStringFromDate:[dict  objectForKey:@"FileName"]]];
-        [tableViewCell.dateLabel setBackgroundColor:[UIColor whiteColor]];
-        [tableViewCell.dateLabel setTextColor:[UIColor lightGrayColor]];
-        
+        [tableViewCell.dateLabel setBackgroundColor:[UIColor clearColor]];
+        [tableViewCell.dateLabel setTextColor:[UIColor whiteColor]];
+        [tableViewCell setBoarderColor:[UIColor lightGrayColor]];
+        //[tableViewCell.dateLabel setCenter:CGPointMake(30+tableViewCell.dateLabel.frame.size.width/2, 90)];
+
         
     }
     [tableViewCell.moodColorImage.layer setBorderColor:[UIColor clearColor].CGColor];
     [tableViewCell.moodColorImage.layer setCornerRadius:tableViewCell.moodColorImage.frame.size.width/2];
     [tableViewCell.moodColorImage.layer setMasksToBounds:YES];
-
     [tableViewCell.moodCellImage.layer setMasksToBounds:YES];
-    [tableViewCell.moodCellImage.layer setBorderWidth:10.0];
     [tableViewCell drawBoarderForCell];
     
     return tableViewCell;
@@ -161,8 +164,17 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    return 251.0;
+    NSDictionary *dict = [self.moodsArray objectAtIndex:indexPath.row];
+    if ([dict objectForKey:@"ColorIndex"]) {
+
+        return 251.0;
+
+    }
+    else{
+        
+        return 100.0;
+
+    }
 }
 
 #pragma mark -  UIImagePickerController Delegate methods

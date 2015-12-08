@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "StoreDataMangager.h"
+#import "CustomMoodMapView.h"
 
 @protocol MoodMapDelegate <NSObject>
 
@@ -18,6 +19,7 @@
 @interface MoodMapViewController : UIViewController {
     StoreDataMangager *dataManager;
 }
-
+@property (nonatomic,strong)NSMutableDictionary *finalFilteredDict;
 @property (nonatomic, assign) id <MoodMapDelegate> delegate;
+@property (nonatomic,assign)NSMutableArray *moodsArray;
 @end

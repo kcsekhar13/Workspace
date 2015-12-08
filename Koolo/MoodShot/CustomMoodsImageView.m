@@ -19,18 +19,33 @@
     CGContextRef contextRef = UIGraphicsGetCurrentContext();
     // Set the border width
     // Set the border color to RED
-    CGContextSetStrokeColorWithColor(contextRef, self.boarderColor.CGColor);
-    CGContextSetFillColorWithColor(contextRef, self.boarderColor.CGColor);
 
+    if ([self.cellDict objectForKey:@"ColorIndex"]) {
+  
+        CGContextSetStrokeColorWithColor(contextRef, self.boarderColor.CGColor);
+    CGContextSetFillColorWithColor(contextRef, self.boarderColor.CGColor);
     CGContextBeginPath(contextRef);
     CGContextSetLineWidth(contextRef, 5.0);
-
     CGContextMoveToPoint(contextRef, 60, (rect.size.height/2)-30);
     CGContextAddLineToPoint(contextRef, 0, (rect.size.height/2));
     CGContextAddLineToPoint(contextRef, 60, (rect.size.height/2)+30);
-    
     CGContextClosePath(contextRef);
     CGContextFillPath(contextRef);
+        
+    }
+    else{
+        
+        CGContextSetLineWidth(contextRef, 2.0);
+        CGContextSetStrokeColorWithColor(contextRef, self.boarderColor.CGColor);
+        CGContextSetFillColorWithColor(contextRef, [[UIColor blackColor] colorWithAlphaComponent:0.3].CGColor);
+        CGContextBeginPath(contextRef);
+        CGContextMoveToPoint(contextRef, 18, (rect.size.height/2)-9);
+        CGContextAddLineToPoint(contextRef, 0, (rect.size.height/2));
+        CGContextAddLineToPoint(contextRef, 18, (rect.size.height/2)+9);
+        CGContextClosePath(contextRef);
+        CGContextFillPath(contextRef);
+        CGContextStrokePath(contextRef);
+    }
 }
 
 

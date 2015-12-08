@@ -334,13 +334,10 @@ static StoreDataMangager *sharedInstance = nil;
 
 -(void)addDummyMoods
 {
-    
-   
     NSMutableArray *prevMoodsArray = [[NSMutableArray alloc] initWithArray:[self getMoodsFromPlist]];
 
     NSDate *previousDate = nil;
     if ([prevMoodsArray count] ==0) {
-        
         previousDate = (NSDate *)[[NSUserDefaults standardUserDefaults]  objectForKey:@"AppInstallDate"];
     } else {
        previousDate = (NSDate *)[self getDateFromFileName:[[prevMoodsArray objectAtIndex:0] objectForKey:@"FileName"]];
