@@ -118,6 +118,7 @@
     //[_datePicker setLocale:[NSLocale systemLocale]];
     [self.view addSubview:self.datePicker];
     UIView *emptyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    //_customView.frame = CGRectMake(0, 0, 0, 0);
     self.addTagField.inputView = emptyView;
     [_addTagField setTintColor:[UIColor clearColor]];
     
@@ -184,6 +185,21 @@
             [self.datePicker setFrame:CGRectMake(0.0f, self.view.frame.size.height + 200.0f, self.view.frame.size.width, 200.0f)];
             [toolBar setFrame:CGRectMake(0, self.datePicker.frame.origin.y - 44.0f, self.view.frame.size.width, 44)];
         }];
+    }
+    
+    if (_addTagField == textField) {
+        
+        //Display the customView with animation
+        [UIView animateWithDuration:0.6 animations:^{
+            _customView.hidden = NO;
+            [_customView setAlpha:1.0];
+        } completion:^(BOOL finished) {}];
+    } else {
+        //Display the customView with animation
+        [UIView animateWithDuration:0.6 animations:^{
+            _customView.hidden = YES;
+            [_customView setAlpha:0.0];
+        } completion:^(BOOL finished) {}];
     }
 }
 
@@ -281,13 +297,6 @@
         [toolBar setFrame:CGRectMake(0, self.datePicker.frame.origin.y - 44.0f, self.view.frame.size.width, 44)];
     }];
     
-    
-    
-    //Display the customView with animation
-    [UIView animateWithDuration:0.6 animations:^{
-        _customView.hidden = NO;
-        [_customView setAlpha:1.0];
-    } completion:^(BOOL finished) {}];
 }
 #pragma mark - User defined methods
 

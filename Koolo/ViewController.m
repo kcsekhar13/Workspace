@@ -81,6 +81,7 @@
         [stack removeFromSuperview];
     
     stack = [[UPStackMenu alloc] initWithContentView:contentView];
+    [stack setBackgroundColor:[UIColor clearColor]];
     [stack setCenter:CGPointMake(width-30, height-30)];
     [stack setDelegate:self];
     
