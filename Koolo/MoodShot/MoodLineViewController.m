@@ -134,6 +134,7 @@
         [tableViewCell.dateLabel setBackgroundColor:((UIColor*)(dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]]))];
         [tableViewCell.dateLabel setTextColor:[UIColor whiteColor]];
         [tableViewCell.moodCellImage.layer setBorderWidth:10.0];
+        
         //[tableViewCell.dateLabel setCenter:CGPointMake(30+tableViewCell.dateLabel.frame.size.width/2, 0)];
 
 
@@ -141,14 +142,16 @@
     else{
         tableViewCell.moodColorImage.backgroundColor = [UIColor clearColor];
         tableViewCell.moodCellImage.image = nil;
-        [tableViewCell.moodCellImage.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+        [tableViewCell.moodCellImage.layer setBorderColor:[UIColor clearColor].CGColor];
         [tableViewCell.moodCellImage setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.3]];
-        [tableViewCell.moodCellImage.layer setBorderWidth:2.0];
+        [tableViewCell.moodCellImage.layer setBorderWidth:5.0];
+        [tableViewCell.moodCellImage.layer setMasksToBounds:YES];
+        [tableViewCell.moodCellImage.layer setCornerRadius:5.0];
         [tableViewCell.dateLabel setText:[dataManager getDateStringFromDate:[dict  objectForKey:@"FileName"]]];
         [tableViewCell.dateLabel setBackgroundColor:[UIColor clearColor]];
         [tableViewCell.dateLabel setTextColor:[UIColor whiteColor]];
         [tableViewCell setBoarderColor:[UIColor lightGrayColor]];
-        //[tableViewCell.dateLabel setCenter:CGPointMake(30+tableViewCell.dateLabel.frame.size.width/2, 90)];
+        [tableViewCell.dateLabel setCenter:CGPointMake(tableViewCell.dateLabel.center.x+5, 30)];
 
         
     }
