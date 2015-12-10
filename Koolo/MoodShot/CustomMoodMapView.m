@@ -45,15 +45,26 @@
     switch (count) {
         case 0:
         {
-            [self.layer setBorderWidth:3.0f];
+            [self.layer setBorderWidth:2.0f];
             [self.layer setMasksToBounds:YES];
-            [self.layer setCornerRadius:2.0];
+            [self.layer setCornerRadius:self.frame.size.width/2];
             [self.layer setBorderColor:[(UIColor *)datahandler.fetchColorsArray[tag] CGColor]];
         }
         break;
+        
+        case 1:
+        {
+            [self.layer setBorderWidth:2.0f];
+            [self.layer setMasksToBounds:YES];
+            [self.layer setCornerRadius:self.frame.size.width/2];
+            [self.layer setBorderColor:[(UIColor *)datahandler.fetchColorsArray[tag] CGColor]];
+            [self.layer setBackgroundColor:[(UIColor *)datahandler.fetchColorsArray[tag] CGColor]];
+        }
+            break;
+            
         default:
         {
-            [self.layer setBorderWidth:3.0f];
+            [self.layer setBorderWidth:2.0f];
             [self.layer setMasksToBounds:YES];
             [self.layer setCornerRadius:2.0];
             [self.layer setBorderColor:[(UIColor *)datahandler.fetchColorsArray[tag] CGColor]];
