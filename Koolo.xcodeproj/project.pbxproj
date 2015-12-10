@@ -66,6 +66,7 @@
 		F33773A31BC9465B00793831 /* CheckListpng.png in Resources */ = {isa = PBXBuildFile; fileRef = F33773A11BC9465B00793831 /* CheckListpng.png */; };
 		F33B7E6E1BC8B92800C37B1D /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = F33B7E6D1BC8B92800C37B1D /* lock.png */; };
 		F33B7E701BC8C6CB00C37B1D /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = F33B7E6F1BC8C6CB00C37B1D /* Camera.png */; };
+		F37490FD1C1722EA007E3687 /* CustomMoodMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = F37490FC1C1722EA007E3687 /* CustomMoodMapView.m */; };
 		F3BBD92D1BE4CD760087591E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555BD61D1BC760B600BB61E9 /* Images.xcassets */; };
 		F3D0A2481BEF14A70089CFD5 /* CheckListCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D0A2471BEF14A70089CFD5 /* CheckListCustomView.m */; };
 		F3E7FC581BE5E1B7009DA03C /* MoodPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E7FC571BE5E1B7009DA03C /* MoodPreviewCell.m */; };
@@ -187,6 +188,8 @@
 		F33773A11BC9465B00793831 /* CheckListpng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckListpng.png; sourceTree = "<group>"; };
 		F33B7E6D1BC8B92800C37B1D /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		F33B7E6F1BC8C6CB00C37B1D /* Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera.png; sourceTree = "<group>"; };
+		F37490FB1C1722EA007E3687 /* CustomMoodMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMoodMapView.h; sourceTree = "<group>"; };
+		F37490FC1C1722EA007E3687 /* CustomMoodMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMoodMapView.m; sourceTree = "<group>"; };
 		F3D0A2461BEF14A70089CFD5 /* CheckListCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckListCustomView.h; sourceTree = "<group>"; };
 		F3D0A2471BEF14A70089CFD5 /* CheckListCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckListCustomView.m; sourceTree = "<group>"; };
 		F3E7FC561BE5E1B6009DA03C /* MoodPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodPreviewCell.h; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 				55F5A3FE1BE1451900DC80F4 /* MoodLineViewController.m */,
 				55F5A4001BE1456900DC80F4 /* MoodMapViewController.h */,
 				55F5A4011BE1456900DC80F4 /* MoodMapViewController.m */,
+				F37490FB1C1722EA007E3687 /* CustomMoodMapView.h */,
+				F37490FC1C1722EA007E3687 /* CustomMoodMapView.m */,
 				550F97A41BE29B6F005510F5 /* ColorPickerCollectionViewCell.h */,
 				550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */,
 				55A8FAE11BE4911A0057CF44 /* colorPickerTableViewCell.h */,
@@ -615,6 +620,7 @@
 				F3D0A2481BEF14A70089CFD5 /* CheckListCustomView.m in Sources */,
 				F3E7FC581BE5E1B7009DA03C /* MoodPreviewCell.m in Sources */,
 				F3E7FC5B1BE618CB009DA03C /* CustomMoodsImageView.m in Sources */,
+				F37490FD1C1722EA007E3687 /* CustomMoodMapView.m in Sources */,
 				550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */,
 				373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */,
 				5536AA381BD81AFC00398454 /* NewEventViewController.m in Sources */,
