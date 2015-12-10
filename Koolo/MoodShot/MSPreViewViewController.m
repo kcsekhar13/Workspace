@@ -22,7 +22,7 @@
     
     
     [super viewDidLoad];
-    
+    selectDeselectIndexPathRow = -1;
     self.title = @"Select Humor Color";
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *cancelButtonTitle = nil;
@@ -82,12 +82,16 @@
     
     //cell.colorKeyView.backgroundColor = colorsArray[indexPath.row];
     [cell.pickerButton setTitle:dataManager.fetchColorPickerTitlesArray[indexPath.row] forState:UIControlStateNormal];
+    [cell.pickerButton.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
     [cell.pickerButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [cell.colorKeyView.layer setBorderColor:[UIColor clearColor].CGColor];
     [cell.colorKeyView.layer setCornerRadius:cell.colorKeyView.frame.size.width/2];
     [cell.colorKeyView.layer setMasksToBounds:YES];
     cell.colorKeyView.backgroundColor = (UIColor *)dataManager.fetchColorsArray[indexPath.row];
     cell.delegate = self;
+    if (selectDeselectIndexPathRow > -1 && selectDeselectIndexPathRow == indexPath.row) {
+        [cell.pickerButton.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0]];
+    }
     cell.selectedColorIndex = indexPath.row;
     return cell;
 }
@@ -105,10 +109,15 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (selectedIndexPath != nil) {
+        ColorPickerCollectionViewCell *cell = (ColorPickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:selectedIndexPath];
+        [cell.pickerButton.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
+    }
     selectedIndexPath = indexPath;
    
-
-
+    ColorPickerCollectionViewCell *cell = (ColorPickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [cell.pickerButton.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0]];
+    selectDeselectIndexPathRow = indexPath.row;
 }
 
 -(void)saveToDB:(NSIndexPath*)indexPath

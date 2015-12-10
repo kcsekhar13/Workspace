@@ -13,6 +13,7 @@
     
     StoreDataMangager *dataManager;
     NSIndexPath *selectedIndexPath;
+    int selectDeselectIndexPathRow;
 }
 @property (nonatomic,strong)NSData *selectedImageData;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
