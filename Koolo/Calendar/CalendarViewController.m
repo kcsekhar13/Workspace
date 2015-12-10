@@ -84,9 +84,9 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     
     
     self.selectedDate = todayDate;
-    UISwipeGestureRecognizer * swipeLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(moveToHome)];
-    swipeLeft.direction=UISwipeGestureRecognizerDirectionLeft;
-    [self.view addGestureRecognizer:swipeLeft];
+    UISwipeGestureRecognizer * swipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(moveToHome)];
+    swipeRight.direction=UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRight];
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *doneButtonTitle = nil;
@@ -206,7 +206,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     CATransition *animation = [CATransition animation];
     [animation setDelegate:self];
     [animation setType:kCATransitionPush];
-    [animation setSubtype:kCATransitionFromRight];
+    [animation setSubtype:kCATransitionFromLeft];
     
     [animation setDuration:0.45];
     [animation setTimingFunction:

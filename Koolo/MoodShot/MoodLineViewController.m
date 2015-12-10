@@ -23,10 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    UISwipeGestureRecognizer * swipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(backToHomeScreen)];
-    swipeRight.direction=UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:swipeRight];
-    [self.moodLineTableView addGestureRecognizer:swipeRight];
+    UISwipeGestureRecognizer * swipeLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(backToHomeScreen)];
+    swipeLeft.direction=UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeft];
+    [self.moodLineTableView addGestureRecognizer:swipeLeft];
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *filterTitle = nil;
@@ -275,7 +275,7 @@
             CATransition *animation = [CATransition animation];
             [animation setDelegate:self];
             [animation setType:kCATransitionPush];
-            [animation setSubtype:kCATransitionFromLeft];
+            [animation setSubtype:kCATransitionFromRight];
             
             [animation setDuration:0.45];
             [animation setTimingFunction:
