@@ -36,7 +36,6 @@
         cancelTitle = @"Cancel";
         doneButtonTitle = @"Done";
     }
-    saveFlag = NO;
     dataManager = [StoreDataMangager sharedInstance];
     colorTitlesArray = [[NSMutableArray alloc] initWithArray:dataManager.fetchColorPickerTitlesArray];
     
@@ -133,6 +132,14 @@
     cell.delegate = self;
     cell.selectedColorIndex = indexPath.row;
     
+    UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [clearButton setImage:[UIImage imageNamed:@"cross.png"] forState:UIControlStateNormal];
+    [clearButton setFrame:CGRectMake((cell.titleTextField.frame.origin.x + cell.titleTextField.frame.size.width) - 15.0f, 1.0, 14.0, 14.0)];
+    [clearButton addTarget:self action:@selector(clearTextField:) forControlEvents:UIControlEventTouchUpInside];
+    clearButton.tag = indexPath.row;
+    cell.titleTextField.rightViewMode = UITextFieldViewModeAlways;
+    [cell.titleTextField setRightView:clearButton];
+    
     return cell;
 }
 
@@ -151,9 +158,7 @@
 - (void)updateColorPickertitles:(id)sender {
     colorCell =  (colorPickerTableViewCell *)sender;
     [colorTitlesArray replaceObjectAtIndex:colorCell.selectedColorIndex withObject:colorCell.titleTextField.text];
-    if (saveFlag) {
-        [dataManager updateFetchColorPickerTitlesArray:colorTitlesArray];
-    }
+    
 }
 
 /*
@@ -176,9 +181,19 @@
 //    NSIndexPath *selectedIndexPath = [self.contentTableView indexPathForSelectedRow];
 //    colorPickerTableViewCell *colorCell  = [self.contentTableView cellForRowAtIndexPath:selectedIndexPath];
 //    [colorTitlesArray replaceObjectAtIndex:colorCell.selectedColorIndex withObject:colorCell.titleTextField.text];
-    saveFlag = YES;
-    
+    [dataManager updateFetchColorPickerTitlesArray:colorTitlesArray];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)clearTextField:(id)sender {
+    
+    UIButton *cellButton = (UIButton *)sender;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[cellButton tag] inSection:0];
+    
+    colorCell =  (colorPickerTableViewCell *)[self.contentTableView cellForRowAtIndexPath:indexPath];
+    colorCell.titleTextField.text = @"";
+    [colorTitlesArray replaceObjectAtIndex:cellButton.tag withObject:colorCell.titleTextField.text];
+    
 }
 
 @end
