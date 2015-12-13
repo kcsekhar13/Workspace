@@ -67,7 +67,8 @@
             [self.layer setBorderWidth:2.0f];
             [self.layer setMasksToBounds:YES];
             [self.layer setCornerRadius:2.0];
-            [self.layer setBorderColor:[(UIColor *)datahandler.fetchColorsArray[tag] CGColor]];
+            //[self.layer setBorderColor:[(UIColor *)datahandler.fetchColorsArray[tag] CGColor]];
+            [self.layer setBorderColor:[[UIColor clearColor] CGColor]];
             [self addCircles];
             
         }
