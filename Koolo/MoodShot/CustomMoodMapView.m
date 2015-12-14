@@ -52,6 +52,7 @@
         }
         break;
         
+            
         case 1:
         {
             [self.layer setBorderWidth:2.0f];
@@ -95,20 +96,20 @@
         } 
     }
     
-    if (withColorCount > 5 && withOutColorCount > 5) {
+    if (withColorCount >= 5 && withOutColorCount >= 5) {
         
         withColorCount = 5;
         withOutColorCount = 4;
         
         [self drawCirclesWithTotalCount:count withMoodsArray:moodArray withColorCount:withColorCount withOutColorCount:withOutColorCount];
         
-    } else if (withColorCount > 5 && withOutColorCount < 5) {
+    } else if (withColorCount >= 5 && withOutColorCount <= 5) {
         
          withColorCount = 9 - withOutColorCount;
         
         [self drawCirclesWithTotalCount:count withMoodsArray:moodArray withColorCount:withColorCount withOutColorCount:withOutColorCount];
         
-    } else if (withColorCount < 5 && withOutColorCount > 5) {
+    } else if (withColorCount <= 5 && withOutColorCount >= 5) {
         
         withOutColorCount = 9 - withColorCount;
         
@@ -142,11 +143,14 @@
         
         
         backgroundColor = (UIColor *)datahandler.fetchColorsArray[tag];
+        /*
         int size = (float)(rand()%(int)width + 10);
         if (size > width) {
             size = width;
         }
-        UIView *circleView = [[UIView alloc] initWithFrame:CGRectMake(xAxis, yAxis, size, size)];
+        UIView *circleView = [[UIView alloc] initWithFrame:CGRectMake(xAxis, yAxis, size, size)];*/
+        
+        UIView *circleView = [[UIView alloc] initWithFrame:CGRectMake(xAxis, yAxis, width, width)];
         
         
         
@@ -165,15 +169,17 @@
             yAxis = yAxis + height + 2.5;
         }
         
-        if (([dict objectForKey:@"ColorIndex"]) && (withColorCount > 0) && (withColor < withColorCount)) {
+        NSString *indexValue = [dict objectForKey:@"ColorIndex"];
+        
+        if ((withColorCount > 0) && (withColor < withColorCount)) {
             
             backgroundColor = (UIColor *)datahandler.fetchColorsArray[tag];
-            [circleView.layer setBorderColor:[[UIColor clearColor] CGColor]];
-            [circleView setBackgroundColor:backgroundColor];
+            [circleView.layer setBorderColor:[(UIColor *)datahandler.fetchColorsArray[tag] CGColor]];
+            [circleView setBackgroundColor:(UIColor *)datahandler.fetchColorsArray[tag]];
             [self addSubview:circleView];
             ++withColor;
             
-        } else if (withOutColorCount > 0 && (withOutColor < withOutColorCount)){
+        } else if ((withOutColorCount > 0) && (withOutColor < withOutColorCount)){
             
             backgroundColor = [UIColor clearColor];
             [circleView.layer setBorderColor:[(UIColor *)datahandler.fetchColorsArray[tag] CGColor]];
@@ -181,6 +187,8 @@
             [self addSubview:circleView];
             ++withOutColor;
         }
+        
+        
         
         
     }
