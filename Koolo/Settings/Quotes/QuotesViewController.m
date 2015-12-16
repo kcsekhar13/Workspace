@@ -35,14 +35,14 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *rightButtonTile = nil;
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
         self.title = @"Sitater";
-        rightButtonTile = NSLocalizedString(@"Ready", nil);
+        rightButtonTile = NSLocalizedString(@"Done", nil);
         
     } else {
         self.title = @"Quotes";
-        rightButtonTile = @"Ready";
+        rightButtonTile = @"Done";
     }
     
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:rightButtonTile style:UIBarButtonItemStylePlain target:self action:@selector(backToScreen)];
@@ -73,7 +73,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 -(void)initUI {
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
         [_mNoteTextField setText:NSLocalizedString(@"Enable Status", nil)];
         [_mTypeStatusLabel setText:NSLocalizedString(@"Add", nil)];

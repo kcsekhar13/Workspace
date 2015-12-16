@@ -90,10 +90,10 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *doneButtonTitle = nil;
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
         self.title = NSLocalizedString(@"Calendar", nil);
-        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
         
     } else {
         self.title = @"Calendar";

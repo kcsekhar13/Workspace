@@ -9,7 +9,7 @@
 
 "Settings" = "Innstillinger";
 "Quotes" = "Sitater";
-"Ready" = "Ferdig";
+"Done" = "Ferdig";
 "Not Ready" = "Lkke ferdig";
 "Progress" = "Pagaende";
 "Enable Status" = "Aktiver sitatpå startskjermen";
@@ -17,15 +17,15 @@
 "Passcode" = "Passkode";
 "Cancel" = "Avbryt";
 "Active Passcode" = "siå av passkode";
-"Set Passcode" = "Sett Passkode";
-"Set secretQuestion" = "Sett sikkerhetssporsmal";
-"Select secretQuestion" = "Velg Sett sikkerhetssporsmal";
-"Color choices" = "Fargevalg";
+"Set Passcode" = "Sett passkode";
+"Set security question" = "Sett sikkerhetsspørsmål";
+"Select security question" = "Velg sikkerhetsspørsmål";
+"Colour Selection" = "Fargevalg";
 "Checklists" = "Sjekklister";
-"My health" = "Min helse";
-"Three sentence" = "Tre setninger";
+"My health" = "Min Helse";
+"Three sentences" = "Tre setninger";
 "New transfer" = "Klar for overforing";
-"New goal" = "Nytt Mål";
+"New goal" = "Nytt mål";
 "My transfer" = "Min transfer";
 "New transform" = "Nytt transfer";
 "Information" = "Informasjon";
@@ -38,6 +38,11 @@
 "Return" = " Tilbake";
 "Map" = "Kart";
 
+"Question1" = "Min alder, diagnose og kort sykehistorie";
+"Question2" = "Min behandlingsplan";
+"Question3" = "Mitne spørsmål / bekymringer for å snakke om under timen";
+
+
 "Textfield warning" = "Textview feltet kan ikke være tomt .";
 "Wrong answer" = "Inngikk galt svar .";
 "Security answer" = "Svar feltet kan ikke være tomt .";
@@ -46,5 +51,5 @@
 "Answer Secutiry question" = "Svar Sikkerhetsspørsmål";
 
 "Calendar" = "Kalender";
-"Today's Event" = "Dagens Hendelser";
+"Today's events" = "Dagens hendelser";
 

@@ -26,12 +26,12 @@
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     doneButtonTitle = nil;
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         self.title = NSLocalizedString(@"Checklists", nil);
-        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
         transferString = NSLocalizedString(@"New transfer", nil);
         myhealthString= NSLocalizedString(@"My health", nil);
-        [_threeSentence setTitle:NSLocalizedString(@"Three sentence", nil) forState:UIControlStateNormal];
+        [_threeSentence setTitle:NSLocalizedString(@"Three sentences", nil) forState:UIControlStateNormal];
         goalString = NSLocalizedString(@"New goal", nil);
         
         mytransferString = NSLocalizedString(@"My transfer", nil);

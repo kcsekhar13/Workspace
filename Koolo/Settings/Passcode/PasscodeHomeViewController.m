@@ -35,16 +35,16 @@
     NSString *cancelTitle = nil;
     NSString *doneButtonTitle = nil;
     
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
         self.title = NSLocalizedString(@"Passcode", nil);
-        self.secretQuestion = NSLocalizedString(@"Set secretQuestion", nil);
+        self.secretQuestion = NSLocalizedString(@"Set security question", nil);
         self.activateLabel.text = NSLocalizedString(@"Active Passcode", nil);
         [self.setPasscodeButton setTitle:NSLocalizedString(@"Set Passcode", nil) forState:UIControlStateNormal];
-        self.secretQuestionLabel.text = NSLocalizedString(@"Set secretQuestion", nil);
-        self.pickerViewTextField.text= NSLocalizedString(@"Select secretQuestion", nil);
+        self.secretQuestionLabel.text = NSLocalizedString(@"Set security question", nil);
+        self.pickerViewTextField.text= NSLocalizedString(@"Select security question", nil);
         cancelTitle = NSLocalizedString(@"Cancel", nil);
-        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
         
         
     } else {
@@ -206,7 +206,7 @@
     
     NSString *errorMessage = nil;
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
         errorMessage = NSLocalizedString(@"Security answer", nil);
         
@@ -255,7 +255,7 @@
             
             NSString *errorMessage = nil;
             NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-            if ([language isEqualToString:@"nb"]) {
+            if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
                 
                 errorMessage = NSLocalizedString(@"Security answer", nil);
                 

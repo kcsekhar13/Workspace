@@ -36,10 +36,10 @@
     
     selectedTagsArray = [[NSMutableArray alloc] initWithObjects:@"NO", @"NO", @"NO", nil];
     
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
         self.title = NSLocalizedString(@"Today's Event", nil);
-        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
         cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
         
     } else {

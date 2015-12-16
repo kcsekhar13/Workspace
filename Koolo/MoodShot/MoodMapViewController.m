@@ -26,8 +26,8 @@
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *doneButtonTitle = nil;
-    if ([language isEqualToString:@"nb"]) {
-        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
         self.title = NSLocalizedString(@"Mood Map", nil);
         [self.allButton setTitle:NSLocalizedString(@"All", nil) forState:UIControlStateNormal];
         

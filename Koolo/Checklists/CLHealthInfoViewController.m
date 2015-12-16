@@ -71,11 +71,11 @@
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *doneButtonTitle = nil;
     
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         self.title = NSLocalizedString(@"Information", nil);
-        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
         
-        _finishedTextLabel.text = NSLocalizedString(@"Ready", nil);
+        _finishedTextLabel.text = NSLocalizedString(@"Done", nil);
         _pendingLabelText.text = NSLocalizedString(@"Not Ready", nil);
         _progressLabelText.text = NSLocalizedString(@"Progress", nil);
         _descriptionLabel.text = NSLocalizedString(@"InfoDescription", nil);

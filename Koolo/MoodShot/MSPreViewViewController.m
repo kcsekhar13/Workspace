@@ -27,9 +27,9 @@
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *cancelButtonTitle = nil;
     NSString *doneButtonTitle = nil;
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
-        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
         self.title = NSLocalizedString(@"SelectHumorColor", nil);
         
     } else {

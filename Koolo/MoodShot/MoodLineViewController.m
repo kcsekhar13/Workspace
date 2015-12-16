@@ -31,9 +31,9 @@
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *filterTitle = nil;
     NSString *doneButtonTitle = nil;
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         filterTitle = NSLocalizedString(@"Map", nil);
-        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
         self.title = NSLocalizedString(@"Mood Line", nil);
         
     } else {

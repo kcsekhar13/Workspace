@@ -27,7 +27,7 @@
     NSString *cancelTitle = nil;
     NSString *doneButtonTitle = nil;
     
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         cancelTitle = NSLocalizedString(@"Cancel", nil);
         doneButtonTitle = NSLocalizedString(@"Add", nil);
         
@@ -112,7 +112,7 @@
         
         NSString *errorMessage = nil;
         NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-        if ([language isEqualToString:@"nb"]) {
+        if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
             
             errorMessage = NSLocalizedString(@"Textfield warning", nil);
             

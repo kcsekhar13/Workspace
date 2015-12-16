@@ -25,7 +25,7 @@
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *cancelTitle = nil;
     
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
         self.title = NSLocalizedString(@"SecurityAnswerTitle", nil);
         cancelTitle = NSLocalizedString(@"Cancel", nil);
@@ -99,7 +99,7 @@
         
         NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
         NSString *errorMessage = nil;
-        if ([language isEqualToString:@"nb"]) {
+        if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
             
             errorMessage = NSLocalizedString(@"Wrong answer", nil);
             

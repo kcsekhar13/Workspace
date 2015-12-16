@@ -31,16 +31,16 @@
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *cancelTitle = nil;
     NSString *doneButtonTitle = nil;
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
         self.title = NSLocalizedString(@"Settings", nil);
-        contentArray = [[NSArray alloc] initWithObjects:@"Bakgrunnsbilde", @"Passkode", @"Sitater", @"Lisens",@"Fargevalg", @"", @"", nil];
+        contentArray = [[NSArray alloc] initWithObjects:@"Bakgrunnsbilde", @"Passkode", @"Sitater", @"Lisens",@"Fargevalg", @"Gjennnomgang av applikasjonen", @"Oppdateringer", @"Bidragsytere",nil];
         cancelTitle = NSLocalizedString(@"Cancel", nil);
-        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
         
     } else {
         self.title = @"Settings";
-        contentArray = [[NSArray alloc] initWithObjects:@"BackgroundImage", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"", @"", nil];
+        contentArray = [[NSArray alloc] initWithObjects:@"Background Image", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"Tutorial", @"Updates", @"Contributors", nil];
         cancelTitle = @"Cancel";
         doneButtonTitle = @"Done";
     }

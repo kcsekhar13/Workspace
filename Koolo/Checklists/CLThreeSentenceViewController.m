@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *questionThreeTextView;
 @property (weak, nonatomic) UITextView *selectedTextView;
 @property (nonatomic, strong) UIView *statusBarView;
+@property (weak, nonatomic) IBOutlet UILabel *question_OneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *question_TwoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *question_ThreeLabel;
 
 @end
 
@@ -24,7 +27,7 @@
     [super viewDidLoad];
     animationFlag = YES;
     // Do any additional setup after loading the view.
-    self.title = @"Three sentences";
+    
     viewFrame = self.view.frame;
     self.statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
     self.statusBarView.backgroundColor = [UIColor whiteColor];
@@ -35,6 +38,28 @@
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
         _backgroundImageView.image = backgroundImage;
+    }
+    
+    NSString *cancelTitle = nil;
+    NSString *doneButtonTitle = nil;
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+        
+        self.question_OneLabel.text = [NSString stringWithFormat:@"1. %@", NSLocalizedString(@"Question1", nil)];
+        self.question_TwoLabel.text = [NSString stringWithFormat:@"2. %@", NSLocalizedString(@"Question2", nil)];
+        self.question_ThreeLabel.text = [NSString stringWithFormat:@"3. %@", NSLocalizedString(@"Question3", nil)];
+        self.title = NSLocalizedString(@"Three sentences", nil);
+        cancelTitle = NSLocalizedString(@"Cancel", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
+        
+    } else {
+        self.title = @"Three sentences";
+        self.question_OneLabel.text = [NSString stringWithFormat:@"1. %@", @"My age, diagnosis and brief medical history"];
+        self.question_TwoLabel.text = [NSString stringWithFormat:@"2. %@", @"My treatment plan"];
+        self.question_ThreeLabel.text = [NSString stringWithFormat:@"3. %@", @"My question/concern to talk about during the visit"];
+        cancelTitle = @"Cancel";
+        doneButtonTitle = @"Done";
     }
     
     // create blur effect
@@ -57,11 +82,11 @@
     [self.backgroundImageView addSubview:effectView];
     [self.backgroundImageView addSubview:vibrantView];
     
-    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(doneWithThreeSentences)];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(doneWithThreeSentences)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
     
-    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(previousScreen)];
+    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(previousScreen)];
     [cancelButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = cancelButton;
     

@@ -24,11 +24,11 @@
     NSString *cancelTitle = nil;
     NSString *doneButtonTitle = nil;
     
-    if ([language isEqualToString:@"nb"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
         self.title = NSLocalizedString(@"Color choices", nil);
         cancelTitle = NSLocalizedString(@"Cancel", nil);
-        doneButtonTitle = NSLocalizedString(@"Ready", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
         
         
     } else {
