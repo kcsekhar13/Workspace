@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "StoreDataMangager.h"
+#import "AppDataManager.h"
 
 @interface NewEventViewController : UIViewController <UITextFieldDelegate> {
     

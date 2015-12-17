@@ -27,12 +27,12 @@ static AppDataManager *sharedInstance = nil;
 }
 
 
--(void)createEventWithTitle :(NSString*)title atDate:(NSDate*)date  {
+-(void)createEventWithDetails :(NSDictionary*)detailsDict {
     
-   
     EKEventStore *eventStore = [[EKEventStore alloc ] init];
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
-    event.title = title;
+    event.title = [detailsDict objectForKey:@"EventTitle"];
+    NSDate *date = [detailsDict objectForKey:@"EventDate"];
     event.startDate = date;
     event.endDate = date;
     event.allDay = YES;
@@ -62,6 +62,28 @@ static AppDataManager *sharedInstance = nil;
     
     EKEventStore *eventStore = [[EKEventStore alloc] init];
     //  EKCalendar *calendar = [EKCalendar calendarWithEventStore:eventStore];
+    
+    if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)]) {
+        // iOS 6 and later
+        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+            if (granted) {
+                // code here for when the user allows your app to access the calendar
+                [self performCalendarActivity:eventStore];
+            } else {
+                // code here for when the user does NOT allow your app to access the calendar
+            }
+        }];
+    } else {
+        // code here for iOS < 6.0
+        [self performCalendarActivity:eventStore];
+    }
+    
+    
+}
+
+
+-(void)performCalendarActivity:(EKEventStore*)eventStore
+{
     
     EKCalendar *calendar = [eventStore calendarWithIdentifier:[[NSUserDefaults standardUserDefaults] objectForKey:@"Identifier"]];
     
@@ -102,6 +124,5 @@ static AppDataManager *sharedInstance = nil;
         NSLog(@"Error saving calendar: %@.", error);
     }
 }
-
 
 @end

@@ -12,6 +12,6 @@
 @interface AppDataManager : NSObject
 
 +(AppDataManager *)sharedInstance;
--(void)createEventWithTitle :(NSString*)title atDate:(NSDate*)date;
+-(void)createEventWithDetails :(NSDictionary*)detailsDict;
 -(void)createLocalCalendar;
 @end

@@ -351,6 +351,7 @@
         [eventDict setObject:_selectedDate forKey:@"EventDate"];
         [eventDict setObject:selectedTagsArray forKey:@"SelectedTags"];
         NSLog(@"Event Dict = %@", eventDict);
+        [[AppDataManager sharedInstance] createEventWithDetails:eventDict];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
