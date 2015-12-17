@@ -107,7 +107,7 @@
     
     self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height + 190.0f, self.view.frame.size.width, 200.0f)];
     [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
-    
+    [self.datePicker setMinimumDate:[NSDate date]];
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     [self.datePicker setBackgroundColor:[UIColor blackColor]];
      [_datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
@@ -349,6 +349,7 @@
         [eventDict setObject:self.eventTextField.text forKey:@"EventTitle"];
         [eventDict setObject:self.addTagField.text forKey:@"TagTitle"];
         [eventDict setObject:_selectedDate forKey:@"EventDate"];
+        [eventDict setObject:self.remainderLabel.text forKey:@"Remainder"];
         [eventDict setObject:selectedTagsArray forKey:@"SelectedTags"];
         NSLog(@"Event Dict = %@", eventDict);
         [[AppDataManager sharedInstance] createEventWithDetails:eventDict];

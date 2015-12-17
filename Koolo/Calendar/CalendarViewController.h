@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "StoreDataMangager.h"
+#import "EventsCustomCellTableViewCell.h"
 
 @interface CalendarViewController : UIViewController {
     StoreDataMangager *dataManager;
@@ -16,6 +17,10 @@
     int previousDateGestureCount;
     UIButton *rightSwipeButton;
     UIButton *leftSwipeButton;
+    
+    NSArray *eventsArray;
 }
+@property(nonatomic,strong)NSArray *eventsArray;
 @property (nonatomic, strong) NSDate *selectedDate;
+@property (strong, nonatomic) IBOutlet UITableView *eventsTable;
 @end

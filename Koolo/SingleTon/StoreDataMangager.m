@@ -231,11 +231,8 @@ static StoreDataMangager *sharedInstance = nil;
     NSInteger day = [components day];
     NSInteger month = [components month];
     NSInteger year = [components year];
-    
     NSString *monthName = [[dateformate monthSymbols] objectAtIndex:(month-1)];
-    
     NSString *dateString = [NSString stringWithFormat:@"%ld %@ %ld", (long)day, monthName, (long)year];
-    
     return dateString;
 }
 

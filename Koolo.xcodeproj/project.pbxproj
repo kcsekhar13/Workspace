@@ -56,6 +56,7 @@
 		55F5A4021BE1456900DC80F4 /* MoodMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A4011BE1456900DC80F4 /* MoodMapViewController.m */; };
 		55F5A4051BE1495100DC80F4 /* MSPreViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F5A4041BE1495100DC80F4 /* MSPreViewViewController.m */; };
 		55F9172F1BE7F3630007E799 /* CLNewGoalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F9172E1BE7F3630007E799 /* CLNewGoalTableViewCell.m */; };
+		C15CB82C1C22B6B500DABD0B /* EventsCustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C15CB82B1C22B6B500DABD0B /* EventsCustomCellTableViewCell.m */; };
 		F337738D1BC8D1C100793831 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F337738C1BC8D1C000793831 /* settings.png */; };
 		F337738F1BC8D2C400793831 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = F337738E1BC8D2C400793831 /* plus.png */; };
 		F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F33773981BC8D51300793831 /* SmallCameraButton.png */; };
@@ -178,6 +179,8 @@
 		55F5A4041BE1495100DC80F4 /* MSPreViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPreViewViewController.m; sourceTree = "<group>"; };
 		55F9172D1BE7F3630007E799 /* CLNewGoalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLNewGoalTableViewCell.h; sourceTree = "<group>"; };
 		55F9172E1BE7F3630007E799 /* CLNewGoalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLNewGoalTableViewCell.m; sourceTree = "<group>"; };
+		C15CB82A1C22B6B500DABD0B /* EventsCustomCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsCustomCellTableViewCell.h; sourceTree = "<group>"; };
+		C15CB82B1C22B6B500DABD0B /* EventsCustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsCustomCellTableViewCell.m; sourceTree = "<group>"; };
 		F337738C1BC8D1C000793831 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		F337738E1BC8D2C400793831 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		F33773981BC8D51300793831 /* SmallCameraButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallCameraButton.png; sourceTree = "<group>"; };
@@ -284,6 +287,8 @@
 				554310C41BE4D7CC00961E34 /* CalendarColorPickerViewController.m */,
 				55E705CC1C0F545D00271F03 /* CustomTagTableViewCell.h */,
 				55E705CD1C0F545D00271F03 /* CustomTagTableViewCell.m */,
+				C15CB82A1C22B6B500DABD0B /* EventsCustomCellTableViewCell.h */,
+				C15CB82B1C22B6B500DABD0B /* EventsCustomCellTableViewCell.m */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -606,6 +611,7 @@
 				555BD63A1BC761AD00BB61E9 /* AlbumViewController.m in Sources */,
 				558BB0421BF8D5D0000B335D /* NSDate+CL.m in Sources */,
 				5536AA451BD81D7F00398454 /* AppDataManager.m in Sources */,
+				C15CB82C1C22B6B500DABD0B /* EventsCustomCellTableViewCell.m in Sources */,
 				558BB0441BF8D5D0000B335D /* UIColor+CL.m in Sources */,
 				555BD6191BC760B600BB61E9 /* ViewController.m in Sources */,
 				55CAAF051BE4A0FE008EE20C /* StoreDataMangager.m in Sources */,

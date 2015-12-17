@@ -27,7 +27,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     // Do any additional setup after loading the view.
     
     gestureCount = 0;
-    
+    self.eventsArray = [[NSMutableArray alloc] init];
     datesArray = [[NSMutableArray alloc] init];
     NSDate *todayDate = [NSDate date];
     [datesArray addObject:todayDate];
@@ -416,7 +416,56 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
 -(void)displayEventsForSelectedDate:(id)sender {
     
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Selected button Tag = %ld", (long)button.tag);
+    int tag = (int)button.tag;
+    NSLog(@"Selected button Tag = %@", [datesArray objectAtIndex:tag]);
+    
+   // [[AppDataManager sharedInstance] getEventsForDate:[datesArray objectAtIndex:tag]];
+    self.eventsArray = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:tag]];
+    
+    [self.eventsTable reloadData];
+    
+
 }
+
+
+#pragma mark -  UITableView dataSource methods
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return self.eventsArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    EventsCustomCellTableViewCell *cell = (EventsCustomCellTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"EventsCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    NSDictionary *dict = self.eventsArray[indexPath.row];
+    cell.eventTitle.text = [dict objectForKey:@"EventTitle"];
+    
+    [cell.dateLabel.layer setCornerRadius:cell.dateLabel.frame.size.width/2];
+    [cell.dateLabel.layer setMasksToBounds:YES];
+    [cell.dateLabel.layer setBorderWidth:5.0];
+    NSArray *colorsArray = [StoreDataMangager sharedInstance].fetchColorsArray;
+    [cell.dateLabel.layer setBorderColor:[UIColor clearColor].CGColor];
+    [cell.dateLabel.layer setBackgroundColor:((UIColor*)[colorsArray objectAtIndex:[[dict objectForKey:@"ColorIndex"] intValue]]).CGColor];
+    [cell.timeLabel setText:[[StoreDataMangager sharedInstance] getStringFromDate:[dict objectForKey:@"EventDate"]]];
+    
+    [cell setBackgroundColor:[UIColor clearColor]];
+    return cell;
+}
+
+# pragma mark - UITableViewDelegate methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Fetch yourText for this row from your data source..
+    
+    return 72.0;
+    
+}
+
+
 
 @end
