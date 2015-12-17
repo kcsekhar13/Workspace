@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "PassCodeViewController.h"
+#import "AppDataManager.h"
 
 @interface AppDelegate ()
 
@@ -59,6 +60,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 
+    [[AppDataManager sharedInstance] createLocalCalendar];
     return YES;
 }
 

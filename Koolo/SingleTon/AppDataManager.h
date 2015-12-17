@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <EventKit/EventKit.h>
 
 @interface AppDataManager : NSObject
 
 +(AppDataManager *)sharedInstance;
-
+-(void)createEventWithTitle :(NSString*)title atDate:(NSDate*)date;
+-(void)createLocalCalendar;
 @end
