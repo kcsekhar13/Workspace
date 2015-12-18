@@ -34,16 +34,18 @@ static AppDataManager *sharedInstance = nil;
     
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
     NSDate *date = [detailsDict objectForKey:@"EventDate"];
-
+    event.title = [detailsDict objectForKey:@"EventTitle"];
+    event.startDate = date;
+    event.endDate = [date dateByAddingTimeInterval:1800];
+    
     if ([[detailsDict objectForKey:@"RemainderFlag"] boolValue]) {
         
-        EKAlarm * alarm = [EKAlarm alarmWithAbsoluteDate:date];
-        event.alarms = @[alarm];
+        EKAlarm *alaram = [[EKAlarm alloc]init];
+        [alaram setRelativeOffset:0];
+        [event addAlarm:alaram];
     }
     
-        event.title = [detailsDict objectForKey:@"EventTitle"];
-        event.startDate = date;
-        event.endDate = date;
+    
         [event addRecurrenceRule:[[EKRecurrenceRule alloc] initRecurrenceWithFrequency:[self getRemainderFrequency:[detailsDict objectForKey:@"Remainder"]] interval:1 end:nil]];
         [event setCalendar: calendar];
         NSError *err;

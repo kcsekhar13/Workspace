@@ -36,8 +36,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
         [datesArray addObject:newDate];
     }
     
-    [self prepareCalendarView];
-    
+   
     /*
     UISwipeGestureRecognizer * calendarswipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(prepareCalendarView)];
     calendarswipeRight.direction = UISwipeGestureRecognizerDirectionRight;
@@ -136,8 +135,12 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     //[self.view addSubview:self.calendarView];
 }
 
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+   
+    [self refreshView];
     self.navigationController.navigationBar.hidden = YES;
 }
 - (void)didReceiveMemoryWarning {
@@ -220,6 +223,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
 
 - (void)prepareCalendarView {
     
+
     if (gestureCount > 3) {
         return;
     } else if (gestureCount == 3) {
@@ -252,7 +256,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
             xPostion = 55.0f;
         }
         
-        
+
         for (int j = 0; j < 3; j++) {
             
             NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
@@ -273,7 +277,15 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
             [mDayLabel setTextAlignment:NSTextAlignmentCenter];
             [mDayLabel setFont:[UIFont systemFontOfSize:14.0f]];
             [mDayLabel setBackgroundColor:[UIColor grayColor]];
-            [mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
+            NSArray *events = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:(gestureCount * 9) + dateIndex]];
+            NSDictionary *dict = [events lastObject];
+            UIColor *boarderColor = [UIColor clearColor];
+            if (dict && [[dict objectForKey:@"ColorIndex"] length]) {
+                
+                int index = [[dict objectForKey:@"ColorIndex"] intValue];
+                boarderColor = (UIColor*)[[StoreDataMangager sharedInstance] fetchColorsArray][index];
+            }
+            [mDayLabel.layer setBorderColor:[boarderColor CGColor]];
             [mDayLabel.layer setBorderWidth:2.0f];
             [mDayLabel.layer setMasksToBounds:YES];
             [mDayLabel.layer setCornerRadius:25.0f];
@@ -289,6 +301,11 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
             [colorPickerButton setUserInteractionEnabled:YES];
             [colorPickerButton setBackgroundColor:[UIColor clearColor]];
             colorPickerButton.tag = (gestureCount * 9) + dateIndex;
+            if (i==0 && j==0) {
+                
+                [self updateDateEventsWithTag:colorPickerButton.tag];
+
+            }
             [colorPickerButton addTarget:self action:@selector(displayEventsForSelectedDate:) forControlEvents:UIControlEventTouchUpInside];
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
             xPostion = colorPickerButton.frame.origin.x + 80.0f;
@@ -317,6 +334,17 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     NSLog(@"count = %lu ", (unsigned long)self.calendarView.subviews.count);
 }
 
+-(void)refreshView
+{
+    if (gestureCount >0) {
+        
+        gestureCount--;
+
+    }
+    [self prepareCalendarView];
+
+    
+}
 - (void)preparePreviousCalendarView {
     
     rightSwipeButton.hidden = NO;
@@ -369,7 +397,17 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
             [mDayLabel setTextAlignment:NSTextAlignmentCenter];
             [mDayLabel setFont:[UIFont systemFontOfSize:14.0f]];
             [mDayLabel setBackgroundColor:[UIColor grayColor]];
-            [mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
+            NSArray *events = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:(gestureCount * 9) + dateIndex]];
+            NSDictionary *dict = [events lastObject];
+            UIColor *boarderColor = [UIColor clearColor];
+            if (dict && [[dict objectForKey:@"ColorIndex"] length]) {
+                
+                int index = [[dict objectForKey:@"ColorIndex"] intValue];
+                boarderColor = (UIColor*)[[StoreDataMangager sharedInstance] fetchColorsArray][index];
+            }
+            
+            
+            [mDayLabel.layer setBorderColor:[boarderColor CGColor]];
             [mDayLabel.layer setBorderWidth:2.0f];
             [mDayLabel.layer setMasksToBounds:YES];
             [mDayLabel.layer setCornerRadius:25.0f];
@@ -384,6 +422,11 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
             [colorPickerButton setUserInteractionEnabled:YES];
             [colorPickerButton setBackgroundColor:[UIColor clearColor]];
             colorPickerButton.tag = (gestureCount * 9) + dateIndex;
+            if (i==0 && j==0) {
+                
+                [self updateDateEventsWithTag:colorPickerButton.tag];
+                
+            }
             [colorPickerButton addTarget:self action:@selector(displayEventsForSelectedDate:) forControlEvents:UIControlEventTouchUpInside];
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
             xPostion = colorPickerButton.frame.origin.x + colorPickerButton.frame.size.width + 30.0f;
@@ -417,16 +460,23 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     
     UIButton *button = (UIButton *)sender;
     int tag = (int)button.tag;
-    NSLog(@"Selected button Tag = %@", [datesArray objectAtIndex:tag]);
     
-   // [[AppDataManager sharedInstance] getEventsForDate:[datesArray objectAtIndex:tag]];
-    self.eventsArray = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:tag]];
-    
-    [self.eventsTable reloadData];
-    
+    [self updateDateEventsWithTag:tag];
 
 }
 
+
+-(void)updateDateEventsWithTag:(int)tag
+{
+    
+    NSLog(@"Selected button Tag = %@", [datesArray objectAtIndex:tag]);
+    
+    // [[AppDataManager sharedInstance] getEventsForDate:[datesArray objectAtIndex:tag]];
+    self.eventsArray = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:tag]];
+    
+    [self.eventsTable reloadData];
+
+}
 
 #pragma mark -  UITableView dataSource methods
 
@@ -444,14 +494,28 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     NSDictionary *dict = self.eventsArray[indexPath.row];
     cell.eventTitle.text = [dict objectForKey:@"EventTitle"];
     
-    [cell.dateLabel.layer setCornerRadius:cell.dateLabel.frame.size.width/2];
-    [cell.dateLabel.layer setMasksToBounds:YES];
-    [cell.dateLabel.layer setBorderWidth:5.0];
+   
     NSArray *colorsArray = [StoreDataMangager sharedInstance].fetchColorsArray;
-    [cell.dateLabel.layer setBorderColor:[UIColor clearColor].CGColor];
-    [cell.dateLabel.layer setBackgroundColor:((UIColor*)[colorsArray objectAtIndex:[[dict objectForKey:@"ColorIndex"] intValue]]).CGColor];
-    [cell.timeLabel setText:[[StoreDataMangager sharedInstance] getStringFromDate:[dict objectForKey:@"EventDate"]]];
+    cell.recurenceLabel = [dict objectForKey:@"Remainder"];
+    cell.modeLabel = [dict objectForKey:@"TagTitle"];
     
+    NSArray *selectArray =  [[NSArray alloc] initWithObjects:@"Toff", @"Kjipt", @"Tro", nil];
+    NSArray *statusArray  = [dict objectForKey:@"SelectedTags"];
+    NSMutableString *tagLabelString = [[NSMutableString alloc] init];
+
+    for (int i=0; i<selectArray.count; i++) {
+        
+        if ([[statusArray objectAtIndex:i] isEqualToString:@"YES"]) {
+            
+            NSString *tagLabel = [selectArray objectAtIndex:i];
+            [tagLabelString appendString:tagLabel];
+            [tagLabelString appendString:@"   "];
+        }
+        
+        
+    }
+    
+    cell.tagsLabel.text = tagLabelString;
     [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
 }
@@ -462,7 +526,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
 {
     // Fetch yourText for this row from your data source..
     
-    return 72.0;
+    return 85.0;
     
 }
 

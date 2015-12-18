@@ -10,7 +10,8 @@
 
 @interface EventsCustomCellTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *eventTitle;
-@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *recurenceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *modeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tagsLabel;
 @end
