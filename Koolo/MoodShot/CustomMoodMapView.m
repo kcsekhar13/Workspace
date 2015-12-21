@@ -169,7 +169,7 @@
             yAxis = yAxis + height + 2.5;
         }
         
-        NSString *indexValue = [dict objectForKey:@"ColorIndex"];
+        //NSString *indexValue = [dict objectForKey:@"ColorIndex"];
         
         if ((withColorCount > 0) && (withColor < withColorCount)) {
             

@@ -17,7 +17,7 @@
 //@property (nonatomic, strong) CLWeeklyCalendarView* calendarView;
 @end
 
-static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
+//static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
 
 @implementation CalendarViewController
 
@@ -474,7 +474,13 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     // [[AppDataManager sharedInstance] getEventsForDate:[datesArray objectAtIndex:tag]];
     self.eventsArray = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:tag]];
     
-    [self.eventsTable reloadData];
+    if (self.eventsArray.count == 0) {
+        [self.eventsTable setHidden:YES];
+    } else {
+        [self.eventsTable setHidden:NO];
+        [self.eventsTable reloadData];
+    }
+    
 
 }
 
@@ -495,7 +501,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
     cell.eventTitle.text = [dict objectForKey:@"EventTitle"];
     
    
-    NSArray *colorsArray = [StoreDataMangager sharedInstance].fetchColorsArray;
+    //NSArray *colorsArray = [StoreDataMangager sharedInstance].fetchColorsArray;
     cell.recurenceLabel = [dict objectForKey:@"Remainder"];
     cell.modeLabel = [dict objectForKey:@"TagTitle"];
     
