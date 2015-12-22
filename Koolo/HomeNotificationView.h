@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EventsCustomCellTableViewCell.h"
 
 @protocol HomeNotificationViewDelegate <NSObject>
 
@@ -14,7 +15,7 @@
 
 @end
 
-@interface HomeNotificationView : UIView
+@interface HomeNotificationView : UIView <UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic, strong) UILabel *mQuoteText;
 @property(nonatomic, strong) UILabel *mDayLabel;
 
@@ -31,5 +32,9 @@
 
 @property (nonatomic, assign) id <HomeNotificationViewDelegate> delegate;
 
+@property(nonatomic,strong)NSArray *eventsArray;
+@property (nonatomic,strong)UITableView *eventsTable;
+@property (nonatomic,strong)NSDictionary *selectedDict;
+-(void)updateSelectedDict;
 
 @end

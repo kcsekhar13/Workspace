@@ -16,6 +16,7 @@ static AppDataManager *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
+        sharedInstance.index = 0;
     });
     return sharedInstance;
 }
@@ -228,7 +229,6 @@ static AppDataManager *sharedInstance = nil;
 
     NSDate *date = [event objectForKey:@"EventDate"];
     NSString *dateKeyString = [self getStringFromDate:date];
-
     
     NSMutableArray *array = [dict objectForKey:dateKeyString];
     
@@ -240,9 +240,7 @@ static AppDataManager *sharedInstance = nil;
     [array addObject:event];
     [dict setObject:array forKey:dateKeyString];
     [dict writeToFile:[self getEventsFilePath] atomically:YES];
-    
-    
-    
+
 }
 
 -(NSString*)getStringFromDate:(NSDate*)date
@@ -272,5 +270,38 @@ static AppDataManager *sharedInstance = nil;
     
 }
 
+-(NSString*)getTimeFromString:(NSDate*)dateString
+{
+    
+    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+    [dateformate setDateFormat:@"hh:mm:SS a"]; // Date formater
+    
+    NSString *string = [dateformate stringFromDate:dateString]; // Convert date to string
+    NSLog(@"date :%@",string);
+    return string;
+}
 
+-(void)updateSelectedDict
+{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[self getAllEvents]];
+    
+    if (dict == nil) {
+        dict = [[NSMutableDictionary alloc] init];
+    }
+    
+    NSDate *date = [self.selectedDict objectForKey:@"EventDate"];
+    NSString *dateKeyString = [self getStringFromDate:date];
+    
+    NSMutableArray *array = [dict objectForKey:dateKeyString];
+    
+    if (array == nil) {
+        
+        array = [[NSMutableArray alloc] init];
+        
+    }
+    [array replaceObjectAtIndex:self.index withObject:self.selectedDict];
+    [dict setObject:array forKey:dateKeyString];
+    [dict writeToFile:[self getEventsFilePath] atomically:YES];
+    
+}
 @end

@@ -12,9 +12,13 @@
 @class StoreDataMangager;
 @interface AppDataManager : NSObject
 
+@property(nonatomic,strong)NSMutableDictionary *selectedDict;
+@property(nonatomic)int index;
 +(AppDataManager *)sharedInstance;
 -(void)createEventWithDetails :(NSDictionary*)detailsDict;
 -(void)createLocalCalendar;
 -(void)getEventsForDate:(NSDate*)selectedDate;
 -(NSArray*)getEventsForSelectedDate:(NSDate*)date;
+-(NSString*)getTimeFromString:(NSString*)dateString;
+-(void)updateSelectedDict;
 @end

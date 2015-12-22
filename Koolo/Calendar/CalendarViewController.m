@@ -502,8 +502,8 @@
     
    
     //NSArray *colorsArray = [StoreDataMangager sharedInstance].fetchColorsArray;
-    cell.recurenceLabel = [dict objectForKey:@"Remainder"];
-    cell.modeLabel = [dict objectForKey:@"TagTitle"];
+    cell.recurenceLabel.text = [dict objectForKey:@"Remainder"];
+    cell.modeLabel.text = [dict objectForKey:@"TagTitle"];
     
     NSArray *selectArray =  [[NSArray alloc] initWithObjects:@"Toff", @"Kjipt", @"Tro", nil];
     NSArray *statusArray  = [dict objectForKey:@"SelectedTags"];

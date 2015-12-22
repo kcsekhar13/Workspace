@@ -65,7 +65,6 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     self.statusBarView.alpha = 0.0;
     [self.view addSubview:self.statusBarView];
     
-    
     [super viewDidLoad];
     
 }

@@ -215,7 +215,11 @@
 }
 
 - (void)moveToCalendarColorPicker:(id)sender {
+    
+    
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
     [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"] animated:YES];
 }
 

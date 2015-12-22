@@ -122,9 +122,12 @@
     
     UIButton *button = (UIButton *)sender;
     NSLog(@"Sender = %@ \n withColor Tag %ld", sender, button.tag);
-    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"calendarColorIndex"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    //[[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"calendarColorIndex"];
+    //[[NSUserDefaults standardUserDefaults] synchronize];
     
+    [[AppDataManager sharedInstance].selectedDict setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"ColorIndex"];
+    
+    [[AppDataManager sharedInstance] updateSelectedDict];
     [self.navigationController popViewControllerAnimated:YES];
 }
 /*

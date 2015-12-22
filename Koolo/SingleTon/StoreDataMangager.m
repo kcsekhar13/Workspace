@@ -85,6 +85,7 @@ static StoreDataMangager *sharedInstance = nil;
     NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
     [dateformate setDateFormat:@"dd-MM-yyyyhh:mm:SS"]; // Date formater
     NSString *dateString = [dateformate stringFromDate:date]; // Convert date to string
+    
     //NSLog(@"date :%@",dateString);
     return dateString;
 }
