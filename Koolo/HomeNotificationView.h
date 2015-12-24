@@ -12,6 +12,7 @@
 @protocol HomeNotificationViewDelegate <NSObject>
 
 - (void)moveToCalendarColorPicker:(id)sender;
+- (void)presentErrorView:(id)sender;
 
 @end
 

@@ -240,22 +240,35 @@
     [cell.textLabel setTextColor:[UIColor whiteColor]];
     cell.textLabel.text = [dict objectForKey:@"EventTitle"];
     [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
-    cell.detailTextLabel.text = [[AppDataManager sharedInstance] getTimeFromString:[dict objectForKey:@"EventDate"]];
+    cell.detailTextLabel.text = [dict objectForKey:@"TagTitle"];
     [cell setBackgroundColor:[UIColor clearColor]];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 5, 10, 45)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 25, 10, 10)];
+    [view.layer setCornerRadius:view.frame.size.width/2];
     if([[dict objectForKey:@"ColorIndex"]intValue] == -1)
     {
         
         [view setBackgroundColor:[UIColor clearColor]];
+        //[view.layer setBorderColor:[UIColor clearColor].CGColor];
         
     }
     else{
         
     [view setBackgroundColor:(UIColor *)[StoreDataMangager sharedInstance].fetchColorsArray[[[dict objectForKey:@"ColorIndex"]intValue]]];
+        //[view.layer setBorderColor:((UIColor *)[StoreDataMangager sharedInstance].fetchColorsArray[[[dict objectForKey:@"ColorIndex"]intValue]]).CGColor];
         
     }
     
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75.0f, 33.0f, 15, 15)];
+    [imageView setImage:[UIImage imageNamed:@"time.png"]];
+    
+    UILabel *remainderLabel = [[UILabel alloc] initWithFrame:CGRectMake(95.0f, 30.0f, 90.0f, 21)];
+    [remainderLabel setText:[dict objectForKey:@"Remainder"]];
+    [remainderLabel setTextColor:[UIColor whiteColor]];
+    [remainderLabel setTextAlignment:NSTextAlignmentLeft];
+    
+    [cell.contentView addSubview:remainderLabel];
+    [cell.contentView addSubview:imageView];
     [cell.contentView addSubview:view];
     
     return cell;
@@ -267,7 +280,7 @@
 {
     // Fetch yourText for this row from your data source..
     
-    return 55.0;
+    return 65.0;
     
     
 }
@@ -286,7 +299,13 @@
     if (self.eventsArray.count == 0) {
 
      
-        NSLog(@"There are no events to edit");
+        if ([self.delegate respondsToSelector:@selector(presentErrorView:)]) {
+            
+            [self.delegate presentErrorView:self];
+        }
+        
+        
+        
         return;
     }
     if ([self.delegate respondsToSelector:@selector(moveToCalendarColorPicker:)]) {

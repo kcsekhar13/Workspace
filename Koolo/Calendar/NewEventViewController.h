@@ -19,6 +19,7 @@
     NSArray *titlesArray;
     BOOL remaindFlag;
     BOOL selectedTagFlag;
+    BOOL initialColorFlag;
     NSMutableArray *selectedTagsArray;
     
 }

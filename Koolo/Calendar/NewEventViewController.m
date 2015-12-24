@@ -151,7 +151,7 @@
     
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"]) {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] && initialColorFlag) {
         int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
         
         if (index < 9 && index >=0) {
@@ -164,6 +164,7 @@
         [_mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
     }
     
+    initialColorFlag = YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

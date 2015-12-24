@@ -245,7 +245,7 @@
     }
     
     int dateIndex = 0;
-    NSLog(@"Dates Array = %@", datesArray);
+    //NSLog(@"Dates Array = %@", datesArray);
     float yPosition = 10.0f;
     for (int i = 0; i < 3; i++) {
         
@@ -332,7 +332,7 @@
                 
             }
             [self.calendarView addSubview:colorPickerButton];
-            NSLog(@"j = %d ", j);
+            //NSLog(@"j = %d ", j);
             ++dateIndex;
         }
         yPosition += 80.0f;
@@ -340,7 +340,7 @@
     }
     
     ++gestureCount;
-    NSLog(@"count = %lu ", (unsigned long)self.calendarView.subviews.count);
+    //NSLog(@"count = %lu ", (unsigned long)self.calendarView.subviews.count);
 }
 
 -(void)refreshView
@@ -375,7 +375,7 @@
         [leftSwipeButton setHidden:YES];
     }
     int dateIndex = 0;
-    NSLog(@"Dates Array = %@", datesArray);
+    //NSLog(@"Dates Array = %@", datesArray);
     float yPosition = 10.0f;
     for (int i = 0; i < 3; i++) {
         
@@ -462,7 +462,7 @@
             }
             
             [self.calendarView addSubview:colorPickerButton];
-            NSLog(@"j = %d ", j);
+            //NSLog(@"j = %d ", j);
             ++dateIndex;
         }
         yPosition += 80.0f;
@@ -470,7 +470,7 @@
     }
     ++gestureCount;
     
-    NSLog(@"count = %lu ", (unsigned long)self.calendarView.subviews.count);
+    //NSLog(@"count = %lu ", (unsigned long)self.calendarView.subviews.count);
 }
 
 -(void)displayEventsForSelectedDate:(id)sender {
@@ -486,7 +486,7 @@
 -(void)updateDateEventsWithTag:(int)tag
 {
     
-    NSLog(@"Selected button Tag = %@", [datesArray objectAtIndex:tag]);
+    //NSLog(@"Selected button Tag = %@", [datesArray objectAtIndex:tag]);
     
     // [[AppDataManager sharedInstance] getEventsForDate:[datesArray objectAtIndex:tag]];
     self.eventsArray = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:tag]];

@@ -225,6 +225,23 @@
     [self.navigationController pushViewController:obj animated:YES];
 }
 
+- (void)presentErrorView:(id)sender {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"There is no appointments to edit" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* okAction = [UIAlertAction
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action)
+                               {
+                                   [alert dismissViewControllerAnimated:YES completion:nil];
+                                   
+                               }];
+    [alert addAction:okAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)moveToMoodLineScreen {
     
     CATransition *animation = [CATransition animation];
