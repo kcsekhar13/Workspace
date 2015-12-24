@@ -283,7 +283,16 @@
             if (dict && [[dict objectForKey:@"ColorIndex"] length]) {
                 
                 int index = [[dict objectForKey:@"ColorIndex"] intValue];
-                boarderColor = (UIColor*)[[StoreDataMangager sharedInstance] fetchColorsArray][index];
+                if (index == -1) {
+                    boarderColor = [UIColor clearColor];
+
+                    
+                }
+                else{
+                    
+                    boarderColor = (UIColor*)[[StoreDataMangager sharedInstance] fetchColorsArray][index];
+
+                }
             }
             [mDayLabel.layer setBorderColor:[boarderColor CGColor]];
             [mDayLabel.layer setBorderWidth:2.0f];
@@ -403,7 +412,15 @@
             if (dict && [[dict objectForKey:@"ColorIndex"] length]) {
                 
                 int index = [[dict objectForKey:@"ColorIndex"] intValue];
+                if (index == -1) {
+                    boarderColor = [UIColor clearColor];
+                    
+                }
+                else{
+                    
                 boarderColor = (UIColor*)[[StoreDataMangager sharedInstance] fetchColorsArray][index];
+                    
+                }
             }
             
             

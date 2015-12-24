@@ -112,9 +112,16 @@
  #pragma mark - UIButton action methods
 - (IBAction)backToHomeScreen:(id)sender {
     
+      if (self.selectedIndex == 1) {
     [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d",-1] forKey:@"calendarColorIndex"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
+      }
+      else{
+          
+          [[AppDataManager sharedInstance].selectedDict setObject:[NSString stringWithFormat:@"%ld",(long)-1] forKey:@"ColorIndex"];
+          [[AppDataManager sharedInstance] updateSelectedDict];
+          
+      }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -122,13 +129,20 @@
     
     UIButton *button = (UIButton *)sender;
     NSLog(@"Sender = %@ \n withColor Tag %ld", sender, button.tag);
-    //[[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"calendarColorIndex"];
-    //[[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [[AppDataManager sharedInstance].selectedDict setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"ColorIndex"];
-    
-    [[AppDataManager sharedInstance] updateSelectedDict];
+    if (self.selectedIndex == 1) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"calendarColorIndex"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    else{
+        
+        [[AppDataManager sharedInstance].selectedDict setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"ColorIndex"];
+        [[AppDataManager sharedInstance] updateSelectedDict];
+
+
+    }
     [self.navigationController popViewControllerAnimated:YES];
+
 }
 /*
  #pragma mark - Navigation

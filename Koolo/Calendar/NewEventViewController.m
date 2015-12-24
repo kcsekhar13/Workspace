@@ -400,7 +400,9 @@
 - (IBAction)moveToColorPickerScreen:(id)sender {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"] animated:YES];
+    CalendarColorPickerViewController *obj = (CalendarColorPickerViewController* )[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"];
+    [obj setSelectedIndex:1];
+    [self.navigationController pushViewController:obj animated:YES];
 }
 
 - (IBAction)remaindNotification:(UIButton *)sender {

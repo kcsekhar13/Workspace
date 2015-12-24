@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "StoreDataMangager.h"
 #import "AppDataManager.h"
+#import "CalendarColorPickerViewController.h"
 
 @interface NewEventViewController : UIViewController <UITextFieldDelegate> {
     

@@ -219,8 +219,10 @@
     
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    
-    [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"] animated:YES];
+    CalendarColorPickerViewController *obj = (CalendarColorPickerViewController* )[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"];
+    [obj setSelectedIndex:2];
+
+    [self.navigationController pushViewController:obj animated:YES];
 }
 
 - (void)moveToMoodLineScreen {

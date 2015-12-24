@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UPStackMenu.h"
+#import "CalendarColorPickerViewController.h"
 @interface ViewController : UIViewController{
     
     UPStackMenu *stack;

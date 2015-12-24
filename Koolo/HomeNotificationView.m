@@ -194,7 +194,17 @@
 -(void)changeColor:(int)indexValue
 {
     
-    _mDayLabel.layer.borderColor = [(UIColor *)[StoreDataMangager sharedInstance].fetchColorsArray[indexValue] CGColor];
+    if(indexValue == -1)
+    {
+        
+        _mDayLabel.layer.borderColor = [UIColor clearColor].CGColor;
+
+    }
+    else{
+        
+        _mDayLabel.layer.borderColor = [(UIColor *)[StoreDataMangager sharedInstance].fetchColorsArray[indexValue] CGColor];
+
+    }
     
 }
 
@@ -215,6 +225,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"EventsCell"];
         
     }
+    else{
+        
+        for (UIView *view in [cell.contentView subviews]) {
+            
+            [view removeFromSuperview];
+        }
+        
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     NSDictionary *dict = self.eventsArray[indexPath.row];
@@ -226,7 +244,17 @@
     [cell setBackgroundColor:[UIColor clearColor]];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 5, 10, 45)];
+    if([[dict objectForKey:@"ColorIndex"]intValue] == -1)
+    {
+        
+        [view setBackgroundColor:[UIColor clearColor]];
+        
+    }
+    else{
+        
     [view setBackgroundColor:(UIColor *)[StoreDataMangager sharedInstance].fetchColorsArray[[[dict objectForKey:@"ColorIndex"]intValue]]];
+        
+    }
     
     [cell.contentView addSubview:view];
     
