@@ -101,13 +101,16 @@
     
     if (self.eventsArray.count == 0) {
         [self.eventsTable setHidden:YES];
+        _mDayLabel.layer.borderColor = [UIColor clearColor].CGColor;
+
     } else {
         [self.eventsTable setHidden:NO];
         [self.eventsTable reloadData];
+        self.selectedDict = [self.eventsArray objectAtIndex:[AppDataManager sharedInstance].index];
+        [self changeColor:[[self.selectedDict objectForKey:@"ColorIndex"] intValue]];
     }
     
-     self.selectedDict = [self.eventsArray objectAtIndex:[AppDataManager sharedInstance].index];
-    [self changeColor:[[self.selectedDict objectForKey:@"ColorIndex"] intValue]];
+    
 
 
 //    if(_mDateLabel == nil) {
@@ -252,6 +255,12 @@
 
 - (void)calendarButtonAction {
     
+    if (self.eventsArray.count == 0) {
+
+     
+        NSLog(@"There are no events to edit");
+        return;
+    }
     if ([self.delegate respondsToSelector:@selector(moveToCalendarColorPicker:)]) {
         [[AppDataManager sharedInstance] setSelectedDict:(NSMutableDictionary*)self.selectedDict];
         [self.delegate moveToCalendarColorPicker:self];
