@@ -110,7 +110,7 @@
         [self changeColor:[[self.selectedDict objectForKey:@"ColorIndex"] intValue]];
     }
     
-    
+    self.eventsTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
 
 //    if(_mDateLabel == nil) {

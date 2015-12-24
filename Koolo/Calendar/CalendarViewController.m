@@ -131,7 +131,7 @@
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToHome)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
-    
+    self.eventsTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     //[self.view addSubview:self.calendarView];
 }
 
