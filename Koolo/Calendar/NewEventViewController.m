@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tagTableView;
 @property (weak, nonatomic) IBOutlet UIButton *remaindButton;
 @property (weak, nonatomic) IBOutlet UIView *remainderView;
+@property (weak, nonatomic) IBOutlet UILabel *addTagLabel;
+@property (weak, nonatomic) IBOutlet UIButton *tagsDoneButton;
+@property (weak, nonatomic) IBOutlet UILabel *remaindLabel;
 
 @end
 
@@ -34,18 +37,38 @@
     NSString *doneButtonTitle = nil;
     NSString *cancelButtonTitle = nil;
     
+    NSArray *remaindingTitlesArray = nil;
+    
     selectedTagsArray = [[NSMutableArray alloc] initWithObjects:@"NO", @"NO", @"NO", nil];
     
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
-        self.title = NSLocalizedString(@"Today's Event", nil);
+        self.title = NSLocalizedString(@"Today's events", nil);
         doneButtonTitle = NSLocalizedString(@"Done", nil);
         cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
+        titlesArray = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Tough", nil), NSLocalizedString(@"Long", nil), NSLocalizedString(@"Faith", nil), nil];
+        
+        remaindingTitlesArray = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Daily", nil), NSLocalizedString(@"Weekly", nil), NSLocalizedString(@"Monthly", nil), NSLocalizedString(@"Yearly", nil),nil];
+        
+        self.addTagLabel.text = NSLocalizedString(@"Add tag", nil);
+        [self.tagsDoneButton setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
+        self.addTagField.placeholder = NSLocalizedString(@"Clinic", nil);
+        self.eventTextField.placeholder = NSLocalizedString(@"Today's events", nil);
+        self.remaindLabel.text = NSLocalizedString(@"Remind me", nil);
         
     } else {
         self.title = @"Today's Event";
         doneButtonTitle = @"Done";
         cancelButtonTitle = @"Cancel";
+        titlesArray = [[NSArray alloc] initWithObjects:@"Tough", @"Long", @"Faith", nil];
+        self.addTagLabel.text = @"Add tag";
+        self.addTagField.placeholder = @"Clinic";
+        self.eventTextField.placeholder = @"Today's events";
+        [self.tagsDoneButton setTitle:@"Done" forState:UIControlStateNormal];
+        self.remaindLabel.text = @"Remind me";
+        
+        remaindingTitlesArray = [[NSArray alloc] initWithObjects:@"Daily", @"Weekly", @"Monthly", @"Yearly",nil];
+        
     }
     
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToCalendarScreen:)];
@@ -86,7 +109,7 @@
     
     [self updateDateLabels:self.selectedDate];
     
-    titlesArray = [[NSArray alloc] initWithObjects:@"Toff", @"Kjipt", @"Tro", nil];
+    
     
     
     UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -127,14 +150,14 @@
     toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.datePicker.frame.origin.y - 44.0f, self.view.frame.size.width, 44)];
     toolBar.barStyle = UIBarStyleBlackOpaque;
     
-    UIBarButtonItem* dailyButton = [[UIBarButtonItem alloc] initWithTitle:@"Daily" style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
+    UIBarButtonItem* dailyButton = [[UIBarButtonItem alloc] initWithTitle:remaindingTitlesArray[0] style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
      UIBarButtonItem* flexSpace2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
-    UIBarButtonItem* weeklyButton = [[UIBarButtonItem alloc] initWithTitle:@"Weekly" style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
+    UIBarButtonItem* weeklyButton = [[UIBarButtonItem alloc] initWithTitle:remaindingTitlesArray[1] style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
     UIBarButtonItem* flexSpace3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem* monthlyButton = [[UIBarButtonItem alloc] initWithTitle:@"Monthly" style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
+    UIBarButtonItem* monthlyButton = [[UIBarButtonItem alloc] initWithTitle:remaindingTitlesArray[2] style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
     UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem* yearButton = [[UIBarButtonItem alloc] initWithTitle:@"Yearly" style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
+    UIBarButtonItem* yearButton = [[UIBarButtonItem alloc] initWithTitle:remaindingTitlesArray[3] style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
     dailyButton.tag = 0;
     weeklyButton.tag = 1;
     monthlyButton.tag = 2;
