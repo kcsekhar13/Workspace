@@ -76,7 +76,7 @@
         doneButtonTitle = NSLocalizedString(@"Done", nil);
         
         _finishedTextLabel.text = NSLocalizedString(@"Done", nil);
-        _pendingLabelText.text = NSLocalizedString(@"Not Ready", nil);
+        _pendingLabelText.text = NSLocalizedString(@"Not done", nil);
         _progressLabelText.text = NSLocalizedString(@"Progress", nil);
         _descriptionLabel.text = NSLocalizedString(@"InfoDescription", nil);
     } else {
@@ -85,7 +85,7 @@
         _finishedTextLabel.text = @"Finished";
         _pendingLabelText.text = @"Not done";
         _progressLabelText.text = @"Ongoing";
-        _descriptionLabel.text = @"Select a template that the question at a sweep Located at";
+        _descriptionLabel.text = @"Swiping to the right will mark the goal as not relevant  ";
     }
     
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(doneWithInfo)];

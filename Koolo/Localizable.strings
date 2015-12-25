@@ -10,8 +10,8 @@
 "Settings" = "Innstillinger";
 "Quotes" = "Sitater";
 "Done" = "Ferdig";
-"Not Ready" = "Lkke ferdig";
-"Progress" = "Pagaende";
+"Not done" = "Ikke ferdig";
+"Progress" = "Pågående";
 "Enable Status" = "Aktiver sitatpå startskjermen";
 "Add" = "Legg till";
 "Passcode" = "Passkode";
@@ -24,12 +24,12 @@
 "Checklists" = "Sjekklister";
 "My health" = "Min Helse";
 "Three sentences" = "Tre setninger";
-"New transfer" = "Klar for overforing";
+"New transfer" = "Klar for overføring";
 "New goal" = "Nytt mål";
-"My transfer" = "Min transfer";
-"New transform" = "Nytt transfer";
+"My transfer" = "Klar for overføring";
+"New transform" = "Overføring";
 "Information" = "Informasjon";
-"InfoDescription" = "Marker et mal som uaktuelt ved a sveipe tilhoyre";
+"InfoDescription" = "Marker et mål som uaktuelt ved å sveipe til høyre";
 "Mood Line" = "Mood Linje";
 "Filter" = "Filter";
 "Mood Map" = "Mood Kart";

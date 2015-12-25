@@ -40,12 +40,12 @@
     } else {
         self.title = @"Checklists";
         doneButtonTitle = @"Done";
-        transferString = @"Ready for transfer";
+        transferString = @"Ready for transition";
         myhealthString= @"My Health";
         [_threeSentence setTitle:@"Three Sentence" forState:UIControlStateNormal];
         goalString = @"New Goal";
-        mytransferString = @"My Transfer";
-        newTransferString = @"New Transfer";
+        mytransferString = @"Ready for transition";
+        newTransferString = @"Transition";
     }
     
     
