@@ -26,13 +26,13 @@
     
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
-        self.title = NSLocalizedString(@"Color choices", nil);
+        self.title = NSLocalizedString(@"Colour Selection", nil);
         cancelTitle = NSLocalizedString(@"Cancel", nil);
         doneButtonTitle = NSLocalizedString(@"Done", nil);
         
         
     } else {
-        self.title = @"Color choices";
+        self.title = @"Colour Selection";
         cancelTitle = @"Cancel";
         doneButtonTitle = @"Done";
     }
