@@ -48,7 +48,24 @@
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
     
-    [self.imageView setImage:[UIImage imageWithData:self.selectedImageData]];
+    UIImage *previewImage = [UIImage imageWithData:self.selectedImageData];
+    [self.imageView setImage:previewImage];
+    if (previewImage.imageOrientation == UIImageOrientationUp ) {
+        self.imageView.bounds = CGRectMake
+        (0, 0, self.view.bounds.size.height, self.view.bounds.size.width);
+        self.imageView.transform = CGAffineTransformMakeRotation(M_PI/2);
+        
+    } else if (previewImage.imageOrientation == UIImageOrientationDown) {
+        self.imageView.bounds = CGRectMake
+        (0, 0, self.view.bounds.size.height, self.view.bounds.size.width);
+        self.imageView.transform = CGAffineTransformMakeRotation(-M_PI/2);
+    }
+    else {
+        self.imageView.bounds = self.view.bounds;
+        self.imageView.transform = CGAffineTransformIdentity;
+    }
+    
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     dataManager = [StoreDataMangager sharedInstance];
     // Do any additional setup after loading the view.
@@ -57,6 +74,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.hidden = NO;
     [self.graphPickerCollectionView reloadData];
+    
+    
+    
     [super viewWillAppear:animated];
 }
 

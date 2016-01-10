@@ -128,7 +128,26 @@
     tableViewCell.backView.cellDict = dict;
     if ([dict objectForKey:@"ColorIndex"]) {
         tableViewCell.moodColorImage.backgroundColor = dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]];
-        tableViewCell.moodCellImage.image = [UIImage imageWithContentsOfFile:savedImagePath];
+        
+        UIImage *previewImage = [UIImage imageWithContentsOfFile:savedImagePath];
+        [tableViewCell.moodCellImage setImage:previewImage];
+        if (previewImage.imageOrientation == UIImageOrientationUp ) {
+            
+            tableViewCell.moodCellImage.transform = CGAffineTransformMakeRotation(M_PI/2);
+            tableViewCell.moodCellImage.bounds = CGRectMake
+            (16, 0, tableViewCell.moodCellImage.bounds.size.height, tableViewCell.moodCellImage.bounds.size.width);
+            
+        } else if (previewImage.imageOrientation == UIImageOrientationDown) {
+            
+            tableViewCell.moodCellImage.transform = CGAffineTransformMakeRotation(-M_PI/2);
+            tableViewCell.moodCellImage.bounds = CGRectMake
+            (16, 0, self.view.bounds.size.height, self.view.bounds.size.width);
+        }
+        else {
+            tableViewCell.moodCellImage.bounds = tableViewCell.moodCellImage.bounds;
+            tableViewCell.moodCellImage.transform = CGAffineTransformIdentity;
+        }
+        
         [tableViewCell setBoarderColor:dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]]];
         [tableViewCell.moodCellImage.layer setBorderColor:((UIColor*)(dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]])).CGColor];
         [tableViewCell.dateLabel setText:[dataManager getDateStringFromDate:[dict  objectForKey:@"FileName"]]];
