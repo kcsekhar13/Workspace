@@ -270,7 +270,16 @@
             
             dataManager = [StoreDataMangager sharedInstance];
             
-            UILabel *mDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
+            float width = 0;
+            float height = 0;
+            if (self.view.frame.size.width == 320 && self.view.frame.size.height == 480) {
+                width = 30;
+                height = 30;
+            } else {
+                width = 50;
+                height = 50;
+            }
+            UILabel *mDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPostion,yPosition, width, height)];
             [mDayLabel setText:textString];
             [mDayLabel setNumberOfLines:2];
             [mDayLabel setTextColor:[UIColor whiteColor]];
@@ -297,13 +306,13 @@
             [mDayLabel.layer setBorderColor:[boarderColor CGColor]];
             [mDayLabel.layer setBorderWidth:2.0f];
             [mDayLabel.layer setMasksToBounds:YES];
-            [mDayLabel.layer setCornerRadius:25.0f];
+            [mDayLabel.layer setCornerRadius:width/2];
             [mDayLabel setUserInteractionEnabled:YES];
             [self.calendarView addSubview:mDayLabel];
             
             UIButton *colorPickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
             
-            [colorPickerButton setFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
+            [colorPickerButton setFrame:CGRectMake(xPostion,yPosition, width, height)];
             [colorPickerButton.layer setBorderWidth:2.0f];
             [colorPickerButton.layer setMasksToBounds:YES];
             [colorPickerButton.layer setCornerRadius:colorPickerButton.frame.size.height/2];
@@ -320,7 +329,9 @@
             xPostion = colorPickerButton.frame.origin.x + 80.0f;
             
             if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
-                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + 55.0f, 60.0f, 10.0f)];
+                
+                
+                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 10.0f)];
                 NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
                 [monthFormatter setDateFormat:@"MMM, yyyy"];
                 monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
@@ -335,7 +346,12 @@
             //NSLog(@"j = %d ", j);
             ++dateIndex;
         }
-        yPosition += 80.0f;
+        if (self.view.frame.size.width == 320 && self.view.frame.size.height == 480) {
+            yPosition += 70.0f;
+        } else {
+            yPosition += 80.0f;
+        }
+        
         NSLog(@"\n");
     }
     
@@ -399,7 +415,17 @@
             
             dataManager = [StoreDataMangager sharedInstance];
             
-            UILabel *mDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
+            float width = 0;
+            float height = 0;
+            if (self.view.frame.size.width == 320 && self.view.frame.size.height == 480) {
+                width = 30;
+                height = 30;
+            } else {
+                width = 50;
+                height = 50;
+            }
+            
+            UILabel *mDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPostion,yPosition, width, height)];
             [mDayLabel setText:textString];
             [mDayLabel setNumberOfLines:2];
             [mDayLabel setTextColor:[UIColor whiteColor]];
@@ -427,15 +453,15 @@
             [mDayLabel.layer setBorderColor:[boarderColor CGColor]];
             [mDayLabel.layer setBorderWidth:2.0f];
             [mDayLabel.layer setMasksToBounds:YES];
-            [mDayLabel.layer setCornerRadius:25.0f];
+            [mDayLabel.layer setCornerRadius:width/2];
             [mDayLabel setUserInteractionEnabled:YES];
             [self.calendarView addSubview:mDayLabel];
             
             UIButton *colorPickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [colorPickerButton setFrame:CGRectMake(xPostion,yPosition, 50.0, 50.0)];
+            [colorPickerButton setFrame:CGRectMake(xPostion,yPosition, width, height)];
             [colorPickerButton.layer setBorderWidth:2.0f];
             [colorPickerButton.layer setMasksToBounds:YES];
-            [colorPickerButton.layer setCornerRadius:25.0f];
+            [colorPickerButton.layer setCornerRadius:width/2];
             [colorPickerButton setUserInteractionEnabled:YES];
             [colorPickerButton setBackgroundColor:[UIColor clearColor]];
             colorPickerButton.tag = (gestureCount * 9) + dateIndex;
@@ -446,7 +472,7 @@
             }
             [colorPickerButton addTarget:self action:@selector(displayEventsForSelectedDate:) forControlEvents:UIControlEventTouchUpInside];
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
-            xPostion = colorPickerButton.frame.origin.x + colorPickerButton.frame.size.width + 30.0f;
+            xPostion = colorPickerButton.frame.origin.x + 80.0f;
             
             if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
                 UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 10.0f)];
@@ -465,7 +491,11 @@
             //NSLog(@"j = %d ", j);
             ++dateIndex;
         }
-        yPosition += 80.0f;
+        if (self.view.frame.size.width == 320 && self.view.frame.size.height == 480) {
+            yPosition += 70.0f;
+        } else {
+            yPosition += 80.0f;
+        }
         NSLog(@"\n");
     }
     ++gestureCount;
