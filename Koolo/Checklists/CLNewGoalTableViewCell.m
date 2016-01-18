@@ -27,15 +27,15 @@
     
     if ([status isEqualToString:@"Pending"]) {
         
-        [self.goalCellImage setBackgroundColor:[UIColor redColor]];
+        [self.goalCellImage setImage:[UIImage imageNamed: @"red.png"]];
     }
     else if ([status isEqualToString:@"Started"]) {
         
-        [self.goalCellImage setBackgroundColor:[UIColor yellowColor]];
+        [self.goalCellImage setImage:[UIImage imageNamed: @"yellow.png"]];
     }
     else if ([status isEqualToString:@"Completed"]) {
         
-        [self.goalCellImage setBackgroundColor:[UIColor greenColor]];
+        [self.goalCellImage setImage:[UIImage imageNamed: @"green.png"]];
     }
     
     
