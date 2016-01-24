@@ -101,7 +101,7 @@
     
     if (self.eventsArray.count == 0) {
         [self.eventsTable setHidden:YES];
-        _mDayLabel.layer.borderColor = [UIColor clearColor].CGColor;
+        [self changeColor:[[[NSUserDefaults standardUserDefaults] objectForKey:@"ColorIndex"] intValue]];
 
     } else {
         [self.eventsTable setHidden:NO];
@@ -299,9 +299,9 @@
     if (self.eventsArray.count == 0) {
 
      
-        if ([self.delegate respondsToSelector:@selector(presentErrorView:)]) {
+        if ([self.delegate respondsToSelector:@selector(moveToCalendarColorPicker:)]) {
             
-            [self.delegate presentErrorView:self];
+            [self.delegate moveToCalendarColorPicker:self];
         }
         
         

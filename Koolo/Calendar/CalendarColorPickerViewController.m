@@ -118,8 +118,17 @@
       }
       else{
           
-          [[AppDataManager sharedInstance].selectedDict setObject:[NSString stringWithFormat:@"%ld",(long)-1] forKey:@"ColorIndex"];
-          [[AppDataManager sharedInstance] updateSelectedDict];
+          NSArray *eventArray  = [[AppDataManager sharedInstance] getEventsForSelectedDate:[NSDate date]];
+          if (eventArray.count) {
+              [[AppDataManager sharedInstance].selectedDict setObject:[NSString stringWithFormat:@"%ld",(long)-1] forKey:@"ColorIndex"];
+              [[AppDataManager sharedInstance] updateSelectedDict];
+          } else {
+              
+              [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)-1] forKey:@"ColorIndex"];
+              [[NSUserDefaults standardUserDefaults] synchronize];
+          }
+          
+          
           
       }
     [self.navigationController popViewControllerAnimated:YES];
@@ -135,9 +144,16 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     else{
+        NSArray *eventArray  = [[AppDataManager sharedInstance] getEventsForSelectedDate:[NSDate date]];
+        if (eventArray.count) {
+            [[AppDataManager sharedInstance].selectedDict setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"ColorIndex"];
+            [[AppDataManager sharedInstance] updateSelectedDict];
+        } else {
+            
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"ColorIndex"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
         
-        [[AppDataManager sharedInstance].selectedDict setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"ColorIndex"];
-        [[AppDataManager sharedInstance] updateSelectedDict];
 
 
     }

@@ -363,7 +363,7 @@
         
         int index = [[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue];
         
-        if (index < 9 && index >=0) {
+        if ((index < 9 && index >=0) && selectedColorFlag) {
             [eventDict setObject:[NSString stringWithFormat:@"%d", index] forKey:@"ColorIndex"];
         } else {
             index = -1;
@@ -423,6 +423,7 @@
 
 - (IBAction)moveToColorPickerScreen:(id)sender {
     
+    selectedColorFlag = YES;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     CalendarColorPickerViewController *obj = (CalendarColorPickerViewController* )[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"];
     [obj setSelectedIndex:1];

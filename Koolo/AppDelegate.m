@@ -27,6 +27,32 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
+   
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd"];
+    NSString *presentDateString = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *previousDateString = @"";
+    
+    NSDate * previousDate = (NSDate *)[[NSUserDefaults standardUserDefaults]  objectForKey:@"PreviousCalendarDate"];
+    
+    if (previousDate != nil) {
+        previousDateString = [dateFormatter stringFromDate:previousDate];
+    }
+    
+    if( !([presentDateString isEqualToString:previousDateString]) || previousDate == nil)
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"PreviousCalendarDate"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)-1] forKey:@"ColorIndex"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)-1] forKey:@"calendarColorIndex"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        
+
+    }
     [self handlePasscodeScreen];
   
     if ([[[NSUserDefaults standardUserDefaults]  objectForKey:@"Quotes"] count] == 0) {

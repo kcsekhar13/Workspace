@@ -20,6 +20,7 @@
     BOOL remaindFlag;
     BOOL selectedTagFlag;
     BOOL initialColorFlag;
+    BOOL selectedColorFlag;
     NSMutableArray *selectedTagsArray;
     
 }
