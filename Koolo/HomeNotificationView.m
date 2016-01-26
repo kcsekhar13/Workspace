@@ -89,7 +89,7 @@
     
     if (self.eventsTable == nil) {
         
-        self.eventsTable = [[UITableView alloc] initWithFrame:CGRectMake(10, 90, self.frame.size.width-20, self.frame.size.height-90) style:UITableViewStylePlain];
+        self.eventsTable = [[UITableView alloc] initWithFrame:CGRectMake(80, 90, self.frame.size.width-20, self.frame.size.height-90) style:UITableViewStylePlain];
         
         [self.eventsTable setDelegate:self];
         [self.eventsTable setBackgroundView:nil];
@@ -109,7 +109,7 @@
         self.selectedDict = [self.eventsArray objectAtIndex:[AppDataManager sharedInstance].index];
         [self changeColor:[[self.selectedDict objectForKey:@"ColorIndex"] intValue]];
     }
-    
+    [self.eventsTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.eventsTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
 
@@ -241,6 +241,7 @@
 
     [cell.textLabel setTextColor:[UIColor whiteColor]];
     cell.textLabel.text = [dict objectForKey:@"EventTitle"];
+    cell.textLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:15.0];
 //    [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
 //    cell.detailTextLabel.text = [dict objectForKey:@"TagTitle"];
     [cell setBackgroundColor:[UIColor clearColor]];
@@ -268,6 +269,7 @@
     [remainderLabel setText:[dict objectForKey:@"Remainder"]];
     [remainderLabel setTextColor:[UIColor whiteColor]];
     [remainderLabel setTextAlignment:NSTextAlignmentLeft];
+    [remainderLabel setFont:[UIFont systemFontOfSize:10.0]];
     
     UILabel *clinicLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 56.0f, 90.0f, 21)];
     [clinicLabel setText:[dict objectForKey:@"TagTitle"]];
@@ -277,6 +279,7 @@
     [cell.contentView addSubview:remainderLabel];
     [cell.contentView addSubview:imageView];
     [cell.contentView addSubview:view];
+    
     
     return cell;
 }
