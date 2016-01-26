@@ -671,14 +671,14 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="trw-rR-tXN">
                                                     <rect key="frame" x="8" y="3" width="304" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Lable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g7I-7Z-mcG">
                                                     <rect key="frame" x="171" y="31" width="86" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1566,12 +1566,12 @@
         <image name="InformationImage" width="640" height="1136"/>
         <image name="SmallCameraButton.png" width="40" height="40"/>
         <image name="SmallKeyBoard.png" width="50" height="50"/>
-        <image name="green.png" width="30" height="30"/>
+        <image name="green.png" width="35" height="35"/>
         <image name="plus.png" width="88" height="88"/>
-        <image name="red.png" width="30" height="30"/>
+        <image name="red.png" width="35" height="35"/>
         <image name="settings.png" width="256" height="256"/>
-        <image name="time.png" width="13" height="16"/>
-        <image name="yellow.png" width="30" height="30"/>
+        <image name="time.png" width="48" height="48"/>
+        <image name="yellow.png" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="txd-7c-XPx"/>
