@@ -218,6 +218,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
+    
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"EventsCell"];
     
     if (cell == nil) {
@@ -239,11 +241,11 @@
 
     [cell.textLabel setTextColor:[UIColor whiteColor]];
     cell.textLabel.text = [dict objectForKey:@"EventTitle"];
-    [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
-    cell.detailTextLabel.text = [dict objectForKey:@"TagTitle"];
+//    [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
+//    cell.detailTextLabel.text = [dict objectForKey:@"TagTitle"];
     [cell setBackgroundColor:[UIColor clearColor]];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 25, 10, 10)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 39, 10, 10)];
     [view.layer setCornerRadius:view.frame.size.width/2];
     if([[dict objectForKey:@"ColorIndex"]intValue] == -1)
     {
@@ -259,14 +261,19 @@
         
     }
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75.0f, 33.0f, 15, 15)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75.0f, 59.0f, 15, 15)];
     [imageView setImage:[UIImage imageNamed:@"time.png"]];
     
-    UILabel *remainderLabel = [[UILabel alloc] initWithFrame:CGRectMake(95.0f, 30.0f, 90.0f, 21)];
+    UILabel *remainderLabel = [[UILabel alloc] initWithFrame:CGRectMake(95.0f, 56.0f, 90.0f, 21)];
     [remainderLabel setText:[dict objectForKey:@"Remainder"]];
     [remainderLabel setTextColor:[UIColor whiteColor]];
     [remainderLabel setTextAlignment:NSTextAlignmentLeft];
     
+    UILabel *clinicLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 56.0f, 90.0f, 21)];
+    [clinicLabel setText:[dict objectForKey:@"TagTitle"]];
+    [clinicLabel setTextColor:[UIColor whiteColor]];
+    [clinicLabel setTextAlignment:NSTextAlignmentLeft];
+    [cell.contentView addSubview:clinicLabel];
     [cell.contentView addSubview:remainderLabel];
     [cell.contentView addSubview:imageView];
     [cell.contentView addSubview:view];
@@ -280,7 +287,7 @@
 {
     // Fetch yourText for this row from your data source..
     
-    return 65.0;
+    return 85.0;
     
     
 }
