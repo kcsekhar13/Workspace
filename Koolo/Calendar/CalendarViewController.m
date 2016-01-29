@@ -31,7 +31,7 @@
     datesArray = [[NSMutableArray alloc] init];
     NSDate *todayDate = [NSDate date];
     [datesArray addObject:todayDate];
-    for (int i = 0; i<35; i++) {
+    for (int i = 0; i<219; i++) {
         NSDate *newDate = [datesArray[i] dateByAddingTimeInterval:60*60*24*1];
         [datesArray addObject:newDate];
     }
@@ -224,9 +224,9 @@
 - (void)prepareCalendarView {
     
 
-    if (gestureCount > 3) {
+    if (gestureCount > 20) {
         return;
-    } else if (gestureCount == 3) {
+    } else if (gestureCount == 20) {
         rightSwipeButton.hidden = YES;
     }
     
