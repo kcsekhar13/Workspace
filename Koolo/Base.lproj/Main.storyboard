@@ -508,8 +508,8 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8rc-yk-F7K">
-                                <rect key="frame" x="270" y="520" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <rect key="frame" x="6" y="520" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="plus.png"/>
                                 <connections>
                                     <action selector="launchAlbum:" destination="ATE-ra-ukB" eventType="touchUpInside" id="7Mc-2g-YQf"/>
@@ -521,8 +521,8 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bbq-MX-nsX">
-                                <rect key="frame" x="6" y="517" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <rect key="frame" x="270" y="517" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="SmallKeyBoard.png"/>
                                 <connections>
                                     <action selector="launchCamera:" destination="ATE-ra-ukB" eventType="touchUpInside" id="lTE-Sx-zEP"/>
