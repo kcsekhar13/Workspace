@@ -328,10 +328,10 @@
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
             xPostion = colorPickerButton.frame.origin.x + 80.0f;
             
-            if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
+            //if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
                 
                 
-                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 10.0f)];
+                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 15.0f)];
                 NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
                 [monthFormatter setDateFormat:@"MMM, yyyy"];
                 monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
@@ -341,7 +341,7 @@
                 [monthLabel setBackgroundColor:[UIColor clearColor]];
                 [self.calendarView addSubview:monthLabel];
                 
-            }
+           // }
             [self.calendarView addSubview:colorPickerButton];
             //NSLog(@"j = %d ", j);
             ++dateIndex;
@@ -474,8 +474,8 @@
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
             xPostion = colorPickerButton.frame.origin.x + 80.0f;
             
-            if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
-                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 10.0f)];
+            //if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
+                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 15.0f)];
                 NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
                 [monthFormatter setDateFormat:@"MMM, yyyy"];
                 monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
@@ -485,7 +485,7 @@
                 [monthLabel setBackgroundColor:[UIColor clearColor]];
                 [self.calendarView addSubview:monthLabel];
                 
-            }
+           // }
             
             [self.calendarView addSubview:colorPickerButton];
             //NSLog(@"j = %d ", j);
