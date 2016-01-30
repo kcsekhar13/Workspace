@@ -168,6 +168,8 @@
     [toolBar setItems:[NSArray arrayWithObjects:dailyButton, flexSpace2, weeklyButton, flexSpace3,monthlyButton,flexSpace, yearButton,nil]];
     [self.view addSubview:toolBar];
     
+    self.addTagField.text = @"Multiple Tags";
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -325,7 +327,7 @@
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"hh"];
 
-    self.addTagField.text = [NSString stringWithFormat:@"Kl. %@", [dateFormatter stringFromDate:_datePicker.date]];
+    //self.addTagField.text = [NSString stringWithFormat:@"Kl. %@", [dateFormatter stringFromDate:_datePicker.date]];
     displayDatePicker = NO;
     
     [UIView animateWithDuration:0.5 animations:^{
@@ -371,7 +373,9 @@
         }
         
         [eventDict setObject:self.eventTextField.text forKey:@"EventTitle"];
-        [eventDict setObject:self.addTagField.text forKey:@"TagTitle"];
+        NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"hh"];
+        [eventDict setObject:[NSString stringWithFormat:@"Kl. %@", [dateFormatter stringFromDate:_datePicker.date]] forKey:@"TagTitle"];
         [eventDict setObject:_selectedDate forKey:@"EventDate"];
         [eventDict setObject:self.remainderLabel.text forKey:@"Remainder"];
         [eventDict setObject:selectedTagsArray forKey:@"SelectedTags"];
