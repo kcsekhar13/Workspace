@@ -86,7 +86,7 @@
     
     
     self.eventsArray = [[AppDataManager sharedInstance] getEventsForSelectedDate:[NSDate date]];
-    
+      
     if (self.eventsTable == nil) {
         
         self.eventsTable = [[UITableView alloc] initWithFrame:CGRectMake(80, 90, self.frame.size.width-20, self.frame.size.height-90) style:UITableViewStylePlain];
@@ -98,14 +98,28 @@
         [self addSubview:self.eventsTable];
     }
     
-    
+    if (_noAppointmentsLabel == nil) {
+        _noAppointmentsLabel = [[UILabel alloc] init];
+        [_noAppointmentsLabel setFrame:CGRectMake(80, 90, self.frame.size.width-100, 40)];
+        [_noAppointmentsLabel setTextColor:[UIColor whiteColor]];
+        [_noAppointmentsLabel setTextAlignment:NSTextAlignmentLeft];
+        _noAppointmentsLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:15.0];
+        [_noAppointmentsLabel setHidden:YES];
+    }
     if (self.eventsArray.count == 0) {
         [self.eventsTable setHidden:YES];
         [self changeColor:[[[NSUserDefaults standardUserDefaults] objectForKey:@"ColorIndex"] intValue]];
+        
+        
+        [self addSubview:_noAppointmentsLabel];
+        [_noAppointmentsLabel setText:@"No Appointments"];
+        [_noAppointmentsLabel setHidden:NO];
 
     } else {
         [self.eventsTable setHidden:NO];
         [self.eventsTable reloadData];
+        [_noAppointmentsLabel setHidden:YES];
+        
         self.selectedDict = [self.eventsArray objectAtIndex:[AppDataManager sharedInstance].index];
         [self changeColor:[[self.selectedDict objectForKey:@"ColorIndex"] intValue]];
     }

@@ -28,6 +28,7 @@
 
 @property(nonatomic, strong) UILabel *mLastDayLabel;
 @property(nonatomic, strong) UILabel *mLastDayText;
+@property(nonatomic, strong) UILabel *noAppointmentsLabel;
 
 @property(nonatomic, strong) UIButton *calnderButton;
 
