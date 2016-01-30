@@ -253,7 +253,9 @@
     
     CLNewGoalTableViewCell *cell  = (CLNewGoalTableViewCell*)[_goalsTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tag inSection:0]];
     [cell setStatus:nextStatus];
-    [self refreshView];
+    if ([nextStatus isEqualToString:@"Completed"] || [nextStatus isEqualToString:@"Pending"]) {
+        [self refreshView];
+    }
     
 }
 
@@ -271,7 +273,7 @@
     }
     else if ([statusString isEqualToString:@"Completed"]) {
         
-        return @"Completed";
+        return @"Pending";
     }
     
     return nil;
