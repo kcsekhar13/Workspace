@@ -42,6 +42,10 @@
          self.title = @"Mood Line";
     }
     
+    if (self.view.frame.size.width == 320) {
+       
+        self.moodLineTableView.frame = CGRectMake(20.0, self.moodLineTableView.frame.origin.y, self.moodLineTableView.frame.size.width, self.moodLineTableView.frame.size.height);
+    }
     pinchFlag = YES;
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
@@ -133,9 +137,8 @@
         [tableViewCell.moodCellImage setImage:previewImage];
         if (previewImage.imageOrientation == UIImageOrientationUp ) {
             
-            tableViewCell.moodCellImage.transform = CGAffineTransformMakeRotation(M_PI/2);
-            tableViewCell.moodCellImage.bounds = CGRectMake
-            (16, 0, tableViewCell.moodCellImage.bounds.size.height, tableViewCell.moodCellImage.bounds.size.width);
+            tableViewCell.moodCellImage.bounds = tableViewCell.moodCellImage.bounds;
+            tableViewCell.moodCellImage.transform = CGAffineTransformIdentity;
             
         } else if (previewImage.imageOrientation == UIImageOrientationDown) {
             
