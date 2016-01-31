@@ -303,8 +303,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" id="iap-gE-Cwc">
+                                                    <rect key="frame" x="15" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                                 <view contentMode="scaleToFill" id="1HI-0T-4iL">
-                                                    <rect key="frame" x="15" y="3" width="50" height="50"/>
+                                                    <rect key="frame" x="20" y="5" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
@@ -323,6 +328,7 @@
                                         <connections>
                                             <outlet property="colorKeyView" destination="1HI-0T-4iL" id="Iic-GB-ZJO"/>
                                             <outlet property="pickerButton" destination="2j1-Nk-ECv" id="gni-aa-x0P"/>
+                                            <outlet property="selectedColorKeyView" destination="iap-gE-Cwc" id="c3j-bV-Mcj"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

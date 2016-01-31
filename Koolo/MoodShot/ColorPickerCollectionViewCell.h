@@ -17,6 +17,7 @@
 @interface ColorPickerCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *colorKeyView;
+@property (weak, nonatomic) IBOutlet UIView *selectedColorKeyView;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UIButton *pickerButton;
 

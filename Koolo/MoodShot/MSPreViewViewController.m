@@ -107,6 +107,16 @@
     [cell.colorKeyView.layer setCornerRadius:cell.colorKeyView.frame.size.width/2];
     [cell.colorKeyView.layer setMasksToBounds:YES];
     cell.colorKeyView.backgroundColor = (UIColor *)dataManager.fetchColorsArray[indexPath.row];
+    
+    
+    [cell.selectedColorKeyView.layer setCornerRadius:cell.selectedColorKeyView.frame.size.width/2];
+    [cell.selectedColorKeyView.layer setMasksToBounds:YES];
+    UIColor *borderColor = (UIColor *)dataManager.fetchColorsArray[indexPath.row];
+    cell.selectedColorKeyView.layer.borderColor = borderColor.CGColor;
+    cell.selectedColorKeyView.backgroundColor = [UIColor clearColor];
+    cell.selectedColorKeyView.layer.borderWidth = 2.0f;
+    cell.selectedColorKeyView.hidden = YES;
+    
     cell.delegate = self;
     if (selectDeselectIndexPathRow > -1 && selectDeselectIndexPathRow == indexPath.row) {
         [cell.pickerButton.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0]];
@@ -131,11 +141,13 @@
     if (selectedIndexPath != nil) {
         ColorPickerCollectionViewCell *cell = (ColorPickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:selectedIndexPath];
         [cell.pickerButton.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
+        cell.selectedColorKeyView.hidden = YES;
     }
     selectedIndexPath = indexPath;
    
     ColorPickerCollectionViewCell *cell = (ColorPickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     [cell.pickerButton.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0]];
+    cell.selectedColorKeyView.hidden = NO;
     selectDeselectIndexPathRow = indexPath.row;
 }
 
