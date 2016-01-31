@@ -13,7 +13,7 @@
 
 @interface CLMyHealthViewController () <NewGoalDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (strong, nonatomic) NSArray *addGoalsArray;
+@property (strong, nonatomic) NSMutableArray *addGoalsArray;
 @property (weak, nonatomic) IBOutlet UIButton *infoGoallButton;
 @property (weak, nonatomic) IBOutlet UITableView *goalsTableView;
 
@@ -145,6 +145,36 @@
     [cell.contentView addGestureRecognizer:swipeGesture];
     cell.contentView.tag = indexPath.row;
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSMutableArray *allGoals = [[NSMutableArray alloc] initWithArray:_addGoalsArray];
+    [_addGoalsArray removeObjectAtIndex:indexPath.row];
+    
+    if (self.goalFlag) {
+        [[StoreDataMangager sharedInstance] updateMoodsArray:_addGoalsArray];
+    } else {
+        [[StoreDataMangager sharedInstance] updateReadyArray:_addGoalsArray];
+    }
+    
+    NSLog(@"indexPathForRow = %d", indexPath.row);
+    [_goalsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [self refreshView];
+    
+}
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Delete";
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
 }
 
 # pragma mark - UITableViewDelegate methods
