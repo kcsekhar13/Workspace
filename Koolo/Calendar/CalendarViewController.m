@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *calendarView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (strong, nonatomic) UIButton *selectedButton;
 //@property (nonatomic, strong) CLWeeklyCalendarView* calendarView;
 @end
 
@@ -82,7 +83,7 @@
     
     
     
-    self.selectedDate = todayDate;
+    
     UISwipeGestureRecognizer * swipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(moveToHome)];
     swipeRight.direction=UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRight];
@@ -140,6 +141,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
    
+    self.selectedDate = [NSDate date];
+    
+    if (self.selectedButton != nil) {
+        self.selectedButton.layer.borderColor = [UIColor clearColor].CGColor;
+    }
+    
     [self refreshView];
     self.navigationController.navigationBar.hidden = YES;
 }
@@ -507,7 +514,13 @@
     
     UIButton *button = (UIButton *)sender;
     int tag = (int)button.tag;
-    
+   
+    if (self.selectedButton != nil) {
+         self.selectedButton.layer.borderColor = [UIColor clearColor].CGColor;
+    }
+    self.selectedButton = button;
+    self.selectedButton.layer.borderColor = [UIColor greenColor].CGColor;
+    self.selectedDate = datesArray[button.tag];
     [self updateDateEventsWithTag:tag];
 
 }
