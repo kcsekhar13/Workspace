@@ -10,9 +10,7 @@
 
 @interface CLHealthInfoViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (weak, nonatomic) IBOutlet UILabel *finishedLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pendingLabel;
-@property (weak, nonatomic) IBOutlet UILabel *ongoingLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *finishedTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pendingLabelText;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabelText;
@@ -52,21 +50,7 @@
     [self.backgroundImageView addSubview:effectView];
     [self.backgroundImageView addSubview:vibrantView];
     
-    [_finishedLabel.layer setBorderWidth:2.0f];
-    [_finishedLabel.layer setMasksToBounds:YES];
-    [_finishedLabel.layer setCornerRadius:25.0f];
-    [_finishedLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
     
-    [_pendingLabel.layer setBorderWidth:2.0f];
-    [_pendingLabel.layer setMasksToBounds:YES];
-    [_pendingLabel.layer setCornerRadius:25.0f];
-    [_pendingLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
-    
-    [_ongoingLabel setTextAlignment:NSTextAlignmentCenter];
-    [_ongoingLabel.layer setBorderWidth:2.0f];
-    [_ongoingLabel.layer setMasksToBounds:YES];
-    [_ongoingLabel.layer setCornerRadius:25.0f];
-    [_ongoingLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *doneButtonTitle = nil;

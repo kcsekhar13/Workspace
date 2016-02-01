@@ -116,7 +116,7 @@
     NSDictionary *dict = _addGoalsArray[indexPath.row];
     cell.goalTextLabel.text = [NSString stringWithFormat:@"%@", [dict objectForKey:@"GoalText"]];
     [cell.goalCellImage.layer setBorderColor:[UIColor clearColor].CGColor];
-    [cell.goalCellImage.layer setBackgroundColor:[UIColor colorWithRed:193.0 / 255.0 green:10.0 / 255.0 blue:22.0 / 255.0 alpha:1.0f].CGColor];
+    //[cell.goalCellImage.layer setBackgroundColor:[UIColor colorWithRed:193.0 / 255.0 green:10.0 / 255.0 blue:22.0 / 255.0 alpha:1.0f].CGColor];
     [cell.goalCellImage setTag:indexPath.row];
     [cell.goalCellImage.layer setCornerRadius:cell.goalCellImage.frame.size.width/2];
     [cell.goalCellImage.layer setMasksToBounds:YES];
