@@ -54,7 +54,7 @@
     // add vibrancy to yet another effect view
     UIVisualEffectView *vibrantView = [[UIVisualEffectView alloc]initWithEffect:vibrancy];
     vibrantView.frame = self.view.frame;
-    effectView.alpha = 0.8;
+    effectView.alpha = 0.65;
     vibrantView.alpha = 0.45;
     [vibrantView setBackgroundColor:[UIColor blackColor]];
     // add both effect views to the image view
