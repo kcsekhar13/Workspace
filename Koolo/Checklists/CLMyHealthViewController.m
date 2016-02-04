@@ -179,6 +179,31 @@
 
 # pragma mark - UITableViewDelegate methods
 
+-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewRowAction *button = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Delete" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
+                                    {
+                                        NSLog(@"Action to perform with Button 1");
+                                        [_addGoalsArray removeObjectAtIndex:indexPath.row];
+                                        
+                                        if (self.goalFlag) {
+                                            [[StoreDataMangager sharedInstance] updateMoodsArray:_addGoalsArray];
+                                        } else {
+                                            [[StoreDataMangager sharedInstance] updateReadyArray:_addGoalsArray];
+                                        }
+                                        
+                                        [_goalsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+                                        [self refreshView];
+                                        
+                                    }];
+    
+    button.backgroundColor = [UIColor clearColor]; //arbitrary color
+    
+    
+    
+    return @[button];
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Fetch yourText for this row from your data source..
@@ -204,7 +229,7 @@
     }
     else{
         
-        return (float)rect.size.height + 20.0;
+        return 160.0f;//(float)rect.size.height + 20.0;
         
     }
 }
