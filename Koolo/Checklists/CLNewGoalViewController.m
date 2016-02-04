@@ -71,7 +71,12 @@
     [cancelButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = cancelButton;
     
-    self.goalTextView.text = _titleString;
+    if (self.editFlag) {
+        self.goalTextView.text = [NSString stringWithFormat:@"%@", [self.editDict objectForKey:@"GoalText"]];
+    } else {
+        self.goalTextView.text = _titleString;
+    }
+    
     self.goalTextView.textColor = [UIColor blackColor];
     [self.goalTextView.layer setMasksToBounds:YES];
     [self.goalTextView.layer setBorderWidth:2.0];
@@ -88,7 +93,10 @@
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    self.goalTextView.text = @"";
+    if (!self.editFlag) {
+         self.goalTextView.text = @"";
+    }
+   
     newGoalFlag = YES;
     self.goalTextView.textColor = [UIColor blackColor];
     return YES;
@@ -134,9 +142,18 @@
         
         [self presentViewController:alert animated:YES completion:nil];
     } else {
-        if ([self.delegate respondsToSelector:@selector(addNewgoalWithText:)]) {
-            [self.delegate addNewgoalWithText:self.goalTextView.text];
+        if (self.editFlag) {
+            if ([self.delegate respondsToSelector:@selector(updateGoalWithText: withIndexValue:)]) {
+                [self.editDict setObject:self.goalTextView.text forKey:@"GoalText"];
+                [self.delegate updateGoalWithText:self.editDict withIndexValue:_indexValue];
+            }
+        } else {
+            
+            if ([self.delegate respondsToSelector:@selector(addNewgoalWithText:)]) {
+                [self.delegate addNewgoalWithText:self.goalTextView.text];
+            }
         }
+        
         [self.navigationController popViewControllerAnimated:YES];
     }
     

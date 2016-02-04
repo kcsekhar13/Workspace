@@ -11,7 +11,7 @@
 #import "CLNewGoalTableViewCell.h"
 #import "AppConstants.h"
 
-@interface CLMyHealthViewController () <NewGoalDelegate>
+@interface CLMyHealthViewController () <NewGoalDelegate,UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) NSMutableArray *addGoalsArray;
 @property (weak, nonatomic) IBOutlet UIButton *infoGoallButton;
@@ -55,6 +55,8 @@
     [self.backgroundImageView addSubview:vibrantView];
     
     _goalsTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    _goalsTableView.dataSource = self;
+    _goalsTableView.delegate = self;
     
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:self.leftButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(clickedOnFinished)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
@@ -144,6 +146,8 @@
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     [cell.contentView addGestureRecognizer:swipeGesture];
     cell.contentView.tag = indexPath.row;
+    
+    cell.labelBackView.userInteractionEnabled = YES;
     return cell;
 }
 
@@ -198,9 +202,30 @@
     
     button.backgroundColor = [UIColor clearColor]; //arbitrary color
     
+    UITableViewRowAction *button2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Update" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
+                                    {
+                                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+                                        CLNewGoalViewController *newgoalViewController = (CLNewGoalViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CLNewGoalScreen"];
+                                        
+                                        if (self.goalFlag) {
+                                            newgoalViewController.titleString = self.rightButtonTitle;
+                                        } else {
+                                            newgoalViewController.titleString = self.rightButtonTitle;
+                                        }
+                                        newgoalViewController.delegate = self;
+                                        newgoalViewController.editFlag = YES;
+                                        newgoalViewController.indexValue = indexPath.row;
+                                        newgoalViewController.editDict = _addGoalsArray[indexPath.row];
+                                        [self.navigationController pushViewController:newgoalViewController animated:YES];
+                                        
+                                    }];
+    
+    button.backgroundColor = [UIColor clearColor];
+    button2.backgroundColor = [UIColor clearColor];
     
     
-    return @[button];
+    
+    return @[button, button2];
 }
 
 
@@ -211,7 +236,22 @@
     return [self getHeightofRow:indexPath];
     
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    CLNewGoalViewController *newgoalViewController = (CLNewGoalViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CLNewGoalScreen"];
+    
+    if (self.goalFlag) {
+        newgoalViewController.titleString = self.rightButtonTitle;
+    } else {
+        newgoalViewController.titleString = self.rightButtonTitle;
+    }
+    newgoalViewController.delegate = self;
+    newgoalViewController.editFlag = YES;
+    newgoalViewController.indexValue = indexPath.row;
+    newgoalViewController.editDict = _addGoalsArray[indexPath.row];
+    [self.navigationController pushViewController:newgoalViewController animated:YES];
+}
 
 -(CGFloat)getHeightofRow:(NSIndexPath*)indexPath
 {
@@ -256,6 +296,16 @@
     }
     
     
+}
+
+- (void)updateGoalWithText:(NSDictionary *)goalDict withIndexValue:(int)index{
+    
+    [_addGoalsArray replaceObjectAtIndex:index withObject:goalDict];
+    if (self.goalFlag) {
+        [[StoreDataMangager sharedInstance] updateMoodsArray:_addGoalsArray];
+    } else {
+        [[StoreDataMangager sharedInstance] updateReadyArray:_addGoalsArray];
+    }
 }
 
 #pragma mark - Navigation

@@ -12,6 +12,7 @@
 @protocol NewGoalDelegate <NSObject>
 
 - (void)addNewgoalWithText:(NSString *)goalText;
+- (void)updateGoalWithText:(NSDictionary *)goalDict withIndexValue:(int)index;
 
 @end
 
@@ -23,5 +24,8 @@
 
 @property (nonatomic, assign) id <NewGoalDelegate> delegate;
 @property (nonatomic, strong) NSString *titleString;
+@property (nonatomic, assign) BOOL editFlag;
+@property (nonatomic, assign) int indexValue;
+@property (nonatomic, strong) NSMutableDictionary *editDict;
 
 @end
