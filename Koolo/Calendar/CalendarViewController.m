@@ -38,6 +38,8 @@
     }
     
    
+    
+    
     /*
     UISwipeGestureRecognizer * calendarswipeRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(prepareCalendarView)];
     calendarswipeRight.direction = UISwipeGestureRecognizerDirectionRight;
@@ -230,6 +232,7 @@
 
 - (void)prepareCalendarView {
     
+    
 
     if (gestureCount > 20) {
         return;
@@ -246,6 +249,10 @@
         }
 
     }
+    
+    heighlightCircleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [self.calendarView addSubview:heighlightCircleButton];
     
     if (gestureCount > 0) {
         [leftSwipeButton setHidden:NO];
@@ -388,6 +395,8 @@
 }
 - (void)preparePreviousCalendarView {
     
+    
+    
     rightSwipeButton.hidden = NO;
     if (gestureCount == 1) {
         [leftSwipeButton setHidden:YES];
@@ -402,6 +411,11 @@
         }
         
     }
+    
+    heighlightCircleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [self.calendarView addSubview:heighlightCircleButton];
+    
     gestureCount-=2;
     if (gestureCount == 0) {
         [leftSwipeButton setHidden:YES];
@@ -534,8 +548,29 @@
     if (self.selectedButton != nil) {
          self.selectedButton.layer.borderColor = [UIColor clearColor].CGColor;
     }
+    
+    float width = 0;
+    float height = 0;
+    if(self.view.frame.size.width == 320 && self.view.frame.size.height == 480) {
+        width = 40;
+        height = 40;
+        heighlightCircleButton.frame = CGRectMake(button.frame.origin.x - 3, button.frame.origin.y - 2, 40, 40);
+        
+    } else {
+        width = 57;
+        height = 57;
+        heighlightCircleButton.frame = CGRectMake(button.frame.origin.x - 3, button.frame.origin.y - 2, 55, 55);
+    }
+    
+    [heighlightCircleButton.layer setBorderWidth:2.0f];
+    [heighlightCircleButton.layer setMasksToBounds:YES];
+    [heighlightCircleButton.layer setCornerRadius:width/2];
+    [heighlightCircleButton setUserInteractionEnabled:YES];
+    [heighlightCircleButton setBackgroundColor:[UIColor grayColor]];
+    [heighlightCircleButton.layer setBorderColor:[UIColor grayColor].CGColor];
+    
     self.selectedButton = button;
-    self.selectedButton.layer.borderColor = [UIColor greenColor].CGColor;
+    //self.selectedButton.layer.borderColor = [UIColor greenColor].CGColor;
     self.selectedDate = datesArray[button.tag];
     [self updateDateEventsWithTag:tag];
 

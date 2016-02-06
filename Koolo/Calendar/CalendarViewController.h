@@ -19,6 +19,7 @@
     UIButton *leftSwipeButton;
     
     NSArray *eventsArray;
+    UIButton *heighlightCircleButton;
 }
 @property(nonatomic,strong)NSArray *eventsArray;
 @property (nonatomic, strong) NSDate *selectedDate;
