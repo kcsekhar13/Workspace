@@ -253,7 +253,25 @@
     
     int dateIndex = 0;
     //NSLog(@"Dates Array = %@", datesArray);
-    float yPosition = 10.0f;
+    
+    float width = 0;
+    float height = 0;
+    float fontSize = 0;
+    float yPosition = 0.0f;
+    if (self.view.frame.size.width == 320 && self.view.frame.size.height == 480) {
+        width = 34;
+        height = 34;
+        fontSize = 11.0;
+        yPosition = 2.0f;
+        
+    } else {
+        width = 50;
+        height = 50;
+        fontSize = 15;
+        yPosition = 5.0f;
+    }
+    
+    
     for (int i = 0; i < 3; i++) {
         
         float xPostion = 0.0f;
@@ -277,21 +295,12 @@
             
             dataManager = [StoreDataMangager sharedInstance];
             
-            float width = 0;
-            float height = 0;
-            if (self.view.frame.size.width == 320 && self.view.frame.size.height == 480) {
-                width = 30;
-                height = 30;
-            } else {
-                width = 50;
-                height = 50;
-            }
             UILabel *mDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPostion,yPosition, width, height)];
             [mDayLabel setText:textString];
             [mDayLabel setNumberOfLines:2];
             [mDayLabel setTextColor:[UIColor whiteColor]];
             [mDayLabel setTextAlignment:NSTextAlignmentCenter];
-            [mDayLabel setFont:[UIFont systemFontOfSize:14.0f]];
+            [mDayLabel setFont:[UIFont systemFontOfSize:fontSize]];
             [mDayLabel setBackgroundColor:[UIColor grayColor]];
             NSArray *events = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:(gestureCount * 9) + dateIndex]];
             NSDictionary *dict = [events lastObject];
@@ -338,13 +347,13 @@
             //if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
                 
                 
-                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 15.0f)];
+                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 80.0f, 15.0f)];
                 NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
                 [monthFormatter setDateFormat:@"MMM, yyyy"];
                 monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
                 [monthLabel setTextColor:[UIColor whiteColor]];
                 [monthLabel setTextAlignment:NSTextAlignmentCenter];
-                [monthLabel setFont:[UIFont systemFontOfSize:12.0f]];
+                [monthLabel setFont:[UIFont systemFontOfSize:fontSize]];
                 [monthLabel setBackgroundColor:[UIColor clearColor]];
                 [self.calendarView addSubview:monthLabel];
                 
@@ -398,8 +407,24 @@
         [leftSwipeButton setHidden:YES];
     }
     int dateIndex = 0;
+    float width = 0;
+    float height = 0;
+    float fontSize = 0;
+
+    float yPosition = 0;
     //NSLog(@"Dates Array = %@", datesArray);
-    float yPosition = 10.0f;
+    if (self.view.frame.size.width == 320 && self.view.frame.size.height == 480) {
+        width = 34;
+        height = 34;
+        fontSize = 11.0;
+        yPosition = 2.0f;
+        
+    } else {
+        width = 50;
+        height = 50;
+        fontSize = 15;
+        yPosition = 5.0f;
+    }
     for (int i = 0; i < 3; i++) {
         
         float xPostion = 0.0f;
@@ -422,22 +447,13 @@
             
             dataManager = [StoreDataMangager sharedInstance];
             
-            float width = 0;
-            float height = 0;
-            if (self.view.frame.size.width == 320 && self.view.frame.size.height == 480) {
-                width = 30;
-                height = 30;
-            } else {
-                width = 50;
-                height = 50;
-            }
             
             UILabel *mDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(xPostion,yPosition, width, height)];
             [mDayLabel setText:textString];
             [mDayLabel setNumberOfLines:2];
             [mDayLabel setTextColor:[UIColor whiteColor]];
             [mDayLabel setTextAlignment:NSTextAlignmentCenter];
-            [mDayLabel setFont:[UIFont systemFontOfSize:14.0f]];
+            [mDayLabel setFont:[UIFont systemFontOfSize:fontSize]];
             [mDayLabel setBackgroundColor:[UIColor grayColor]];
             NSArray *events = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:(gestureCount * 9) + dateIndex]];
             NSDictionary *dict = [events lastObject];
@@ -482,13 +498,13 @@
             xPostion = colorPickerButton.frame.origin.x + 80.0f;
             
             //if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
-                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 60.0f, 15.0f)];
+                UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 80.0f, 15.0f)];
                 NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
                 [monthFormatter setDateFormat:@"MMM, yyyy"];
                 monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
                 [monthLabel setTextColor:[UIColor whiteColor]];
                 [monthLabel setTextAlignment:NSTextAlignmentCenter];
-                [monthLabel setFont:[UIFont systemFontOfSize:12.0f]];
+                [monthLabel setFont:[UIFont systemFontOfSize:fontSize]];
                 [monthLabel setBackgroundColor:[UIColor clearColor]];
                 [self.calendarView addSubview:monthLabel];
                 
