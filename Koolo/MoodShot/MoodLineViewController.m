@@ -137,8 +137,9 @@
         [tableViewCell.moodCellImage setImage:previewImage];
         if (previewImage.imageOrientation == UIImageOrientationUp ) {
             
-            tableViewCell.moodCellImage.bounds = tableViewCell.moodCellImage.bounds;
-            tableViewCell.moodCellImage.transform = CGAffineTransformIdentity;
+            tableViewCell.moodCellImage.transform = CGAffineTransformMakeRotation(M_PI/2);
+            tableViewCell.moodCellImage.bounds = CGRectMake
+            (16, 0, tableViewCell.moodCellImage.bounds.size.height, tableViewCell.moodCellImage.bounds.size.width);
             
         } else if (previewImage.imageOrientation == UIImageOrientationDown) {
             

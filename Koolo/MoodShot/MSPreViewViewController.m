@@ -51,8 +51,9 @@
     UIImage *previewImage = [UIImage imageWithData:self.selectedImageData];
     [self.imageView setImage:previewImage];
     if (previewImage.imageOrientation == UIImageOrientationUp ) {
-        self.imageView.bounds = self.view.bounds;
-        self.imageView.transform = CGAffineTransformIdentity;
+        self.imageView.bounds = CGRectMake
+        (0, 0, self.view.bounds.size.height, self.view.bounds.size.width);
+        self.imageView.transform = CGAffineTransformMakeRotation(M_PI/2);
         
     } else if (previewImage.imageOrientation == UIImageOrientationDown) {
         self.imageView.bounds = CGRectMake
