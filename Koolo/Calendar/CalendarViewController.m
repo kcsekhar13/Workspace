@@ -26,7 +26,7 @@
     self.navigationController.navigationBar.hidden = NO;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    fireButtonFlag = YES;
     gestureCount = 0;
     self.eventsArray = [[NSMutableArray alloc] init];
     datesArray = [[NSMutableArray alloc] init];
@@ -257,8 +257,14 @@
 
     }
     
-    heighlightCircleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    if (heighlightCircleButton != nil){
+        
+        [heighlightCircleButton removeFromSuperview];
+        heighlightCircleButton = nil;
+    }
     
+    heighlightCircleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    heighlightCircleButton.frame = CGRectMake(-100.0,-100.0 - 2.5, 40, 40);
     [self.calendarView addSubview:heighlightCircleButton];
     
     if (gestureCount > 0) {
@@ -266,6 +272,7 @@
     }
     
     int dateIndex = 0;
+    fireButtonFlag = YES;
     //NSLog(@"Dates Array = %@", datesArray);
     
     float width = 0;
@@ -357,6 +364,11 @@
                 }
             }
             [colorPickerButton addTarget:self action:@selector(displayEventsForSelectedDate:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if (fireButtonFlag) {
+                [colorPickerButton sendActionsForControlEvents: UIControlEventTouchUpInside];
+                fireButtonFlag = NO;
+            }
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
             xPostion = colorPickerButton.frame.origin.x + 80.0f;
             
@@ -421,8 +433,14 @@
         
     }
     
-    heighlightCircleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    if (heighlightCircleButton != nil){
+        
+        [heighlightCircleButton removeFromSuperview];
+        heighlightCircleButton = nil;
+    }
     
+    heighlightCircleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    heighlightCircleButton.frame = CGRectMake(-100.0,-100.0 - 2.5, 40, 40);
     [self.calendarView addSubview:heighlightCircleButton];
     
     gestureCount-=2;
@@ -430,6 +448,7 @@
         [leftSwipeButton setHidden:YES];
     }
     int dateIndex = 0;
+    fireButtonFlag = YES;
     float width = 0;
     float height = 0;
     float fontSize = 0;
@@ -522,6 +541,12 @@
             }
             [colorPickerButton addTarget:self action:@selector(displayEventsForSelectedDate:) forControlEvents:UIControlEventTouchUpInside];
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
+            
+            if (fireButtonFlag) {
+                [colorPickerButton sendActionsForControlEvents: UIControlEventTouchUpInside];
+                fireButtonFlag = NO;
+            }
+            
             xPostion = colorPickerButton.frame.origin.x + 80.0f;
             
             //if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
@@ -567,23 +592,39 @@
     if(self.view.frame.size.width == 320 && self.view.frame.size.height == 480) {
         width = 40;
         height = 40;
-        heighlightCircleButton.frame = CGRectMake(button.frame.origin.x - 3, button.frame.origin.y - 2, 40, 40);
+        heighlightCircleButton.frame = CGRectMake(button.frame.origin.x - 2.5, button.frame.origin.y - 2.5, 40, 40);
         
     } else {
         width = 57;
         height = 57;
-        heighlightCircleButton.frame = CGRectMake(button.frame.origin.x - 3, button.frame.origin.y - 2, 55, 55);
+        heighlightCircleButton.frame = CGRectMake(button.frame.origin.x - 2.5, button.frame.origin.y - 2.5, 55, 55);
     }
-    
+   
+    NSArray *events = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:tag]];
+    NSDictionary *dict = [events lastObject];
+    UIColor *boarderColor = [UIColor clearColor];
+    if (dict && [[dict objectForKey:@"ColorIndex"] length]) {
+        
+        int index = [[dict objectForKey:@"ColorIndex"] intValue];
+        if (index == -1) {
+            boarderColor = [UIColor grayColor];
+            
+        }
+        else{
+            
+            boarderColor = (UIColor*)[[StoreDataMangager sharedInstance] fetchColorsArray][index];
+        }
+    } else {
+        boarderColor = [UIColor grayColor];
+    }
     [heighlightCircleButton.layer setBorderWidth:2.0f];
     [heighlightCircleButton.layer setMasksToBounds:YES];
     [heighlightCircleButton.layer setCornerRadius:width/2];
     [heighlightCircleButton setUserInteractionEnabled:YES];
-    [heighlightCircleButton setBackgroundColor:[UIColor grayColor]];
-    [heighlightCircleButton.layer setBorderColor:[UIColor grayColor].CGColor];
+    [heighlightCircleButton setBackgroundColor:boarderColor];
+    [heighlightCircleButton.layer setBorderColor:boarderColor.CGColor];
     
     self.selectedButton = button;
-    //self.selectedButton.layer.borderColor = [UIColor greenColor].CGColor;
     self.selectedDate = datesArray[button.tag];
     [self updateDateEventsWithTag:tag];
 
@@ -668,7 +709,8 @@
         [self.eventsArray removeObjectAtIndex:indexPath.row];
         [[AppDataManager sharedInstance] deleteAndSaveEventForDate:self.selectedDate eventsArray:self.eventsArray eventId:eventId];
         [self refreshView];
-        [self displayEventsForSelectedDate:self.selectedButton];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        //[self displayEventsForSelectedDate:self.selectedButton];
         
     }
 }

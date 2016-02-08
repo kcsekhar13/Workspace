@@ -20,6 +20,7 @@
     
     NSArray *eventsArray;
     UIButton *heighlightCircleButton;
+    BOOL fireButtonFlag;
 }
 @property(nonatomic,strong)NSMutableArray *eventsArray;
 @property (nonatomic, strong) NSDate *selectedDate;
