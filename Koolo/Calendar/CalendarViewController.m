@@ -136,6 +136,8 @@
     self.navigationItem.rightBarButtonItem = doneButton;
     self.eventsTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     //[self.view addSubview:self.calendarView];
+    
+    //[self.eventsTable setEditing:YES];
 }
 
 
@@ -145,11 +147,16 @@
    
     self.selectedDate = [NSDate date];
     
-    if (self.selectedButton != nil) {
-        self.selectedButton.layer.borderColor = [UIColor clearColor].CGColor;
-    }
+    
     
     [self refreshView];
+    
+    if (self.selectedButton != nil) {
+        self.selectedButton.layer.borderColor = [UIColor clearColor].CGColor;
+        [self displayEventsForSelectedDate:self.selectedButton];
+        
+    }
+    
     self.navigationController.navigationBar.hidden = YES;
 }
 - (void)didReceiveMemoryWarning {
@@ -344,8 +351,10 @@
             colorPickerButton.tag = (gestureCount * 9) + dateIndex;
             if (i==0 && j==0) {
                 
-                [self updateDateEventsWithTag:colorPickerButton.tag];
-
+                if (self.selectedButton == nil) {
+                    
+                    [self updateDateEventsWithTag:colorPickerButton.tag];
+                }
             }
             [colorPickerButton addTarget:self action:@selector(displayEventsForSelectedDate:) forControlEvents:UIControlEventTouchUpInside];
             [colorPickerButton.layer setBorderColor:[[UIColor clearColor] CGColor]];
@@ -504,7 +513,11 @@
             colorPickerButton.tag = (gestureCount * 9) + dateIndex;
             if (i==0 && j==0) {
                 
-                [self updateDateEventsWithTag:colorPickerButton.tag];
+                if (self.selectedButton == nil) {
+                    
+                    [self updateDateEventsWithTag:colorPickerButton.tag];
+
+                }
                 
             }
             [colorPickerButton addTarget:self action:@selector(displayEventsForSelectedDate:) forControlEvents:UIControlEventTouchUpInside];
@@ -646,6 +659,26 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [_chats removeObjectAtIndex:indexPath.row];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        NSString *eventId = [[self.eventsArray objectAtIndex:indexPath.row] objectForKey:@"EventId"];
+        [self.eventsArray removeObjectAtIndex:indexPath.row];
+        [[AppDataManager sharedInstance] deleteAndSaveEventForDate:self.selectedDate eventsArray:self.eventsArray eventId:eventId];
+        [self refreshView];
+        [self displayEventsForSelectedDate:self.selectedButton];
+        
+    }
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return UITableViewCellEditingStyleDelete;
+    
+}
 # pragma mark - UITableViewDelegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -34,7 +34,7 @@
 
 @property (nonatomic, assign) id <HomeNotificationViewDelegate> delegate;
 
-@property(nonatomic,strong)NSArray *eventsArray;
+@property(nonatomic,strong)NSMutableArray *eventsArray;
 @property (nonatomic,strong)UITableView *eventsTable;
 @property (nonatomic,strong)NSDictionary *selectedDict;
 -(void)updateSelectedDict;

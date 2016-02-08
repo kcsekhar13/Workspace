@@ -15,10 +15,11 @@
 @property(nonatomic,strong)NSMutableDictionary *selectedDict;
 @property(nonatomic)int index;
 +(AppDataManager *)sharedInstance;
--(void)createEventWithDetails :(NSDictionary*)detailsDict;
+-(void)createEventWithDetails :(NSMutableDictionary*)detailsDict;
 -(void)createLocalCalendar;
 -(void)getEventsForDate:(NSDate*)selectedDate;
--(NSArray*)getEventsForSelectedDate:(NSDate*)date;
+-(NSMutableArray*)getEventsForSelectedDate:(NSDate*)date;
 -(NSString*)getTimeFromString:(NSString*)dateString;
 -(void)updateSelectedDict;
+-(void)deleteAndSaveEventForDate:(NSDate*)date eventsArray:(NSArray*)eventsArray eventId:(NSString *)eventID;
 @end

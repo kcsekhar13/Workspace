@@ -28,7 +28,7 @@ static AppDataManager *sharedInstance = nil;
 }
 
 
--(void)createEventWithDetails :(NSDictionary*)detailsDict {
+-(void)createEventWithDetails :(NSMutableDictionary*)detailsDict {
     
     EKEventStore *eventStore = [[EKEventStore alloc ] init];
     EKCalendar *calendar = [eventStore calendarWithIdentifier:[[NSUserDefaults standardUserDefaults] objectForKey:@"Identifier"]];
@@ -53,8 +53,9 @@ static AppDataManager *sharedInstance = nil;
         [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
         if (err == noErr) {
             NSLog(@"Added Successfully");
-            //NSString* str = [[NSString alloc] initWithFormat:@"%@", event.eventIdentifier];
+            NSString* str = [[NSString alloc] initWithFormat:@"%@", event.eventIdentifier];
             //[arrayofEventId addObject:str];
+            [detailsDict setObject:str forKey:@"EventId"];
             [self addEventToFile:detailsDict];
         }
         else{
@@ -218,6 +219,7 @@ static AppDataManager *sharedInstance = nil;
     return dict;
 }
 
+
 -(void)addEventToFile:(NSDictionary*)event
 {
     
@@ -230,7 +232,7 @@ static AppDataManager *sharedInstance = nil;
     NSDate *date = [event objectForKey:@"EventDate"];
     NSString *dateKeyString = [self getStringFromDate:date];
     
-    NSMutableArray *array = [dict objectForKey:dateKeyString];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[dict objectForKey:dateKeyString]];
     
     if (array == nil) {
         
@@ -243,6 +245,24 @@ static AppDataManager *sharedInstance = nil;
 
 }
 
+-(void)deleteAndSaveEventForDate:(NSDate*)date eventsArray:(NSArray*)eventsArray eventId:(NSString *)eventID
+{
+    
+    EKEventStore* store = [[EKEventStore alloc] init];
+    EKEvent* eventToRemove = [store eventWithIdentifier:eventID];
+    if (eventToRemove != nil) {
+        NSError* error = nil;
+        [store removeEvent:eventToRemove span:EKSpanThisEvent error:&error];
+    }
+     NSString *dateKeyString = [self getStringFromDate:date];
+    
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[self getAllEvents]];
+    [dict setObject:eventsArray forKey:dateKeyString];
+    [dict writeToFile:[self getEventsFilePath] atomically:YES];
+    
+}
+
 -(NSString*)getStringFromDate:(NSDate*)date
 {
     
@@ -253,7 +273,7 @@ static AppDataManager *sharedInstance = nil;
     return dateString;
 }
 
--(NSArray*)getEventsForSelectedDate:(NSDate*)date
+-(NSMutableArray*)getEventsForSelectedDate:(NSDate*)date
 {
     
     NSString *keyString = [self getStringFromDate:date];
@@ -263,7 +283,7 @@ static AppDataManager *sharedInstance = nil;
         dict = [[NSMutableDictionary alloc] init];
     }
     
-    NSArray *array = [dict objectForKey:keyString];
+    NSMutableArray *array = [dict objectForKey:keyString];
     
     return array;
     

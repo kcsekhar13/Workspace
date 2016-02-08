@@ -21,7 +21,7 @@
     NSArray *eventsArray;
     UIButton *heighlightCircleButton;
 }
-@property(nonatomic,strong)NSArray *eventsArray;
+@property(nonatomic,strong)NSMutableArray *eventsArray;
 @property (nonatomic, strong) NSDate *selectedDate;
 @property (strong, nonatomic) IBOutlet UITableView *eventsTable;
 @end
