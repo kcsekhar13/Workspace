@@ -51,9 +51,17 @@
     UIImage *previewImage = [UIImage imageWithData:self.selectedImageData];
     [self.imageView setImage:previewImage];
     if (previewImage.imageOrientation == UIImageOrientationUp ) {
-        self.imageView.bounds = CGRectMake
-        (0, 0, self.view.bounds.size.height, self.view.bounds.size.width);
-        self.imageView.transform = CGAffineTransformMakeRotation(M_PI/2);
+        
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"SelectedCamera"]) {
+            self.imageView.bounds = CGRectMake
+            (0, 0, self.view.bounds.size.height, self.view.bounds.size.width);
+            self.imageView.transform = CGAffineTransformMakeRotation(M_PI/2);
+        } else {
+            self.imageView.bounds = self.view.bounds;
+            self.imageView.transform = CGAffineTransformIdentity;
+        }
+        
+       
         
     } else if (previewImage.imageOrientation == UIImageOrientationDown) {
         self.imageView.bounds = CGRectMake
@@ -161,7 +169,16 @@
     //NSLog(@"%d >>>>>",);
     NSString *moodName = dataManager.fetchColorPickerTitlesArray[indexPath.row];
     NSString *colorIndex = [NSString stringWithFormat:@"%d",(int)indexPath.row];
-    NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:fileName,@"FileName",moodName,@"MoodName",colorIndex,@"ColorIndex",savedImagePath,@"FilePath", nil];
+    NSString *selectedCameraOption = nil;
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"SelectedCamera"]) {
+        
+        selectedCameraOption = @"Camera";
+    } else {
+        selectedCameraOption = @"Album";
+    }
+    
+    NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:fileName,@"FileName",moodName,@"MoodName",colorIndex,@"ColorIndex",savedImagePath,@"FilePath", selectedCameraOption, @"CameraOption",nil];
     [dataManager saveDictionaryToPlist:moodDict];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
