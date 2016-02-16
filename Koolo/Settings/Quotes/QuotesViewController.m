@@ -134,7 +134,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 70;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,7 +171,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_mQuotesArray.count == 1 || indexPath.row == 0) {
+    if (_mQuotesArray.count == 11 || indexPath.row <= 10) {
         
         return NO;
     } else {
@@ -185,7 +185,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (previousSelctedIndexPath.row > 0) {
+    if (previousSelctedIndexPath.row > 10) {
         
         previousSelctedIndexPath = [NSIndexPath indexPathForRow:previousSelctedIndexPath.row-1 inSection:0];
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(int)previousSelctedIndexPath.row] forKey:@"SelectedIndex"];
