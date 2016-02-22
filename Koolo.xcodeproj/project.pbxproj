@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0458A2331C7B84E300F9D1A0 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 0458A2321C7B84E300F9D1A0 /* gallery.png */; };
 		373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373063411BCABBD9004751CA /* HomeNotificationView.m */; };
 		37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */; };
 		550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */; };
@@ -89,6 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0458A2321C7B84E300F9D1A0 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
 		373063401BCABBD9004751CA /* HomeNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNotificationView.h; sourceTree = "<group>"; };
 		373063411BCABBD9004751CA /* HomeNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNotificationView.m; sourceTree = "<group>"; };
 		37F2F5361BC991DA00B97307 /* QuotesTableviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesTableviewCell.h; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 		F33B7E6C1BC8B92800C37B1D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0458A2321C7B84E300F9D1A0 /* gallery.png */,
 				553B65C41BFBB3D900F288DD /* green.png */,
 				553B65C61BFBB3D900F288DD /* yellow.png */,
 				553B65C21BFBB3B800F288DD /* red.png */,
@@ -606,6 +609,7 @@
 				553B65C91BFBB3D900F288DD /* yellow.png in Resources */,
 				F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */,
 				F337739F1BC8D51300793831 /* WhitePlus.png in Resources */,
+				0458A2331C7B84E300F9D1A0 /* gallery.png in Resources */,
 				553A2A0E1C74EB4B00108757 /* DefaultGoals.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
