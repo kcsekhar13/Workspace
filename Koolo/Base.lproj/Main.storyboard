@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="oSc-fh-1cL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="oSc-fh-1cL">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -516,7 +516,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8rc-yk-F7K">
                                 <rect key="frame" x="6" y="520" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="plus.png"/>
+                                <state key="normal" image="gallery.png"/>
                                 <connections>
                                     <action selector="launchAlbum:" destination="ATE-ra-ukB" eventType="touchUpInside" id="7Mc-2g-YQf"/>
                                 </connections>
@@ -900,7 +900,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xlm-rX-XgO">
-                                <rect key="frame" x="192" y="142" width="30" height="30"/>
+                                <rect key="frame" x="186" y="142" width="42" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="time.png"/>
                                 <connections>
@@ -1303,14 +1303,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e6p-SL-w8r">
-                                <rect key="frame" x="255" y="484" width="59" height="21"/>
+                                <rect key="frame" x="254.9999998514935" y="484" width="59" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.030145655374867797" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ptA-ks-3ha">
-                                <rect key="frame" x="255" y="484" width="59" height="21"/>
+                                <rect key="frame" x="254.9999998514935" y="484" width="59" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -1642,6 +1642,7 @@
         <image name="InformationImage" width="640" height="1136"/>
         <image name="SmallCameraButton.png" width="40" height="40"/>
         <image name="SmallKeyBoard.png" width="50" height="50"/>
+        <image name="gallery.png" width="88" height="88"/>
         <image name="green.png" width="35" height="35"/>
         <image name="plus.png" width="88" height="88"/>
         <image name="red.png" width="35" height="35"/>
