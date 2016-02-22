@@ -670,27 +670,16 @@
     cell.recurenceLabel.text = [dict objectForKey:@"Remainder"];
     cell.modeLabel.text = [dict objectForKey:@"TagTitle"];
     
-    NSArray *selectArray = nil;
-    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    
-    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
-        selectArray = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Tough", nil), NSLocalizedString(@"Long", nil), NSLocalizedString(@"Faith", nil), nil];
-    } else {
-        selectArray = [[NSArray alloc] initWithObjects:@"Tough", @"Long", @"Faith", nil];
-    }
-    
+ 
     
     NSArray *statusArray  = [dict objectForKey:@"SelectedTags"];
     NSMutableString *tagLabelString = [[NSMutableString alloc] init];
 
-    for (int i=0; i<selectArray.count; i++) {
+    for (int i=0; i<statusArray.count; i++) {
         
-        if ([[statusArray objectAtIndex:i] isEqualToString:@"YES"]) {
-            
-            NSString *tagLabel = [selectArray objectAtIndex:i];
-            [tagLabelString appendString:tagLabel];
-            [tagLabelString appendString:@"   "];
-        }
+        NSString *tagLabel = [statusArray objectAtIndex:i];
+        [tagLabelString appendString:tagLabel];
+        [tagLabelString appendString:@"   "];
         
         
     }

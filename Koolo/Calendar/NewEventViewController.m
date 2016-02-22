@@ -39,7 +39,7 @@
     
     NSArray *remaindingTitlesArray = nil;
     
-    selectedTagsArray = [[NSMutableArray alloc] initWithObjects:@"NO", @"NO", @"NO", nil];
+    selectedTagsArray = [[NSMutableArray alloc] init];
     
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
         
@@ -117,7 +117,7 @@
     [clearButton setFrame:CGRectMake((self.addTagField.frame.origin.x + self.addTagField.frame.size.width) - 10.0f, 1.0, 14.0, 14.0)];
     [clearButton addTarget:self action:@selector(clearTextField) forControlEvents:UIControlEventTouchUpInside];
     
-    self.addTagField.rightViewMode = UITextFieldViewModeAlways; //can be changed to UITextFieldViewModeNever,    UITextFieldViewModeWhileEditing,   UITextFieldViewModeUnlessEditing
+    //self.addTagField.rightViewMode = UITextFieldViewModeAlways; //can be changed to UITextFieldViewModeNever,    UITextFieldViewModeWhileEditing,   UITextFieldViewModeUnlessEditing
     //[self.addTagField setRightView:clearButton];
     
     /*
@@ -141,9 +141,9 @@
     
     //[_datePicker setLocale:[NSLocale systemLocale]];
     [self.view addSubview:self.datePicker];
-    UIView *emptyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    //UIView *emptyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     //_customView.frame = CGRectMake(0, 0, 0, 0);
-    self.addTagField.inputView = emptyView;
+    //self.addTagField.inputView = emptyView;
     [_addTagField setTintColor:[UIColor clearColor]];
     
 
@@ -169,7 +169,7 @@
     [toolBar setItems:[NSArray arrayWithObjects:dailyButton, flexSpace2, weeklyButton, flexSpace3,monthlyButton,flexSpace, yearButton,nil]];
     [self.view addSubview:toolBar];
     
-    self.addTagField.text = @"Multiple Tags";
+    self.addTagField.placeholder  = @"Multiple Tags";
     
 }
 
@@ -214,31 +214,22 @@
         }];
     }
     
-    if (_addTagField == textField) {
+    if (_addTagField != textField && _addTagField.text.length) {
         
-        if (!selectedTagFlag) {
-            [selectedTagsArray removeAllObjects];
-            [selectedTagsArray addObject:@"NO"];
-            [selectedTagsArray addObject:@"NO"];
-            [selectedTagsArray addObject:@"NO"];
-            [_tagTableView reloadData];
-        }
-        //Display the customView with animation
-        [UIView animateWithDuration:0.6 animations:^{
-            _customView.hidden = NO;
-            [_customView setAlpha:1.0];
-        } completion:^(BOOL finished) {}];
-    } else {
-        //Display the customView with animation
-        [UIView animateWithDuration:0.6 animations:^{
-            _customView.hidden = YES;
-            [_customView setAlpha:0.0];
-        } completion:^(BOOL finished) {}];
+        [selectedTagsArray addObject:_addTagField.text];
+        _addTagField.text = @"";
     }
+    
+   
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
+    if (_addTagField == textField && _addTagField.text.length) {
+        
+        [selectedTagsArray addObject:_addTagField.text];
+        _addTagField.text = @"";
+    }
     [textField resignFirstResponder];
     return YES;
 }
@@ -295,6 +286,12 @@
 - (IBAction)launchDatePicker:(id)sender {
     
     if ([_addTagField isFirstResponder]) {
+        if (_addTagField.text.length) {
+            
+            [selectedTagsArray addObject:_addTagField.text];
+            _addTagField.text = @"";
+        }
+        
         [_addTagField resignFirstResponder];
     }
     
@@ -348,6 +345,12 @@
     UIBarButtonItem *buttonItem = (UIBarButtonItem *)sender;
     
     if (buttonItem.tag == 1) {
+        
+        if ( _addTagField.text.length) {
+            
+            [selectedTagsArray addObject:_addTagField.text];
+            _addTagField.text = @"";
+        }
         
         if (self.eventTextField.text.length == 0) {
             
