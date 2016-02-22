@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>I am able to describe my condition or disability.</string>
+	<string>I am able to describe my diagnosis and treatment.</string>
+	<string>I am aware of any allergies I have and how to manage them.</string>
+	<string>I am able to prepare questions for doctors, nurses or other health professionals.</string>
+	<string>I can respond to questions from doctors, nurses or other health professionals.</string>
+	<string>I know my height and weight.</string>
+	<string>I keep a diary of all my appointments and know how to make or reschedule them when necessary.</string>
+	<string>I know my medications, what they’re for and if there are any side effects.</string>
+	<string>I am responsible for my own medical supplies, including ordering and payment.</string>
+	<string>I can get a prescription refilled and am responsible for taking my own medication/s.</string>
+	<string>I am responsible for my own treatment needs including arranging payment. </string>
+	<string>I know where to seek medical help including in an emergency.</string>
+	<string>I know who to contact for medical treatment advice including medical emergencies or out of hours.</string>
+	<string>I know that I can talk alone with doctors, nurses or other health professionals.</string>
+	<string>I know about my right to information.</string>
+	<string>I know about my right to participation.</string>
+	<string>I know about my right to informed consent (from 16 years old)</string>
+	<string>I know who my personal supports are and where I can get more support if needed.</string>
+	<string>I have details of peer support programs; general or condition specific.</string>
+	<string>I know how to make contact with appropriate educational or vocational support programs/people.</string>
+	<string>I know what restrictions I have on physical/recreational activities. </string>
+	<string>I know the benefits of looking after myself properly and how factors such as diet, sleep and stress affect my wellbeing and have discussed it with my healthcare team.</string>
+	<string>I know how drugs and alcohol will affect my condition/disability.</string>
+	<string>I know where to get information about sexual health.</string>
+	<string>I know who I can contact for help with my mental health.</string>
+</array>
+</plist>

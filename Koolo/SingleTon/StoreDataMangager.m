@@ -199,7 +199,7 @@ static StoreDataMangager *sharedInstance = nil;
         }
        
     }
-    NSLog(@"%@ >>>>",tempDict);
+    //NSLog(@"%@ >>>>",tempDict);
     
     if ([tempDict objectForKey:@"Pending"]) {
         [sortedMoodList addObjectsFromArray:[tempDict objectForKey:@"Pending"]];
@@ -343,7 +343,7 @@ static StoreDataMangager *sharedInstance = nil;
    
     NSArray *allDates = [self getAllDatesBetweenDates:previousDate toDate:[NSDate date]];
 
-    NSLog(@"%@ >>>",allDates);
+    //NSLog(@"%@ >>>",allDates);
 
     for (int i= 0; i<[allDates count] - 1; i++) {
         
@@ -372,7 +372,7 @@ static StoreDataMangager *sharedInstance = nil;
 
     }
     
-    NSLog(@"%@ >>>",dates);
+    //NSLog(@"%@ >>>",dates);
 
     return dates;
 }

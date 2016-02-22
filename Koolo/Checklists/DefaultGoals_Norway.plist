@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Jeg kan beskrive min medisinske tilstand eller funksjonsnedsettelse.</string>
+	<string>Jeg kan beskrive min diagnose og behandling.</string>
+	<string>Jeg vet hvilke allergier jeg har og hvordan jeg håndterer dem.</string>
+	<string>Jeg forbereder spørsmål jeg vil stille leger, sykepleiere eller andre behandlere på sykehuset.</string>
+	<string>Jeg svarer selv på spørsmål jeg får fra mine behandlere.</string>
+	<string>Jeg vet hvor mye jeg veier og hvor høy jeg er.</string>
+	<string>Jeg holder oversikten over mine timer og vet hvordan jeg bestiller eller endrer time når det er nødvendig.</string>
+	<string>Jeg kjenner mine medisiner, hva de er for og om eventuelle bivirkninger de kan gi meg.</string>
+	<string>Jeg er ansvarlig for mitt eget lager av medisin, inkludert å hente ut på apotek.</string>
+	<string>Jeg vet hvordan jeg kan få en resept fornyet og er ansvarlig for å ta mine egne medisiner.</string>
+	<string>Jeg er ansvarlig for mine egne behandlingsbehov.</string>
+	<string>Jeg vet når jeg må søke medisinsk hjelp, inkludert i en medisinsk nødssituasjon.</string>
+	<string>Jeg vet hvem jeg kan kontakte for medisinske råd, inkludert i medisinsk nødssituasjon eller utenom åpningstid på legekontoret. </string>
+	<string>Jeg kjenner til at jeg kan snakke med min behandler alene.</string>
+	<string>Jeg kjenner til min rett til informasjon.</string>
+	<string>Jeg kjenner til min rett til medvirkning.</string>
+	<string>Jeg kjenner til min rett til informert samtykke (fra 16 år).</string>
+	<string>Jeg vet hvem mine støttespillere er og hvor jeg kan skaffe mer støtte hvis nødvendig.</string>
+	<string>Jeg kjenner til pasientorganisasjoner for min tilstand og om det er en egen ungdomsgruppe jeg kan knytte meg til.</string>
+	<string>Jeg vet hvem jeg kan kontakte for veiledning knyttet til utdannings- og yrkesvalg.</string>
+	<string>Jeg vet hvilke forholdsregler jeg må ta ved fysisk aktivitet.</string>
+	<string>Jeg kjenner til fordelene ved å ta godt vare på meg selv og hvordan faktorer som kosthold, søvn og stress påvirker meg, og jeg har diskutert dette med mitt behandlingsteam.</string>
+	<string>Jeg vet hvordan stoff og alkohol påvirker min medisinske tilstand.</string>
+	<string>Jeg vet hvor jeg kan få informasjon om seksuell helse.</string>
+	<string>Jeg vet hvem jeg kan kontakte for hjelp med min psykiske helse.</string>
+</array>
+</plist>

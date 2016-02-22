@@ -25,10 +25,11 @@
     [super viewDidLoad];
     
     self.title = self.viewTitle;
+    dataManager = [StoreDataMangager sharedInstance];
     
     
     self.addGoalsArray = [[NSMutableArray alloc] init];
-    dataManager = [StoreDataMangager sharedInstance];
+    
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
         _backgroundImageView.image = backgroundImage;
@@ -91,12 +92,15 @@
 {
     
     if (self.goalFlag) {
-        self.addGoalsArray = dataManager.getMoodShotGoalsFromPlist;
+        self.addGoalsArray = (NSMutableArray *)dataManager.getMoodShotGoalsFromPlist;
     } else {
-        self.addGoalsArray = dataManager.getReadyTransferDataFromPlist;
+        self.addGoalsArray = (NSMutableArray *)dataManager.getReadyTransferDataFromPlist;
     }
     
     if (_addGoalsArray.count) {
+        [_goalsTableView setHidden:NO];
+        [_goalsTableView reloadData];
+    } else {
         [_goalsTableView setHidden:NO];
         [_goalsTableView reloadData];
     }

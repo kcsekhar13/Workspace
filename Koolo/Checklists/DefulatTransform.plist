@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>I understand the medical terms specific for my health condition/disability.</string>
+	<string>I can answer questions from my healthcare team about my health condition/disability.</string>
+	<string>I know the symptoms or complications specific to my health conditions/disability.</string>
+	<string>I am aware of any allergies I have and how to manage them.</string>
+	<string>I have discussed with my healthcare team the effects of smoking, alcohol and drugs on my health condition/disability.</string>
+	<string>I have discussed with my healthcare team how my health condition/disability may impact on my sexual and reproductive health.</string>
+	<string>I know my medication/s, and treatment routine.</string>
+	<string>I know which tests/investigations I have regularly and why I need them.</string>
+	<string>I know the side effects and restrictions of my medications/s.</string>
+	<string>I am responsible for remembering and administrating my medication or treatment.</string>
+	<string>I am responsible for getting a repeat of my prescription and having it filled. </string>
+	<string>I know what equipment I need and what it is used for.</string>
+	<string>I know how to organise/reorder any equipment I may require.</string>
+	<string>I know who to contact for medical advice, including medical emergencies or outside hours.</string>
+	<string>I can make my own appointments within the health services I currently use.</string>
+	<string>I know how to reschedule or change my appointments if necessary.</string>
+	<string>I know I can have/I have had time with my doctor or healthcare staff in my appointment by myself.</string>
+	<string>I feel comfortable asking my doctor to further explain information that is not clear to me.</string>
+	<string>I know how to organise payment of my contribution.</string>
+	<string>I have received oral and written information about my rights as a healthcare user.</string>
+	<string>I know what my right to informed consent means.</string>
+	<string>I know what confidentiality means.</string>
+	<string>I have a regular GP I trust and feel comfortable talking to.</string>
+	<string>I know where to get advice about m health issues.</string>
+	<string>I know what to do if I become unwell or need urgent medical assistance.</string>
+	<string>I know who to contact if I need urgent medical support after hours. </string>
+	<string>I recognise the importance of a balanced lifestyle (nutrition, fitness, recreation, leisure and education).</string>
+	<string>I know whether my condition sets limitations for my vocational choices.</string>
+	<string>I know how/where to get educational/vocational support.</string>
+	<string>I know how/where to get support with my work commitments.</string>
+	<string>I feel confident advocating for myself.</string>
+	<string>I have strategies/supports in place if I am feeling stressed or upset-</string>
+</array>
+</plist>

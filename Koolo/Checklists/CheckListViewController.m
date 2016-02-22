@@ -112,6 +112,27 @@
     int totalGoalCount = 0;
     int completedGoals = 0;
     
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"defaultGoals"]) {
+        
+        NSArray *newGoalsArray = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultGoals.plist" ofType:nil]];
+        
+        for (int i = 0; i < newGoalsArray.count; i++) {
+            NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:newGoalsArray[i],@"GoalText",@"Pending",@"GoalStatus",@"NO",@"Hidden", nil];
+            
+            [dataManager saveDictionaryToMoodShotPlist:moodDict];
+        }
+        
+        NSArray *newTransFormArray = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefulatTransform.plist" ofType:nil]];
+        
+        for (int i = 0; i < newTransFormArray.count; i++) {
+            NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:newTransFormArray[i],@"GoalText",@"Pending",@"GoalStatus",@"NO",@"Hidden", nil];
+            
+            [dataManager saveDictionaryToReadyTransferPlist:moodDict];
+        }
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"defaultGoals"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     NSArray *goalsArray = dataManager.getMoodShotGoalsFromPlist;
     
     for (NSDictionary *goalDict in goalsArray) {
