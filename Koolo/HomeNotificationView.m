@@ -255,12 +255,12 @@
 
     [cell.textLabel setTextColor:[UIColor whiteColor]];
     cell.textLabel.text = [dict objectForKey:@"EventTitle"];
-    cell.textLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:15.0];
+    cell.textLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:25.0];
 //    [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
 //    cell.detailTextLabel.text = [dict objectForKey:@"TagTitle"];
     [cell setBackgroundColor:[UIColor clearColor]];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 39, 10, 10)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 39, 15, 15)];
     [view.layer setCornerRadius:view.frame.size.width/2];
     if([[dict objectForKey:@"ColorIndex"]intValue] == -1)
     {
@@ -276,14 +276,14 @@
         
     }
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75.0f, 59.0f, 15, 15)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75.0f, 59.0f, 25, 25)];
     [imageView setImage:[UIImage imageNamed:@"time.png"]];
     
-    UILabel *remainderLabel = [[UILabel alloc] initWithFrame:CGRectMake(95.0f, 56.0f, 90.0f, 21)];
+    UILabel *remainderLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0f, 62.0f, 90.0f, 21)];
     [remainderLabel setText:[dict objectForKey:@"Remainder"]];
     [remainderLabel setTextColor:[UIColor whiteColor]];
     [remainderLabel setTextAlignment:NSTextAlignmentLeft];
-    [remainderLabel setFont:[UIFont systemFontOfSize:10.0]];
+    [remainderLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15.0]];
     
     UILabel *clinicLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 56.0f, 90.0f, 21)];
     [clinicLabel setText:[dict objectForKey:@"TagTitle"]];
