@@ -26,7 +26,7 @@
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     doneButtonTitle = nil;
-    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         self.title = NSLocalizedString(@"Checklists", nil);
         doneButtonTitle = NSLocalizedString(@"Done", nil);
         transferString = NSLocalizedString(@"New transfer", nil);

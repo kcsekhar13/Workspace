@@ -55,7 +55,7 @@
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *doneButtonTitle = nil;
     
-    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         self.title = NSLocalizedString(@"Information", nil);
         doneButtonTitle = NSLocalizedString(@"Done", nil);
         

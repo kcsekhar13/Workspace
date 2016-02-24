@@ -31,7 +31,7 @@
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *cancelTitle = nil;
     NSString *doneButtonTitle = nil;
-    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         self.title = NSLocalizedString(@"Settings", nil);
         contentArray = [[NSArray alloc] initWithObjects:@"Bakgrunnsbilde", @"Passkode", @"Sitater", @"Lisens",@"Fargevalg", @"Gjennnomgang av applikasjonen", @"Oppdateringer", @"Bidragsytere",nil];

@@ -44,7 +44,7 @@
     NSString *doneButtonTitle = nil;
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         self.question_OneLabel.text = [NSString stringWithFormat:@"1. %@", NSLocalizedString(@"Question1", nil)];
         self.question_TwoLabel.text = [NSString stringWithFormat:@"2. %@", NSLocalizedString(@"Question2", nil)];

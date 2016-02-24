@@ -35,7 +35,7 @@
     NSString *cancelTitle = nil;
     NSString *doneButtonTitle = nil;
     
-    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         self.title = NSLocalizedString(@"Passcode", nil);
         self.secretQuestion = NSLocalizedString(@"Set security question", nil);
@@ -208,7 +208,7 @@
     
     NSString *errorMessage = nil;
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         errorMessage = NSLocalizedString(@"Security answer", nil);
         
@@ -257,7 +257,7 @@
             
             NSString *errorMessage = nil;
             NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-            if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+            if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
                 
                 errorMessage = NSLocalizedString(@"Security answer", nil);
                 

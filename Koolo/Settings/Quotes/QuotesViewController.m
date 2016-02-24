@@ -35,7 +35,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *rightButtonTile = nil;
-    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         self.title = @"Sitater";
         rightButtonTile = NSLocalizedString(@"Done", nil);
@@ -72,7 +72,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 -(void)initUI {
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         [_mNoteTextField setText:NSLocalizedString(@"Enable Status", nil)];
         [_mTypeStatusLabel setText:NSLocalizedString(@"Add", nil)];
@@ -88,7 +88,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
    
     [_mTypeStatusLabel setFont:[UIFont systemFontOfSize:12.0f]];
     [_mTypeStatusLabel setHidden:TRUE];
-    [_addButton setHidden:TRUE];
+    //[_addButton setHidden:TRUE];
     [_mQuotesTableview setSeparatorColor:[UIColor clearColor]];
     
     [_mEditTextView.layer setMasksToBounds:TRUE];

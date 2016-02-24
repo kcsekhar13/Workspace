@@ -21,7 +21,7 @@
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *cancelTitle = nil;
-    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]) {
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         self.title = NSLocalizedString(@"Passcode", nil);
         cancelTitle = NSLocalizedString(@"Cancel", nil);
         wrongCodeMessage = NSLocalizedString(@"Wrong code", nil);

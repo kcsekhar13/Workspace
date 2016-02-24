@@ -1240,9 +1240,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ptA-ks-3ha">
-                                <rect key="frame" x="254" y="527" width="59" height="21"/>
+                                <rect key="frame" x="254" y="519" width="59" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="25"/>
+                                <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addQuotes:" destination="msb-bh-Gkh" eventType="touchUpInside" id="RXc-7u-hQD"/>
                                 </connections>
@@ -1310,13 +1312,6 @@
                                     <action selector="hideAndShowQuotes:" destination="msb-bh-Gkh" eventType="valueChanged" id="IC2-wN-l42"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e6p-SL-w8r">
-                                <rect key="frame" x="254.9999998514935" y="512" width="59" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.030145655374867797" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1326,7 +1321,6 @@
                         <outlet property="mEnableSwitch" destination="c6Q-dZ-DCi" id="scy-2X-5h3"/>
                         <outlet property="mNoteTextField" destination="xcC-x4-9SM" id="pn3-6X-XPc"/>
                         <outlet property="mQuotesTableview" destination="3qN-37-fc7" id="wqi-Ga-qQ8"/>
-                        <outlet property="mTypeStatusLabel" destination="e6p-SL-w8r" id="1Ru-He-2NP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdS-7N-PkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
