@@ -9,6 +9,7 @@
 #import "SettingScreenViewController.h"
 #import "QuotesViewController.h"
 #import "PasscodeHomeViewController.h"
+#import "CommonTextViewController.h"
 
 
 @interface SettingScreenViewController ()  {
@@ -34,13 +35,13 @@
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         self.title = NSLocalizedString(@"Settings", nil);
-        contentArray = [[NSArray alloc] initWithObjects:@"Bakgrunnsbilde", @"Passkode", @"Sitater", @"Lisens",@"Fargevalg", @"Gjennnomgang av applikasjonen", @"Oppdateringer", @"Bidragsytere",nil];
+        contentArray = [[NSArray alloc] initWithObjects:@"Bakgrunnsbilde", @"Passkode", @"Sitater", @"Lisens",@"Fargevalg", @"Gjennnomgang av applikasjonen", @"Oppdateringer", @"Bidrag",@"Om appen",nil];
         cancelTitle = NSLocalizedString(@"Cancel", nil);
         doneButtonTitle = NSLocalizedString(@"Done", nil);
         
     } else {
         self.title = @"Settings";
-        contentArray = [[NSArray alloc] initWithObjects:@"Background Image", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"Tutorial", @"Updates", @"Contributors", nil];
+        contentArray = [[NSArray alloc] initWithObjects:@"Background Image", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"Tutorial", @"Updates", @"Contributors", @"About",nil];
         cancelTitle = @"Cancel";
         doneButtonTitle = @"Done";
     }
@@ -184,6 +185,31 @@
     } else if (indexPath.row == 4) {
         
         [self.navigationController pushViewController:[mainStoryboard instantiateViewControllerWithIdentifier: @"MSColorPickerScreen"] animated:YES];
+    }  else if (indexPath.row == 3 || indexPath.row == 7 || indexPath.row == 8) {
+        
+        NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+        NSString *typeString = nil;
+        if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
+            typeString = @"_Nor.plist";
+        } else {
+            typeString = @"_Eng.plist";
+        }
+        
+        if (indexPath.row == 3) {
+            
+            NSString *fileString = [NSString stringWithFormat:@"License%@", typeString];
+            [self moveToTextViewScreenWithFileName:fileString withFlag:YES];
+            
+        } else if (indexPath.row == 7) {
+            
+            NSString *fileString = [NSString stringWithFormat:@"Contributions%@", typeString];
+            [self moveToTextViewScreenWithFileName:fileString withFlag:NO];
+            
+        } else {
+            
+            NSString *fileString = [NSString stringWithFormat:@"About%@", typeString];
+            [self moveToTextViewScreenWithFileName:fileString withFlag:NO];
+        }
     }
 }
 
@@ -219,6 +245,17 @@
 - (void)cancelScreen {
     self.navigationController.navigationBar.hidden = YES;
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)moveToTextViewScreenWithFileName:(NSString *)fileName withFlag:(BOOL)licenseflag {
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle: nil];
+    CommonTextViewController *infoScreen = (CommonTextViewController *)[mainStoryboard instantiateViewControllerWithIdentifier: @"CommonScreen"];
+    infoScreen.infoArray = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:nil]];
+    infoScreen.licenseFlag = licenseflag;
+    [self.navigationController pushViewController:infoScreen animated:YES];
+    
 }
 /*
 #pragma mark - Navigation

@@ -10,4 +10,7 @@
 
 @interface CommonTextViewController : UIViewController
 
+@property (nonatomic, retain) NSArray *infoArray;
+@property (nonatomic, assign) BOOL licenseFlag;
+
 @end
