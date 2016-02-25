@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Om appen</string>
+	<string>KOOLO app er designet og utviklet som en del av KULU prosjektet, et forsknings- og designprosjekt ved Institutt for informatikk ved Universitetet i Oslo. Kulu står for Kul teknologi for ungdom med langsiktige helseutfordringer .</string>
+	<string>Vi utviklet KOOLO appen for forskningsformål , og vi håper å legge til noen nye funksjoner i fremtiden.</string>
+	<string>Dere står fritt til å bruke den, men må du ikke forvente noen støtte eller vedlikehold fra oss, bortsett fra når man deltar i vårt forskningsprosjekt.</string>
+	<string>Dere er også fritt til å bygge videre på det (å tilpasse det eller legge til funksjonalitet) så lenge programmet er fortsatt et ikke-kommersielt produkt, du krediterer bidragsyterne, og du lisensierer den nye kreasjonen under like konsesjonsvilkår.</string>
+</array>
+</plist>

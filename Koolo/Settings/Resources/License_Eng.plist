@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>License</string>
+	<string>The KOOLO app is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</string>
+	<string>For more information:</string>
+	<string>Maja van der Velden</string>
+	<string>KULU project leader</string>
+	<string>Department of Informatics</string>
+	<string>University of Oslo</string>
+	<string>P.O.Box 1080</string>
+	<string>Oslo, Norway. </string>
+	<string>Email: team@kulu.no</string>
+</array>
+</plist>

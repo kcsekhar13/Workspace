@@ -12,6 +12,13 @@
 		37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */; };
 		550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */; };
 		5511280C1BEA856900F850C6 /* SecretAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */; };
+		552555791C7F6BD50028D805 /* Contributions_Eng.plist in Resources */ = {isa = PBXBuildFile; fileRef = 552555781C7F6BD50028D805 /* Contributions_Eng.plist */; };
+		5525557B1C7F6C680028D805 /* Contributions_Nor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5525557A1C7F6C680028D805 /* Contributions_Nor.plist */; };
+		5525557D1C7F6D1C0028D805 /* About_Eng.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5525557C1C7F6D1C0028D805 /* About_Eng.plist */; };
+		5525557F1C7F6E080028D805 /* About_Nor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5525557E1C7F6E080028D805 /* About_Nor.plist */; };
+		552555811C7F6E820028D805 /* License_Eng.plist in Resources */ = {isa = PBXBuildFile; fileRef = 552555801C7F6E820028D805 /* License_Eng.plist */; };
+		552555831C7F6FAC0028D805 /* License_Nor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 552555821C7F6FAC0028D805 /* License_Nor.plist */; };
+		552555861C7F70A50028D805 /* CommonTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 552555851C7F70A50028D805 /* CommonTextViewController.m */; };
 		55261E2F1BC8C1E900AA3CCD /* QuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55261E2E1BC8C1E900AA3CCD /* QuotesViewController.m */; };
 		55261E341BC8C32C00AA3CCD /* PassCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55261E331BC8C32C00AA3CCD /* PassCodeViewController.m */; };
 		5536AA251BD8102100398454 /* CheckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA241BD8102100398454 /* CheckListViewController.m */; };
@@ -99,6 +106,14 @@
 		550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewCell.m; sourceTree = "<group>"; };
 		5511280A1BEA856900F850C6 /* SecretAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretAnswerViewController.h; sourceTree = "<group>"; };
 		5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretAnswerViewController.m; sourceTree = "<group>"; };
+		552555781C7F6BD50028D805 /* Contributions_Eng.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contributions_Eng.plist; sourceTree = "<group>"; };
+		5525557A1C7F6C680028D805 /* Contributions_Nor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contributions_Nor.plist; sourceTree = "<group>"; };
+		5525557C1C7F6D1C0028D805 /* About_Eng.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = About_Eng.plist; sourceTree = "<group>"; };
+		5525557E1C7F6E080028D805 /* About_Nor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = About_Nor.plist; sourceTree = "<group>"; };
+		552555801C7F6E820028D805 /* License_Eng.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = License_Eng.plist; sourceTree = "<group>"; };
+		552555821C7F6FAC0028D805 /* License_Nor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = License_Nor.plist; sourceTree = "<group>"; };
+		552555841C7F70A50028D805 /* CommonTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTextViewController.h; sourceTree = "<group>"; };
+		552555851C7F70A50028D805 /* CommonTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTextViewController.m; sourceTree = "<group>"; };
 		55261E2D1BC8C1E900AA3CCD /* QuotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesViewController.h; sourceTree = "<group>"; };
 		55261E2E1BC8C1E900AA3CCD /* QuotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesViewController.m; sourceTree = "<group>"; };
 		55261E321BC8C32C00AA3CCD /* PassCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassCodeViewController.h; sourceTree = "<group>"; };
@@ -239,6 +254,28 @@
 				373063411BCABBD9004751CA /* HomeNotificationView.m */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		552555761C7F6B9A0028D805 /* CommonScreen */ = {
+			isa = PBXGroup;
+			children = (
+				552555841C7F70A50028D805 /* CommonTextViewController.h */,
+				552555851C7F70A50028D805 /* CommonTextViewController.m */,
+			);
+			path = CommonScreen;
+			sourceTree = "<group>";
+		};
+		552555771C7F6B9A0028D805 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				552555781C7F6BD50028D805 /* Contributions_Eng.plist */,
+				5525557A1C7F6C680028D805 /* Contributions_Nor.plist */,
+				5525557C1C7F6D1C0028D805 /* About_Eng.plist */,
+				5525557E1C7F6E080028D805 /* About_Nor.plist */,
+				552555801C7F6E820028D805 /* License_Eng.plist */,
+				552555821C7F6FAC0028D805 /* License_Nor.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		55261E2C1BC8C1D600AA3CCD /* Quotes */ = {
@@ -413,8 +450,10 @@
 				555BD63B1BC761D200BB61E9 /* SettingScreenViewController.h */,
 				555BD63C1BC761D200BB61E9 /* SettingScreenViewController.m */,
 				555BD6371BC7618600BB61E9 /* Album */,
+				552555761C7F6B9A0028D805 /* CommonScreen */,
 				55261E311BC8C31000AA3CCD /* Passcode */,
 				55261E2C1BC8C1D600AA3CCD /* Quotes */,
+				552555771C7F6B9A0028D805 /* Resources */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -588,6 +627,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5525557B1C7F6C680028D805 /* Contributions_Nor.plist in Resources */,
 				558BB0471BF8E4F1000B335D /* cross.png in Resources */,
 				F337738D1BC8D1C100793831 /* settings.png in Resources */,
 				F33B7E6E1BC8B92800C37B1D /* lock.png in Resources */,
@@ -604,11 +644,16 @@
 				F337739E1BC8D51300793831 /* SmallRecorderButton.png in Resources */,
 				555BD6211BC760B600BB61E9 /* LaunchScreen.xib in Resources */,
 				553A2A101C74EF0000108757 /* DefaultGoals_Norway.plist in Resources */,
+				5525557D1C7F6D1C0028D805 /* About_Eng.plist in Resources */,
 				F337738F1BC8D2C400793831 /* plus.png in Resources */,
+				552555831C7F6FAC0028D805 /* License_Nor.plist in Resources */,
+				552555811C7F6E820028D805 /* License_Eng.plist in Resources */,
 				557745ED1C7B7BAB0005DA64 /* DefulatTransform.plist in Resources */,
 				553B65C91BFBB3D900F288DD /* yellow.png in Resources */,
 				F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */,
+				5525557F1C7F6E080028D805 /* About_Nor.plist in Resources */,
 				F337739F1BC8D51300793831 /* WhitePlus.png in Resources */,
+				552555791C7F6BD50028D805 /* Contributions_Eng.plist in Resources */,
 				0458A2331C7B84E300F9D1A0 /* gallery.png in Resources */,
 				553A2A0E1C74EB4B00108757 /* DefaultGoals.plist in Resources */,
 			);
@@ -670,6 +715,7 @@
 				554310C51BE4D7CC00961E34 /* CalendarColorPickerViewController.m in Sources */,
 				555BD6161BC760B600BB61E9 /* AppDelegate.m in Sources */,
 				55F9172F1BE7F3630007E799 /* CLNewGoalTableViewCell.m in Sources */,
+				552555861C7F70A50028D805 /* CommonTextViewController.m in Sources */,
 				5536AA281BD8104300398454 /* CLThreeSentenceViewController.m in Sources */,
 				558BB03F1BF8D5D0000B335D /* CLWeeklyCalendarView.m in Sources */,
 				555BD6131BC760B600BB61E9 /* main.m in Sources */,

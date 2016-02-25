@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>About</string>
+	<string>The Koolo app is designed and developed as part of the KULU project, a research and design project based at the Department of Informatics at the University of Oslo. KULU stands for Cool technology for youth with long-term health challenges.</string>
+	<string>We developed the KOOLO app for research purposes and we hope to add some new functionality in the future.</string>
+	<string>You are free to use it, but please don’t expect any support or maintenance from us, except when you participate in our research project.</string>
+	<string>You are also free to build upon it (adapting it or adding functionality) as long the app remains a non-commercial product, you credit the contributors, and you license the new creation under identical license terms.</string>
+</array>
+</plist>
