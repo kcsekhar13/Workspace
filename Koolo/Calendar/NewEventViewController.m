@@ -117,16 +117,7 @@
     [clearButton setFrame:CGRectMake((self.addTagField.frame.origin.x + self.addTagField.frame.size.width) - 10.0f, 1.0, 14.0, 14.0)];
     [clearButton addTarget:self action:@selector(clearTextField) forControlEvents:UIControlEventTouchUpInside];
     
-    //self.addTagField.rightViewMode = UITextFieldViewModeAlways; //can be changed to UITextFieldViewModeNever,    UITextFieldViewModeWhileEditing,   UITextFieldViewModeUnlessEditing
-    //[self.addTagField setRightView:clearButton];
-    
-    /*
-    UIButton *timeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [timeButton setImage:[UIImage imageNamed:@"time.png"] forState:UIControlStateNormal];
-    [timeButton setFrame:CGRectMake( 5.0f, 1.0, 14.0, 14.0)];
-    [timeButton addTarget:self action:@selector(launchDatePicker) forControlEvents:UIControlEventTouchUpInside];
-    self.datePickerField.leftViewMode = UITextFieldViewModeAlways; //can be changed to UITextFieldViewModeNever,    UITextFieldViewModeWhileEditing,   UITextFieldViewModeUnlessEditing
-    [self.datePickerField setLeftView:timeButton];*/
+   
     
     self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height + 190.0f, self.view.frame.size.width, 200.0f)];
     [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
@@ -137,14 +128,8 @@
      [_datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
     
     [_datePicker setLocale:[NSLocale localeWithLocaleIdentifier:@"en_GB"]];
-    //[_datePicker setLocale:[NSLocale systemLocale]];
     
-    //[_datePicker setLocale:[NSLocale systemLocale]];
     [self.view addSubview:self.datePicker];
-    //UIView *emptyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    //_customView.frame = CGRectMake(0, 0, 0, 0);
-    //self.addTagField.inputView = emptyView;
-    [_addTagField setTintColor:[UIColor clearColor]];
     
 
     
@@ -378,7 +363,7 @@
         
         [eventDict setObject:self.eventTextField.text forKey:@"EventTitle"];
         NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"hh"];
+        [dateFormatter setDateFormat:@"hh:mm"];
         [eventDict setObject:[NSString stringWithFormat:@"Kl. %@", [dateFormatter stringFromDate:_datePicker.date]] forKey:@"TagTitle"];
         [eventDict setObject:_selectedDate forKey:@"EventDate"];
         [eventDict setObject:self.remainderLabel.text forKey:@"Remainder"];

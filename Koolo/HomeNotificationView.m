@@ -254,13 +254,12 @@
     NSDictionary *dict = self.eventsArray[indexPath.row];
 
     [cell.textLabel setTextColor:[UIColor whiteColor]];
-    cell.textLabel.text = [dict objectForKey:@"EventTitle"];
-    cell.textLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:25.0];
-//    [cell.detailTextLabel setTextColor:[UIColor whiteColor]];
-//    cell.detailTextLabel.text = [dict objectForKey:@"TagTitle"];
+    cell.textLabel.text = @"";
+    cell.textLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:20.0];
+    //cell.textLabel.frame = CGRectMake(cell.textLabel.frame.origin.x + 15, cell.textLabel.frame.origin.y, cell.textLabel.frame.size.width, cell.textLabel.frame.size.height);
     [cell setBackgroundColor:[UIColor clearColor]];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 39, 15, 15)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 25, 15, 15)];
     [view.layer setCornerRadius:view.frame.size.width/2];
     if([[dict objectForKey:@"ColorIndex"]intValue] == -1)
     {
@@ -276,10 +275,16 @@
         
     }
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(75.0f, 59.0f, 25, 25)];
+    UILabel *eventTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 11.0f, 90.0f, 42)];
+    [eventTitleLabel setText:[dict objectForKey:@"EventTitle"]];
+    [eventTitleLabel setTextColor:[UIColor whiteColor]];
+    [eventTitleLabel setTextAlignment:NSTextAlignmentLeft];
+    [eventTitleLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20.0]];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(85.0f, 56.0f, 25, 25)];
     [imageView setImage:[UIImage imageNamed:@"time.png"]];
     
-    UILabel *remainderLabel = [[UILabel alloc] initWithFrame:CGRectMake(100.0f, 62.0f, 90.0f, 21)];
+    UILabel *remainderLabel = [[UILabel alloc] initWithFrame:CGRectMake(113.0f, 59.0f, 90.0f, 21)];
     [remainderLabel setText:[dict objectForKey:@"Remainder"]];
     [remainderLabel setTextColor:[UIColor whiteColor]];
     [remainderLabel setTextAlignment:NSTextAlignmentLeft];
@@ -289,6 +294,7 @@
     [clinicLabel setText:[dict objectForKey:@"TagTitle"]];
     [clinicLabel setTextColor:[UIColor whiteColor]];
     [clinicLabel setTextAlignment:NSTextAlignmentLeft];
+    [cell.contentView addSubview:eventTitleLabel];
     [cell.contentView addSubview:clinicLabel];
     [cell.contentView addSubview:remainderLabel];
     [cell.contentView addSubview:imageView];
