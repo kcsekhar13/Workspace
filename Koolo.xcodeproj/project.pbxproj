@@ -10,6 +10,17 @@
 		0458A2331C7B84E300F9D1A0 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 0458A2321C7B84E300F9D1A0 /* gallery.png */; };
 		373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373063411BCABBD9004751CA /* HomeNotificationView.m */; };
 		37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */; };
+		5504DD371C81830D002038E4 /* CalendarScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD2C1C81830D002038E4 /* CalendarScreen.jpg */; };
+		5504DD381C81830D002038E4 /* CheckListScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD2D1C81830D002038E4 /* CheckListScreen.jpg */; };
+		5504DD391C81830D002038E4 /* EventColorPickerScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD2E1C81830D002038E4 /* EventColorPickerScreen.jpg */; };
+		5504DD3A1C81830D002038E4 /* HomeScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD2F1C81830D002038E4 /* HomeScreen.jpg */; };
+		5504DD3B1C81830D002038E4 /* HomeScreenWithFunctionOptions.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD301C81830D002038E4 /* HomeScreenWithFunctionOptions.jpg */; };
+		5504DD3C1C81830D002038E4 /* MyhealthScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD311C81830D002038E4 /* MyhealthScreen.jpg */; };
+		5504DD3D1C81830D002038E4 /* NewEventScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD321C81830D002038E4 /* NewEventScreen.jpg */; };
+		5504DD3E1C81830D002038E4 /* NewGoalScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD331C81830D002038E4 /* NewGoalScreen.jpg */; };
+		5504DD3F1C81830D002038E4 /* ReadyForTransitionScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD341C81830D002038E4 /* ReadyForTransitionScreen.jpg */; };
+		5504DD401C81830D002038E4 /* SettingsScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD351C81830D002038E4 /* SettingsScreen.jpg */; };
+		5504DD411C81830D002038E4 /* ThreeSenteceScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD361C81830D002038E4 /* ThreeSenteceScreen.jpg */; };
 		550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */; };
 		5511280C1BEA856900F850C6 /* SecretAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */; };
 		552555791C7F6BD50028D805 /* Contributions_Eng.plist in Resources */ = {isa = PBXBuildFile; fileRef = 552555781C7F6BD50028D805 /* Contributions_Eng.plist */; };
@@ -102,6 +113,17 @@
 		373063411BCABBD9004751CA /* HomeNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNotificationView.m; sourceTree = "<group>"; };
 		37F2F5361BC991DA00B97307 /* QuotesTableviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesTableviewCell.h; sourceTree = "<group>"; };
 		37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesTableviewCell.m; sourceTree = "<group>"; };
+		5504DD2C1C81830D002038E4 /* CalendarScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CalendarScreen.jpg; sourceTree = "<group>"; };
+		5504DD2D1C81830D002038E4 /* CheckListScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CheckListScreen.jpg; sourceTree = "<group>"; };
+		5504DD2E1C81830D002038E4 /* EventColorPickerScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EventColorPickerScreen.jpg; sourceTree = "<group>"; };
+		5504DD2F1C81830D002038E4 /* HomeScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HomeScreen.jpg; sourceTree = "<group>"; };
+		5504DD301C81830D002038E4 /* HomeScreenWithFunctionOptions.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HomeScreenWithFunctionOptions.jpg; sourceTree = "<group>"; };
+		5504DD311C81830D002038E4 /* MyhealthScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MyhealthScreen.jpg; sourceTree = "<group>"; };
+		5504DD321C81830D002038E4 /* NewEventScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewEventScreen.jpg; sourceTree = "<group>"; };
+		5504DD331C81830D002038E4 /* NewGoalScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NewGoalScreen.jpg; sourceTree = "<group>"; };
+		5504DD341C81830D002038E4 /* ReadyForTransitionScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ReadyForTransitionScreen.jpg; sourceTree = "<group>"; };
+		5504DD351C81830D002038E4 /* SettingsScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SettingsScreen.jpg; sourceTree = "<group>"; };
+		5504DD361C81830D002038E4 /* ThreeSenteceScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ThreeSenteceScreen.jpg; sourceTree = "<group>"; };
 		550F97A41BE29B6F005510F5 /* ColorPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewCell.h; sourceTree = "<group>"; };
 		550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewCell.m; sourceTree = "<group>"; };
 		5511280A1BEA856900F850C6 /* SecretAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretAnswerViewController.h; sourceTree = "<group>"; };
@@ -254,6 +276,24 @@
 				373063411BCABBD9004751CA /* HomeNotificationView.m */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		5504DD2B1C81830D002038E4 /* TutorialImages */ = {
+			isa = PBXGroup;
+			children = (
+				5504DD2C1C81830D002038E4 /* CalendarScreen.jpg */,
+				5504DD2D1C81830D002038E4 /* CheckListScreen.jpg */,
+				5504DD2E1C81830D002038E4 /* EventColorPickerScreen.jpg */,
+				5504DD2F1C81830D002038E4 /* HomeScreen.jpg */,
+				5504DD301C81830D002038E4 /* HomeScreenWithFunctionOptions.jpg */,
+				5504DD311C81830D002038E4 /* MyhealthScreen.jpg */,
+				5504DD321C81830D002038E4 /* NewEventScreen.jpg */,
+				5504DD331C81830D002038E4 /* NewGoalScreen.jpg */,
+				5504DD341C81830D002038E4 /* ReadyForTransitionScreen.jpg */,
+				5504DD351C81830D002038E4 /* SettingsScreen.jpg */,
+				5504DD361C81830D002038E4 /* ThreeSenteceScreen.jpg */,
+			);
+			path = TutorialImages;
 			sourceTree = "<group>";
 		};
 		552555761C7F6B9A0028D805 /* CommonScreen */ = {
@@ -526,6 +566,7 @@
 		F33B7E6C1BC8B92800C37B1D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5504DD2B1C81830D002038E4 /* TutorialImages */,
 				0458A2321C7B84E300F9D1A0 /* gallery.png */,
 				553B65C41BFBB3D900F288DD /* green.png */,
 				553B65C61BFBB3D900F288DD /* yellow.png */,
@@ -627,6 +668,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5504DD3E1C81830D002038E4 /* NewGoalScreen.jpg in Resources */,
 				5525557B1C7F6C680028D805 /* Contributions_Nor.plist in Resources */,
 				558BB0471BF8E4F1000B335D /* cross.png in Resources */,
 				F337738D1BC8D1C100793831 /* settings.png in Resources */,
@@ -634,26 +676,36 @@
 				553B65C71BFBB3D900F288DD /* green.png in Resources */,
 				F33773A31BC9465B00793831 /* CheckListpng.png in Resources */,
 				553B65C31BFBB3B800F288DD /* red.png in Resources */,
+				5504DD3A1C81830D002038E4 /* HomeScreen.jpg in Resources */,
 				55D063831BF8894B000962D3 /* Localizable.strings in Resources */,
+				5504DD3B1C81830D002038E4 /* HomeScreenWithFunctionOptions.jpg in Resources */,
+				5504DD391C81830D002038E4 /* EventColorPickerScreen.jpg in Resources */,
+				5504DD381C81830D002038E4 /* CheckListScreen.jpg in Resources */,
 				F3BBD92D1BE4CD760087591E /* Images.xcassets in Resources */,
+				5504DD371C81830D002038E4 /* CalendarScreen.jpg in Resources */,
 				555BD61C1BC760B600BB61E9 /* Main.storyboard in Resources */,
 				F337739D1BC8D51300793831 /* SmallKeyBoard.png in Resources */,
 				F33B7E701BC8C6CB00C37B1D /* Camera.png in Resources */,
 				F33773A21BC9465B00793831 /* Calander.png in Resources */,
 				557B4B1B1BFA4B4500F37F04 /* time.png in Resources */,
+				5504DD411C81830D002038E4 /* ThreeSenteceScreen.jpg in Resources */,
 				F337739E1BC8D51300793831 /* SmallRecorderButton.png in Resources */,
 				555BD6211BC760B600BB61E9 /* LaunchScreen.xib in Resources */,
 				553A2A101C74EF0000108757 /* DefaultGoals_Norway.plist in Resources */,
 				5525557D1C7F6D1C0028D805 /* About_Eng.plist in Resources */,
 				F337738F1BC8D2C400793831 /* plus.png in Resources */,
+				5504DD401C81830D002038E4 /* SettingsScreen.jpg in Resources */,
 				552555831C7F6FAC0028D805 /* License_Nor.plist in Resources */,
+				5504DD3D1C81830D002038E4 /* NewEventScreen.jpg in Resources */,
 				552555811C7F6E820028D805 /* License_Eng.plist in Resources */,
 				557745ED1C7B7BAB0005DA64 /* DefulatTransform.plist in Resources */,
 				553B65C91BFBB3D900F288DD /* yellow.png in Resources */,
+				5504DD3F1C81830D002038E4 /* ReadyForTransitionScreen.jpg in Resources */,
 				F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */,
 				5525557F1C7F6E080028D805 /* About_Nor.plist in Resources */,
 				F337739F1BC8D51300793831 /* WhitePlus.png in Resources */,
 				552555791C7F6BD50028D805 /* Contributions_Eng.plist in Resources */,
+				5504DD3C1C81830D002038E4 /* MyhealthScreen.jpg in Resources */,
 				0458A2331C7B84E300F9D1A0 /* gallery.png in Resources */,
 				553A2A0E1C74EB4B00108757 /* DefaultGoals.plist in Resources */,
 			);
