@@ -21,6 +21,8 @@
 		5504DD3F1C81830D002038E4 /* ReadyForTransitionScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD341C81830D002038E4 /* ReadyForTransitionScreen.jpg */; };
 		5504DD401C81830D002038E4 /* SettingsScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD351C81830D002038E4 /* SettingsScreen.jpg */; };
 		5504DD411C81830D002038E4 /* ThreeSenteceScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD361C81830D002038E4 /* ThreeSenteceScreen.jpg */; };
+		5504DD451C81848B002038E4 /* PageItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5504DD441C81848B002038E4 /* PageItemController.m */; };
+		5504DD481C8184AF002038E4 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5504DD471C8184AF002038E4 /* TutorialViewController.m */; };
 		550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */; };
 		5511280C1BEA856900F850C6 /* SecretAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */; };
 		552555791C7F6BD50028D805 /* Contributions_Eng.plist in Resources */ = {isa = PBXBuildFile; fileRef = 552555781C7F6BD50028D805 /* Contributions_Eng.plist */; };
@@ -124,6 +126,10 @@
 		5504DD341C81830D002038E4 /* ReadyForTransitionScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ReadyForTransitionScreen.jpg; sourceTree = "<group>"; };
 		5504DD351C81830D002038E4 /* SettingsScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SettingsScreen.jpg; sourceTree = "<group>"; };
 		5504DD361C81830D002038E4 /* ThreeSenteceScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ThreeSenteceScreen.jpg; sourceTree = "<group>"; };
+		5504DD431C81848B002038E4 /* PageItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageItemController.h; sourceTree = "<group>"; };
+		5504DD441C81848B002038E4 /* PageItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageItemController.m; sourceTree = "<group>"; };
+		5504DD461C8184AF002038E4 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		5504DD471C8184AF002038E4 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		550F97A41BE29B6F005510F5 /* ColorPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewCell.h; sourceTree = "<group>"; };
 		550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewCell.m; sourceTree = "<group>"; };
 		5511280A1BEA856900F850C6 /* SecretAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretAnswerViewController.h; sourceTree = "<group>"; };
@@ -295,6 +301,18 @@
 			);
 			path = TutorialImages;
 			sourceTree = "<group>";
+		};
+		5504DD421C81848B002038E4 /* TutorailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5504DD431C81848B002038E4 /* PageItemController.h */,
+				5504DD441C81848B002038E4 /* PageItemController.m */,
+				5504DD461C8184AF002038E4 /* TutorialViewController.h */,
+				5504DD471C8184AF002038E4 /* TutorialViewController.m */,
+			);
+			name = TutorailScreen;
+			path = Koolo/Settings/TutorailScreen;
+			sourceTree = SOURCE_ROOT;
 		};
 		552555761C7F6B9A0028D805 /* CommonScreen */ = {
 			isa = PBXGroup;
@@ -494,6 +512,7 @@
 				55261E311BC8C31000AA3CCD /* Passcode */,
 				55261E2C1BC8C1D600AA3CCD /* Quotes */,
 				552555771C7F6B9A0028D805 /* Resources */,
+				5504DD421C81848B002038E4 /* TutorailScreen */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -760,8 +779,10 @@
 				55261E2F1BC8C1E900AA3CCD /* QuotesViewController.m in Sources */,
 				55F5A3FF1BE1451900DC80F4 /* MoodLineViewController.m in Sources */,
 				558BB0411BF8D5D0000B335D /* DayTitleLabel.m in Sources */,
+				5504DD451C81848B002038E4 /* PageItemController.m in Sources */,
 				55261E341BC8C32C00AA3CCD /* PassCodeViewController.m in Sources */,
 				55429EE11BC8AFCB00CEF9E5 /* InformationViewController.m in Sources */,
+				5504DD481C8184AF002038E4 /* TutorialViewController.m in Sources */,
 				558BB0451BF8D5D0000B335D /* UIImage+CL.m in Sources */,
 				5536AA411BD81D1100398454 /* UPStackMenuItem.m in Sources */,
 				554310C51BE4D7CC00961E34 /* CalendarColorPickerViewController.m in Sources */,

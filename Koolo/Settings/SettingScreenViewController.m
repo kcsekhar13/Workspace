@@ -10,6 +10,7 @@
 #import "QuotesViewController.h"
 #import "PasscodeHomeViewController.h"
 #import "CommonTextViewController.h"
+#import "TutorialViewController.h"
 
 
 @interface SettingScreenViewController ()  {
@@ -210,6 +211,12 @@
             NSString *fileString = [NSString stringWithFormat:@"About%@", typeString];
             [self moveToTextViewScreenWithFileName:fileString withFlag:NO];
         }
+    } else if (indexPath.row == 5) {
+        TutorialViewController *tutorialViewController = (TutorialViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"Tutorial"];
+        tutorialViewController.titleString = contentArray[indexPath.row];
+        
+        [self.navigationController pushViewController:tutorialViewController animated:YES];
+        
     }
 }
 

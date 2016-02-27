@@ -275,7 +275,7 @@
         
     }
     
-    UILabel *eventTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 11.0f, 90.0f, 42)];
+    UILabel *eventTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 11.0f, 290.0f, 42)];
     [eventTitleLabel setText:[dict objectForKey:@"EventTitle"]];
     [eventTitleLabel setTextColor:[UIColor whiteColor]];
     [eventTitleLabel setTextAlignment:NSTextAlignmentLeft];

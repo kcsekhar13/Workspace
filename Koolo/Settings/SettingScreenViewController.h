@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingScreenViewController : UIViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+
+
 @end

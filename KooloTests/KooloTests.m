@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Vinodram. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+//#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
 @interface KooloTests : XCTestCase
