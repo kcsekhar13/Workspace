@@ -37,7 +37,7 @@
         [datesArray addObject:newDate];
     }
     
-   
+    [[AppDataManager sharedInstance] datesArray:datesArray];
     
     
     /*
@@ -104,6 +104,7 @@
     
     
     dataManager = [StoreDataMangager sharedInstance];
+    
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {
         _backgroundImageView.image = backgroundImage;

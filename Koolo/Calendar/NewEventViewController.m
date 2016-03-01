@@ -368,8 +368,9 @@
         [eventDict setObject:_selectedDate forKey:@"EventDate"];
         [eventDict setObject:self.remainderLabel.text forKey:@"Remainder"];
         [eventDict setObject:selectedTagsArray forKey:@"SelectedTags"];
+        [eventDict setObject:_selectedDate forKey:@"unique"];
         NSLog(@"Event Dict = %@", eventDict);
-        [[AppDataManager sharedInstance] createEventWithDetails:eventDict];
+        [[AppDataManager sharedInstance] createEventWithDetails:eventDict withRemainderType:self.remainderLabel.text];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -412,6 +413,7 @@
     [self presentViewController:alert animated:YES completion:nil];
     
 }
+
 #pragma mark - IBAction methods
 
 - (IBAction)moveToColorPickerScreen:(id)sender {

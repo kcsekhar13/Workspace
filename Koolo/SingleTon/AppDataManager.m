@@ -28,7 +28,7 @@ static AppDataManager *sharedInstance = nil;
 }
 
 
--(void)createEventWithDetails :(NSMutableDictionary*)detailsDict {
+-(void)createEventWithDetails :(NSMutableDictionary*)detailsDict withRemainderType:(NSString *)remainderType {
     
     EKEventStore *eventStore = [[EKEventStore alloc ] init];
     EKCalendar *calendar = [eventStore calendarWithIdentifier:[[NSUserDefaults standardUserDefaults] objectForKey:@"Identifier"]];
@@ -56,7 +56,78 @@ static AppDataManager *sharedInstance = nil;
             NSString* str = [[NSString alloc] initWithFormat:@"%@", event.eventIdentifier];
             //[arrayofEventId addObject:str];
             [detailsDict setObject:str forKey:@"EventId"];
-            [self addEventToFile:detailsDict];
+            
+            if ([[detailsDict objectForKey:@"Remainder"] isEqualToString:@"Daily"] || [[detailsDict objectForKey:@"Remainder"] isEqualToString:@"Daglig"]) {
+                
+                NSDate *presentDate = [detailsDict objectForKey:@"EventDate"];
+                
+                [self addEventToFile:detailsDict];
+                
+                for (int i = 0; i < 219; i++) {
+                    
+                    NSDate *nextDay = [presentDate dateByAddingTimeInterval:60*60*24*1];
+                    presentDate = nextDay;
+                    [detailsDict setObject:presentDate forKey:@"EventDate"];
+                    [self addEventToFile:detailsDict];
+                    
+                }
+                
+                
+            } else if ([[detailsDict objectForKey:@"Remainder"] isEqualToString:@"Weekly"] || [[detailsDict objectForKey:@"Remainder"] isEqualToString:@"Ukentlig"]) {
+                
+                NSCalendar *calendar = [NSCalendar currentCalendar];
+                //declare your unitFlags
+                int unitFlags = NSCalendarUnitWeekOfMonth;
+                
+                NSDateComponents *dateComponents = [calendar components:unitFlags fromDate:self.datesArray[0]  toDate:[self.datesArray lastObject] options:0];
+                
+                long weeksInBetween = [dateComponents weekOfMonth];
+                
+                NSDate *presentDate = [detailsDict objectForKey:@"EventDate"];
+                
+                [self addEventToFile:detailsDict];
+                
+                for (int i = 0; i < weeksInBetween; i++) {
+                    
+                    NSDate *nextWeek = [presentDate dateByAddingTimeInterval:60*60*24*7];
+                    presentDate = nextWeek;
+                    [detailsDict setObject:presentDate forKey:@"EventDate"];
+                    [self addEventToFile:detailsDict];
+                    
+                }
+                
+                
+                
+            } else if ([[detailsDict objectForKey:@"Remainder"] isEqualToString:@"Monthly"] || [[detailsDict objectForKey:@"Remainder"] isEqualToString:@"Månedlig"]) {
+                
+                NSDate *presentDate = [detailsDict objectForKey:@"EventDate"];
+                [self addEventToFile:detailsDict];
+                NSCalendar *cal = [NSCalendar currentCalendar];
+                for (int i = 0; i < 6; i++) {
+                    NSDate *someDate = [cal dateByAddingUnit:NSCalendarUnitMonth value:1 toDate:presentDate options:0];
+                    presentDate = someDate;
+                    [detailsDict setObject:presentDate forKey:@"EventDate"];
+                    [self addEventToFile:detailsDict];
+                }
+                
+            } else {
+                
+                NSDate *presentDate = [detailsDict objectForKey:@"EventDate"];
+                [self addEventToFile:detailsDict];
+                NSCalendar *cal = [NSCalendar currentCalendar];
+                for (int i = 0; i < 6; i++) {
+                    NSDate *someDate = [cal dateByAddingUnit:NSCalendarUnitYear value:1 toDate:presentDate options:0];
+                    presentDate = someDate;
+                    [detailsDict setObject:presentDate forKey:@"EventDate"];
+                    [self addEventToFile:detailsDict];
+                }
+                
+            }
+            
+           
+            
+            
+            //[self addEventToFile:detailsDict];
         }
         else{
             
@@ -243,6 +314,36 @@ static AppDataManager *sharedInstance = nil;
     [dict setObject:array forKey:dateKeyString];
     [dict writeToFile:[self getEventsFilePath] atomically:YES];
 
+}
+
+- (void)datesArray:(NSArray *)array {
+    
+    if (self.datesArray.count) {
+        [self.datesArray removeAllObjects];
+        self.datesArray = nil;
+    }
+    self.datesArray = [NSMutableArray arrayWithArray:array];
+    //[self addEventsWeeklyWise];
+}
+
+-(void)addEventsWeeklyWise {
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    //declare your unitFlags
+    int unitFlags = NSCalendarUnitWeekOfMonth;
+    
+    NSDateComponents *dateComponents = [calendar components:unitFlags fromDate:self.datesArray[0]  toDate:[self.datesArray lastObject] options:0];
+    
+    long weeksInBetween = [dateComponents weekOfMonth];
+    
+    NSDate *presentDate = [NSDate date];
+    
+    for (int i = 0; i < weeksInBetween; i++) {
+        
+        NSDate *nextWeek = [presentDate dateByAddingTimeInterval:60*60*24*7];
+        presentDate = nextWeek;
+        
+    }
 }
 
 -(void)deleteAndSaveEventForDate:(NSDate*)date eventsArray:(NSArray*)eventsArray eventId:(NSString *)eventID

@@ -13,13 +13,15 @@
 @interface AppDataManager : NSObject
 
 @property(nonatomic,strong)NSMutableDictionary *selectedDict;
+@property(nonatomic,strong)NSMutableArray *datesArray;
 @property(nonatomic)int index;
 +(AppDataManager *)sharedInstance;
--(void)createEventWithDetails :(NSMutableDictionary*)detailsDict;
+-(void)createEventWithDetails :(NSMutableDictionary*)detailsDict withRemainderType:(NSString *)remainderType;
 -(void)createLocalCalendar;
 -(void)getEventsForDate:(NSDate*)selectedDate;
 -(NSMutableArray*)getEventsForSelectedDate:(NSDate*)date;
 -(NSString*)getTimeFromString:(NSString*)dateString;
 -(void)updateSelectedDict;
 -(void)deleteAndSaveEventForDate:(NSDate*)date eventsArray:(NSArray*)eventsArray eventId:(NSString *)eventID;
+-(void)datesArray:(NSArray *)array;
 @end
