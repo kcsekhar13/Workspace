@@ -68,6 +68,7 @@ static AppDataManager *sharedInstance = nil;
                     NSDate *nextDay = [presentDate dateByAddingTimeInterval:60*60*24*1];
                     presentDate = nextDay;
                     [detailsDict setObject:presentDate forKey:@"EventDate"];
+                    [detailsDict setObject:[NSString stringWithFormat:@"%d", -1] forKey:@"ColorIndex"];
                     [self addEventToFile:detailsDict];
                     
                 }
@@ -92,6 +93,7 @@ static AppDataManager *sharedInstance = nil;
                     NSDate *nextWeek = [presentDate dateByAddingTimeInterval:60*60*24*7];
                     presentDate = nextWeek;
                     [detailsDict setObject:presentDate forKey:@"EventDate"];
+                    [detailsDict setObject:[NSString stringWithFormat:@"%d", -1] forKey:@"ColorIndex"];
                     [self addEventToFile:detailsDict];
                     
                 }
@@ -107,6 +109,7 @@ static AppDataManager *sharedInstance = nil;
                     NSDate *someDate = [cal dateByAddingUnit:NSCalendarUnitMonth value:1 toDate:presentDate options:0];
                     presentDate = someDate;
                     [detailsDict setObject:presentDate forKey:@"EventDate"];
+                    [detailsDict setObject:[NSString stringWithFormat:@"%d", -1] forKey:@"ColorIndex"];
                     [self addEventToFile:detailsDict];
                 }
                 
@@ -119,6 +122,7 @@ static AppDataManager *sharedInstance = nil;
                     NSDate *someDate = [cal dateByAddingUnit:NSCalendarUnitYear value:1 toDate:presentDate options:0];
                     presentDate = someDate;
                     [detailsDict setObject:presentDate forKey:@"EventDate"];
+                    [detailsDict setObject:[NSString stringWithFormat:@"%d", -1] forKey:@"ColorIndex"];
                     [self addEventToFile:detailsDict];
                 }
                 
