@@ -52,7 +52,7 @@ static AppDataManager *sharedInstance = nil;
         NSError *err;
         [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
         if (err == noErr) {
-            NSLog(@"Added Successfully");
+            //NSLog(@"Added Successfully");
             NSString* str = [[NSString alloc] initWithFormat:@"%@", event.eventIdentifier];
             //[arrayofEventId addObject:str];
             [detailsDict setObject:str forKey:@"EventId"];
@@ -213,7 +213,7 @@ static AppDataManager *sharedInstance = nil;
     calendar.title = @"KOOLO CALENDAR";
     // Iterate over all sources in the event store and look for the local source
     EKSource *theSource = nil;
-    NSLog(@"%@ >>>>",eventStore.sources);
+    //NSLog(@"%@ >>>>",eventStore.sources);
     for (EKSource *source in eventStore.sources) {
         if (source.sourceType == EKSourceTypeLocal) {
             theSource = source;
@@ -223,20 +223,20 @@ static AppDataManager *sharedInstance = nil;
     if (theSource) {
         calendar.source = theSource;
     } else {
-        NSLog(@"Error: Local source not available");
+        //NSLog(@"Error: Local source not available");
         return;
     }
     
     NSError *error = nil;
     BOOL result = [eventStore saveCalendar:calendar commit:YES error:&error];
     if (result) {
-        NSLog(@"Saved calendar to event store.");
+        //NSLog(@"Saved calendar to event store.");
         [[NSUserDefaults standardUserDefaults] setObject:calendar.calendarIdentifier forKey:@"Identifier"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         
     } else {
-        NSLog(@"Error saving calendar: %@.", error);
+        //NSLog(@"Error saving calendar: %@.", error);
     }
 }
 
@@ -246,8 +246,8 @@ static AppDataManager *sharedInstance = nil;
     
     NSDate* startDate = selectedDate;//start from today
     NSDate* endDate =  [NSDate dateWithTimeIntervalSinceNow:[[NSDate distantFuture] timeIntervalSinceReferenceDate]];//no end
-    NSLog(@"S Date %@", startDate);
-    NSLog(@"E Date %@", endDate);
+    //NSLog(@"S Date %@", startDate);
+    //NSLog(@"E Date %@", endDate);
     
     NSString *AppointmentTitle=@"Appointment in Hospital at Pediatric Clinic";
     
@@ -261,7 +261,7 @@ static AppDataManager *sharedInstance = nil;
     int EventsCount=(int)eventList.count;
     for(int i=0; i < EventsCount; i++)
     {
-        NSLog(@"Event Title:%@", [[eventList objectAtIndex:i] title]);
+        //NSLog(@"Event Title:%@", [[eventList objectAtIndex:i] title]);
         if ([[[eventList objectAtIndex:i] title] isEqualToString:AppointmentTitle])//check title
         {
             IsFound=TRUE;
@@ -281,7 +281,7 @@ static AppDataManager *sharedInstance = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,     NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filePathAndDirectory = [documentsDirectory stringByAppendingPathComponent:@"EventsList.plist"];
-    
+    //NSLog(@"File path = %@", filePathAndDirectory);
     return filePathAndDirectory;
 }
 
@@ -363,7 +363,42 @@ static AppDataManager *sharedInstance = nil;
     
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[self getAllEvents]];
-    [dict setObject:eventsArray forKey:dateKeyString];
+   
+    
+    for (int i = 0; i < dict.allKeys.count; i++) {
+        
+         NSArray *array = dict.allKeys;
+        id object = dict[array[i]];
+        
+        if ([object isKindOfClass:[NSArray class]]) {
+            
+            NSMutableArray *tempArray = [NSMutableArray arrayWithArray:object];
+            
+            for (int j = 0 ; j <tempArray.count ; j++) {
+                
+                NSDictionary *dict = tempArray[j];
+                
+                if ([dict[@"EventId"] isEqualToString:eventID]) {
+                    
+                    [tempArray removeObjectAtIndex:j];
+                   
+                   
+                }
+            }
+            
+            if (tempArray.count) {
+                [dict setObject:tempArray forKey:array[i]];
+            } else {
+               
+                [dict removeObjectForKey:array[i]];
+                 --i;
+               
+            }
+            //NSLog(@" Success");
+        }
+    }
+    
+    //[dict setObject:eventsArray forKey:dateKeyString];
     [dict writeToFile:[self getEventsFilePath] atomically:YES];
     
 }
@@ -402,7 +437,7 @@ static AppDataManager *sharedInstance = nil;
     [dateformate setDateFormat:@"hh:mm:SS a"]; // Date formater
     
     NSString *string = [dateformate stringFromDate:dateString]; // Convert date to string
-    NSLog(@"date :%@",string);
+    //NSLog(@"date :%@",string);
     return string;
 }
 

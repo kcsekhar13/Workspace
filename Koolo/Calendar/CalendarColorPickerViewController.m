@@ -69,10 +69,10 @@
         
     }
     
-    for (UIView *view in [self.view subviews]) {
-        
-        NSLog(@"View = %@", view);
-    }
+//    for (UIView *view in [self.view subviews]) {
+//        
+//        NSLog(@"View = %@", view);
+//    }
     // Do any additional setup after loading the view.
 }
 
@@ -137,7 +137,7 @@
 - (IBAction)colorSelection:(id)sender {
     
     UIButton *button = (UIButton *)sender;
-    NSLog(@"Sender = %@ \n withColor Tag %ld", sender, button.tag);
+    //NSLog(@"Sender = %@ \n withColor Tag %ld", sender, button.tag);
     if (self.selectedIndex == 1) {
         
         [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%ld",(long)button.tag] forKey:@"calendarColorIndex"];

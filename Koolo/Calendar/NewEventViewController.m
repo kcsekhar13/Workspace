@@ -300,7 +300,7 @@
 
 - (void)selectRemainderType:(UIBarButtonItem *)barbutton {
     
-    NSLog(@"%ld", (long)barbutton.tag);
+    //NSLog(@"%ld", (long)barbutton.tag);
     if (barbutton.tag != -1) {
         self.remainderLabel.text = barbutton.title;
     }
@@ -369,7 +369,7 @@
         [eventDict setObject:self.remainderLabel.text forKey:@"Remainder"];
         [eventDict setObject:selectedTagsArray forKey:@"SelectedTags"];
         [eventDict setObject:_selectedDate forKey:@"unique"];
-        NSLog(@"Event Dict = %@", eventDict);
+        //NSLog(@"Event Dict = %@", eventDict);
         [[AppDataManager sharedInstance] createEventWithDetails:eventDict withRemainderType:self.remainderLabel.text];
     }
     [self.navigationController popViewControllerAnimated:YES];

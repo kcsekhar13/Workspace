@@ -312,7 +312,7 @@
             NSDateFormatter *dayFormatter=[[NSDateFormatter alloc] init];
             [dayFormatter setDateFormat:@"EEE"];
             
-            NSLog(@"Date<><> = %@", [dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]]);
+            //NSLog(@"Date<><> = %@", [dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]]);
             NSString *textString = [NSString stringWithFormat:@"%@ \n%@", [dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]], [dayFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]]];
             
             dataManager = [StoreDataMangager sharedInstance];
@@ -696,10 +696,12 @@
 //        [_chats removeObjectAtIndex:indexPath.row];
 //        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         NSString *eventId = [[self.eventsArray objectAtIndex:indexPath.row] objectForKey:@"EventId"];
+        
+        [[AppDataManager sharedInstance] deleteAndSaveEventForDate:[[self.eventsArray objectAtIndex:indexPath.row] objectForKey:@"unique"] eventsArray:self.eventsArray eventId:eventId];
         [self.eventsArray removeObjectAtIndex:indexPath.row];
-        [[AppDataManager sharedInstance] deleteAndSaveEventForDate:self.selectedDate eventsArray:self.eventsArray eventId:eventId];
-        [self refreshView];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self refreshView];
         //[self displayEventsForSelectedDate:self.selectedButton];
         
     }

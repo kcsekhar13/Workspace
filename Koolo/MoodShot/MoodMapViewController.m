@@ -78,7 +78,7 @@
     
     for (CustomMoodMapView *colorPickerButton in _contentScrollView.subviews) {
         
-        NSLog(@"%d >>>%@", (int)colorPickerButton.tag,colorPickerButton);
+        //NSLog(@"%d >>>%@", (int)colorPickerButton.tag,colorPickerButton);
         if (colorPickerButton.tag <= 10 && [colorPickerButton isKindOfClass:[CustomMoodMapView class]]) {
             [colorPickerButton setBackgroundColor:[UIColor clearColor]];
 

@@ -289,7 +289,7 @@
 
 - (void)addNewgoalWithText:(NSString *)goalText {
     
-    NSLog(@"New goal text = %@", goalText);
+    //NSLog(@"New goal text = %@", goalText);
     
     NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:goalText,@"GoalText",@"Pending",@"GoalStatus",@"NO",@"Hidden", nil];
     
@@ -342,7 +342,7 @@
 
 - (IBAction)tappedOnStatusButton:(id)sender {
     
-    NSLog(@"%@",sender);
+    //NSLog(@"%@",sender);
     
     UITapGestureRecognizer *taper = (UITapGestureRecognizer*)sender;
     UIView *view = taper.view;
