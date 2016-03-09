@@ -24,6 +24,7 @@
 		5504DD451C81848B002038E4 /* PageItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5504DD441C81848B002038E4 /* PageItemController.m */; };
 		5504DD481C8184AF002038E4 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5504DD471C8184AF002038E4 /* TutorialViewController.m */; };
 		550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */; };
+		5511109D1C90A26C00F6A3AE /* DefulatTransform_Norway.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5511109C1C90A26C00F6A3AE /* DefulatTransform_Norway.plist */; };
 		5511280C1BEA856900F850C6 /* SecretAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */; };
 		552555791C7F6BD50028D805 /* Contributions_Eng.plist in Resources */ = {isa = PBXBuildFile; fileRef = 552555781C7F6BD50028D805 /* Contributions_Eng.plist */; };
 		5525557B1C7F6C680028D805 /* Contributions_Nor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5525557A1C7F6C680028D805 /* Contributions_Nor.plist */; };
@@ -132,6 +133,7 @@
 		5504DD471C8184AF002038E4 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		550F97A41BE29B6F005510F5 /* ColorPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewCell.h; sourceTree = "<group>"; };
 		550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewCell.m; sourceTree = "<group>"; };
+		5511109C1C90A26C00F6A3AE /* DefulatTransform_Norway.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefulatTransform_Norway.plist; sourceTree = "<group>"; };
 		5511280A1BEA856900F850C6 /* SecretAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretAnswerViewController.h; sourceTree = "<group>"; };
 		5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretAnswerViewController.m; sourceTree = "<group>"; };
 		552555781C7F6BD50028D805 /* Contributions_Eng.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contributions_Eng.plist; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				553A2A0D1C74EB4B00108757 /* DefaultGoals.plist */,
 				553A2A0F1C74EF0000108757 /* DefaultGoals_Norway.plist */,
 				557745EC1C7B7BAA0005DA64 /* DefulatTransform.plist */,
+				5511109C1C90A26C00F6A3AE /* DefulatTransform_Norway.plist */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				557745ED1C7B7BAB0005DA64 /* DefulatTransform.plist in Resources */,
 				553B65C91BFBB3D900F288DD /* yellow.png in Resources */,
 				5504DD3F1C81830D002038E4 /* ReadyForTransitionScreen.jpg in Resources */,
+				5511109D1C90A26C00F6A3AE /* DefulatTransform_Norway.plist in Resources */,
 				F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */,
 				5525557F1C7F6E080028D805 /* About_Nor.plist in Resources */,
 				F337739F1BC8D51300793831 /* WhitePlus.png in Resources */,

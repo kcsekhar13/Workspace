@@ -16,7 +16,7 @@
 @property(nonatomic,strong)NSMutableArray *datesArray;
 @property(nonatomic)int index;
 +(AppDataManager *)sharedInstance;
--(void)createEventWithDetails :(NSMutableDictionary*)detailsDict withRemainderType:(NSString *)remainderType;
+-(BOOL)createEventWithDetails :(NSMutableDictionary*)detailsDict withRemainderType:(NSString *)remainderType;
 -(void)createLocalCalendar;
 -(void)getEventsForDate:(NSDate*)selectedDate;
 -(NSMutableArray*)getEventsForSelectedDate:(NSDate*)date;

@@ -16,4 +16,5 @@
 }
 
 @property (nonatomic, assign) int selectedIndex;
+@property (nonatomic, retain) NSDate *selectedDate;
 @end

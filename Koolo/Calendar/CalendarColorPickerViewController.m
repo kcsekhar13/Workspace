@@ -24,7 +24,14 @@
     dataManager = [StoreDataMangager sharedInstance];
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd"];
-    [_mydayLabel setText:[dateFormatter stringFromDate:[NSDate date]]];
+    
+     if (self.selectedIndex == 1) {
+         
+         [_mydayLabel setText:[dateFormatter stringFromDate:self.selectedDate]];
+     } else {
+         [_mydayLabel setText:[dateFormatter stringFromDate:[NSDate date]]];
+     }
+    
     [_mydayLabel setTextAlignment:NSTextAlignmentCenter];
     [_mydayLabel setFont:[UIFont systemFontOfSize:24.0f]];
     [_mydayLabel setBackgroundColor:[UIColor grayColor]];

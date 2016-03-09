@@ -112,7 +112,17 @@
         
         
         [self addSubview:_noAppointmentsLabel];
-        [_noAppointmentsLabel setText:@"No Appointments"];
+        
+        NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+        if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
+            
+            NSString *appointMentsLabelText = NSLocalizedString(@"No Appointments", nil);
+            [_noAppointmentsLabel setText:appointMentsLabelText];
+            
+        } else {
+            [_noAppointmentsLabel setText:@"No Appointments"];
+        }
+        
         [_noAppointmentsLabel setHidden:NO];
 
     } else {

@@ -114,7 +114,19 @@
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"defaultGoals"]) {
         
-        NSArray *newGoalsArray = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultGoals.plist" ofType:nil]];
+        NSString *goalsFileName = nil;
+        NSString *transistionFileName = nil;
+        NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+        if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
+            
+            goalsFileName = @"DefaultGoals_Norway.plist";
+            transistionFileName = @"DefulatTransform_Norway.plist";
+                        
+        } else {
+            goalsFileName = @"DefaultGoals.plist";
+            transistionFileName = @"DefulatTransform.plist";
+        }
+        NSArray *newGoalsArray = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:goalsFileName ofType:nil]];
         
         for (int i = 0; i < newGoalsArray.count; i++) {
             NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:newGoalsArray[i],@"GoalText",@"Pending",@"GoalStatus",@"NO",@"Hidden", nil];
@@ -122,7 +134,7 @@
             [dataManager saveDictionaryToMoodShotPlist:moodDict];
         }
         
-        NSArray *newTransFormArray = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefulatTransform.plist" ofType:nil]];
+        NSArray *newTransFormArray = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:transistionFileName ofType:nil]];
         
         for (int i = 0; i < newTransFormArray.count; i++) {
             NSDictionary *moodDict = [[NSDictionary alloc] initWithObjectsAndKeys:newTransFormArray[i],@"GoalText",@"Pending",@"GoalStatus",@"NO",@"Hidden", nil];

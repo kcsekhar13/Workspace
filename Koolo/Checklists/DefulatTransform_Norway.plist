@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Jeg forstår de medisinske begreper som er spesielle for min helsetilstand eller funksjonsnedsettelse.</string>
+	<string>Jeg kan besvare spørsmål fra mine behandlere om min helsetilstand.</string>
+	<string>Jeg kjenner til symptomene og komplikasjonene som er spesielle for min tilstand.</string>
+	<string>Jeg vet hvilke allergier jeg har og hvordan jeg håndterer dem.</string>
+	<string>Jeg har diskutert med mine behandlere om tobakk, alkohol og narkotika kan ha innvirkning på min helsetilstand.</string>
+	<string>Jeg har diskutert med mine behandlere hvordan min helsetilstand vil påvirke min seksuelle og reproduktive helse.</string>
+	<string>Jeg kjenner mine medisiner og behandlingsrutiner.</string>
+	<string>Jeg vet hvilke tester/undersøkelser jeg tar jevnlig og hvorfor jeg trenger dem.</string>
+	<string>Jeg kjenner bivirkningene av og restriksjoner knyttet til mine medisiner.</string>
+	<string>Jeg er ansvarlig for å huske på å ta min medisin eller utføre nødvendig behandling.</string>
+	<string>Jeg er ansvarlig for å ta vare på og fornye mine resepter.</string>
+	<string>Jeg vet hvilket utstyr jeg bruker og hvordan jeg bruker det.</string>
+	<string>Jeg vet hvordan jeg får tak i det utstyret jeg trenger.</string>
+	<string>Jeg vet hvem jeg skal kontakte for medisinske råd, inkludert i medisinsk nødssituasjon eller utenom åpningstid på legekontoret.</string>
+	<string>Jeg gjør mine egne avtaler ved de helsetjenester jeg bruker.</string>
+	<string>Jeg vet hvordan jeg kan endre på timeavtalene mine hvis nødvendig.</string>
+	<string>Jeg vet at jeg kan snakke med/jeg har snakket med behandleren min alene.</string>
+	<string>Jeg er komfortabel med å spørre min behandler om å forklare ting bedre som jeg ikke forstår.</string>
+	<string>Jeg vet hvordan jeg organiserer betaling av egenandel.</string>
+	<string>Jeg har mottatt muntlig og skriftlig informasjon om mine rettigheter som helsetjenestebruker.</string>
+	<string>Jeg vet hva min rett til informert samtykke innebærer.</string>
+	<string>Jeg vet hva taushetsplikt og konfidensialitet innebærer.</string>
+	<string>Jeg har en fastlege jeg stoler på og er komfortabel å prate med.</string>
+	<string>Jeg vet hvordan jeg kan få svar på spørsmål om helse.</string>
+	<string>Jeg vet hva jeg skal gjøre hvis jeg blir uvel eller trenger medisinsk assistanse.</string>
+	<string>Jeg vet hva jeg skal gjøre hvis jeg trenger medisinsk hjelp etter fastlegens kontortid.</string>
+	<string>Jeg kjenner til fordelene ved å ta godt vare på meg selv og hvordan faktorer som kosthold, søvn og stress påvirker meg, og jeg har diskutert dette med mitt behandlingsteam.</string>
+	<string>Jeg vet om min helsetilstand gir meg noen begrensninger i yrkesvalg.</string>
+	<string>Jeg vet hvem jeg kan kontakte for veiledning knyttet til utdannings- og yrkesvalg. </string>
+	<string>Jeg vet hvordan jeg kan få nødvendig tilpasning i min arbeidssituasjon.</string>
+	<string>Jeg er trygg på å snakke min egen sak. </string>
+	<string>Jeg vet hva som er gode valg for meg når jeg blir stresset eller oppskaket.</string>
+	<string>Jeg kjenner til pasientorganisasjoner for min tilstand og om det er en egen ungdomsgruppe jeg kan knytte meg til. </string>
+	<string>Jeg vet hvordan jeg kan få informasjon om seksuell helse.</string>
+	<string>Jeg vet hvem jeg kan kontakte for hjelp med min psykiske helse.</string>
+	<string>Jeg kjenner til forskjellene i helsetjenester for barn og helsetjenester for voksne. </string>
+	<string>Jeg har laget en plan for min overgang til helsetjenester for voksne sammen med min behandler.</string>
+	<string>Jeg har en kopi av epikrise fra sykehuset.</string>
+	<string>Jeg føler meg forberedt til å overføres til helsetjenester for voksne.</string>
+	<string>Jeg har fått kontaktinformasjon til min nye helsetjeneste.</string>
+	<string>Jeg har fått omvisning.</string>
+	<string>Jeg har hilst på noen av mine nye behandlere.</string>
+	<string>Jeg vet hvordan jeg bestiller/forandrer time der.</string>
+	<string>Jeg har skrevet mitt eget introduksjonsbrev.</string>
+	<string>Jeg har fått innkalling til min første timeavtale der.</string>
+</array>
+</plist>

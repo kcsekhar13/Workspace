@@ -28,7 +28,7 @@ static AppDataManager *sharedInstance = nil;
 }
 
 
--(void)createEventWithDetails :(NSMutableDictionary*)detailsDict withRemainderType:(NSString *)remainderType {
+-(BOOL)createEventWithDetails :(NSMutableDictionary*)detailsDict withRemainderType:(NSString *)remainderType {
     
     EKEventStore *eventStore = [[EKEventStore alloc ] init];
     EKCalendar *calendar = [eventStore calendarWithIdentifier:[[NSUserDefaults standardUserDefaults] objectForKey:@"Identifier"]];
@@ -140,9 +140,8 @@ static AppDataManager *sharedInstance = nil;
         }
    
     
+    return YES;
     
-    //[eventStore defaultCalendarForNewEvents];
-    //  NSLog(@"%@ >>>>",[eventStore calendars]);
   
     
     

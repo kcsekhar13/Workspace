@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *addTagLabel;
 @property (weak, nonatomic) IBOutlet UIButton *tagsDoneButton;
 @property (weak, nonatomic) IBOutlet UILabel *remaindLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *activityView;
 
 @end
 
@@ -43,7 +45,7 @@
     
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
-        self.title = NSLocalizedString(@"Today's events", nil);
+        self.title = @"Dagens hendelser";
         doneButtonTitle = NSLocalizedString(@"Done", nil);
         cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
         titlesArray = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Tough", nil), NSLocalizedString(@"Long", nil), NSLocalizedString(@"Faith", nil), nil];
@@ -55,6 +57,7 @@
         self.addTagField.placeholder = NSLocalizedString(@"Clinic", nil);
         self.eventTextField.placeholder = NSLocalizedString(@"Today's events", nil);
         self.remaindLabel.text = NSLocalizedString(@"Remind me", nil);
+        self.addTagField.placeholder  = NSLocalizedString(@"Multiple Tags", nil);
         
     } else {
         self.title = @"Today's Event";
@@ -66,6 +69,7 @@
         self.eventTextField.placeholder = @"Today's events";
         [self.tagsDoneButton setTitle:@"Done" forState:UIControlStateNormal];
         self.remaindLabel.text = @"Remind me";
+        self.addTagField.placeholder  = @"Multiple Tags";
         
         remaindingTitlesArray = [[NSArray alloc] initWithObjects:@"Daily", @"Weekly", @"Monthly", @"Yearly",nil];
         
@@ -154,7 +158,8 @@
     [toolBar setItems:[NSArray arrayWithObjects:dailyButton, flexSpace2, weeklyButton, flexSpace3,monthlyButton,flexSpace, yearButton,nil]];
     [self.view addSubview:toolBar];
     
-    self.addTagField.placeholder  = @"Multiple Tags";
+    
+    [self.activityView setHidden:YES];
     
 }
 
@@ -325,9 +330,13 @@
     self.addTagField.text = @"";
 }
 
+
 - (void)moveToCalendarScreen:(id)sender {
-    
     UIBarButtonItem *buttonItem = (UIBarButtonItem *)sender;
+    
+    [self.activityView setHidden:NO];
+    self.activityView.center = CGPointMake(self.view.center.x+40, (self.view.center.y/2)+100) ;
+    [self.view setUserInteractionEnabled:NO];
     
     if (buttonItem.tag == 1) {
         
@@ -339,15 +348,22 @@
         
         if (self.eventTextField.text.length == 0) {
             
+            [self.activityView setHidden:YES];
+            [self.view setUserInteractionEnabled:YES];
             [self displayErrorMessageView:@"Event Field should not be empty"];
             return;
         }
         
         if (self.remainderLabel.text.length == 0) {
-            
+            [self.activityView setHidden:YES];
+            [self.view setUserInteractionEnabled:YES];
             [self displayErrorMessageView:@"Select appointment time"];
             return;
         }
+        
+        
+        
+        
         
         NSMutableDictionary *eventDict = [[NSMutableDictionary alloc] init];
         [eventDict setObject:[NSString stringWithFormat:@"%d", remaindFlag] forKey:@"RemainderFlag"];
@@ -371,7 +387,10 @@
         [eventDict setObject:_selectedDate forKey:@"unique"];
         //NSLog(@"Event Dict = %@", eventDict);
         [[AppDataManager sharedInstance] createEventWithDetails:eventDict withRemainderType:self.remainderLabel.text];
+        
     }
+    [self.activityView setHidden:YES];
+    [self.view setUserInteractionEnabled:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -421,6 +440,7 @@
     selectedColorFlag = YES;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     CalendarColorPickerViewController *obj = (CalendarColorPickerViewController* )[storyboard instantiateViewControllerWithIdentifier:@"CalendarColorPicker"];
+    obj.selectedDate = self.selectedDate;
     [obj setSelectedIndex:1];
     [self.navigationController pushViewController:obj animated:YES];
 }

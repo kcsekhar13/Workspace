@@ -32,7 +32,7 @@
 "InfoDescription" = "Marker et mål som uaktuelt ved å sveipe til høyre";
 "Mood Line" = "Mood Linje";
 "Filter" = "Filter";
-"Mood Map" = "Mood Kart";
+"Mood Map" = "Kart";
 "All" = "Alle";
 "SelectHumorColor" = "Velg humor farge";
 "Return" = " Tilbake";
@@ -64,4 +64,6 @@
 "Yearly" = "Årlig";
 "Clinic" = "Klinikk";
 
+"No Appointments" = "Ingen hendelser";
+"Multiple Tags" = "Legg til beskrivelse";
 

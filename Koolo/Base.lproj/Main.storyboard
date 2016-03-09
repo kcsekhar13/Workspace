@@ -928,11 +928,25 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" id="WBF-I0-weD">
+                                <rect key="frame" x="114" y="260" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="Tep-RK-TcP">
+                                        <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="QfE-Jw-cA3"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Tep-RK-TcP" id="l5y-Ju-UCB"/>
+                        <outlet property="activityView" destination="WBF-I0-weD" id="6Ne-ht-k54"/>
                         <outlet property="addTagField" destination="Rub-4F-0WK" id="Nib-Er-NLa"/>
                         <outlet property="eventTextField" destination="sng-Ef-TXs" id="Uk1-FM-cbw"/>
                         <outlet property="mDayLabel" destination="7t1-ee-bVK" id="Vtn-d2-kLH"/>
@@ -1633,7 +1647,7 @@
                                 <rect key="frame" x="0.0" y="464" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1658,7 +1672,7 @@
         <image name="green.png" width="35" height="35"/>
         <image name="plus.png" width="88" height="88"/>
         <image name="red.png" width="35" height="35"/>
-        <image name="settings.png" width="256" height="256"/>
+        <image name="settings.png" width="88" height="88"/>
         <image name="time.png" width="48" height="48"/>
         <image name="yellow.png" width="35" height="35"/>
     </resources>
