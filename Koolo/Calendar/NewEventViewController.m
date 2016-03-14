@@ -334,6 +334,14 @@
 - (void)moveToCalendarScreen:(id)sender {
     UIBarButtonItem *buttonItem = (UIBarButtonItem *)sender;
     
+    if ([_eventTextField isFirstResponder]) {
+        [_eventTextField resignFirstResponder];
+    }
+    
+    if ([_addTagField isFirstResponder]) {
+        [_addTagField resignFirstResponder];
+    }
+    
     [self.activityView setHidden:NO];
     self.activityView.center = CGPointMake(self.view.center.x+40, (self.view.center.y/2)+100) ;
     [self.view setUserInteractionEnabled:NO];

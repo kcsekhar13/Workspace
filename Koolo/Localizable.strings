@@ -58,10 +58,10 @@
 "Faith" = "Tro";
 "New event" = "Ny hendelse";
 "Remind me" = "Påminnelse";
-"Daily" = "Daglig";
-"Weekly" = "Ukentlig";
-"Monthly" = "Månedlig";
-"Yearly" = "Årlig";
+"Daily" = "I dag";
+"Weekly" = "Hver dag";
+"Monthly" = "Ukentlig";
+"Yearly" = "Månedlig";
 "Clinic" = "Klinikk";
 
 "No Appointments" = "Ingen hendelser";

@@ -378,7 +378,7 @@
                 
                 UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 80.0f, 15.0f)];
                 NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
-                [monthFormatter setDateFormat:@"MMM, yyyy"];
+                [monthFormatter setDateFormat:@"MM, yyyy"];
                 monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
                 [monthLabel setTextColor:[UIColor whiteColor]];
                 [monthLabel setTextAlignment:NSTextAlignmentCenter];
@@ -553,7 +553,7 @@
             //if ([[dateFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]] isEqualToString:@"01"] || ((gestureCount * 9) + dateIndex) == 0) {
                 UILabel *monthLabel = [[UILabel alloc] initWithFrame:CGRectMake(colorPickerButton.frame.origin.x - 5, colorPickerButton.frame.origin.y + colorPickerButton.frame.size.height + 5.0f, 80.0f, 15.0f)];
                 NSDateFormatter *monthFormatter=[[NSDateFormatter alloc] init];
-                [monthFormatter setDateFormat:@"MMM, yyyy"];
+                [monthFormatter setDateFormat:@"MM, yyyy"];
                 monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
                 [monthLabel setTextColor:[UIColor whiteColor]];
                 [monthLabel setTextAlignment:NSTextAlignmentCenter];
