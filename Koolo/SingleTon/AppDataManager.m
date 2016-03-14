@@ -57,7 +57,7 @@ static AppDataManager *sharedInstance = nil;
             //[arrayofEventId addObject:str];
             [detailsDict setObject:str forKey:@"EventId"];
             
-            if ([[detailsDict objectForKey:@"Remainder"] isEqualToString:@"Daily"] || [[detailsDict objectForKey:@"Remainder"] isEqualToString:@"Daglig"]) {
+            if ([[detailsDict objectForKey:@"Remainder"] isEqualToString:@"Daily"] || [[detailsDict objectForKey:@"Remainder"] isEqualToString:@"Hver dag"]) {
                 
                 NSDate *presentDate = [detailsDict objectForKey:@"EventDate"];
                 
@@ -117,6 +117,7 @@ static AppDataManager *sharedInstance = nil;
                 
                 NSDate *presentDate = [detailsDict objectForKey:@"EventDate"];
                 [self addEventToFile:detailsDict];
+                /*
                 NSCalendar *cal = [NSCalendar currentCalendar];
                 for (int i = 0; i < 6; i++) {
                     NSDate *someDate = [cal dateByAddingUnit:NSCalendarUnitYear value:1 toDate:presentDate options:0];
@@ -125,7 +126,7 @@ static AppDataManager *sharedInstance = nil;
                     [detailsDict setObject:[NSString stringWithFormat:@"%d", -1] forKey:@"ColorIndex"];
                     [self addEventToFile:detailsDict];
                 }
-                
+                */
             }
             
            

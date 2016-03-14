@@ -71,7 +71,7 @@
         self.remaindLabel.text = @"Remind me";
         self.addTagField.placeholder  = @"Multiple Tags";
         
-        remaindingTitlesArray = [[NSArray alloc] initWithObjects:@"Daily", @"Weekly", @"Monthly", @"Yearly",nil];
+        remaindingTitlesArray = [[NSArray alloc] initWithObjects:@"Today",@"Daily", @"Weekly", @"Monthly", nil];
         
     }
     
