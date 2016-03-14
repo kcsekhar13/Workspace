@@ -7,6 +7,8 @@
 //
 
 #import "PassCodeViewController.h"
+#import "ViewController.h"
+#import "AppDelegate.h"
 
 @interface PassCodeViewController ()
 
@@ -30,7 +32,7 @@
         cancelTitle = @"Cancel";
         wrongCodeMessage = @"Wrong Code";
     }
-    
+    self.passcodeField.keyboardType = UIKeyboardTypeNumberPad;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     secretQuestion = (NSString *)[defaults objectForKey:@"secretQuestion"];
     secretAnswer = (NSString *)[defaults objectForKey:@"secretAnswer"];
@@ -189,6 +191,15 @@
     if ([passWord isEqualToString:passString]) {
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if ([defaults boolForKey:@"isPassCodeOn"] && [[defaults objectForKey:@"Password"] length]) {
+            
+            AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"HomeScreen"]];
+            appdelegate.window.rootViewController = navigationController;
+        }
+        
+        
         [self.navigationController pushViewController:[storyboard instantiateViewControllerWithIdentifier:@"HomeScreen"] animated:YES];
         
         
