@@ -67,12 +67,19 @@
     [self.backgroundImageView addSubview:effectView];
     [self.backgroundImageView addSubview:vibrantView];
     
+    NSDictionary* barButtonItemAttributes =
+    @{NSFontAttributeName:
+          [UIFont fontWithName:@"Klavika-Regular" size:20.0f],
+      NSForegroundColorAttributeName:
+          [UIColor blackColor]
+      };
+    
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(addOn)];
-    [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [doneButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
     
     UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(previousScreen)];
-    [cancelButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [cancelButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = cancelButton;
     
     if (self.editFlag) {

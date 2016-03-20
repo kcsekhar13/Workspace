@@ -59,14 +59,21 @@
     _imagePickerController.delegate = self;
     _imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
     
+    NSDictionary* barButtonItemAttributes =
+    @{NSFontAttributeName:
+          [UIFont fontWithName:@"Klavika-Regular" size:20.0f],
+      NSForegroundColorAttributeName:
+          [UIColor blackColor]
+      };
+    
     UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
-    [leftButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [leftButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     
     self.navigationItem.leftBarButtonItem = leftButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
-    [rightButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [rightButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = rightButton;
     // Do any additional setup after loading the view.
 }

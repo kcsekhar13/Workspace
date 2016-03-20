@@ -74,8 +74,15 @@
     
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
+    NSDictionary* barButtonItemAttributes =
+    @{NSFontAttributeName:
+          [UIFont fontWithName:@"Klavika-Regular" size:20.0f],
+      NSForegroundColorAttributeName:
+          [UIColor blackColor]
+      };
+    
     UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
-    [cancelButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [cancelButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = cancelButton;
 }
 

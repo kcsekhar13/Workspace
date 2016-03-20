@@ -79,13 +79,20 @@
     
     self.navigationController.navigationBar.titleTextAttributes = size;
     
+    NSDictionary* barButtonItemAttributes =
+    @{NSFontAttributeName:
+          [UIFont fontWithName:@"Klavika-Regular" size:20.0f],
+      NSForegroundColorAttributeName:
+          [UIColor blackColor]
+      };
+    
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToCalendarScreen:)];
-    [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [doneButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     doneButton.tag = 1;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToCalendarScreen:)];
-    [cancelButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [cancelButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     cancelButton.tag = 2;
     self.navigationItem.leftBarButtonItem = cancelButton;
     self.navigationItem.rightBarButtonItem = doneButton;

@@ -61,13 +61,20 @@
     _goalsTableView.dataSource = self;
     _goalsTableView.delegate = self;
     
+    NSDictionary* barButtonItemAttributes =
+    @{NSFontAttributeName:
+          [UIFont fontWithName:@"Klavika-Regular" size:20.0f],
+      NSForegroundColorAttributeName:
+          [UIColor blackColor]
+      };
+    
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:self.leftButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(clickedOnFinished)];
-    [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [doneButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     UIBarButtonItem* newGoalButton = [[UIBarButtonItem alloc] initWithTitle:self.rightButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToNewGoalScreen)];
-    [newGoalButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [newGoalButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = newGoalButton;
     
     

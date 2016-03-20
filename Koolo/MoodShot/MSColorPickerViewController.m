@@ -44,12 +44,19 @@
     dataManager = [StoreDataMangager sharedInstance];
     colorTitlesArray = [[NSMutableArray alloc] initWithArray:dataManager.fetchColorPickerTitlesArray];
     
+    NSDictionary* barButtonItemAttributes =
+    @{NSFontAttributeName:
+          [UIFont fontWithName:@"Klavika-Regular" size:20.0f],
+      NSForegroundColorAttributeName:
+          [UIColor blackColor]
+      };
+    
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(doneWithColorSelection)];
     self.navigationItem.rightBarButtonItem = doneButton;
     
     UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(backToScreen)];
-    [backButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
-    [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [backButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
+    [doneButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     
     self.navigationItem.leftBarButtonItem = backButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
