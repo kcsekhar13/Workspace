@@ -37,7 +37,7 @@
         [_mDayLabel setFrame:CGRectMake(20, 40, 50, 50)];
         [_mDayLabel setText:[dateFormatter stringFromDate:[NSDate date]]];
         [_mDayLabel setTextAlignment:NSTextAlignmentCenter];
-        [_mDayLabel setFont:[UIFont systemFontOfSize:24.0f]];
+        [_mDayLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:24.0f]];
         [_mDayLabel setBackgroundColor:[UIColor grayColor]];
         
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"] intValue] != -1 && [[NSUserDefaults standardUserDefaults] objectForKey:@"calendarColorIndex"]) {
@@ -70,7 +70,7 @@
         [_mQuoteText setTextColor:[UIColor whiteColor]];
         [_mQuoteText setNumberOfLines:3];
         [_mQuoteText setTextAlignment:NSTextAlignmentLeft];
-        [_mQuoteText setFont:[UIFont italicSystemFontOfSize:14.0f]];
+        [_mQuoteText setFont:[UIFont fontWithName:@"Klavika-Regular" size:14.0f]];
         [_mQuoteText setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"SelectedQuote"]];
         [self addSubview:_mQuoteText];
     } else {
@@ -103,7 +103,7 @@
         [_noAppointmentsLabel setFrame:CGRectMake(80, 90, self.frame.size.width-100, 40)];
         [_noAppointmentsLabel setTextColor:[UIColor whiteColor]];
         [_noAppointmentsLabel setTextAlignment:NSTextAlignmentLeft];
-        _noAppointmentsLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:15.0];
+        _noAppointmentsLabel.font = [UIFont fontWithName:@"Klavika-Bold" size:15.0f];
         [_noAppointmentsLabel setHidden:YES];
     }
     if (self.eventsArray.count == 0) {
@@ -265,7 +265,7 @@
 
     [cell.textLabel setTextColor:[UIColor whiteColor]];
     cell.textLabel.text = @"";
-    cell.textLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:20.0];
+    cell.textLabel.font = [UIFont fontWithName:@"Klavika-Bold" size:20.0f];
     //cell.textLabel.frame = CGRectMake(cell.textLabel.frame.origin.x + 15, cell.textLabel.frame.origin.y, cell.textLabel.frame.size.width, cell.textLabel.frame.size.height);
     [cell setBackgroundColor:[UIColor clearColor]];
     
@@ -289,7 +289,7 @@
     [eventTitleLabel setText:[dict objectForKey:@"EventTitle"]];
     [eventTitleLabel setTextColor:[UIColor whiteColor]];
     [eventTitleLabel setTextAlignment:NSTextAlignmentLeft];
-    [eventTitleLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20.0]];
+    [eventTitleLabel setFont:[UIFont fontWithName:@"Klavika-Bold" size:20.0f]];
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(85.0f, 56.0f, 25, 25)];
     [imageView setImage:[UIImage imageNamed:@"time.png"]];
@@ -298,7 +298,7 @@
     [remainderLabel setText:[dict objectForKey:@"Remainder"]];
     [remainderLabel setTextColor:[UIColor whiteColor]];
     [remainderLabel setTextAlignment:NSTextAlignmentLeft];
-    [remainderLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:15.0]];
+    [remainderLabel setFont:[UIFont fontWithName:@"Klavika-Bold" size:15.0f]];
     
     UILabel *clinicLabel = [[UILabel alloc] initWithFrame:CGRectMake(5.0f, 56.0f, 90.0f, 21)];
     [clinicLabel setText:[dict objectForKey:@"TagTitle"]];

@@ -46,7 +46,8 @@
         cancelTitle = @"Cancel";
         doneButtonTitle = @"Done";
     }
-    NSLog(@"Language = %@", language);
+    
+       
     
     self.navigationController.navigationBar.hidden = NO;
     
@@ -108,6 +109,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = contentArray[indexPath.row];
     cell.textLabel.textColor = [UIColor blackColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Klavika-Medium" size:15.0f];
     
     if (indexPath.row == 1) {
         

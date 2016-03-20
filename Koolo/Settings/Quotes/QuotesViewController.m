@@ -87,7 +87,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     [_mNoteTextField setTextColor:[UIColor grayColor]];
     [_mEnableSwitch setSelected:TRUE]; // Set Default to TRUE.
    
-    [_mTypeStatusLabel setFont:[UIFont systemFontOfSize:12.0f]];
+    [_mTypeStatusLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:12.0f]];
     [_mTypeStatusLabel setHidden:TRUE];
     //[_addButton setHidden:TRUE];
     [_mQuotesTableview setSeparatorColor:[UIColor clearColor]];

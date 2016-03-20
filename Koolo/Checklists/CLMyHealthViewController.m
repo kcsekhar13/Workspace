@@ -262,7 +262,7 @@
     
     NSAttributedString *attributedText =
     [[NSAttributedString alloc] initWithString:_addGoalsArray[indexPath.row][@"GoalText"]
-                                    attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:20.0f]}];
+                                    attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Klavika-Regular" size:20.0f]}];
     CGRect rect = [attributedText boundingRectWithSize:(CGSize){300, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin
                                                context:nil];

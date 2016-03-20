@@ -322,7 +322,7 @@
             [mDayLabel setNumberOfLines:2];
             [mDayLabel setTextColor:[UIColor whiteColor]];
             [mDayLabel setTextAlignment:NSTextAlignmentCenter];
-            [mDayLabel setFont:[UIFont systemFontOfSize:fontSize]];
+            [mDayLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:fontSize]];
             [mDayLabel setBackgroundColor:[UIColor grayColor]];
             NSArray *events = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:(gestureCount * 9) + dateIndex]];
             NSDictionary *dict = [events lastObject];
@@ -382,7 +382,7 @@
                 monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
                 [monthLabel setTextColor:[UIColor whiteColor]];
                 [monthLabel setTextAlignment:NSTextAlignmentCenter];
-                [monthLabel setFont:[UIFont systemFontOfSize:fontSize]];
+                [monthLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:fontSize]];
                 [monthLabel setBackgroundColor:[UIColor clearColor]];
                 [self.calendarView addSubview:monthLabel];
                 
@@ -496,7 +496,7 @@
             [mDayLabel setNumberOfLines:2];
             [mDayLabel setTextColor:[UIColor whiteColor]];
             [mDayLabel setTextAlignment:NSTextAlignmentCenter];
-            [mDayLabel setFont:[UIFont systemFontOfSize:fontSize]];
+            [mDayLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:fontSize]];
             [mDayLabel setBackgroundColor:[UIColor grayColor]];
             NSArray *events = [[AppDataManager sharedInstance] getEventsForSelectedDate:[datesArray objectAtIndex:(gestureCount * 9) + dateIndex]];
             NSDictionary *dict = [events lastObject];
@@ -557,7 +557,7 @@
                 monthLabel.text = [monthFormatter stringFromDate:datesArray[(gestureCount * 9) + dateIndex]];
                 [monthLabel setTextColor:[UIColor whiteColor]];
                 [monthLabel setTextAlignment:NSTextAlignmentCenter];
-                [monthLabel setFont:[UIFont systemFontOfSize:fontSize]];
+                [monthLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:fontSize]];
                 [monthLabel setBackgroundColor:[UIColor clearColor]];
                 [self.calendarView addSubview:monthLabel];
                 

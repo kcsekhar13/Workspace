@@ -111,7 +111,7 @@
     
     //cell.colorKeyView.backgroundColor = colorsArray[indexPath.row];
     [cell.pickerButton setTitle:dataManager.fetchColorPickerTitlesArray[indexPath.row] forState:UIControlStateNormal];
-    [cell.pickerButton.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
+    [cell.pickerButton.titleLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:12.0f]];
     [cell.pickerButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [cell.colorKeyView.layer setBorderColor:[UIColor clearColor].CGColor];
     [cell.colorKeyView.layer setCornerRadius:cell.colorKeyView.frame.size.width/2];
@@ -129,7 +129,7 @@
     
     cell.delegate = self;
     if (selectDeselectIndexPathRow > -1 && selectDeselectIndexPathRow == indexPath.row) {
-        [cell.pickerButton.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0]];
+        [cell.pickerButton.titleLabel setFont:[UIFont fontWithName:@"Klavika-Bold" size:15.0f]];
     }
     cell.selectedColorIndex = indexPath.row;
     return cell;
@@ -150,13 +150,13 @@
 {
     if (selectedIndexPath != nil) {
         ColorPickerCollectionViewCell *cell = (ColorPickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:selectedIndexPath];
-        [cell.pickerButton.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
+        [cell.pickerButton.titleLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:12.0f]];
         cell.selectedColorKeyView.hidden = YES;
     }
     selectedIndexPath = indexPath;
    
     ColorPickerCollectionViewCell *cell = (ColorPickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [cell.pickerButton.titleLabel setFont:[UIFont boldSystemFontOfSize:15.0]];
+    [cell.pickerButton.titleLabel setFont:[UIFont fontWithName:@"Klavika-Bold" size:15.0f]];
     cell.selectedColorKeyView.hidden = NO;
     selectDeselectIndexPathRow = indexPath.row;
 }

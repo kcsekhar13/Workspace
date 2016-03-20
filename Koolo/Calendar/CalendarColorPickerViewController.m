@@ -33,7 +33,7 @@
      }
     
     [_mydayLabel setTextAlignment:NSTextAlignmentCenter];
-    [_mydayLabel setFont:[UIFont systemFontOfSize:24.0f]];
+    [_mydayLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:24.0]];
     [_mydayLabel setBackgroundColor:[UIColor grayColor]];
     [_mydayLabel.layer setBorderWidth:2.0f];
     [_mydayLabel.layer setMasksToBounds:YES];

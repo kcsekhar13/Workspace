@@ -35,6 +35,9 @@
 		552555861C7F70A50028D805 /* CommonTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 552555851C7F70A50028D805 /* CommonTextViewController.m */; };
 		55261E2F1BC8C1E900AA3CCD /* QuotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55261E2E1BC8C1E900AA3CCD /* QuotesViewController.m */; };
 		55261E341BC8C32C00AA3CCD /* PassCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55261E331BC8C32C00AA3CCD /* PassCodeViewController.m */; };
+		552E05BE1C9EE81500F86430 /* Klavika-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 552E05BB1C9EE81500F86430 /* Klavika-Bold.otf */; };
+		552E05BF1C9EE81500F86430 /* Klavika-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 552E05BC1C9EE81500F86430 /* Klavika-Medium.otf */; };
+		552E05C01C9EE81500F86430 /* Klavika-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 552E05BD1C9EE81500F86430 /* Klavika-Regular.otf */; };
 		5536AA251BD8102100398454 /* CheckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA241BD8102100398454 /* CheckListViewController.m */; };
 		5536AA281BD8104300398454 /* CLThreeSentenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA271BD8104300398454 /* CLThreeSentenceViewController.m */; };
 		5536AA2B1BD8108500398454 /* CLMyHealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5536AA2A1BD8108500398454 /* CLMyHealthViewController.m */; };
@@ -148,6 +151,9 @@
 		55261E2E1BC8C1E900AA3CCD /* QuotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesViewController.m; sourceTree = "<group>"; };
 		55261E321BC8C32C00AA3CCD /* PassCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassCodeViewController.h; sourceTree = "<group>"; };
 		55261E331BC8C32C00AA3CCD /* PassCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassCodeViewController.m; sourceTree = "<group>"; };
+		552E05BB1C9EE81500F86430 /* Klavika-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Klavika-Bold.otf"; sourceTree = "<group>"; };
+		552E05BC1C9EE81500F86430 /* Klavika-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Klavika-Medium.otf"; sourceTree = "<group>"; };
+		552E05BD1C9EE81500F86430 /* Klavika-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Klavika-Regular.otf"; sourceTree = "<group>"; };
 		5536AA231BD8102100398454 /* CheckListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckListViewController.h; sourceTree = "<group>"; };
 		5536AA241BD8102100398454 /* CheckListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckListViewController.m; sourceTree = "<group>"; };
 		5536AA261BD8104300398454 /* CLThreeSentenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLThreeSentenceViewController.h; sourceTree = "<group>"; };
@@ -438,6 +444,9 @@
 		555BD6041BC760B500BB61E9 = {
 			isa = PBXGroup;
 			children = (
+				552E05BB1C9EE81500F86430 /* Klavika-Bold.otf */,
+				552E05BC1C9EE81500F86430 /* Klavika-Medium.otf */,
+				552E05BD1C9EE81500F86430 /* Klavika-Regular.otf */,
 				F387E7651C21B6B30059D8E4 /* EventKit.framework */,
 				55D063821BF8894B000962D3 /* Localizable.strings */,
 				555BD60F1BC760B600BB61E9 /* Koolo */,
@@ -694,6 +703,7 @@
 				5525557B1C7F6C680028D805 /* Contributions_Nor.plist in Resources */,
 				558BB0471BF8E4F1000B335D /* cross.png in Resources */,
 				F337738D1BC8D1C100793831 /* settings.png in Resources */,
+				552E05BE1C9EE81500F86430 /* Klavika-Bold.otf in Resources */,
 				F33B7E6E1BC8B92800C37B1D /* lock.png in Resources */,
 				553B65C71BFBB3D900F288DD /* green.png in Resources */,
 				F33773A31BC9465B00793831 /* CheckListpng.png in Resources */,
@@ -721,9 +731,11 @@
 				5504DD3D1C81830D002038E4 /* NewEventScreen.jpg in Resources */,
 				552555811C7F6E820028D805 /* License_Eng.plist in Resources */,
 				557745ED1C7B7BAB0005DA64 /* DefulatTransform.plist in Resources */,
+				552E05BF1C9EE81500F86430 /* Klavika-Medium.otf in Resources */,
 				553B65C91BFBB3D900F288DD /* yellow.png in Resources */,
 				5504DD3F1C81830D002038E4 /* ReadyForTransitionScreen.jpg in Resources */,
 				5511109D1C90A26C00F6A3AE /* DefulatTransform_Norway.plist in Resources */,
+				552E05C01C9EE81500F86430 /* Klavika-Regular.otf in Resources */,
 				F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */,
 				5525557F1C7F6E080028D805 /* About_Nor.plist in Resources */,
 				F337739F1BC8D51300793831 /* WhitePlus.png in Resources */,

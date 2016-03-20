@@ -103,7 +103,7 @@
     
     [_mDayLabel setNumberOfLines:2];
     [_mDayLabel setTextAlignment:NSTextAlignmentCenter];
-    [_mDayLabel setFont:[UIFont systemFontOfSize:16.0f]];
+    [_mDayLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:16.0f]];
     [_mDayLabel setBackgroundColor:[UIColor grayColor]];
     [_mDayLabel.layer setBorderColor:[[UIColor clearColor] CGColor]];
     [_mDayLabel.layer setBorderWidth:2.0f];

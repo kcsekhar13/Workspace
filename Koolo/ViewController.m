@@ -11,7 +11,7 @@
 #import "HomeNotificationView.h"
 #import "CheckListViewController.h"
 #import "StoreDataMangager.h"
-
+#import "AppDelegate.h"
 @interface ViewController () <HomeNotificationViewDelegate>{
     
     UIView *contentView;
@@ -27,6 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     dataManager = [StoreDataMangager sharedInstance];
+     
     
     // create blur effect
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
