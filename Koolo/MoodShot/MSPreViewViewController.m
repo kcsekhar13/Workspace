@@ -38,6 +38,10 @@
         self.title = @"Select Humor Color";
     }
     
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    
     self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, self.imageView.frame.size.width, self.graphPickerCollectionView.frame.origin.y-79);
     
     UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(backToMoodLine)];

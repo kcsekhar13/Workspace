@@ -62,6 +62,10 @@
         doneButtonTitle = @"Done";
     }
     
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    
     // create blur effect
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     

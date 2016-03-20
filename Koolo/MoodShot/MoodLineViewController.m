@@ -42,6 +42,12 @@
          self.title = @"Mood Line";
     }
     
+    
+    
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    
     if (self.view.frame.size.width == 320) {
        
         self.moodLineTableView.frame = CGRectMake(20.0, self.moodLineTableView.frame.origin.y, self.moodLineTableView.frame.size.width, self.moodLineTableView.frame.size.height);

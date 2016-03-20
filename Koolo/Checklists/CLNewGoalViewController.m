@@ -22,6 +22,10 @@
     
     self.title = _titleString;
     
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     
     NSString *cancelTitle = nil;

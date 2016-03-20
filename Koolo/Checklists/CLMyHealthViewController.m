@@ -26,7 +26,9 @@
     
     self.title = self.viewTitle;
     dataManager = [StoreDataMangager sharedInstance];
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
     
+    self.navigationController.navigationBar.titleTextAttributes = size;
     
     self.addGoalsArray = [[NSMutableArray alloc] init];
     

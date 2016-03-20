@@ -20,7 +20,9 @@
     // Do any additional setup after loading the view.
     
     self.title = @"Mood Shot";
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
     
+    self.navigationController.navigationBar.titleTextAttributes = size;
     
 }
 

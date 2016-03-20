@@ -28,6 +28,10 @@
     [super viewDidLoad];
     self.title = self.titleString;
     
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    
     NSString *doneButtonTitle = @"";
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {

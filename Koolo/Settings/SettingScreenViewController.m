@@ -51,12 +51,17 @@
     
     self.navigationController.navigationBar.hidden = NO;
     
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    
     _imagePickerController  = [[UIImagePickerController alloc]init];
     _imagePickerController.delegate = self;
     _imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
     
     UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
     [leftButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    
     self.navigationItem.leftBarButtonItem = leftButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
     

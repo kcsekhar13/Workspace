@@ -45,6 +45,10 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         rightButtonTile = @"Done";
     }
     
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:rightButtonTile style:UIBarButtonItemStylePlain target:self action:@selector(backToScreen)];
     [doneButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;

@@ -37,6 +37,10 @@
         self.questionTitle.text = @"Answer Security question";
     }
     
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *secretQuestion = (NSString *)[defaults objectForKey:@"secretQuestion"];
     if (secretQuestion.length) {

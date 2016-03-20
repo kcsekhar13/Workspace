@@ -48,6 +48,9 @@
         newTransferString = @"Transition";
     }
     
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
     
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;

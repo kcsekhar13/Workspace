@@ -32,6 +32,11 @@
         cancelTitle = @"Cancel";
         wrongCodeMessage = @"Wrong Code";
     }
+    
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    
     self.passcodeField.keyboardType = UIKeyboardTypeNumberPad;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     secretQuestion = (NSString *)[defaults objectForKey:@"secretQuestion"];

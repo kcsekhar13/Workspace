@@ -36,6 +36,11 @@
         cancelTitle = @"Cancel";
         doneButtonTitle = @"Done";
     }
+    
+    NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
+    
+    self.navigationController.navigationBar.titleTextAttributes = size;
+    
     dataManager = [StoreDataMangager sharedInstance];
     colorTitlesArray = [[NSMutableArray alloc] initWithArray:dataManager.fetchColorPickerTitlesArray];
     
