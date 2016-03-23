@@ -36,13 +36,13 @@
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         self.title = NSLocalizedString(@"Settings", nil);
-        contentArray = [[NSArray alloc] initWithObjects:@"Bakgrunnsbilde", @"Passkode", @"Sitater", @"Lisens",@"Fargevalg", @"Gjennnomgang av applikasjonen", @"Oppdateringer", @"Bidrag",@"Om appen",nil];
+        contentArray = [[NSArray alloc] initWithObjects:@"Bakgrunnsbilde", @"Passkode", @"Sitater", @"Lisens",@"Fargevalg", @"Gjennnomgang av applikasjonen", @"Bidrag",@"Om appen",nil];
         cancelTitle = NSLocalizedString(@"Cancel", nil);
         doneButtonTitle = NSLocalizedString(@"Done", nil);
         
     } else {
         self.title = @"Settings";
-        contentArray = [[NSArray alloc] initWithObjects:@"Background Image", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"Tutorial", @"Updates", @"Contributors", @"About",nil];
+        contentArray = [[NSArray alloc] initWithObjects:@"Background Image", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"Tutorial",@"Contributors", @"About",nil];
         cancelTitle = @"Cancel";
         doneButtonTitle = @"Done";
     }
@@ -200,7 +200,7 @@
     } else if (indexPath.row == 4) {
         
         [self.navigationController pushViewController:[mainStoryboard instantiateViewControllerWithIdentifier: @"MSColorPickerScreen"] animated:YES];
-    }  else if (indexPath.row == 3 || indexPath.row == 7 || indexPath.row == 8) {
+    }  else if (indexPath.row == 3 || indexPath.row == 6 || indexPath.row == 7) {
         
         NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
         NSString *typeString = nil;
@@ -215,7 +215,7 @@
             NSString *fileString = [NSString stringWithFormat:@"License%@", typeString];
             [self moveToTextViewScreenWithFileName:fileString withFlag:YES];
             
-        } else if (indexPath.row == 7) {
+        } else if (indexPath.row == 6) {
             
             NSString *fileString = [NSString stringWithFormat:@"Contributions%@", typeString];
             [self moveToTextViewScreenWithFileName:fileString withFlag:NO];
