@@ -151,14 +151,27 @@
     toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.datePicker.frame.origin.y - 44.0f, self.view.frame.size.width, 44)];
     toolBar.barStyle = UIBarStyleBlackOpaque;
     
+    NSDictionary* remainderItemAttributes =
+    @{NSFontAttributeName:
+          [UIFont fontWithName:@"Klavika-Regular" size:20.0f],
+      NSForegroundColorAttributeName:
+          [UIColor whiteColor]
+      };
+    
     UIBarButtonItem* dailyButton = [[UIBarButtonItem alloc] initWithTitle:remaindingTitlesArray[0] style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
+    
+    [dailyButton setTitleTextAttributes:remainderItemAttributes forState:UIControlStateNormal];
+    
      UIBarButtonItem* flexSpace2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
     UIBarButtonItem* weeklyButton = [[UIBarButtonItem alloc] initWithTitle:remaindingTitlesArray[1] style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
+    [weeklyButton setTitleTextAttributes:remainderItemAttributes forState:UIControlStateNormal];
     UIBarButtonItem* flexSpace3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem* monthlyButton = [[UIBarButtonItem alloc] initWithTitle:remaindingTitlesArray[2] style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
+    [monthlyButton setTitleTextAttributes:remainderItemAttributes forState:UIControlStateNormal];
     UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem* yearButton = [[UIBarButtonItem alloc] initWithTitle:remaindingTitlesArray[3] style:UIBarButtonItemStylePlain target:self action:@selector(selectRemainderType:)];
+    [yearButton setTitleTextAttributes:remainderItemAttributes forState:UIControlStateNormal];
     dailyButton.tag = 0;
     weeklyButton.tag = 1;
     monthlyButton.tag = 2;
