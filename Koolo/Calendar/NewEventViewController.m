@@ -324,7 +324,7 @@
     [self updateDateLabels:_datePicker.date];
     
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"hh"];
+    [dateFormatter setDateFormat:@"HH"];
 
     //self.addTagField.text = [NSString stringWithFormat:@"Kl. %@", [dateFormatter stringFromDate:_datePicker.date]];
     displayDatePicker = NO;
@@ -398,7 +398,7 @@
         
         [eventDict setObject:self.eventTextField.text forKey:@"EventTitle"];
         NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"hh:mm"];
+        [dateFormatter setDateFormat:@"HH:mm"];
         [eventDict setObject:[NSString stringWithFormat:@"Kl. %@", [dateFormatter stringFromDate:_datePicker.date]] forKey:@"TagTitle"];
         [eventDict setObject:_selectedDate forKey:@"EventDate"];
         [eventDict setObject:self.remainderLabel.text forKey:@"Remainder"];
