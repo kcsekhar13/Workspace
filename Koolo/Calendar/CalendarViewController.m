@@ -697,6 +697,13 @@
     
     cell.tagsLabel.text = tagLabelString;
     [cell setBackgroundColor:[UIColor clearColor]];
+    
+    
+    if ([(NSString *)[dict objectForKey:@"RemainderFlag"] intValue] == 1) {
+        [cell.remainderImageView setImage:[UIImage imageNamed:@"time.png"]];
+    } else {
+        cell.remainderImageView.hidden = YES;
+    }
     return cell;
 }
 

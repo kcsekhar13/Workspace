@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *recurenceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *modeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tagsLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *remainderImageView;
 @end

@@ -307,7 +307,12 @@
     [cell.contentView addSubview:eventTitleLabel];
     [cell.contentView addSubview:clinicLabel];
     [cell.contentView addSubview:remainderLabel];
-    [cell.contentView addSubview:imageView];
+    
+    if ([(NSString *)[dict objectForKey:@"RemainderFlag"] intValue] == 1) {
+        [cell.contentView addSubview:imageView];
+    }
+    
+    
     [cell.contentView addSubview:view];
     
     

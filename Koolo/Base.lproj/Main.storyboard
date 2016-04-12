@@ -830,6 +830,7 @@
                                             <outlet property="eventTitle" destination="trw-rR-tXN" id="GGx-WQ-BVt"/>
                                             <outlet property="modeLabel" destination="xOV-a2-hS9" id="iUf-7Y-iQT"/>
                                             <outlet property="recurenceLabel" destination="g7I-7Z-mcG" id="KTj-Tt-Zqs"/>
+                                            <outlet property="remainderImageView" destination="q2c-vG-cA9" id="BK6-Rz-1BE"/>
                                             <outlet property="tagsLabel" destination="yS6-7W-M5Y" id="wlI-Ef-XPg"/>
                                         </connections>
                                     </tableViewCell>

@@ -51,7 +51,7 @@ static AppDataManager *sharedInstance = nil;
         [event setCalendar: calendar];
         NSError *err;
         [eventStore saveEvent:event span:EKSpanThisEvent error:&err];
-        if (err == noErr) {
+        {
             //NSLog(@"Added Successfully");
             NSString* str = [[NSString alloc] initWithFormat:@"%@", event.eventIdentifier];
             //[arrayofEventId addObject:str];
@@ -134,11 +134,7 @@ static AppDataManager *sharedInstance = nil;
             
             //[self addEventToFile:detailsDict];
         }
-        else{
-            
-            
-            
-        }
+    
    
     
     return YES;
