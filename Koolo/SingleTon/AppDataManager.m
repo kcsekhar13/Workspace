@@ -35,7 +35,7 @@ static AppDataManager *sharedInstance = nil;
     
     EKEvent *event = [EKEvent eventWithEventStore:eventStore];
     NSDate *date = [detailsDict objectForKey:@"EventDate"];
-    event.title = [detailsDict objectForKey:@"EventTitle"];
+    event.title = @"KOOLO event";
     event.startDate = date;
     event.endDate = [date dateByAddingTimeInterval:1800];
     
