@@ -10,6 +10,7 @@
 #import "MSPreViewViewController.h"
 #import "ViewController.h"
 #import "MoodMapViewController.h"
+#import "SecondViewController.h"
 
 @interface MoodLineViewController () <MoodMapDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
@@ -208,7 +209,7 @@
     [tableViewCell.moodColorImage.layer setMasksToBounds:YES];
     [tableViewCell.moodCellImage.layer setMasksToBounds:YES];
     [tableViewCell drawBoarderForCell];
-    
+    [tableViewCell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return tableViewCell;
     
     
@@ -228,6 +229,22 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = [self.moodsArray objectAtIndex:indexPath.row];
+    NSString *savedImagePath = [[dataManager getDocumentryPath] stringByAppendingPathComponent:[dict objectForKey:@"FileName"]];
+    if ([dict objectForKey:@"ColorIndex"]) {
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        SecondViewController *obj  = [storyboard instantiateViewControllerWithIdentifier:@"ZoomScreen"];
+        UIImage *previewImage = [UIImage imageWithContentsOfFile:savedImagePath];
+        [obj setZoomImage:previewImage];
+        [self.navigationController pushViewController:obj animated:NO];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+}
 #pragma mark -  UIImagePickerController Delegate methods
 
 // Uncomment this code if your checking app in simulator

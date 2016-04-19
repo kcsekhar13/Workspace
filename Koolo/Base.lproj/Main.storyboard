@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="oSc-fh-1cL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="oSc-fh-1cL">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Klavika-Bold.otf">
@@ -364,9 +364,12 @@
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2j1-Nk-ECv">
-                                                    <rect key="frame" x="0.0" y="55" width="90" height="20"/>
+                                                    <rect key="frame" x="-5" y="55" width="90" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="12"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="clickOnColorTitle:" destination="lbf-ZL-tiY" eventType="touchUpInside" id="ewM-go-Jym"/>
                                                     </connections>
@@ -471,7 +474,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="251" sectionHeaderHeight="28" sectionFooterHeight="28" id="EQS-E4-JHC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="251" sectionHeaderHeight="28" sectionFooterHeight="28" id="EQS-E4-JHC">
                                 <rect key="frame" x="40" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -677,6 +680,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5k-9n-1ar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1948" y="2397"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="gkK-1i-6ul">
+            <objects>
+                <viewController storyboardIdentifier="ZoomScreen" id="sdE-Mk-GE9" customClass="SecondViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KCJ-fJ-VEf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="sYU-6P-0u7">
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="GmK-4U-Rj4">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="502"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="sdE-Mk-GE9" id="Shj-Ip-BAK"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="GmK-4U-Rj4" id="Gs3-oG-4A9"/>
+                        <outlet property="scrollView" destination="sYU-6P-0u7" id="OVh-P1-tcR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9jg-qK-q7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2297" y="2397"/>
         </scene>
         <!--Three Sentence View Controller-->
         <scene sceneID="ZXO-cd-EgO">
@@ -1723,8 +1759,8 @@
     <resources>
         <image name="InformationImage" width="640" height="1136"/>
         <image name="SmallCameraButton.png" width="40" height="40"/>
-        <image name="SmallKeyBoard.png" width="50" height="50"/>
-        <image name="gallery.png" width="100" height="100"/>
+        <image name="SmallKeyBoard.png" width="132" height="132"/>
+        <image name="gallery.png" width="132" height="132"/>
         <image name="green.png" width="35" height="35"/>
         <image name="plus.png" width="88" height="88"/>
         <image name="red.png" width="35" height="35"/>

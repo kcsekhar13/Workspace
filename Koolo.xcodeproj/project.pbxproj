@@ -10,6 +10,7 @@
 		0458A2331C7B84E300F9D1A0 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 0458A2321C7B84E300F9D1A0 /* gallery.png */; };
 		373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373063411BCABBD9004751CA /* HomeNotificationView.m */; };
 		37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */; };
+		5501A27B1CC655E0000B3003 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5501A27A1CC655E0000B3003 /* SecondViewController.m */; };
 		5504DD371C81830D002038E4 /* CalendarScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD2C1C81830D002038E4 /* CalendarScreen.jpg */; };
 		5504DD381C81830D002038E4 /* CheckListScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD2D1C81830D002038E4 /* CheckListScreen.jpg */; };
 		5504DD391C81830D002038E4 /* EventColorPickerScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD2E1C81830D002038E4 /* EventColorPickerScreen.jpg */; };
@@ -119,6 +120,8 @@
 		373063411BCABBD9004751CA /* HomeNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNotificationView.m; sourceTree = "<group>"; };
 		37F2F5361BC991DA00B97307 /* QuotesTableviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesTableviewCell.h; sourceTree = "<group>"; };
 		37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesTableviewCell.m; sourceTree = "<group>"; };
+		5501A2791CC655E0000B3003 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		5501A27A1CC655E0000B3003 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		5504DD2C1C81830D002038E4 /* CalendarScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CalendarScreen.jpg; sourceTree = "<group>"; };
 		5504DD2D1C81830D002038E4 /* CheckListScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CheckListScreen.jpg; sourceTree = "<group>"; };
 		5504DD2E1C81830D002038E4 /* EventColorPickerScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EventColorPickerScreen.jpg; sourceTree = "<group>"; };
@@ -590,6 +593,8 @@
 				F3E7FC571BE5E1B7009DA03C /* MoodPreviewCell.m */,
 				F3E7FC591BE618CB009DA03C /* CustomMoodsImageView.h */,
 				F3E7FC5A1BE618CB009DA03C /* CustomMoodsImageView.m */,
+				5501A2791CC655E0000B3003 /* SecondViewController.h */,
+				5501A27A1CC655E0000B3003 /* SecondViewController.m */,
 			);
 			path = MoodShot;
 			sourceTree = "<group>";
@@ -777,6 +782,7 @@
 				55F5A3F91BE143FC00DC80F4 /* MSCameraViewController.m in Sources */,
 				F3D0A2481BEF14A70089CFD5 /* CheckListCustomView.m in Sources */,
 				F3E7FC581BE5E1B7009DA03C /* MoodPreviewCell.m in Sources */,
+				5501A27B1CC655E0000B3003 /* SecondViewController.m in Sources */,
 				F3E7FC5B1BE618CB009DA03C /* CustomMoodsImageView.m in Sources */,
 				F37490FD1C1722EA007E3687 /* CustomMoodMapView.m in Sources */,
 				550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */,

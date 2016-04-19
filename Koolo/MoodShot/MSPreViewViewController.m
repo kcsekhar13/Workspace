@@ -123,7 +123,8 @@
     //cell.colorKeyView.backgroundColor = colorsArray[indexPath.row];
     [cell.pickerButton setTitle:dataManager.fetchColorPickerTitlesArray[indexPath.row] forState:UIControlStateNormal];
     [cell.pickerButton.titleLabel setFont:[UIFont fontWithName:@"Klavika-Regular" size:12.0f]];
-    [cell.pickerButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    //[cell.pickerButton.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    //[cell.pickerButton sizeToFit];
     [cell.colorKeyView.layer setBorderColor:[UIColor clearColor].CGColor];
     [cell.colorKeyView.layer setCornerRadius:cell.colorKeyView.frame.size.width/2];
     [cell.colorKeyView.layer setMasksToBounds:YES];
