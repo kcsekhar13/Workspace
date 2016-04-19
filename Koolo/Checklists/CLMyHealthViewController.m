@@ -99,7 +99,7 @@
 
 -(void)refreshView
 {
-    
+    [self.view setUserInteractionEnabled:YES];
     if (self.goalFlag) {
         self.addGoalsArray = (NSMutableArray *)dataManager.getMoodShotGoalsFromPlist;
     } else {
@@ -171,7 +171,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSMutableArray *allGoals = [[NSMutableArray alloc] initWithArray:_addGoalsArray];
+    //NSMutableArray *allGoals = [[NSMutableArray alloc] initWithArray:_addGoalsArray];
     [_addGoalsArray removeObjectAtIndex:indexPath.row];
     
     if (self.goalFlag) {
@@ -180,11 +180,16 @@
         [[StoreDataMangager sharedInstance] updateReadyArray:_addGoalsArray];
     }
     
-    NSLog(@"indexPathForRow = %d", indexPath.row);
+    //NSLog(@"indexPathForRow = %d", indexPath.row);
+    
+    
+    
     [_goalsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexPath.row inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
     [self refreshView];
     
 }
+
+
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"Delete";
@@ -372,7 +377,10 @@
     CLNewGoalTableViewCell *cell  = (CLNewGoalTableViewCell*)[_goalsTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:tag inSection:0]];
     [cell setStatus:nextStatus];
     if ([nextStatus isEqualToString:@"Completed"] || [nextStatus isEqualToString:@"Pending"]) {
-        [self refreshView];
+        
+        [self.view setUserInteractionEnabled:NO];
+        [self performSelector:@selector(refreshView) withObject:nil afterDelay:0.5];
+        
     }
     
 }
@@ -438,7 +446,8 @@
         [[StoreDataMangager sharedInstance] updateReadyArray:allGoals];
     }
     
-    [self refreshView];
+    [self.view setUserInteractionEnabled:NO];
+    [self performSelector:@selector(refreshView) withObject:nil afterDelay:0.5];
 
 }
 
