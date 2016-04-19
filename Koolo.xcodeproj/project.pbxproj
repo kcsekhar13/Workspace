@@ -11,6 +11,7 @@
 		373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373063411BCABBD9004751CA /* HomeNotificationView.m */; };
 		37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */; };
 		5501A27B1CC655E0000B3003 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5501A27A1CC655E0000B3003 /* SecondViewController.m */; };
+		5501A27D1CC66DCA000B3003 /* DefaultQuotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5501A27C1CC66DCA000B3003 /* DefaultQuotes.plist */; };
 		5504DD371C81830D002038E4 /* CalendarScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD2C1C81830D002038E4 /* CalendarScreen.jpg */; };
 		5504DD381C81830D002038E4 /* CheckListScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD2D1C81830D002038E4 /* CheckListScreen.jpg */; };
 		5504DD391C81830D002038E4 /* EventColorPickerScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD2E1C81830D002038E4 /* EventColorPickerScreen.jpg */; };
@@ -122,6 +123,7 @@
 		37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesTableviewCell.m; sourceTree = "<group>"; };
 		5501A2791CC655E0000B3003 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		5501A27A1CC655E0000B3003 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		5501A27C1CC66DCA000B3003 /* DefaultQuotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultQuotes.plist; sourceTree = "<group>"; };
 		5504DD2C1C81830D002038E4 /* CalendarScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CalendarScreen.jpg; sourceTree = "<group>"; };
 		5504DD2D1C81830D002038E4 /* CheckListScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CheckListScreen.jpg; sourceTree = "<group>"; };
 		5504DD2E1C81830D002038E4 /* EventColorPickerScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EventColorPickerScreen.jpg; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */,
 				55261E2D1BC8C1E900AA3CCD /* QuotesViewController.h */,
 				55261E2E1BC8C1E900AA3CCD /* QuotesViewController.m */,
+				5501A27C1CC66DCA000B3003 /* DefaultQuotes.plist */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				F33B7E6E1BC8B92800C37B1D /* lock.png in Resources */,
 				553B65C71BFBB3D900F288DD /* green.png in Resources */,
 				F33773A31BC9465B00793831 /* CheckListpng.png in Resources */,
+				5501A27D1CC66DCA000B3003 /* DefaultQuotes.plist in Resources */,
 				553B65C31BFBB3B800F288DD /* red.png in Resources */,
 				5504DD3A1C81830D002038E4 /* HomeScreen.jpg in Resources */,
 				55D063831BF8894B000962D3 /* Localizable.strings in Resources */,

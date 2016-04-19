@@ -154,8 +154,9 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     
      QuotesTableviewCell *tableViewCell = (QuotesTableviewCell *)[tableView dequeueReusableCellWithIdentifier:@"QuotesCell"];
     
+    NSDictionary *quotestDict = _mQuotesArray[indexPath.row];
     tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [tableViewCell.mQuoteText setText:_mQuotesArray[indexPath.row]];
+    [tableViewCell.mQuoteText setText:quotestDict[@"Qutoes"]];
     [tableViewCell.mCheckImageView setImage:nil];
     
         
@@ -163,7 +164,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         
         [tableViewCell.mCheckImageView setImage:[UIImage imageNamed:@"checked"]];
         previousSelctedIndexPath = indexPath;
-        [[NSUserDefaults standardUserDefaults] setObject:_mQuotesArray[indexPath.row] forKey:@"SelectedQuote"];
+        [[NSUserDefaults standardUserDefaults] setObject:quotestDict[@"Qutoes"] forKey:@"SelectedQuote"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
     } else {
@@ -183,11 +184,15 @@ static NSIndexPath *previousSelctedIndexPath = nil;
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_mQuotesArray.count == 11 || indexPath.row <= 10) {
+   
+    NSDictionary *dict = _mQuotesArray[indexPath.row];
+    NSNumber *numObj = dict[@"DeleteFlag"];
+                                       
+    if ([numObj boolValue]) {
         
-        return NO;
-    } else {
         return YES;
+    } else {
+        return NO;
     }
     
     
@@ -231,7 +236,9 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         selectedCell = (QuotesTableviewCell *)[tableView cellForRowAtIndexPath:indexPath];
         [selectedCell.mCheckImageView setImage:[UIImage imageNamed:@"checked"]];
         
-        [[NSUserDefaults standardUserDefaults] setObject:_mQuotesArray[indexPath.row] forKey:@"SelectedQuote"];
+        NSDictionary *quotestDict = _mQuotesArray[indexPath.row];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:quotestDict[@"Qutoes"] forKey:@"SelectedQuote"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         //Set unselected Cell.
@@ -313,8 +320,11 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         
     }];
     
+    NSMutableDictionary *quotesDict = [[NSMutableDictionary alloc] init];
+    [quotesDict setObject:_mQuoteString forKey:@"Qutoes"];
+    [quotesDict setObject:[NSNumber numberWithBool:YES] forKey:@"DeleteFlag"];
     
-    [_mQuotesArray addObject:_mQuoteString];
+    [_mQuotesArray insertObject:quotesDict atIndex:0];
     [_mQuotesTableview reloadData];
     
     [[NSUserDefaults standardUserDefaults] setObject:_mQuotesArray forKey:@"Quotes"];

@@ -190,10 +190,14 @@
     [[NSUserDefaults standardUserDefaults] setObject:passString forKey:@"Password"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self performSelector:@selector(popToPreviousScreen) withObject:nil afterDelay:0.5];
     
 }
 
+- (void)popToPreviousScreen {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 -(void)checkPassWord:(NSString*)passString
 {

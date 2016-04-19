@@ -58,19 +58,21 @@
   
     if ([[[NSUserDefaults standardUserDefaults]  objectForKey:@"Quotes"] count] == 0) {
         
-        NSMutableArray *quotesArray = [[NSMutableArray alloc] init];
-        [quotesArray addObject:@"In the midst of winter, I found there was within me, an invincible summer"];
+        NSMutableArray *quotesArray = [[NSMutableArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultQuotes.plist" ofType:nil]];
         
-        [quotesArray addObject:@"If you’re going through hell, keep going"];
-        [quotesArray addObject:@"If your dreams don’t scare you, they’re not big enough"];
-        [quotesArray addObject:@"The only time you should ever look back is to see how far you’ve come"];
-        [quotesArray addObject:@"Nothing can dim the light which shines from within"];
-        [quotesArray addObject:@"When something bad happens you have three choices. You can let it define you, let it destroy you, or you can let it strengthen you."];
-        [quotesArray addObject:@"People cry, not because they’re weak. It’s because they’ve been strong for too long.” - Johnny Depp."];
-        [quotesArray addObject:@"Those who fly solo have the strongest wings"];
-        [quotesArray addObject:@"The struggle is part of the story"];
-        [quotesArray addObject:@"H.O.P.E. Hold On Pain Ends"];
-        [quotesArray addObject:@"I’m sick and tired of being sick and tired"];
+//        [quotesArray addObject:@"In the midst of winter, I found there was within me, an invincible summer"];
+//        [quotesArray addObject:@"If you’re going through hell, keep going"];
+//        [quotesArray addObject:@"If your dreams don’t scare you, they’re not big enough"];
+//        [quotesArray addObject:@"The only time you should ever look back is to see how far you’ve come"];
+//        [quotesArray addObject:@"Nothing can dim the light which shines from within"];
+//        [quotesArray addObject:@"When something bad happens you have three choices. You can let it define you, let it destroy you, or you can let it strengthen you."];
+//        [quotesArray addObject:@"People cry, not because they’re weak. It’s because they’ve been strong for too long.” - Johnny Depp."];
+//        [quotesArray addObject:@"Those who fly solo have the strongest wings"];
+//        [quotesArray addObject:@"The struggle is part of the story"];
+//        [quotesArray addObject:@"H.O.P.E. Hold On Pain Ends"];
+//        [quotesArray addObject:@"I’m sick and tired of being sick and tired"];
+        
+        
         
         
         [[NSUserDefaults standardUserDefaults] setObject:quotesArray forKey:@"Quotes"];

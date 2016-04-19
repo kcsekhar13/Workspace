@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Qutoes</key>
+		<string>In the midst of winter, I found there was within me, an invincible summer</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Qutoes</key>
+		<string>If you’re going through hell, keep going</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Qutoes</key>
+		<string>If your dreams don’t scare you, they’re not big enough</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Qutoes</key>
+		<string>The only time you should ever look back is to see how far you’ve come</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Qutoes</key>
+		<string>Nothing can dim the light which shines from within</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Qutoes</key>
+		<string>When something bad happens you have three choices. You can let it define you, let it destroy you, or you can let it strengthen you.</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Qutoes</key>
+		<string>People cry, not because they’re weak. It’s because they’ve been strong for too long.” - Johnny Depp.</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Qutoes</key>
+		<string>Those who fly solo have the strongest wings</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Qutoes</key>
+		<string>The struggle is part of the story</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Qutoes</key>
+		<string>H.O.P.E. Hold On Pain Ends</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>Qutoes</key>
+		<string>I’m sick and tired of being sick and tired</string>
+		<key>DeleteFlag</key>
+		<false/>
+	</dict>
+</array>
+</plist>
