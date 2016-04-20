@@ -13,11 +13,12 @@
 // Item controller information
 @property (nonatomic) NSUInteger itemIndex;
 @property (nonatomic, strong) NSString *imageName;
+@property (nonatomic, strong) NSString *screenTitle;
 @property (nonatomic, strong) NSString *description;
-
 
 // IBOutlets
 @property (nonatomic, weak) IBOutlet UIImageView *contentImageView;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *screenDescription;
 
 @end

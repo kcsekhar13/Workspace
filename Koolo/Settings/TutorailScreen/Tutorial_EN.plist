@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Home screen</string>
+		<key>description</key>
+		<string>This is your home screen. Here you’ll find the date that you can click on and change the color of. You can choose a quote that is presented on the top of the screen, or turn it off in settings. The + icon allows you to enter the three features of the app, and clicking the cogwheel will open settings.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>The three features</string>
+		<key>description</key>
+		<string>Upon clicking the + icon, the links to the KOOLO app features pop up. Click the icons to enter one of the functions.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Settings</string>
+		<key>description</key>
+		<string>Click background image to change the background in your app, passcode to activate or change the passcode for the KOOLO app, quotes to activate or change the quotes on the home screen, “color tags” to change the tags assigned to the colors. You can also read about the app or enter this tutorial.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Checklists</string>
+		<key>description</key>
+		<string>The checklists help you to get an overview of the different goals and skills needed for transition. Three sentences is a tool you can use to prepare for a doctor’s appointment. The numbers behind “My health” and “Ready for transition” show how many goals you have completed.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>“My health” and “Ready for transition”</string>
+		<key>description</key>
+		<string>“My health” and “Ready for transition” are an adaptation of the transition checklists and consist of goals and skills connected to being a patient and transition. Check them off as done, in progress, or not done. You can also delete goals (by swiping) and add your own (by clicking “New goal”).</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Three sentences</string>
+		<key>description</key>
+		<string>You can enter text into the text boxes that may help you during your doctor’s appointments. Click “done” to save the changes. Clicking “cancel” will delete the changes.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Calendar</string>
+		<key>description</key>
+		<string>If you have created an event or an appointment, you will be able to see it under the dates in calendar upon clicking the relevant date. The calendar will also show the days you have tagged with a color. Click the “+” icon to create a new event. </string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>New event</string>
+		<key>description</key>
+		<string>Tag the date with a color by clicking on the date. Fill in the name of the event and a description. You can add the time by clicking the “clock” icon. If you wish to receive a notification, tick off the “Remind me” box.</string>
+	</dict>
+</array>
+</plist>

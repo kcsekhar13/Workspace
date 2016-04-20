@@ -37,9 +37,11 @@
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         doneButtonTitle = NSLocalizedString(@"Done", nil);
+        _contentDesCription = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Tutorial_Nor.plist" ofType:nil]];
         
     } else {
         doneButtonTitle = @"Done";
+        _contentDesCription = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Tutorial_EN.plist" ofType:nil]];
     }
     
     [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -68,24 +70,11 @@
                        [[NSBundle mainBundle] pathForResource:@"SettingsScreen" ofType:@"jpg"],
                        [[NSBundle mainBundle] pathForResource:@"CheckListScreen" ofType:@"jpg"],
                        [[NSBundle mainBundle] pathForResource:@"MyhealthScreen" ofType:@"jpg"],
-                       [[NSBundle mainBundle] pathForResource:@"NewGoalScreen" ofType:@"jpg"],
-                       [[NSBundle mainBundle] pathForResource:@"ReadyForTransitionScreen" ofType:@"jpg"],
                        [[NSBundle mainBundle] pathForResource:@"ThreeSenteceScreen" ofType:@"jpg"],
                        [[NSBundle mainBundle] pathForResource:@"CalendarScreen" ofType:@"jpg"],
-                       [[NSBundle mainBundle] pathForResource:@"NewEventScreen" ofType:@"jpg"],
-                       [[NSBundle mainBundle] pathForResource:@"EventColorPickerScreen" ofType:@"jpg"]];
+                       [[NSBundle mainBundle] pathForResource:@"NewEventScreen" ofType:@"jpg"]
+                       ];
     
-    _contentDesCription = @[@"HomeScreen",
-                            @"HomeScreenWithFunctionOptions",
-                            @"SettingsScreen",
-                            @"CheckListScreen",
-                            @"MyhealthScreen",
-                            @"NewGoalScreen",
-                            @"ReadyForTransitionScreen",
-                            @"ThreeSenteceScreen",
-                            @"CalendarScreen",
-                            @"NewEventScreen",
-                            @"EventColorPickerScreen"];
     
     
     
@@ -148,7 +137,9 @@
         PageItemController *pageItemController = [self.storyboard instantiateViewControllerWithIdentifier: @"ItemController"];
         pageItemController.itemIndex = itemIndex;
         pageItemController.imageName = _contentImages[itemIndex];
-        pageItemController.description = _contentDesCription[itemIndex];
+        NSDictionary *detailsDict = (NSDictionary *)_contentDesCription[itemIndex];
+        pageItemController.screenTitle = detailsDict[@"title"];
+        pageItemController.description = detailsDict[@"description"];
         return pageItemController;
     }
     

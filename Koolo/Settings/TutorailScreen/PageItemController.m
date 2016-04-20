@@ -14,7 +14,7 @@
 
 @implementation PageItemController
 @synthesize itemIndex;
-@synthesize imageName, description;
+@synthesize imageName, screenTitle, description;
 @synthesize contentImageView;
 
 #pragma mark -
@@ -23,7 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     contentImageView.image = [UIImage imageNamed: imageName];
-    self.descriptionLabel.text = description;
+    self.descriptionLabel.text = screenTitle;
+    self.screenDescription.text = description;
+    [self.screenDescription sizeToFit];
 }
 
 #pragma mark -

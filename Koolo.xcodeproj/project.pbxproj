@@ -76,6 +76,8 @@
 		558BB0441BF8D5D0000B335D /* UIColor+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB03C1BF8D5D0000B335D /* UIColor+CL.m */; };
 		558BB0451BF8D5D0000B335D /* UIImage+CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 558BB03E1BF8D5D0000B335D /* UIImage+CL.m */; };
 		558BB0471BF8E4F1000B335D /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 558BB0461BF8E4F1000B335D /* cross.png */; };
+		559CD9581CC7FA5900B77FAF /* Tutorial_EN.plist in Resources */ = {isa = PBXBuildFile; fileRef = 559CD9571CC7FA5900B77FAF /* Tutorial_EN.plist */; };
+		559CD95A1CC7FDCF00B77FAF /* Tutorial_Nor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 559CD9591CC7FDCF00B77FAF /* Tutorial_Nor.plist */; };
 		55A8FAE31BE4911A0057CF44 /* colorPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */; };
 		55CAAF051BE4A0FE008EE20C /* StoreDataMangager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */; };
 		55D063831BF8894B000962D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55D063821BF8894B000962D3 /* Localizable.strings */; };
@@ -225,6 +227,8 @@
 		558BB03D1BF8D5D0000B335D /* UIImage+CL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CL.h"; sourceTree = "<group>"; };
 		558BB03E1BF8D5D0000B335D /* UIImage+CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CL.m"; sourceTree = "<group>"; };
 		558BB0461BF8E4F1000B335D /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
+		559CD9571CC7FA5900B77FAF /* Tutorial_EN.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tutorial_EN.plist; sourceTree = "<group>"; };
+		559CD9591CC7FDCF00B77FAF /* Tutorial_Nor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tutorial_Nor.plist; sourceTree = "<group>"; };
 		55A8FAE11BE4911A0057CF44 /* colorPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorPickerTableViewCell.h; sourceTree = "<group>"; };
 		55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorPickerTableViewCell.m; sourceTree = "<group>"; };
 		55CAAF031BE4A0FE008EE20C /* StoreDataMangager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDataMangager.h; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 				5504DD441C81848B002038E4 /* PageItemController.m */,
 				5504DD461C8184AF002038E4 /* TutorialViewController.h */,
 				5504DD471C8184AF002038E4 /* TutorialViewController.m */,
+				559CD9571CC7FA5900B77FAF /* Tutorial_EN.plist */,
+				559CD9591CC7FDCF00B77FAF /* Tutorial_Nor.plist */,
 			);
 			name = TutorailScreen;
 			path = Koolo/Settings/TutorailScreen;
@@ -708,6 +714,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5504DD3E1C81830D002038E4 /* NewGoalScreen.jpg in Resources */,
+				559CD9581CC7FA5900B77FAF /* Tutorial_EN.plist in Resources */,
 				5525557B1C7F6C680028D805 /* Contributions_Nor.plist in Resources */,
 				558BB0471BF8E4F1000B335D /* cross.png in Resources */,
 				F337738D1BC8D1C100793831 /* settings.png in Resources */,
@@ -739,6 +746,7 @@
 				552555831C7F6FAC0028D805 /* License_Nor.plist in Resources */,
 				5504DD3D1C81830D002038E4 /* NewEventScreen.jpg in Resources */,
 				552555811C7F6E820028D805 /* License_Eng.plist in Resources */,
+				559CD95A1CC7FDCF00B77FAF /* Tutorial_Nor.plist in Resources */,
 				557745ED1C7B7BAB0005DA64 /* DefulatTransform.plist in Resources */,
 				552E05BF1C9EE81500F86430 /* Klavika-Medium.otf in Resources */,
 				553B65C91BFBB3D900F288DD /* yellow.png in Resources */,

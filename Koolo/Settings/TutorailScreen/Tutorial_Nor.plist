@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Hjemskjerm </string>
+		<key>description</key>
+		<string>Dette er hjemskjermen din. Her kan du se dagens dato og endre fargen på den. Du kan velge å ha sitat øverst på skjermen eller slette det under innstillinger. «+» ikonet gir deg tilgang på de tre hovedfunksjonene av KOOLO appen, og tannhjulet åpner menyen for innstillinger.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>De tre funksjonene</string>
+		<key>description</key>
+		<string>Når du klikker på + ikonet, vil du se de tre ikonene som linker til KOOLO appens funksjonalitet. Klikk på ikonet for å åpne funksjonen.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Innstillinger</string>
+		<key>description</key>
+		<string>Klikk «bakgrunnsbilde» for å endre bakgrunnsbildet i appen din, «passkode» for å aktivere eller endre passkoden, «sitater» for å aktivere eller endre sitatene på Hjemskjermen din, «Fargevalg» for å endre taggene knyttet til fargene i appen. Du kan også lese om KOOLO appen eller gå inn på denne gjennomgangen.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Sjekklister</string>
+		<key>description</key>
+		<string>Sjekklistene hjelper deg med å få oversikt over de ulike målene og ferdighetene som trengs i overgangen mellom barne- og voksenavdelingen. «Tre setninger» er et verktøy som du kan bruke for å forberede deg for en legetime. Tallene bak «Min helse» og «Klar for overføring» viser hvor mange av punktene på listene er fullført.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>«Min helse» og «Klar for overføring»</string>
+		<key>description</key>
+		<string>«Min helse» og «Klar for overføring» inneholder mål og ferdigheter knyttet til det å være pasient og overføring. Marker de som «ferdig», «ikke ferdig» og «pågåede». Du kan også slette mål (ved å sveipe) og legge til dine egne mål (vel å klikke «Nytt mål»).</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Tre setninger</string>
+		<key>description</key>
+		<string>Du kan legge til tekst i tekstboksene som kan hjelpe deg i forkant og i løpet av en legetime. Klikk «ferdig» for å lagre og «avbryt» for å slette endringene.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Kalender</string>
+		<key>description</key>
+		<string>Dersom du har lagret en hendelse, vil den vises under datoen du klikker på. Kalenderen vil også vise dagene du har markert med en farge. Klikk + ikonet for å legge til en ny hendelse.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Ny hendelse</string>
+		<key>description</key>
+		<string>Tag datoen med en farge ved å klikke på den. Fyll inn navn på hendelsen eller avtale og en beskrivelse. Du kan legge til et tidspunk ved å klikke på «klokke» ikonet. Dersom du ønsker å få en påminnelse, kan du klikke på «Påminnelse». </string>
+	</dict>
+</array>
+</plist>
