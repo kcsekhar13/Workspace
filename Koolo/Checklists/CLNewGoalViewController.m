@@ -41,7 +41,7 @@
         doneButtonTitle = @"Add On";
     }
     
-    newGoalFlag = NO;
+    newGoalFlag = YES;
     dataManager = [StoreDataMangager sharedInstance];
     UIImage *backgroundImage = dataManager.returnBackgroundImage;
     if (backgroundImage) {

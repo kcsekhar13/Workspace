@@ -25,6 +25,14 @@
     [super viewDidLoad];
     
     self.title = self.viewTitle;
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
+        
+        self.updateTitle = NSLocalizedString(@"Update", nil);
+    } else {
+        self.updateTitle = @"Update";
+    }
     dataManager = [StoreDataMangager sharedInstance];
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
     
@@ -220,15 +228,15 @@
     
     button.backgroundColor = [UIColor clearColor]; //arbitrary color
     
-    UITableViewRowAction *button2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Update" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
+    UITableViewRowAction *button2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:self.updateTitle handler:^(UITableViewRowAction *action, NSIndexPath *indexPath)
                                     {
                                         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
                                         CLNewGoalViewController *newgoalViewController = (CLNewGoalViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CLNewGoalScreen"];
                                         
                                         if (self.goalFlag) {
-                                            newgoalViewController.titleString = self.rightButtonTitle;
+                                            newgoalViewController.titleString = self.updateTitle;
                                         } else {
-                                            newgoalViewController.titleString = self.rightButtonTitle;
+                                            newgoalViewController.titleString = self.updateTitle;
                                         }
                                         newgoalViewController.delegate = self;
                                         newgoalViewController.editFlag = YES;
