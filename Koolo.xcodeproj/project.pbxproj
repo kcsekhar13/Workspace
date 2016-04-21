@@ -79,6 +79,7 @@
 		559CD9581CC7FA5900B77FAF /* Tutorial_EN.plist in Resources */ = {isa = PBXBuildFile; fileRef = 559CD9571CC7FA5900B77FAF /* Tutorial_EN.plist */; };
 		559CD95A1CC7FDCF00B77FAF /* Tutorial_Nor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 559CD9591CC7FDCF00B77FAF /* Tutorial_Nor.plist */; };
 		55A8FAE31BE4911A0057CF44 /* colorPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */; };
+		55B135C41CC94460009DB4C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B135C31CC9445F009DB4C7 /* QuartzCore.framework */; };
 		55CAAF051BE4A0FE008EE20C /* StoreDataMangager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */; };
 		55D063831BF8894B000962D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55D063821BF8894B000962D3 /* Localizable.strings */; };
 		55E705CE1C0F545D00271F03 /* CustomTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55E705CD1C0F545D00271F03 /* CustomTagTableViewCell.m */; };
@@ -231,6 +232,7 @@
 		559CD9591CC7FDCF00B77FAF /* Tutorial_Nor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tutorial_Nor.plist; sourceTree = "<group>"; };
 		55A8FAE11BE4911A0057CF44 /* colorPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorPickerTableViewCell.h; sourceTree = "<group>"; };
 		55A8FAE21BE4911A0057CF44 /* colorPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorPickerTableViewCell.m; sourceTree = "<group>"; };
+		55B135C31CC9445F009DB4C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		55CAAF031BE4A0FE008EE20C /* StoreDataMangager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDataMangager.h; sourceTree = "<group>"; };
 		55CAAF041BE4A0FE008EE20C /* StoreDataMangager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDataMangager.m; sourceTree = "<group>"; };
 		55D063821BF8894B000962D3 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Koolo/Localizable.strings; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B135C41CC94460009DB4C7 /* QuartzCore.framework in Frameworks */,
 				F387E7661C21B6B30059D8E4 /* EventKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +459,7 @@
 		555BD6041BC760B500BB61E9 = {
 			isa = PBXGroup;
 			children = (
+				55B135C31CC9445F009DB4C7 /* QuartzCore.framework */,
 				552E05BB1C9EE81500F86430 /* Klavika-Bold.otf */,
 				552E05BC1C9EE81500F86430 /* Klavika-Medium.otf */,
 				552E05BD1C9EE81500F86430 /* Klavika-Regular.otf */,

@@ -8,6 +8,7 @@
 
 #import "NewEventViewController.h"
 #import "CustomTagTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface NewEventViewController ()
@@ -26,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *remaindLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIView *activityView;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 
 @end
 
@@ -57,7 +59,7 @@
         self.addTagField.placeholder = NSLocalizedString(@"Clinic", nil);
         self.eventTextField.placeholder = NSLocalizedString(@"Today's events", nil);
         self.remaindLabel.text = NSLocalizedString(@"Remind me", nil);
-        self.addTagField.placeholder  = NSLocalizedString(@"Multiple Tags", nil);
+        self.descriptionTextView.text  = NSLocalizedString(@"Multiple Tags", nil);
         
     } else {
         self.title = @"Today's Event";
@@ -69,12 +71,12 @@
         self.eventTextField.placeholder = @"Today's events";
         [self.tagsDoneButton setTitle:@"Done" forState:UIControlStateNormal];
         self.remaindLabel.text = @"Remind me";
-        self.addTagField.placeholder  = @"Multiple Tags";
+        self.descriptionTextView.text  = @"Multiple Tags";
         
         remaindingTitlesArray = [[NSArray alloc] initWithObjects:@"Today",@"Daily", @"Weekly", @"Monthly", nil];
         
     }
-    
+    _placeHolderString = self.descriptionTextView.text;
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
     
     self.navigationController.navigationBar.titleTextAttributes = size;
@@ -185,6 +187,26 @@
     
     [self.activityView setHidden:YES];
     
+    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+    [keyboardDoneButtonView sizeToFit];
+    
+    UIBarButtonItem* keyboardFlexSpace = [[UIBarButtonItem alloc]  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    UIBarButtonItem* keyboardDoneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(resignTextView)];
+    
+    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:keyboardFlexSpace, keyboardDoneButton, nil]];
+   
+    _descriptionTextView.inputAccessoryView = keyboardDoneButtonView;
+    
+    _descriptionTextView.layer.borderColor = [UIColor grayColor].CGColor;
+    _descriptionTextView.layer.borderWidth = 1.0f;
+    _descriptionTextView.layer.cornerRadius = 4.0f;
+    
+    _eventTextField.layer.borderColor = [UIColor grayColor].CGColor;
+    _eventTextField.layer.borderWidth = 1.0f;
+    _eventTextField.layer.cornerRadius = 4.0f;
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -227,25 +249,48 @@
             [toolBar setFrame:CGRectMake(0, self.datePicker.frame.origin.y - 44.0f, self.view.frame.size.width, 44)];
         }];
     }
-    
-    if (_addTagField != textField && _addTagField.text.length) {
-        
-        [selectedTagsArray addObject:_addTagField.text];
-        _addTagField.text = @"";
-    }
-    
    
+    if([_descriptionTextView.text isEqualToString:@""]) {
+        
+        _descriptionTextView.text = self.placeHolderString;
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    if (_addTagField == textField && _addTagField.text.length) {
-        
-        [selectedTagsArray addObject:_addTagField.text];
-        _addTagField.text = @"";
-    }
+    
     [textField resignFirstResponder];
     return YES;
+}
+
+#pragma mark - UITextView delegateMethods
+
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
+{
+    self.descriptionTextView.text = @"";
+    return YES;
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    
+    if (displayDatePicker) {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.datePicker setFrame:CGRectMake(0.0f, self.view.frame.size.height + 200.0f, self.view.frame.size.width, 200.0f)];
+            [toolBar setFrame:CGRectMake(0, self.datePicker.frame.origin.y - 44.0f, self.view.frame.size.width, 44)];
+        }];
+    }
+    
+    
+}
+
+- (void)resignTextView {
+    
+    if([_descriptionTextView.text isEqualToString:@""]) {
+        
+        _descriptionTextView.text = self.placeHolderString;
+    }
+    
+    [_descriptionTextView resignFirstResponder];
 }
 #pragma mark -  UITableView dataSource methods
 
@@ -274,6 +319,7 @@
     return cell;
 }
 
+
 #pragma mark -  UITableView Delegate methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -299,14 +345,8 @@
 
 - (IBAction)launchDatePicker:(id)sender {
     
-    if ([_addTagField isFirstResponder]) {
-        if (_addTagField.text.length) {
-            
-            [selectedTagsArray addObject:_addTagField.text];
-            _addTagField.text = @"";
-        }
-        
-        [_addTagField resignFirstResponder];
+    if ([_descriptionTextView isFirstResponder]) {
+        [_descriptionTextView resignFirstResponder];
     }
     
     if ([_eventTextField isFirstResponder]) {
@@ -372,10 +412,13 @@
     
     if (buttonItem.tag == 1) {
         
-        if ( _addTagField.text.length) {
+        
+        if ( _descriptionTextView.text.length && ![_descriptionTextView.text isEqualToString:self.placeHolderString]) {
             
-            [selectedTagsArray addObject:_addTagField.text];
-            _addTagField.text = @"";
+            [selectedTagsArray addObject:_descriptionTextView.text];
+            _descriptionTextView.text = @"";
+        } else {
+            [selectedTagsArray addObject:@""];
         }
         
         if (self.eventTextField.text.length == 0) {

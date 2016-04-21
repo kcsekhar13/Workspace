@@ -11,7 +11,7 @@
 #import "AppDataManager.h"
 #import "CalendarColorPickerViewController.h"
 
-@interface NewEventViewController : UIViewController <UITextFieldDelegate> {
+@interface NewEventViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate> {
     
     StoreDataMangager *dataManager;
     UIToolbar *toolBar;
@@ -26,5 +26,6 @@
 }
 
 @property (nonatomic, strong) NSDate *selectedDate;
+@property (nonatomic, strong) NSString *placeHolderString;
 
 @end
