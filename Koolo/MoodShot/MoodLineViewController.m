@@ -142,6 +142,11 @@
     NSString *savedImagePath = [[dataManager getDocumentryPath] stringByAppendingPathComponent:[dict objectForKey:@"FileName"]];
     
     tableViewCell.backgroundColor = [UIColor clearColor];
+    
+    if (self.view.frame.size.width > 320) {
+        
+        tableViewCell.backView.frame = CGRectMake(tableViewCell.backView.frame.origin.x - 10.0f, tableViewCell.backView.frame.origin.y, tableViewCell.backView.frame.size.width, tableViewCell.backView.frame.size.height);
+    }
 
     tableViewCell.backView.cellDict = dict;
     if ([dict objectForKey:@"ColorIndex"]) {
