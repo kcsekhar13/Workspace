@@ -969,7 +969,7 @@
                                     <outlet property="delegate" destination="GGz-eN-bId" id="yYT-GU-14b"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kl. " textAlignment="natural" minimumFontSize="17" id="Rub-4F-0WK">
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kl. " textAlignment="natural" minimumFontSize="17" id="Rub-4F-0WK">
                                 <rect key="frame" x="96" y="142" width="90" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
