@@ -267,7 +267,11 @@
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    self.descriptionTextView.text = @"";
+    if ( [_descriptionTextView.text isEqualToString:self.placeHolderString]) {
+        
+         self.descriptionTextView.text = @"";
+    }
+   
     return YES;
 }
 

@@ -42,7 +42,7 @@
         
     } else {
         self.title = @"Settings";
-        contentArray = [[NSArray alloc] initWithObjects:@"Background Image", @"Passcode", @"Quotes", @"License",@"Humor Colors", @"Tutorial",@"Contributors", @"About",nil];
+        contentArray = [[NSArray alloc] initWithObjects:@"Background Image", @"Passcode", @"Quotes", @"License",@"Mood Colors", @"Tutorial",@"Contributors", @"About",nil];
         cancelTitle = @"Cancel";
         doneButtonTitle = @"Done";
     }

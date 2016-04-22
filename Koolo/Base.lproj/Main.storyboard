@@ -56,6 +56,7 @@
             <string>Klavika-Regular</string>
             <string>Klavika-Regular</string>
             <string>Klavika-Regular</string>
+            <string>Klavika-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -507,7 +508,7 @@
                                                             <rect key="frame" x="16" y="0.0" width="173" height="173"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oPl-OV-st1">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oPl-OV-st1">
                                                             <rect key="frame" x="18" y="1" width="169" height="19"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="Klavika-Bold" family="Klavika" pointSize="17"/>
@@ -990,7 +991,7 @@
                                 <rect key="frame" x="96" y="142" width="214" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
                                     <outlet property="delegate" destination="GGz-eN-bId" id="TFP-1u-sY0"/>
