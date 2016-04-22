@@ -14,6 +14,7 @@
     StoreDataMangager *dataManager;
     BOOL pinchFlag;
     UITapGestureRecognizer *pinchGestureRecognizer;
+    float backImageXPosition;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *moodLineTableView;

@@ -145,7 +145,7 @@
     
     if (self.view.frame.size.width > 320) {
         
-        tableViewCell.backView.frame = CGRectMake(tableViewCell.backView.frame.origin.x - 10.0f, tableViewCell.backView.frame.origin.y, tableViewCell.backView.frame.size.width, tableViewCell.backView.frame.size.height);
+//        tableViewCell.backView.frame = CGRectMake(70, tableViewCell.backView.frame.origin.y, tableViewCell.backView.frame.size.width, tableViewCell.backView.frame.size.height);
     }
 
     tableViewCell.backView.cellDict = dict;
@@ -379,12 +379,23 @@
             NSDictionary *dict = (NSDictionary *)self.moodsArray[i];
             NSInteger selectedColorTag = [dict[@"ColorIndex"] integerValue];
             
-            if (selectedColorTag == tag) {
+            if (selectedColorTag == tag && dict.allKeys.count != 1) {
                 [filterArray addObject:dict];
             }
         }
         self.moodsArray = filterArray;
 
+    } else {
+        NSMutableArray *filterArray = [[NSMutableArray alloc] init];
+        for (int i = 0 ; i < self.moodsArray.count; i++) {
+            
+            NSDictionary *dict = (NSDictionary *)self.moodsArray[i];
+            
+            if (dict.allKeys.count != 1) {
+                [filterArray addObject:dict];
+            }
+        }
+        self.moodsArray = filterArray;
     }
     
     [self.moodLineTableView reloadData];
