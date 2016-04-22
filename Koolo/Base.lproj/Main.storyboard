@@ -521,6 +521,13 @@
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="M72-HG-W3j">
+                                                            <rect key="frame" x="16" y="0.0" width="173" height="173"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <connections>
+                                                                <action selector="zoomButtonAction:" destination="3M0-Ws-t92" eventType="touchUpInside" id="rkT-3C-Fue"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -532,6 +539,7 @@
                                             <outlet property="emptyDateLabel" destination="0e8-VH-iG8" id="wyP-f6-NQ2"/>
                                             <outlet property="moodCellImage" destination="nAl-tv-KOa" id="QXJ-Bb-YNV"/>
                                             <outlet property="moodColorImage" destination="VQS-8G-OPT" id="suH-Tx-dbE"/>
+                                            <outlet property="zoomButton" destination="M72-HG-W3j" id="BT7-f4-VmI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

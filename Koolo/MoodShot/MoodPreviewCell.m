@@ -27,5 +27,10 @@
     [self.backView setNeedsDisplay];
     
 }
-
+- (IBAction )zoomButtonAction :(UIButton *)sender {
+    
+    if ([self.delegate respondsToSelector:@selector(moveToZoomScreen:)]) {
+        [self.delegate moveToZoomScreen:sender];
+    }
+}
 @end

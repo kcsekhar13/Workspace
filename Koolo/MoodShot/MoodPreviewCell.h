@@ -9,16 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "CustomMoodsImageView.h"
 
-@protocol moodsImageTableViewCellDelegate <NSObject>
+@protocol MoodsImageTableViewCellDelegate <NSObject>
 
 - (void)adjustTableViewCellFrame:(id)sender;
 - (void)updateColorPickertitles:(id)sender;
+- (void)moveToZoomScreen:(UIButton *)sender;
 
 @end
 
 @interface MoodPreviewCell : UITableViewCell
 
-@property (nonatomic, assign) id <moodsImageTableViewCellDelegate> delegate;
+@property (nonatomic, assign) id <MoodsImageTableViewCellDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIImageView *moodColorImage;
 
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) UIColor *boarderColor;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emptyDateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *zoomButton;
 
 -(void)drawBoarderForCell;
 @end

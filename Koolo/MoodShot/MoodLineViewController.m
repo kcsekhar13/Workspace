@@ -12,7 +12,7 @@
 #import "MoodMapViewController.h"
 #import "SecondViewController.h"
 
-@interface MoodLineViewController () <MoodMapDelegate>
+@interface MoodLineViewController () <MoodMapDelegate,MoodsImageTableViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -142,6 +142,7 @@
     NSString *savedImagePath = [[dataManager getDocumentryPath] stringByAppendingPathComponent:[dict objectForKey:@"FileName"]];
     
     tableViewCell.backgroundColor = [UIColor clearColor];
+    tableViewCell.delegate = self;
     
     if (self.view.frame.size.width > 320) {
         
@@ -149,6 +150,7 @@
     }
 
     tableViewCell.backView.cellDict = dict;
+    tableViewCell.zoomButton.tag = indexPath.row;
     if ([dict objectForKey:@"ColorIndex"]) {
         tableViewCell.moodColorImage.backgroundColor = dataManager.fetchColorsArray[[[dict  objectForKey:@"ColorIndex"] intValue]];
         
@@ -235,6 +237,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    /*
     NSDictionary *dict = [self.moodsArray objectAtIndex:indexPath.row];
     NSString *savedImagePath = [[dataManager getDocumentryPath] stringByAppendingPathComponent:[dict objectForKey:@"FileName"]];
     if ([dict objectForKey:@"ColorIndex"]) {
@@ -244,10 +247,25 @@
         UIImage *previewImage = [UIImage imageWithContentsOfFile:savedImagePath];
         [obj setZoomImage:previewImage];
         [self.navigationController pushViewController:obj animated:NO];
-    }
+    }*/
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+}
+
+- (void)moveToZoomScreen:(UIButton *)sender {
+    
+    NSDictionary *dict = [self.moodsArray objectAtIndex:sender.tag];
+    NSString *savedImagePath = [[dataManager getDocumentryPath] stringByAppendingPathComponent:[dict objectForKey:@"FileName"]];
+    if ([dict objectForKey:@"ColorIndex"]) {
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        SecondViewController *obj  = [storyboard instantiateViewControllerWithIdentifier:@"ZoomScreen"];
+        UIImage *previewImage = [UIImage imageWithContentsOfFile:savedImagePath];
+        [obj setZoomImage:previewImage];
+        [self.navigationController pushViewController:obj animated:NO];
+    }
     
 }
 #pragma mark -  UIImagePickerController Delegate methods
