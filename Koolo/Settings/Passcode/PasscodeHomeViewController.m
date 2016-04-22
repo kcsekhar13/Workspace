@@ -45,17 +45,19 @@
         self.pickerViewTextField.text= NSLocalizedString(@"Select security question", nil);
         cancelTitle = NSLocalizedString(@"Cancel", nil);
         doneButtonTitle = NSLocalizedString(@"Done", nil);
+        secretQuestions = [[NSArray alloc] initWithObjects:@"Navn på første kjæledyr", @"Favoritt artist", @"Favoritt mat", @"Favoritt idrettslag", @"Hvem er helten din", nil];
         
         
     } else {
         self.title = @"Passcode";
         self.secretQuestion = @"Select your secret question";
-        self.activateLabel.text = @"Activate/Deactivate Passcode";
+        self.activateLabel.text = @"Passcode";
        [self.setPasscodeButton setTitle:@"Set Passcode" forState:UIControlStateNormal];
-        self.secretQuestionLabel.text = @"Set secretQuestion";
+        self.secretQuestionLabel.text = @"Set secret question";
         self.pickerViewTextField.text = @"Select your secret question";
         cancelTitle = @"Cancel";
         doneButtonTitle = @"Done";
+        secretQuestions = [[NSArray alloc] initWithObjects:@"First pet’s name", @"Favourite artist", @"Favourite food", @"Favourite sports team", @"Who is your hero", nil];
     }
    
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
@@ -86,7 +88,7 @@
         self.answerField.hidden = YES;
     }
     
-    secretQuestions = [[NSArray alloc] initWithObjects:@"What is your favourite color?", @"What is your pet name?", @"Who's your favourite actor?", @"What is your first car?", @"What is your favourite food? ", nil];
+    
     UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     pickerView.showsSelectionIndicator = YES;
     pickerView.dataSource = self;
