@@ -435,8 +435,15 @@
     NSMutableDictionary *dictionary = (NSMutableDictionary*)[_addGoalsArray objectAtIndex:index];
     [allGoals replaceObjectAtIndex:index withObject:dictionary];
     CLNewGoalTableViewCell *cell  = (CLNewGoalTableViewCell*)[_goalsTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+    
+    
+    
 
     if ([[dictionary objectForKey:@"Hidden"] isEqualToString:@"YES"] && ![[dictionary objectForKey:@"GoalStatus"] isEqualToString:@"NA"]) {
+        
+        [dictionary setObject:@"NO" forKey:@"Hidden"];
+        [cell.goalCellImage setHidden:NO];
+    } else if ([[dictionary objectForKey:@"Hidden"] isEqualToString:@"YES"] && [[dictionary objectForKey:@"GoalStatus"] isEqualToString:@"NA"]) {
         
         [dictionary setObject:@"NO" forKey:@"Hidden"];
         [cell.goalCellImage setHidden:NO];
