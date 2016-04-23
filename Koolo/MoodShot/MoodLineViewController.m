@@ -38,9 +38,9 @@
         self.title = NSLocalizedString(@"Mood Line", nil);
         
     } else {
-        filterTitle = @"Map";
+        filterTitle = @"MoodMap";
         doneButtonTitle = @"Done";
-         self.title = @"Mood Line";
+         self.title = @"MoodLine";
     }
     
     

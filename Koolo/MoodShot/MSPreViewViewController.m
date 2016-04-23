@@ -23,7 +23,6 @@
     
     [super viewDidLoad];
     selectDeselectIndexPathRow = -1;
-    self.title = @"Select Humor Color";
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *cancelButtonTitle = nil;
     NSString *doneButtonTitle = nil;
@@ -35,7 +34,7 @@
     } else {
         cancelButtonTitle = @"Cancel";
         doneButtonTitle = @"Done";
-        self.title = @"Select Humor Color";
+        self.title = @"Select Mood";
     }
     
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];

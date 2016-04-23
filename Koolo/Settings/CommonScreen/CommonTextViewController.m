@@ -25,13 +25,16 @@
     
     NSString *infoString = [[NSString alloc] init];
     NSString *doneButtonTitle = @"";
+    NSString *cancelTitle = nil;
+    
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         doneButtonTitle = NSLocalizedString(@"Done", nil);
-        
+        cancelTitle = NSLocalizedString(@"Cancel", nil);
     } else {
         doneButtonTitle = @"Done";
+        cancelTitle = @"Cancel";
     }
     
     [self.navigationItem setHidesBackButton:YES animated:NO];
@@ -46,6 +49,10 @@
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToSettingsScreen)];
     [doneButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
+    
+    UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToSettingsScreen)];
+    [rightButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = rightButton;
 
     if (self.licenseFlag) {
         for (int i = 1; i < self.infoArray.count; i++) {

@@ -16,6 +16,7 @@
     NSString *wrongCodeMessage;
     NSString *secretQuestion;
     NSString *secretAnswer;
+    NSString *passCodeString;
 
 }
 

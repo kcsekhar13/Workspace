@@ -35,14 +35,19 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *rightButtonTile = nil;
+    
+    NSString *cancelTitle = nil;
+    
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         self.title = @"Sitater";
         rightButtonTile = NSLocalizedString(@"Done", nil);
+        cancelTitle = NSLocalizedString(@"Cancel", nil);
         
     } else {
         self.title = @"Quotes";
         rightButtonTile = @"Done";
+        cancelTitle = @"Cancel";
     }
     
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
@@ -55,6 +60,10 @@ static NSIndexPath *previousSelctedIndexPath = nil;
       NSForegroundColorAttributeName:
           [UIColor blackColor]
       };
+    
+    UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(backToScreen)];
+    [leftButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = leftButton;
     
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:rightButtonTile style:UIBarButtonItemStylePlain target:self action:@selector(backToScreen)];
     [doneButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];

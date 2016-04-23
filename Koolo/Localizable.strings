@@ -30,11 +30,11 @@
 "New transform" = "Overføring";
 "Information" = "Informasjon";
 "InfoDescription" = "Marker et mål som uaktuelt ved å sveipe til høyre";
-"Mood Line" = "Mood Linje";
+"Mood Line" = "MoodLine";
 "Filter" = "Filter";
-"Mood Map" = "Kart";
+"Mood Map" = "MoodMap";
 "All" = "Alle";
-"SelectHumorColor" = "Velg humor farge";
+"SelectHumorColor" = "Velg Mood";
 "Return" = " Tilbake";
 "Map" = "Kart";
 

@@ -12,8 +12,10 @@
             <string>Klavika-Bold</string>
             <string>Klavika-Bold</string>
         </mutableArray>
+        <mutableArray key="Klavika-Medium.otf">
+            <string>Klavika-Medium</string>
+        </mutableArray>
         <mutableArray key="Klavika-Regular.otf">
-            <string>Klavika-Regular</string>
             <string>Klavika-Regular</string>
             <string>Klavika-Regular</string>
             <string>Klavika-Regular</string>
@@ -432,10 +434,10 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="E5z-8D-4mR">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="E5z-8D-4mR">
                                                     <rect key="frame" x="78" y="18" width="190" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Klavika-Medium" family="Klavika" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="ghk-me-cVX" id="i1W-YU-ex1"/>

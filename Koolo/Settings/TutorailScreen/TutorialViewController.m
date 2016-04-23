@@ -33,14 +33,21 @@
     self.navigationController.navigationBar.titleTextAttributes = size;
     
     NSString *doneButtonTitle = @"";
+    NSString *cancelTitle = nil;
+    
+    
+    
+    
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
         doneButtonTitle = NSLocalizedString(@"Done", nil);
+        cancelTitle = NSLocalizedString(@"Cancel", nil);
         _contentDesCription = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Tutorial_Nor.plist" ofType:nil]];
         
     } else {
         doneButtonTitle = @"Done";
+        cancelTitle = @"Cancel";
         _contentDesCription = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Tutorial_EN.plist" ofType:nil]];
     }
     
@@ -56,6 +63,10 @@
     UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToSettingsScreen)];
     [doneButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
+    
+    UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToSettingsScreen)];
+    [rightButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = rightButton;
     
     [self createPageViewController];
     [self setupPageControl];

@@ -23,14 +23,19 @@
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *cancelTitle = nil;
+    NSString *doneButtonTitle = nil;
+    passCodeString = @"";
+    
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         self.title = NSLocalizedString(@"Passcode", nil);
         cancelTitle = NSLocalizedString(@"Cancel", nil);
         wrongCodeMessage = NSLocalizedString(@"Wrong code", nil);
+        doneButtonTitle = NSLocalizedString(@"Done", nil);
     } else {
         self.title = @"Passcode";
         cancelTitle = @"Cancel";
         wrongCodeMessage = @"Wrong Code";
+        doneButtonTitle = @"Done";
     }
     
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
@@ -53,6 +58,10 @@
     [leftButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = leftButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(savePassword)];
+    [rightButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = rightButton;
     
     [super viewDidLoad];
     dataManager = [StoreDataMangager sharedInstance];
@@ -97,7 +106,7 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     
-    [self drawTextFields:nil];
+    [self drawTextFields:passCodeString];
     return YES;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -108,7 +117,9 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL status = YES;
+    
     NSString *totalString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
     int length = (int)(totalString.length);
     if (length > 4) {
         
@@ -116,15 +127,15 @@
         
         
     }else{
-        
-        
+        passCodeString = @"";
+        passCodeString = totalString;
         [self drawTextFields:totalString];
         
         if (length == 4) {
             
             if (self.mode == 1) {
                 
-                [self savePassword:totalString];
+                //[self savePassword:totalString];
                 
             }
             else{
@@ -183,20 +194,40 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)savePassword:(NSString*)passString
+-(void)savePassword
 {
     
+    if (passCodeString.length == 4) {
     
-    [[NSUserDefaults standardUserDefaults] setObject:passString forKey:@"Password"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [self performSelector:@selector(popToPreviousScreen) withObject:nil afterDelay:0.5];
+        [[NSUserDefaults standardUserDefaults] setObject:passCodeString forKey:@"Password"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self.passcodeField resignFirstResponder];
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"The passcode  should be a 4 digit number" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okAction = [UIAlertAction
+                                   actionWithTitle:@"OK"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action)
+                                   {
+                                       [alert dismissViewControllerAnimated:YES completion:nil];
+                                       [self.passcodeField becomeFirstResponder];
+                                       
+                                   }];
+        [alert addAction:okAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
     
 }
 
 - (void)popToPreviousScreen {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 -(void)checkPassWord:(NSString*)passString
