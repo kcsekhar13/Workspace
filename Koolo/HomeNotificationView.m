@@ -84,8 +84,16 @@
             [_mQuoteText setHidden:YES];
     }
     
+    NSMutableArray *unsortedArray = [[NSMutableArray alloc] initWithArray:[[AppDataManager sharedInstance] getEventsForSelectedDate:[NSDate date]]];
     
-    self.eventsArray = [[AppDataManager sharedInstance] getEventsForSelectedDate:[NSDate date]];
+    self.eventsArray = (NSMutableArray *)[unsortedArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        
+        int valueOne = [[obj1 valueForKey:@"Sort"] integerValue];
+        int valueTwo = [[obj2 valueForKey:@"Sort"] integerValue];
+        return [[NSNumber numberWithInteger:valueOne] compare:[NSNumber numberWithInteger:valueTwo]];
+    }];
+    
+    NSLog(@"self.eventsArray = %@", self.eventsArray);
       
     if (self.eventsTable == nil) {
         
@@ -211,7 +219,6 @@
 //
 //    }
     
-   
 }
 
 

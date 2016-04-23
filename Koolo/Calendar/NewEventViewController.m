@@ -461,6 +461,14 @@
         NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"HH:mm"];
         [eventDict setObject:[NSString stringWithFormat:@"Kl. %@", [dateFormatter stringFromDate:_datePicker.date]] forKey:@"TagTitle"];
+        NSString *sortString = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:_datePicker.date]];
+        sortString = [sortString stringByReplacingOccurrencesOfString:@":" withString:@""];
+        
+        NSLog(@"sort String = %@", sortString);
+        NSLog(@"sort String Int value = %d", sortString.integerValue);
+
+        
+        [eventDict setObject:[NSNumber numberWithInteger:sortString.integerValue] forKey:@"Sort"];
         [eventDict setObject:_selectedDate forKey:@"EventDate"];
         [eventDict setObject:self.remainderString forKey:@"Remainder"];
         [eventDict setObject:selectedTagsArray forKey:@"SelectedTags"];
