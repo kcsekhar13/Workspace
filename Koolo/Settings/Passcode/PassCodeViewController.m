@@ -54,9 +54,12 @@
           [UIColor blackColor]
       };
     
-    UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
-    [leftButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
-    self.navigationItem.leftBarButtonItem = leftButton;
+    if (self.mode == 1) {
+        UIBarButtonItem* leftButton = [[UIBarButtonItem alloc] initWithTitle:cancelTitle style:UIBarButtonItemStylePlain target:self action:@selector(cancelScreen)];
+        [leftButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
+        self.navigationItem.leftBarButtonItem = leftButton;
+    }
+    
     [self.navigationItem setHidesBackButton:YES animated:NO];
     
     UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(savePassword)];
@@ -140,7 +143,7 @@
             }
             else{
                 
-                [self checkPassWord:totalString];
+                //[self checkPassWord:totalString];
                 status = NO;
             }
         }
@@ -199,10 +202,17 @@
     
     if (passCodeString.length == 4) {
     
-        [[NSUserDefaults standardUserDefaults] setObject:passCodeString forKey:@"Password"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        if (self.mode == 1) {
+            
+            [[NSUserDefaults standardUserDefaults] setObject:passCodeString forKey:@"Password"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        } else {
+            [self checkPassWord:passCodeString];
+        }
         
-        [self.navigationController popViewControllerAnimated:YES];
     } else {
         [self.passcodeField resignFirstResponder];
         
