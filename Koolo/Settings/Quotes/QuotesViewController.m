@@ -278,7 +278,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         
         if ([textView isEqual:_mEditTextView]) {
             [textView setText:nil];
-            [_mEditTextView setFrame:CGRectMake(_mEditTextView.frame.origin.x, _mEditTextView.frame.origin.y, _mEditTextView.frame.size.width, 90)];
+            [_mEditTextView setFrame:CGRectMake(_mEditTextView.frame.origin.x, _mEditTextView.frame.origin.y, _mEditTextView.frame.size.width, 65)];
             [UIView commitAnimations];
             [_mTypeStatusLabel setHidden:FALSE];
             [_addButton setHidden:FALSE];

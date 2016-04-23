@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIView *activityView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UIButton *selectTimeButton;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventsTitleLabel;
 
 @end
 
@@ -59,8 +61,9 @@
         self.addTagLabel.text = NSLocalizedString(@"Add tag", nil);
         [self.tagsDoneButton setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
         self.addTagField.placeholder =   NSLocalizedString(@"Clinic", nil);
-        self.eventTextField.placeholder = [NSString stringWithFormat:@" %@", NSLocalizedString(@"Today's events", nil)];
+        self.eventsTitleLabel.text = [NSString stringWithFormat:@" %@", NSLocalizedString(@"Today's events", nil)];
         self.remaindLabel.text = NSLocalizedString(@"Remind me", nil);
+        self.descriptionLabel.text = NSLocalizedString(@"Description", nil);
         //self.descriptionTextView.text  = NSLocalizedString(@"Multiple Tags", nil);
         [self.selectTimeButton setTitle:NSLocalizedString(@"Select time", nil) forState:UIControlStateNormal];
         
@@ -71,12 +74,12 @@
         titlesArray = [[NSArray alloc] initWithObjects:@"Tough", @"Long", @"Faith", nil];
         self.addTagLabel.text = @"Add tag";
         self.addTagField.placeholder = @"Clinic";
-        self.eventTextField.placeholder = @" New event";
+        self.eventsTitleLabel.text = @" New event";
         [self.tagsDoneButton setTitle:@"Done" forState:UIControlStateNormal];
         self.remaindLabel.text = @"Remind me";
         //self.descriptionTextView.text  = @"Multiple Tags";
         [self.selectTimeButton setTitle:@"Select time" forState:UIControlStateNormal];
-        
+        self.descriptionLabel.text = @"Description";
         remaindingTitlesArray = [[NSArray alloc] initWithObjects:@"Today",@"Daily", @"Weekly", @"Monthly", nil];
         
     }
@@ -208,10 +211,11 @@
     _eventTextField.layer.borderColor = [UIColor grayColor].CGColor;
     _eventTextField.layer.borderWidth = 1.0f;
     _eventTextField.layer.cornerRadius = 4.0f;
+    _eventTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
     
     _selectTimeButton.layer.borderColor = [UIColor blackColor].CGColor;
     _selectTimeButton.layer.borderWidth = 1.0f;
-    _selectTimeButton.layer.cornerRadius = 4.0f;
+    _selectTimeButton.layer.cornerRadius = 0.0f;
     
 }
 
@@ -240,6 +244,7 @@
 }
 
 #pragma mark - UITextField delegateMethods
+
 
 - (BOOL) textFieldShouldBeginEditing:(UITextField *)textField
 {
