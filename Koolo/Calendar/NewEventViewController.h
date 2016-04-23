@@ -27,5 +27,6 @@
 
 @property (nonatomic, strong) NSDate *selectedDate;
 @property (nonatomic, strong) NSString *placeHolderString;
+@property (nonatomic, strong) NSString *remainderString;
 
 @end

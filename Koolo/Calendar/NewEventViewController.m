@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIView *activityView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *selectTimeButton;
 
 @end
 
@@ -44,6 +45,7 @@
     NSArray *remaindingTitlesArray = nil;
     
     selectedTagsArray = [[NSMutableArray alloc] init];
+    self.remainderString = @"";
     
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         
@@ -56,27 +58,28 @@
         
         self.addTagLabel.text = NSLocalizedString(@"Add tag", nil);
         [self.tagsDoneButton setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
-        self.addTagField.placeholder = NSLocalizedString(@"Clinic", nil);
-        self.eventTextField.placeholder = NSLocalizedString(@"Today's events", nil);
+        self.addTagField.placeholder =   NSLocalizedString(@"Clinic", nil);
+        self.eventTextField.placeholder = [NSString stringWithFormat:@" %@", NSLocalizedString(@"Today's events", nil)];
         self.remaindLabel.text = NSLocalizedString(@"Remind me", nil);
-        self.descriptionTextView.text  = NSLocalizedString(@"Multiple Tags", nil);
+        //self.descriptionTextView.text  = NSLocalizedString(@"Multiple Tags", nil);
+        [self.selectTimeButton setTitle:NSLocalizedString(@"Select time", nil) forState:UIControlStateNormal];
         
     } else {
-        self.title = @"Today's Event";
+        self.title = @"New event";
         doneButtonTitle = @"Done";
         cancelButtonTitle = @"Cancel";
         titlesArray = [[NSArray alloc] initWithObjects:@"Tough", @"Long", @"Faith", nil];
         self.addTagLabel.text = @"Add tag";
         self.addTagField.placeholder = @"Clinic";
-        self.eventTextField.placeholder = @"Today's events";
+        self.eventTextField.placeholder = @" New event";
         [self.tagsDoneButton setTitle:@"Done" forState:UIControlStateNormal];
         self.remaindLabel.text = @"Remind me";
-        self.descriptionTextView.text  = @"Multiple Tags";
+        //self.descriptionTextView.text  = @"Multiple Tags";
+        [self.selectTimeButton setTitle:@"Select time" forState:UIControlStateNormal];
         
         remaindingTitlesArray = [[NSArray alloc] initWithObjects:@"Today",@"Daily", @"Weekly", @"Monthly", nil];
         
     }
-    _placeHolderString = self.descriptionTextView.text;
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
     
     self.navigationController.navigationBar.titleTextAttributes = size;
@@ -137,7 +140,7 @@
    
     
     self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height + 190.0f, self.view.frame.size.width, 200.0f)];
-    [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
+    [self.datePicker setDatePickerMode:UIDatePickerModeTime];
     self.datePicker.date = self.selectedDate;
     [self.datePicker setMinimumDate:[NSDate date]];
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -206,6 +209,9 @@
     _eventTextField.layer.borderWidth = 1.0f;
     _eventTextField.layer.cornerRadius = 4.0f;
     
+    _selectTimeButton.layer.borderColor = [UIColor blackColor].CGColor;
+    _selectTimeButton.layer.borderWidth = 1.0f;
+    _selectTimeButton.layer.cornerRadius = 4.0f;
     
 }
 
@@ -250,10 +256,6 @@
         }];
     }
    
-    if([_descriptionTextView.text isEqualToString:@""]) {
-        
-        _descriptionTextView.text = self.placeHolderString;
-    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -267,10 +269,7 @@
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    if ( [_descriptionTextView.text isEqualToString:self.placeHolderString]) {
-        
-         self.descriptionTextView.text = @"";
-    }
+    
    
     return YES;
 }
@@ -288,11 +287,6 @@
 }
 
 - (void)resignTextView {
-    
-    if([_descriptionTextView.text isEqualToString:@""]) {
-        
-        _descriptionTextView.text = self.placeHolderString;
-    }
     
     [_descriptionTextView resignFirstResponder];
 }
@@ -375,7 +369,14 @@
     
     //NSLog(@"%ld", (long)barbutton.tag);
     if (barbutton.tag != -1) {
-        self.remainderLabel.text = barbutton.title;
+        self.remainderString = @"";
+        self.remainderString = barbutton.title;
+        
+        NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"HH:mm"];
+        
+        self.remainderLabel.text = [NSString stringWithFormat:@"%@ %@", barbutton.title, [dateFormatter stringFromDate:_datePicker.date]];
+        
     }
     
     [self updateDateLabels:_datePicker.date];
@@ -417,7 +418,7 @@
     if (buttonItem.tag == 1) {
         
         
-        if ( _descriptionTextView.text.length && ![_descriptionTextView.text isEqualToString:self.placeHolderString]) {
+        if ( _descriptionTextView.text.length) {
             
             [selectedTagsArray addObject:_descriptionTextView.text];
             _descriptionTextView.text = @"";
@@ -433,7 +434,7 @@
             return;
         }
         
-        if (self.remainderLabel.text.length == 0) {
+        if (self.remainderLabel.text.length == 0 || self.remainderString.length == 0) {
             [self.activityView setHidden:YES];
             [self.view setUserInteractionEnabled:YES];
             [self displayErrorMessageView:@"Select appointment time"];
@@ -461,11 +462,11 @@
         [dateFormatter setDateFormat:@"HH:mm"];
         [eventDict setObject:[NSString stringWithFormat:@"Kl. %@", [dateFormatter stringFromDate:_datePicker.date]] forKey:@"TagTitle"];
         [eventDict setObject:_selectedDate forKey:@"EventDate"];
-        [eventDict setObject:self.remainderLabel.text forKey:@"Remainder"];
+        [eventDict setObject:self.remainderString forKey:@"Remainder"];
         [eventDict setObject:selectedTagsArray forKey:@"SelectedTags"];
         [eventDict setObject:_selectedDate forKey:@"unique"];
         //NSLog(@"Event Dict = %@", eventDict);
-        [[AppDataManager sharedInstance] createEventWithDetails:eventDict withRemainderType:self.remainderLabel.text];
+        [[AppDataManager sharedInstance] createEventWithDetails:eventDict withRemainderType:self.remainderString];
         
     }
     [self.activityView setHidden:YES];

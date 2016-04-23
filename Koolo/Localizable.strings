@@ -53,7 +53,7 @@
 "Answer Secutiry question" = "Svar Sikkerhetsspørsmål";
 
 "Calendar" = "Kalender";
-"Today's events" = "Dagens hendelser";
+"Today's events" = "Ny hendelse";
 "Add tag" = "Legg til tag";
 "Tough" = "Tøff";
 "Long"=  "Kjipt";
@@ -65,6 +65,8 @@
 "Monthly" = "Ukentlig";
 "Yearly" = "Månedlig";
 "Clinic" = "Klinikk";
+
+"Select time" = "Velg tidspunkt";
 
 "No Appointments" = "Ingen hendelser";
 "Multiple Tags" = "Legg til beskrivelse";

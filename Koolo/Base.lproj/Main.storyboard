@@ -59,6 +59,7 @@
             <string>Klavika-Regular</string>
             <string>Klavika-Regular</string>
             <string>Klavika-Regular</string>
+            <string>Klavika-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -972,7 +973,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ny hendelse" textAlignment="natural" minimumFontSize="17" id="sng-Ef-TXs">
-                                <rect key="frame" x="96" y="101" width="214" height="30"/>
+                                <rect key="frame" x="96" y="86" width="214" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -981,7 +982,7 @@
                                 </connections>
                             </textField>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kl. " textAlignment="natural" minimumFontSize="17" id="Rub-4F-0WK">
-                                <rect key="frame" x="96" y="142" width="90" height="30"/>
+                                <rect key="frame" x="796" y="142" width="90" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -990,7 +991,7 @@
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="LyT-BL-i2Q">
-                                <rect key="frame" x="96" y="142" width="214" height="90"/>
+                                <rect key="frame" x="96" y="152" width="214" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="16"/>
@@ -1000,8 +1001,8 @@
                                 </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xlm-rX-XgO">
-                                <rect key="frame" x="20" y="313" width="106" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="96" y="313" width="106" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Klavika-Bold" family="Klavika" pointSize="15"/>
                                 <state key="normal" title="Select time">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1012,7 +1013,7 @@
                             </button>
                             <view contentMode="scaleToFill" id="jEV-su-Cjj">
                                 <rect key="frame" x="96" y="396" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wqy-8H-bx6">
                                         <rect key="frame" x="2" y="4" width="26" height="20"/>
@@ -1026,7 +1027,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uQ4-Zk-hfM">
                                 <rect key="frame" x="134" y="400" width="110" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1044,10 +1045,17 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6cx-7v-sv7">
-                                <rect key="frame" x="141" y="319" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="17"/>
+                                <rect key="frame" x="212" y="319" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7NK-tF-l0c">
+                                <rect key="frame" x="96" y="129" width="70" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1066,6 +1074,7 @@
                         <outlet property="remaindLabel" destination="uQ4-Zk-hfM" id="ch1-yB-2Xo"/>
                         <outlet property="remainderLabel" destination="6cx-7v-sv7" id="Ybc-vb-IXK"/>
                         <outlet property="remainderView" destination="jEV-su-Cjj" id="q9D-JH-6WB"/>
+                        <outlet property="selectTimeButton" destination="Xlm-rX-XgO" id="CXw-YM-C7B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SHm-ac-zth" userLabel="First Responder" sceneMemberID="firstResponder"/>
