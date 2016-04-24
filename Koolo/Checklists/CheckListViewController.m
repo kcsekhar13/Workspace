@@ -26,6 +26,9 @@
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     doneButtonTitle = nil;
+    
+    NSString *cancelButtonTitle = nil;
+    
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         self.title = NSLocalizedString(@"Checklists", nil);
         doneButtonTitle = NSLocalizedString(@"Done", nil);
@@ -36,6 +39,7 @@
         
         mytransferString = NSLocalizedString(@"My transfer", nil);
         newTransferString = NSLocalizedString(@"New transform", nil);
+        cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
         
     } else {
         self.title = @"Checklists";
@@ -46,6 +50,7 @@
         goalString = @"New Goal";
         mytransferString = @"Ready for transition";
         newTransferString = @"Transition";
+        cancelButtonTitle = @"Cancel";
     }
     
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
@@ -113,6 +118,10 @@
     UIBarButtonItem* rightButton = [[UIBarButtonItem alloc] initWithTitle:doneButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToHomeScreen)];
     [rightButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = rightButton;
+    
+    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(moveToHomeScreen)];
+    [cancelButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = cancelButton;
     
     // Do any additional setup after loading the view.
 }

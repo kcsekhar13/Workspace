@@ -218,7 +218,7 @@
     if (selectedIndexPath) {
         [self saveToDB:selectedIndexPath];
     } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Please select any humor color" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Koolo" message:@"Please select any Mood Color" preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* okAction = [UIAlertAction
                                    actionWithTitle:@"OK"
