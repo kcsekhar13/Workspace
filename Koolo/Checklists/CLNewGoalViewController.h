@@ -12,7 +12,7 @@
 @protocol NewGoalDelegate <NSObject>
 
 - (void)addNewgoalWithText:(NSString *)goalText;
-- (void)updateGoalWithText:(NSDictionary *)goalDict withIndexValue:(int)index;
+- (void)updateGoalWithText:(NSMutableDictionary *)goalDict withIndexValue:(int)index;
 
 @end
 

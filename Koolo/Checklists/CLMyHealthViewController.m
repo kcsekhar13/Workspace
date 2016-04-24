@@ -324,7 +324,13 @@
     
 }
 
-- (void)updateGoalWithText:(NSDictionary *)goalDict withIndexValue:(int)index{
+- (void)updateGoalWithText:(NSMutableDictionary *)goalDict withIndexValue:(int)index{
+    
+    if ([[goalDict objectForKey:@"Hidden"] isEqualToString:@"YES"] && [[goalDict objectForKey:@"GoalStatus"] isEqualToString:@"NA"]) {
+        
+        [goalDict setObject:@"NO" forKey:@"Hidden"];
+        [goalDict setObject:@"Pending" forKey:@"GoalStatus"];
+    }
     
     [_addGoalsArray replaceObjectAtIndex:index withObject:goalDict];
     if (self.goalFlag) {
