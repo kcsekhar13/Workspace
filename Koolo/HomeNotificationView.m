@@ -93,7 +93,7 @@
         return [[NSNumber numberWithInteger:valueOne] compare:[NSNumber numberWithInteger:valueTwo]];
     }];
     
-    NSLog(@"self.eventsArray = %@", self.eventsArray);
+    //NSLog(@"self.eventsArray = %@", self.eventsArray);
       
     if (self.eventsTable == nil) {
         

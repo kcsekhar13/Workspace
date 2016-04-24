@@ -55,6 +55,9 @@
     
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *doneButtonTitle = nil;
+    NSString *cancelButtonTitle = nil;
+    
+    
     
     if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
         self.title = NSLocalizedString(@"Information", nil);
@@ -65,6 +68,7 @@
         _progressLabelText.text = NSLocalizedString(@"Progress", nil);
         _descriptionLabel.text = NSLocalizedString(@"InfoDescription", nil);
         _moreDescriptionLabel.text = NSLocalizedString(@"MoreInoString", nil);
+        cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
     } else {
         doneButtonTitle = @"Done";
         self.title = @"Information";
@@ -73,6 +77,7 @@
         _progressLabelText.text = @"Working on it";
         _descriptionLabel.text = @"Swiping to the right will mark the goal as not relevant  ";
         _moreDescriptionLabel.text = @"‘Press the coloured dot to change the status of the goal. The goals marked as “Finished” will then move to the bottom of the list. You can change the status of the “Finished” goals. Swiping to the right will mark the goal as not relevant and moves the goal to the bottom of the list. You can undo this by swiping right again on the same goal. Swiping left will give you the option to delete or change the goal.’";
+        cancelButtonTitle = @"Cancel";
     }
     
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
@@ -90,6 +95,12 @@
     [doneButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = doneButton;
     [self.navigationItem setHidesBackButton:YES animated:NO];
+    
+    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithTitle:cancelButtonTitle style:UIBarButtonItemStylePlain target:self action:@selector(doneWithInfo)];
+    [cancelButton setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = cancelButton;
+
+    
     // Do any additional setup after loading the view.
 }
 
