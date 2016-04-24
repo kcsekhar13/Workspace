@@ -72,7 +72,7 @@
         _pendingLabelText.text = @"Not done";
         _progressLabelText.text = @"Working on it";
         _descriptionLabel.text = @"Swiping to the right will mark the goal as not relevant  ";
-        _moreDescriptionLabel.text = @"The order of the colours should be green, yellow, and red. The text will be as follows: ‘Press the coloured dot to change the status of the goal. The goals marked as “Finished” will then move to the bottom of the list. You can change the status of the “Finished” goals. Swiping to the right will mark the goal as not relevant and moves the goal to the bottom of the list. You can undo this by swiping right again on the same goal. Swiping left will give you the option to delete or change the goal.’";
+        _moreDescriptionLabel.text = @"‘Press the coloured dot to change the status of the goal. The goals marked as “Finished” will then move to the bottom of the list. You can change the status of the “Finished” goals. Swiping to the right will mark the goal as not relevant and moves the goal to the bottom of the list. You can undo this by swiping right again on the same goal. Swiping left will give you the option to delete or change the goal.’";
     }
     
     NSDictionary *size = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Klavika-Bold" size:20.0],NSFontAttributeName, nil];
