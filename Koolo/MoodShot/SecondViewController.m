@@ -32,6 +32,28 @@
     
     self.imageView.image = _zoomImage;
     
+    if (_zoomImage.imageOrientation == UIImageOrientationUp ) {
+        
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"SelectedCamera"]) {
+            self.imageView.bounds = CGRectMake
+            (0, 0, self.view.bounds.size.height, self.view.bounds.size.width);
+            self.imageView.transform = CGAffineTransformMakeRotation(M_PI/2);
+        } else {
+            self.imageView.bounds = self.view.bounds;
+            self.imageView.transform = CGAffineTransformIdentity;
+        }
+        
+        
+        
+    } else if (_zoomImage.imageOrientation == UIImageOrientationDown) {
+        self.imageView.bounds = CGRectMake
+        (0, 0, self.view.bounds.size.height, self.view.bounds.size.width);
+        self.imageView.transform = CGAffineTransformMakeRotation(-M_PI/2);
+    }
+    else {
+        self.imageView.bounds = self.view.bounds;
+        self.imageView.transform = CGAffineTransformIdentity;
+    }
     
     self.scrollView.contentSize = self.imageView.frame.size;
     self.scrollView.delegate = self;
