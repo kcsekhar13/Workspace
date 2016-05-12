@@ -25,6 +25,7 @@
 		5504DD411C81830D002038E4 /* ThreeSenteceScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5504DD361C81830D002038E4 /* ThreeSenteceScreen.jpg */; };
 		5504DD451C81848B002038E4 /* PageItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5504DD441C81848B002038E4 /* PageItemController.m */; };
 		5504DD481C8184AF002038E4 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5504DD471C8184AF002038E4 /* TutorialViewController.m */; };
+		5507D15F1CE4A57E006AD1C2 /* newevent.png in Resources */ = {isa = PBXBuildFile; fileRef = 5507D15E1CE4A57E006AD1C2 /* newevent.png */; };
 		550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */; };
 		5511109D1C90A26C00F6A3AE /* DefulatTransform_Norway.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5511109C1C90A26C00F6A3AE /* DefulatTransform_Norway.plist */; };
 		5511280C1BEA856900F850C6 /* SecretAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */; };
@@ -142,6 +143,7 @@
 		5504DD441C81848B002038E4 /* PageItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageItemController.m; sourceTree = "<group>"; };
 		5504DD461C8184AF002038E4 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		5504DD471C8184AF002038E4 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		5507D15E1CE4A57E006AD1C2 /* newevent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newevent.png; path = Koolo/Images/newevent.png; sourceTree = SOURCE_ROOT; };
 		550F97A41BE29B6F005510F5 /* ColorPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewCell.h; sourceTree = "<group>"; };
 		550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewCell.m; sourceTree = "<group>"; };
 		5511109C1C90A26C00F6A3AE /* DefulatTransform_Norway.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefulatTransform_Norway.plist; sourceTree = "<group>"; };
@@ -617,6 +619,7 @@
 			children = (
 				5504DD2B1C81830D002038E4 /* TutorialImages */,
 				0458A2321C7B84E300F9D1A0 /* gallery.png */,
+				5507D15E1CE4A57E006AD1C2 /* newevent.png */,
 				553B65C41BFBB3D900F288DD /* green.png */,
 				553B65C61BFBB3D900F288DD /* yellow.png */,
 				553B65C21BFBB3B800F288DD /* red.png */,
@@ -760,6 +763,7 @@
 				F337739C1BC8D51300793831 /* SmallCameraButton.png in Resources */,
 				5525557F1C7F6E080028D805 /* About_Nor.plist in Resources */,
 				F337739F1BC8D51300793831 /* WhitePlus.png in Resources */,
+				5507D15F1CE4A57E006AD1C2 /* newevent.png in Resources */,
 				552555791C7F6BD50028D805 /* Contributions_Eng.plist in Resources */,
 				5504DD3C1C81830D002038E4 /* MyhealthScreen.jpg in Resources */,
 				0458A2331C7B84E300F9D1A0 /* gallery.png in Resources */,

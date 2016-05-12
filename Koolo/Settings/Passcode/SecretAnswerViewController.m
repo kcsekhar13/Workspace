@@ -99,8 +99,9 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
+    NSLog(@"%@", self.answerTextField.text.lowercaseString);
     NSString *answerString = (NSString *)[[NSUserDefaults standardUserDefaults] objectForKey:@"secretAnswer"];
-    if ([self.answerTextField.text isEqualToString:answerString]) {
+    if ([self.answerTextField.text.lowercaseString isEqualToString:answerString]) {
         
         [textField resignFirstResponder];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

@@ -244,7 +244,8 @@
         [self presentViewController:alert animated:YES completion:nil];
 
     } else {
-        [[NSUserDefaults standardUserDefaults] setObject:self.answerField.text forKey:@"secretAnswer"];
+        NSLog(@"secret Answer = %@", self.answerField.text.lowercaseString);
+        [[NSUserDefaults standardUserDefaults] setObject:self.answerField.text.lowercaseString forKey:@"secretAnswer"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         [self.answerField resignFirstResponder];

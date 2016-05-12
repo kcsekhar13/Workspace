@@ -442,7 +442,16 @@
         if (self.remainderLabel.text.length == 0 || self.remainderString.length == 0) {
             [self.activityView setHidden:YES];
             [self.view setUserInteractionEnabled:YES];
-            [self displayErrorMessageView:@"Select appointment time"];
+            
+            NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+            if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
+                
+                [self displayErrorMessageView:NSLocalizedString(@"Select appointment time", nil)];
+                
+            } else {
+                [self displayErrorMessageView:@"Select appointment time"];
+            }
+            
             return;
         }
         
