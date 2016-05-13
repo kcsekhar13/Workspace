@@ -83,7 +83,10 @@
                        [[NSBundle mainBundle] pathForResource:@"MyhealthScreen" ofType:@"jpg"],
                        [[NSBundle mainBundle] pathForResource:@"ThreeSenteceScreen" ofType:@"jpg"],
                        [[NSBundle mainBundle] pathForResource:@"CalendarScreen" ofType:@"jpg"],
-                       [[NSBundle mainBundle] pathForResource:@"NewEventScreen" ofType:@"jpg"]
+                       [[NSBundle mainBundle] pathForResource:@"NewEventScreen" ofType:@"jpg"],
+                       [[NSBundle mainBundle] pathForResource:@"MoodLine" ofType:@"jpg"],
+                       [[NSBundle mainBundle] pathForResource:@"SelectMood" ofType:@"jpg"],
+                       [[NSBundle mainBundle] pathForResource:@"MoodMap" ofType:@"jpg"]
                        ];
     
     

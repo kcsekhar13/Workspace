@@ -291,6 +291,11 @@
     
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    return textView.text.length + (text.length - range.length) <= 60;
+}
+
 - (void)resignTextView {
     
     [_descriptionTextView resignFirstResponder];
@@ -415,7 +420,7 @@
     if ([_addTagField isFirstResponder]) {
         [_addTagField resignFirstResponder];
     }
-    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     [self.activityView setHidden:NO];
     self.activityView.center = CGPointMake(self.view.center.x+40, (self.view.center.y/2)+100) ;
     [self.view setUserInteractionEnabled:NO];
@@ -435,7 +440,13 @@
             
             [self.activityView setHidden:YES];
             [self.view setUserInteractionEnabled:YES];
-            [self displayErrorMessageView:@"Event Field should not be empty"];
+            if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
+                
+                [self displayErrorMessageView:NSLocalizedString(@"Title of the event should not be empty", nil)];
+                
+            } else {
+                [self displayErrorMessageView:@"Title of the event should not be empty"];
+            }
             return;
         }
         
@@ -443,7 +454,7 @@
             [self.activityView setHidden:YES];
             [self.view setUserInteractionEnabled:YES];
             
-            NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+            
             if ([language isEqualToString:@"nb"] || [language isEqualToString:@"nb-US"]|| [language isEqualToString:@"nb-NO"]) {
                 
                 [self displayErrorMessageView:NSLocalizedString(@"Select appointment time", nil)];

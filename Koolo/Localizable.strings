@@ -75,3 +75,4 @@
 "MoreInoString" = "‘Klikk på de fargede rundingen for å endre statusen på målet. Mål markert som ”Ferdig” vil flyttes til bunnen av listen. Du kan endre statusen på de fullførte målene. Sveip mot høyre, vil markere målet som ”ikke relevant” og flytte det til bunnen av listen. Du kan endre dette ved å gjenta sveip mot høyre. Sveip mot venstre vil gi deg muligheten til å slette eller endre et mål.’ ";
 
 "Select appointment time" = "Velg tidspunkt for hendelsen";
+"Title of the event should not be empty" = "Tittel på hendelsen må fylles ut";

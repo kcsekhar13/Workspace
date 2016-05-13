@@ -50,5 +50,23 @@
 		<key>description</key>
 		<string>Tag the date with a color by clicking on the date. Fill in the name of the event and a description. You can add the time by clicking the “clock” icon. If you wish to receive a notification, tick off the “Remind me” box.</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>MoodLine</string>
+		<key>description</key>
+		<string>The MoodLine is a feature that allows you to see pictures you have added and tagged with a colour in the KOOLO app. You can zoom in on the squares to view the whole image. To add a new image, simply click on the camera or gallery icon to open the MoodSnap function. </string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>MoodSnap</string>
+		<key>description</key>
+		<string>Once you have chosen a photo from the gallery or taken a new one, you can tag it with a colour representing the mood (the colour descriptions can be changed in the settings menu). Click on the colour best representing your mood and click ‘Done’ to upload the image to the MoodLine.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>MoodMap</string>
+		<key>description</key>
+		<string>MoodMap gives you an overview of how many MoodShots you have tagged with a specific colour and a quick access to images tagged with only one color. Clicking ‘All’ will present you with a MoodLine showing all the days in the calendar which means that you will see empty dates – line in the first picture in this tutorial. MoodLine shows only images by default. </string>
+	</dict>
 </array>
 </plist>

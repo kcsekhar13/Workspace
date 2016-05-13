@@ -50,5 +50,23 @@
 		<key>description</key>
 		<string>Tag datoen med en farge ved å klikke på den. Fyll inn navn på hendelsen eller avtale og en beskrivelse. Du kan legge til et tidspunk ved å klikke på «klokke» ikonet. Dersom du ønsker å få en påminnelse, kan du klikke på «Påminnelse». </string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>MoodLine</string>
+		<key>description</key>
+		<string>MoodLine er en funksjon som lar deg se alle bildene du har lagt til og tagget med en farge i KOOLO appen. Du kan zoome inn på en fargerik firkant og se hele bildet ved å trykke på den. For å legge til et nytt bilde kan du bare klikke på kamera eller galleri ikonet og åpne MoodSnap funksjonen.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>MoodSnap</string>
+		<key>description</key>
+		<string>Når du har valgt et bilde fra galleriet eller tatt et nytt bilde kan du tagge det med en farge som representerer «mooden» din (fargebeskrivelsene kan endres under innstillinger). Trykk på fargen du ønsker å ramme inn bildet med og avslutt med ‘Ferdig’ for å laste bildet opp til MoodLinjen.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>MoodMap</string>
+		<key>description</key>
+		<string>MoodMap gir deg en oversikt over hvor mange MoodShots du har tagget med en bestemt farge samt rask tilgang til bildet tagget med én farge. Trykker du ‘Alle’ vil du se alle datoene – selv de tomme når du ikke la til et nytt bilde i MoodLinjen. Standarden er at det er kun bilder som vises på MoodLinjen</string>
+	</dict>
 </array>
 </plist>

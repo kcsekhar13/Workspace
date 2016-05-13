@@ -26,6 +26,9 @@
 		5504DD451C81848B002038E4 /* PageItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5504DD441C81848B002038E4 /* PageItemController.m */; };
 		5504DD481C8184AF002038E4 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5504DD471C8184AF002038E4 /* TutorialViewController.m */; };
 		5507D15F1CE4A57E006AD1C2 /* newevent.png in Resources */ = {isa = PBXBuildFile; fileRef = 5507D15E1CE4A57E006AD1C2 /* newevent.png */; };
+		5507D1661CE4B90F006AD1C2 /* MoodLine.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5507D1641CE4B90F006AD1C2 /* MoodLine.jpg */; };
+		5507D1671CE4B90F006AD1C2 /* SelectMood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5507D1651CE4B90F006AD1C2 /* SelectMood.jpg */; };
+		5507D1691CE4B9FC006AD1C2 /* MoodMap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5507D1681CE4B9FC006AD1C2 /* MoodMap.jpg */; };
 		550F97A61BE29B6F005510F5 /* ColorPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */; };
 		5511109D1C90A26C00F6A3AE /* DefulatTransform_Norway.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5511109C1C90A26C00F6A3AE /* DefulatTransform_Norway.plist */; };
 		5511280C1BEA856900F850C6 /* SecretAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5511280B1BEA856900F850C6 /* SecretAnswerViewController.m */; };
@@ -144,6 +147,9 @@
 		5504DD461C8184AF002038E4 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		5504DD471C8184AF002038E4 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		5507D15E1CE4A57E006AD1C2 /* newevent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newevent.png; path = Koolo/Images/newevent.png; sourceTree = SOURCE_ROOT; };
+		5507D1641CE4B90F006AD1C2 /* MoodLine.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MoodLine.jpg; sourceTree = "<group>"; };
+		5507D1651CE4B90F006AD1C2 /* SelectMood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SelectMood.jpg; sourceTree = "<group>"; };
+		5507D1681CE4B9FC006AD1C2 /* MoodMap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MoodMap.jpg; sourceTree = "<group>"; };
 		550F97A41BE29B6F005510F5 /* ColorPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCollectionViewCell.h; sourceTree = "<group>"; };
 		550F97A51BE29B6F005510F5 /* ColorPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCollectionViewCell.m; sourceTree = "<group>"; };
 		5511109C1C90A26C00F6A3AE /* DefulatTransform_Norway.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefulatTransform_Norway.plist; sourceTree = "<group>"; };
@@ -309,6 +315,9 @@
 		5504DD2B1C81830D002038E4 /* TutorialImages */ = {
 			isa = PBXGroup;
 			children = (
+				5507D1681CE4B9FC006AD1C2 /* MoodMap.jpg */,
+				5507D1641CE4B90F006AD1C2 /* MoodLine.jpg */,
+				5507D1651CE4B90F006AD1C2 /* SelectMood.jpg */,
 				5504DD2C1C81830D002038E4 /* CalendarScreen.jpg */,
 				5504DD2D1C81830D002038E4 /* CheckListScreen.jpg */,
 				5504DD2E1C81830D002038E4 /* EventColorPickerScreen.jpg */,
@@ -734,6 +743,7 @@
 				5504DD3A1C81830D002038E4 /* HomeScreen.jpg in Resources */,
 				55D063831BF8894B000962D3 /* Localizable.strings in Resources */,
 				5504DD3B1C81830D002038E4 /* HomeScreenWithFunctionOptions.jpg in Resources */,
+				5507D1661CE4B90F006AD1C2 /* MoodLine.jpg in Resources */,
 				5504DD391C81830D002038E4 /* EventColorPickerScreen.jpg in Resources */,
 				5504DD381C81830D002038E4 /* CheckListScreen.jpg in Resources */,
 				F3BBD92D1BE4CD760087591E /* Images.xcassets in Resources */,
@@ -745,12 +755,14 @@
 				557B4B1B1BFA4B4500F37F04 /* time.png in Resources */,
 				5504DD411C81830D002038E4 /* ThreeSenteceScreen.jpg in Resources */,
 				F337739E1BC8D51300793831 /* SmallRecorderButton.png in Resources */,
+				5507D1691CE4B9FC006AD1C2 /* MoodMap.jpg in Resources */,
 				555BD6211BC760B600BB61E9 /* LaunchScreen.xib in Resources */,
 				553A2A101C74EF0000108757 /* DefaultGoals_Norway.plist in Resources */,
 				5525557D1C7F6D1C0028D805 /* About_Eng.plist in Resources */,
 				F337738F1BC8D2C400793831 /* plus.png in Resources */,
 				5504DD401C81830D002038E4 /* SettingsScreen.jpg in Resources */,
 				552555831C7F6FAC0028D805 /* License_Nor.plist in Resources */,
+				5507D1671CE4B90F006AD1C2 /* SelectMood.jpg in Resources */,
 				5504DD3D1C81830D002038E4 /* NewEventScreen.jpg in Resources */,
 				552555811C7F6E820028D805 /* License_Eng.plist in Resources */,
 				559CD95A1CC7FDCF00B77FAF /* Tutorial_Nor.plist in Resources */,
