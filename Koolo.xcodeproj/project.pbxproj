@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04470D6C1CE6655100E4953E /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04470D641CE6655000E4953E /* Icon-60@2x.png */; };
+		04470D6D1CE6655100E4953E /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04470D651CE6655100E4953E /* Icon-60@3x.png */; };
+		04470D6E1CE6655100E4953E /* Icon-Small-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 04470D661CE6655100E4953E /* Icon-Small-40.png */; };
+		04470D6F1CE6655100E4953E /* Icon-Small-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04470D671CE6655100E4953E /* Icon-Small-40@2x.png */; };
+		04470D701CE6655100E4953E /* Icon-Small-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04470D681CE6655100E4953E /* Icon-Small-40@3x.png */; };
+		04470D711CE6655100E4953E /* Icon-Small-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 04470D691CE6655100E4953E /* Icon-Small-120.png */; };
+		04470D721CE6655100E4953E /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04470D6A1CE6655100E4953E /* Icon-Small@3x.png */; };
+		04470D731CE6655100E4953E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04470D6B1CE6655100E4953E /* icon.png */; };
 		0458A2331C7B84E300F9D1A0 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 0458A2321C7B84E300F9D1A0 /* gallery.png */; };
+		04C66E261CE688E000DA36A8 /* KooloDistribution.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 04C66E251CE688E000DA36A8 /* KooloDistribution.mobileprovision */; };
 		373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373063411BCABBD9004751CA /* HomeNotificationView.m */; };
 		37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */; };
 		5501A27B1CC655E0000B3003 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5501A27A1CC655E0000B3003 /* SecondViewController.m */; };
@@ -123,7 +132,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04470D641CE6655000E4953E /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		04470D651CE6655100E4953E /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		04470D661CE6655100E4953E /* Icon-Small-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40.png"; sourceTree = "<group>"; };
+		04470D671CE6655100E4953E /* Icon-Small-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@2x.png"; sourceTree = "<group>"; };
+		04470D681CE6655100E4953E /* Icon-Small-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@3x.png"; sourceTree = "<group>"; };
+		04470D691CE6655100E4953E /* Icon-Small-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-120.png"; sourceTree = "<group>"; };
+		04470D6A1CE6655100E4953E /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		04470D6B1CE6655100E4953E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		0458A2321C7B84E300F9D1A0 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
+		04C66E251CE688E000DA36A8 /* KooloDistribution.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = KooloDistribution.mobileprovision; sourceTree = "<group>"; };
 		373063401BCABBD9004751CA /* HomeNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNotificationView.h; sourceTree = "<group>"; };
 		373063411BCABBD9004751CA /* HomeNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNotificationView.m; sourceTree = "<group>"; };
 		37F2F5361BC991DA00B97307 /* QuotesTableviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesTableviewCell.h; sourceTree = "<group>"; };
@@ -470,6 +488,7 @@
 		555BD6041BC760B500BB61E9 = {
 			isa = PBXGroup;
 			children = (
+				04C66E251CE688E000DA36A8 /* KooloDistribution.mobileprovision */,
 				55B135C31CC9445F009DB4C7 /* QuartzCore.framework */,
 				552E05BB1C9EE81500F86430 /* Klavika-Bold.otf */,
 				552E05BC1C9EE81500F86430 /* Klavika-Medium.otf */,
@@ -626,6 +645,14 @@
 		F33B7E6C1BC8B92800C37B1D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				04470D641CE6655000E4953E /* Icon-60@2x.png */,
+				04470D651CE6655100E4953E /* Icon-60@3x.png */,
+				04470D661CE6655100E4953E /* Icon-Small-40.png */,
+				04470D671CE6655100E4953E /* Icon-Small-40@2x.png */,
+				04470D681CE6655100E4953E /* Icon-Small-40@3x.png */,
+				04470D691CE6655100E4953E /* Icon-Small-120.png */,
+				04470D6A1CE6655100E4953E /* Icon-Small@3x.png */,
+				04470D6B1CE6655100E4953E /* icon.png */,
 				5504DD2B1C81830D002038E4 /* TutorialImages */,
 				0458A2321C7B84E300F9D1A0 /* gallery.png */,
 				5507D15E1CE4A57E006AD1C2 /* newevent.png */,
@@ -731,6 +758,8 @@
 			files = (
 				5504DD3E1C81830D002038E4 /* NewGoalScreen.jpg in Resources */,
 				559CD9581CC7FA5900B77FAF /* Tutorial_EN.plist in Resources */,
+				04470D731CE6655100E4953E /* icon.png in Resources */,
+				04470D701CE6655100E4953E /* Icon-Small-40@3x.png in Resources */,
 				5525557B1C7F6C680028D805 /* Contributions_Nor.plist in Resources */,
 				558BB0471BF8E4F1000B335D /* cross.png in Resources */,
 				F337738D1BC8D1C100793831 /* settings.png in Resources */,
@@ -739,14 +768,20 @@
 				553B65C71BFBB3D900F288DD /* green.png in Resources */,
 				F33773A31BC9465B00793831 /* CheckListpng.png in Resources */,
 				5501A27D1CC66DCA000B3003 /* DefaultQuotes.plist in Resources */,
+				04C66E261CE688E000DA36A8 /* KooloDistribution.mobileprovision in Resources */,
 				553B65C31BFBB3B800F288DD /* red.png in Resources */,
 				5504DD3A1C81830D002038E4 /* HomeScreen.jpg in Resources */,
+				04470D6E1CE6655100E4953E /* Icon-Small-40.png in Resources */,
 				55D063831BF8894B000962D3 /* Localizable.strings in Resources */,
 				5504DD3B1C81830D002038E4 /* HomeScreenWithFunctionOptions.jpg in Resources */,
 				5507D1661CE4B90F006AD1C2 /* MoodLine.jpg in Resources */,
+				04470D6F1CE6655100E4953E /* Icon-Small-40@2x.png in Resources */,
+				04470D6C1CE6655100E4953E /* Icon-60@2x.png in Resources */,
+				04470D711CE6655100E4953E /* Icon-Small-120.png in Resources */,
 				5504DD391C81830D002038E4 /* EventColorPickerScreen.jpg in Resources */,
 				5504DD381C81830D002038E4 /* CheckListScreen.jpg in Resources */,
 				F3BBD92D1BE4CD760087591E /* Images.xcassets in Resources */,
+				04470D6D1CE6655100E4953E /* Icon-60@3x.png in Resources */,
 				5504DD371C81830D002038E4 /* CalendarScreen.jpg in Resources */,
 				555BD61C1BC760B600BB61E9 /* Main.storyboard in Resources */,
 				F337739D1BC8D51300793831 /* SmallKeyBoard.png in Resources */,
@@ -767,6 +802,7 @@
 				552555811C7F6E820028D805 /* License_Eng.plist in Resources */,
 				559CD95A1CC7FDCF00B77FAF /* Tutorial_Nor.plist in Resources */,
 				557745ED1C7B7BAB0005DA64 /* DefulatTransform.plist in Resources */,
+				04470D721CE6655100E4953E /* Icon-Small@3x.png in Resources */,
 				552E05BF1C9EE81500F86430 /* Klavika-Medium.otf in Resources */,
 				553B65C91BFBB3D900F288DD /* yellow.png in Resources */,
 				5504DD3F1C81830D002038E4 /* ReadyForTransitionScreen.jpg in Resources */,
@@ -905,8 +941,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Marja Hedwig Maria Van Der Velden (NSRQR8VC6A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marja Hedwig Maria Van Der Velden (NSRQR8VC6A)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -926,7 +962,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d112f320-50bb-4cc7-90dd-0b0ce48f85f7";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -949,8 +985,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Marja Hedwig Maria Van Der Velden (NSRQR8VC6A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marja Hedwig Maria Van Der Velden (NSRQR8VC6A)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -963,7 +999,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d112f320-50bb-4cc7-90dd-0b0ce48f85f7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -972,9 +1008,8 @@
 		555BD6311BC760B700BB61E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = Koolo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -988,9 +1023,8 @@
 		555BD6321BC760B700BB61E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = Koolo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
