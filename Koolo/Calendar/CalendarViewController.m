@@ -687,6 +687,24 @@
     
     NSArray *statusArray  = [dict objectForKey:@"SelectedTags"];
     NSMutableString *tagLabelString = [[NSMutableString alloc] init];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 20, 20)];
+    [view.layer setCornerRadius:view.frame.size.width/2];
+    if([[dict objectForKey:@"ColorIndex"]intValue] == -1)
+    {
+        
+        [view setBackgroundColor:[UIColor clearColor]];
+        //[view.layer setBorderColor:[UIColor clearColor].CGColor];
+        
+    }
+    else{
+        
+        [view setBackgroundColor:(UIColor *)[StoreDataMangager sharedInstance].fetchColorsArray[[[dict objectForKey:@"ColorIndex"]intValue]]];
+        //[view.layer setBorderColor:((UIColor *)[StoreDataMangager sharedInstance].fetchColorsArray[[[dict objectForKey:@"ColorIndex"]intValue]]).CGColor];
+        
+    }
+    
+    [cell.contentView addSubview:view];
 
     for (int i=0; i<statusArray.count; i++) {
         

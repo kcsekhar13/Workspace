@@ -298,8 +298,8 @@
     [eventTitleLabel setTextAlignment:NSTextAlignmentLeft];
     [eventTitleLabel setFont:[UIFont fontWithName:@"Klavika-Bold" size:20.0f]];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(85.0f, 56.0f, 25, 25)];
-    [imageView setImage:[UIImage imageNamed:@"time.png"]];
+    //UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(85.0f, 56.0f, 25, 25)];
+    //[imageView setImage:[UIImage imageNamed:@"time.png"]];
     
     UILabel *remainderLabel = [[UILabel alloc] initWithFrame:CGRectMake(113.0f, 59.0f, 90.0f, 21)];
     [remainderLabel setText:[dict objectForKey:@"Remainder"]];
@@ -315,9 +315,9 @@
     [cell.contentView addSubview:clinicLabel];
     [cell.contentView addSubview:remainderLabel];
     
-    if ([(NSString *)[dict objectForKey:@"RemainderFlag"] intValue] == 1) {
-        [cell.contentView addSubview:imageView];
-    }
+    //if ([(NSString *)[dict objectForKey:@"RemainderFlag"] intValue] == 1) {
+    //    [cell.contentView addSubview:imageView];
+    //}
     
     
     [cell.contentView addSubview:view];

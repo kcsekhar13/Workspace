@@ -11,12 +11,12 @@
             <string>Klavika-Bold</string>
             <string>Klavika-Bold</string>
             <string>Klavika-Bold</string>
+            <string>Klavika-Bold</string>
         </mutableArray>
         <mutableArray key="Klavika-Medium.otf">
             <string>Klavika-Medium</string>
         </mutableArray>
         <mutableArray key="Klavika-Regular.otf">
-            <string>Klavika-Regular</string>
             <string>Klavika-Regular</string>
             <string>Klavika-Regular</string>
             <string>Klavika-Regular</string>
@@ -79,7 +79,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yh6-s2-ams">
-                                <rect key="frame" x="11" y="513" width="44" height="44"/>
+                                <rect key="frame" x="11" y="500" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <animations/>
                                 <state key="normal" backgroundImage="settings.png">
@@ -640,7 +640,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8rc-yk-F7K">
-                                <rect key="frame" x="6" y="520" width="44" height="44"/>
+                                <rect key="frame" x="6" y="502" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <animations/>
                                 <state key="normal" image="gallery.png"/>
@@ -655,7 +655,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bbq-MX-nsX">
-                                <rect key="frame" x="270" y="517" width="44" height="44"/>
+                                <rect key="frame" x="270" y="502" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <animations/>
                                 <state key="normal" image="SmallKeyBoard.png"/>
@@ -931,16 +931,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="trw-rR-tXN">
-                                                    <rect key="frame" x="13" y="3" width="304" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="Klavika-Bold" family="Klavika" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Lable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g7I-7Z-mcG">
-                                                    <rect key="frame" x="201" y="34" width="86" height="29"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Lable" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g7I-7Z-mcG">
+                                                    <rect key="frame" x="108" y="29" width="53" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="12"/>
@@ -948,23 +940,26 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Lable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xOV-a2-hS9">
-                                                    <rect key="frame" x="13" y="35" width="86" height="29"/>
+                                                    <rect key="frame" x="12" y="29" width="50" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="Klavika-Bold" family="Klavika" pointSize="13"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Lable" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yS6-7W-M5Y">
+                                                    <rect key="frame" x="11" y="52" width="295" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="13"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="time.png" id="q2c-vG-cA9">
-                                                    <rect key="frame" x="148" y="33" width="35" height="35"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="trw-rR-tXN">
+                                                    <rect key="frame" x="48" y="8" width="228" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Lable" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yS6-7W-M5Y">
-                                                    <rect key="frame" x="13" y="62" width="304" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="13"/>
+                                                    <fontDescription key="fontDescription" name="Klavika-Bold" family="Klavika" pointSize="19"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -977,7 +972,6 @@
                                             <outlet property="eventTitle" destination="trw-rR-tXN" id="GGx-WQ-BVt"/>
                                             <outlet property="modeLabel" destination="xOV-a2-hS9" id="iUf-7Y-iQT"/>
                                             <outlet property="recurenceLabel" destination="g7I-7Z-mcG" id="KTj-Tt-Zqs"/>
-                                            <outlet property="remainderImageView" destination="q2c-vG-cA9" id="BK6-Rz-1BE"/>
                                             <outlet property="tagsLabel" destination="yS6-7W-M5Y" id="wlI-Ef-XPg"/>
                                         </connections>
                                     </tableViewCell>
@@ -1973,7 +1967,7 @@
                                 <animations/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HI" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h57-nm-yAA">
-                                <rect key="frame" x="0.0" y="470" width="320" height="23"/>
+                                <rect key="frame" x="0.0" y="446" width="320" height="23"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="Klavika-Bold" family="Klavika" pointSize="15"/>
@@ -1981,11 +1975,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sF3-Jh-4T5">
-                                <rect key="frame" x="0.0" y="494" width="320" height="72"/>
+                                <rect key="frame" x="5" y="471" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <animations/>
                                 <string key="text">This is your home screen. Here you’ll find the date that you can click on and change the color of. You can choose a quote that is presented on the top of the screen, or turn it off in settings. The + icon allows you to enter the three features of the app, and clicking the cogwheel will open settings. </string>
-                                <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="Klavika-Regular" family="Klavika" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2014,7 +2008,6 @@
         <image name="newevent.png" width="88" height="88"/>
         <image name="red.png" width="35" height="35"/>
         <image name="settings.png" width="88" height="88"/>
-        <image name="time.png" width="48" height="48"/>
         <image name="yellow.png" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>

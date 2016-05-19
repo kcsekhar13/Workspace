@@ -13,7 +13,7 @@
 "Not done" = "Ikke ferdig";
 "Progress" = "Pågående";
 "Enable Status" = "Aktiver sitatpå startskjermen";
-"Add" = "Legg till";
+"Add" = "Legg til";
 "Passcode" = "Passkode";
 "Cancel" = "Avbryt";
 "Active Passcode" = "Passcode";
@@ -37,6 +37,7 @@
 "SelectHumorColor" = "Velg Mood";
 "Return" = " Tilbake";
 "Map" = "Kart";
+"Delete" = "Slett";
 
 "Question1" = "Min alder, diagnose og kort sykehistorie";
 "Question2" = "Min behandlingsplan";

@@ -84,7 +84,7 @@
     
     stack = [[UPStackMenu alloc] initWithContentView:contentView];
     [stack setBackgroundColor:[UIColor clearColor]];
-    [stack setCenter:CGPointMake(width-30, height-30)];
+    [stack setCenter:CGPointMake(width-30, height-50)];
     [stack setDelegate:self];
     
     UPStackMenuItem *audioItem = [[UPStackMenuItem alloc] initWithImage:[UIImage imageNamed:@"CheckListpng.png"] highlightedImage:nil title:nil];

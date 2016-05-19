@@ -16,7 +16,6 @@
 		04470D721CE6655100E4953E /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04470D6A1CE6655100E4953E /* Icon-Small@3x.png */; };
 		04470D731CE6655100E4953E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04470D6B1CE6655100E4953E /* icon.png */; };
 		0458A2331C7B84E300F9D1A0 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 0458A2321C7B84E300F9D1A0 /* gallery.png */; };
-		04C66E261CE688E000DA36A8 /* KooloDistribution.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 04C66E251CE688E000DA36A8 /* KooloDistribution.mobileprovision */; };
 		373063421BCABBD9004751CA /* HomeNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 373063411BCABBD9004751CA /* HomeNotificationView.m */; };
 		37F2F5381BC991DA00B97307 /* QuotesTableviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F2F5371BC991DA00B97307 /* QuotesTableviewCell.m */; };
 		5501A27B1CC655E0000B3003 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5501A27A1CC655E0000B3003 /* SecondViewController.m */; };
@@ -141,7 +140,6 @@
 		04470D6A1CE6655100E4953E /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
 		04470D6B1CE6655100E4953E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		0458A2321C7B84E300F9D1A0 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
-		04C66E251CE688E000DA36A8 /* KooloDistribution.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = KooloDistribution.mobileprovision; sourceTree = "<group>"; };
 		373063401BCABBD9004751CA /* HomeNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNotificationView.h; sourceTree = "<group>"; };
 		373063411BCABBD9004751CA /* HomeNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNotificationView.m; sourceTree = "<group>"; };
 		37F2F5361BC991DA00B97307 /* QuotesTableviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesTableviewCell.h; sourceTree = "<group>"; };
@@ -488,7 +486,6 @@
 		555BD6041BC760B500BB61E9 = {
 			isa = PBXGroup;
 			children = (
-				04C66E251CE688E000DA36A8 /* KooloDistribution.mobileprovision */,
 				55B135C31CC9445F009DB4C7 /* QuartzCore.framework */,
 				552E05BB1C9EE81500F86430 /* Klavika-Bold.otf */,
 				552E05BC1C9EE81500F86430 /* Klavika-Medium.otf */,
@@ -724,7 +721,7 @@
 				TargetAttributes = {
 					555BD60C1BC760B500BB61E9 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = 42ZFMK3KH2;
+						DevelopmentTeam = NSRQR8VC6A;
 					};
 					555BD6251BC760B600BB61E9 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -768,7 +765,6 @@
 				553B65C71BFBB3D900F288DD /* green.png in Resources */,
 				F33773A31BC9465B00793831 /* CheckListpng.png in Resources */,
 				5501A27D1CC66DCA000B3003 /* DefaultQuotes.plist in Resources */,
-				04C66E261CE688E000DA36A8 /* KooloDistribution.mobileprovision in Resources */,
 				553B65C31BFBB3B800F288DD /* red.png in Resources */,
 				5504DD3A1C81830D002038E4 /* HomeScreen.jpg in Resources */,
 				04470D6E1CE6655100E4953E /* Icon-Small-40.png in Resources */,
@@ -1009,7 +1005,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Koolo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1024,7 +1020,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Koolo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
