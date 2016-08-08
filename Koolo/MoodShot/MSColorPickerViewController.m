@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    oldRect = CGRectMake(self.contentTableView.frame.origin.x, self.contentTableView.frame.origin.y, self.contentTableView.frame.size.width, self.contentTableView.frame.size.height);
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
     NSString *cancelTitle = nil;
     NSString *doneButtonTitle = nil;
@@ -98,6 +99,7 @@
 - (void)keyboardWasShown:(NSNotification *)notification
 {
     
+    self.contentTableView.frame = oldRect;
     // Get the size of the keyboard.
     keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
@@ -162,8 +164,6 @@
 - (void)adjustTableViewCellFrame:(id)sender {
     
     colorCell =  (colorPickerTableViewCell *)sender;
-    
-    NSLog(@"%@", [self.contentTableView indexPathForCell:colorCell]);
     
     [self.contentTableView scrollToRowAtIndexPath:[self.contentTableView indexPathForCell:colorCell] atScrollPosition:UITableViewScrollPositionTop animated:NO];
 

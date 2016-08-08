@@ -16,6 +16,7 @@
     StoreDataMangager *dataManager;
     colorPickerTableViewCell *colorCell;
     CGSize keyboardSize;
+    CGRect oldRect;
 }
 
 @end

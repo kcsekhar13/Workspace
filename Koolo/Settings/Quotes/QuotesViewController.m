@@ -323,15 +323,15 @@ static NSIndexPath *previousSelctedIndexPath = nil;
         if ([textView isEqual:_mEditTextView]) {
             [_mTypeStatusLabel setHidden:TRUE];
             [_addButton setHidden:TRUE];
-            [textView setText:nil];
             [_mEditTextView setFrame:CGRectMake(_mEditTextView.frame.origin.x, _mEditTextView.frame.origin.y, _mEditTextView.frame.size.width, 44)];
         }
         
     }];
     
     NSMutableDictionary *quotesDict = [[NSMutableDictionary alloc] init];
-    [quotesDict setObject:_mQuoteString forKey:@"Qutoes"];
+    [quotesDict setObject:textView.text forKey:@"Qutoes"];
     [quotesDict setObject:[NSNumber numberWithBool:YES] forKey:@"DeleteFlag"];
+    [textView setText:nil];
     
     [_mQuotesArray insertObject:quotesDict atIndex:0];
     [_mQuotesTableview reloadData];
@@ -346,7 +346,7 @@ static NSIndexPath *previousSelctedIndexPath = nil;
     BOOL status = TRUE;
     
     // Any new character added is passed in as the "text" parameter
-    [_mQuoteString appendString:text];
+    //[_mQuoteString appendString:text];
     
     if ([text isEqualToString:@"\n"])
     {
